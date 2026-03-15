@@ -4,6 +4,14 @@ import Link from "next/link";
 import Image from "next/image";
 import fs from "fs";
 import path from "path";
+import {
+  IconGitHub,
+  IconLinkedIn,
+  IconYouTube,
+  IconInstagram,
+  IconMedium,
+  IconUdemy,
+} from "./components/SocialIcons";
 
 function getProfileImageSrc(): string | null {
   for (const ext of ["jpg", "png", "jpeg", "webp"]) {
@@ -82,18 +90,24 @@ export default async function Home() {
                 Software Engineer · AI Researcher · İçerik Üreticisi
               </p>
               <div className="social-links">
-                {[
-                  { href: "https://github.com/tuncer-byte", label: "GH", title: "GitHub" },
-                  { href: "https://www.linkedin.com/in/tuncer-bagcabasi/", label: "in", title: "LinkedIn" },
-                  { href: "https://www.youtube.com/@TuncerByte", label: "YT", title: "YouTube" },
-                  { href: "https://www.instagram.com/tuncerbyte", label: "IG", title: "Instagram" },
-                  { href: "https://medium.com/@tuncerbyte", label: "M", title: "Medium" },
-                  { href: "https://www.udemy.com/user/tuncerbhc/", label: "U", title: "Udemy" },
-                ].map((s) => (
-                  <a key={s.href} href={s.href} target="_blank" rel="noreferrer" className="social-link" title={s.title}>
-                    {s.label}
-                  </a>
-                ))}
+                <a href="https://github.com/tuncer-byte" target="_blank" rel="noreferrer" className="social-link" title="GitHub">
+                  <IconGitHub />
+                </a>
+                <a href="https://www.linkedin.com/in/tuncer-bagcabasi/" target="_blank" rel="noreferrer" className="social-link" title="LinkedIn">
+                  <IconLinkedIn />
+                </a>
+                <a href="https://www.youtube.com/@TuncerByte" target="_blank" rel="noreferrer" className="social-link" title="YouTube">
+                  <IconYouTube />
+                </a>
+                <a href="https://www.instagram.com/tuncerbyte" target="_blank" rel="noreferrer" className="social-link" title="Instagram">
+                  <IconInstagram />
+                </a>
+                <a href="https://medium.com/@tuncerbyte" target="_blank" rel="noreferrer" className="social-link" title="Medium">
+                  <IconMedium />
+                </a>
+                <a href="https://www.udemy.com/user/tuncerbhc/" target="_blank" rel="noreferrer" className="social-link" title="Udemy">
+                  <IconUdemy />
+                </a>
               </div>
             </div>
           </div>
