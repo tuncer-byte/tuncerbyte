@@ -24,6 +24,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     creator: "@tuncerbyte",
   },
+  verification: {
+    google: "gmlU2RQAogDtvys7gPQ2OH-seDBfpIWRACAFHC8fkEs",
+  },
 };
 
 export default function RootLayout({
