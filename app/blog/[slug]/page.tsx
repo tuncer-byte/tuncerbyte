@@ -1,0 +1,60 @@
+import { getAllPostSlugs, getPostData } from "@/lib/posts";
+import Link from "next/link";
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+
+interface Props {
+  params: Promise<{ slug: string }>;
+}
+
+export async function generateStaticParams() {
+  const slugs = getAllPostSlugs();
+  return slugs.map((s) => ({ slug: s.slug }));
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  try {
+    const post = await getPostData(slug);
+    return {
+      title: `${post.title} — Tuncer Bağçabaşı`,
+      description: post.excerpt,
+    };
+  } catch {
+    return { title: "Yazı bulunamadı" };
+  }
+}
+
+export default async function PostPage({ params }: Props) {
+  const { slug } = await params;
+
+  let post;
+  try {
+    post = await getPostData(slug);
+  } catch {
+    notFound();
+  }
+
+  return (
+    <main>
+      <div className="blog-post">
+        <div className="container">
+          <Link href="/blog" className="back-link">← Yazılar</Link>
+          <div className="blog-post-header">
+            <h1>{post.title}</h1>
+            <p className="blog-post-meta">{post.date}</p>
+          </div>
+          <div
+            className="blog-post-content"
+            dangerouslySetInnerHTML={{ __html: post.contentHtml }}
+          />
+          <div style={{ marginTop: 60, paddingTop: 24, borderTop: "1px solid var(--border)" }}>
+            <Link href="/blog" style={{ color: "var(--text-muted)", textDecoration: "none" }}>
+              ← Tüm yazılar
+            </Link>
+          </div>
+        </div>
+      </div>
+    </main>
+  );
+}
