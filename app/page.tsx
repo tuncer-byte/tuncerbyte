@@ -53,17 +53,10 @@ const projects = [
   },
 ];
 
-const mediumArticles = [
-  { date: "Feb 2023", title: "Rust ile Sezar'ın Hakkını Verme", url: "https://medium.com/@tuncerbyte/rust-i%CC%87le-sezar%C4%B1n-hakk%C4%B1n%C4%B1-verme-4876a00427e5" },
-  { date: "2023", title: "Advanced Dart Enum Features", url: "https://medium.com/@tuncerbyte" },
-  { date: "2023", title: "10 Simple but Lesser-Known Flutter Code Snippets", url: "https://medium.com/@tuncerbyte" },
-  { date: "2023", title: "Flutter Unit Testing Is a Waste of Time", url: "https://medium.com/@tuncerbyte" },
-  { date: "2023", title: "Swift vs. Flutter: Choosing the Best Framework for iOS Development", url: "https://medium.com/@tuncerbyte" },
-];
 
 export default async function Home() {
   const posts = getSortedPostsData().slice(0, 6);
-  const videos = await getLatestVideos(10);
+  const videos = await getLatestVideos(4);
   const profileSrc = getProfileImageSrc();
 
   return (
@@ -254,59 +247,6 @@ export default async function Home() {
 
       <hr className="section-divider" />
 
-      {/* ─── YouTube Videoları ─── */}
-      <div id="videos" className="section-pad">
-        <div className="container">
-          <h2 className="section-h2">videolar</h2>
-          <p className="section-sub">
-            <a href="https://www.youtube.com/@TuncerByte" target="_blank" rel="noreferrer">@TuncerByte</a>
-            {" "}— AI araçları, yazılım geliştirme ve geliştirici deneyimi üzerine Türkçe içerikler.
-          </p>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(2, 1fr)",
-              gap: 20,
-            }}
-          >
-            {videos.map((v) => (
-              <a
-                key={v.videoId}
-                href={v.url}
-                target="_blank"
-                rel="noreferrer"
-                style={{ textDecoration: "none", color: "var(--text)" }}
-              >
-                {/* 16:9 wrapper */}
-                <div style={{ position: "relative", paddingBottom: "56.25%", background: "var(--border)", borderRadius: 6, overflow: "hidden" }}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={v.thumbnail}
-                    alt={v.title}
-                    loading="lazy"
-                    style={{
-                      position: "absolute",
-                      inset: 0,
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                    }}
-                  />
-                </div>
-                <div style={{ fontSize: "0.86rem", fontFamily: "sans-serif", lineHeight: 1.4, marginTop: 8, color: "var(--text)" }}>
-                  {v.title}
-                </div>
-                <div style={{ fontSize: "0.74rem", color: "var(--text-muted)", fontFamily: "monospace", marginTop: 3 }}>
-                  {v.published}
-                </div>
-              </a>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      <hr className="section-divider" />
-
       {/* ─── Udemy Eğitimleri ─── */}
       <div className="section-gray">
         <div className="container">
@@ -408,45 +348,79 @@ export default async function Home() {
 
       <hr className="section-divider" />
 
+      {/* ─── YouTube Videoları ─── */}
+      <div id="videos" className="section-pad">
+        <div className="container">
+          <h2 className="section-h2">videolar</h2>
+          <p className="section-sub">
+            <a href="https://www.youtube.com/@TuncerByte" target="_blank" rel="noreferrer">@TuncerByte</a>
+            {" "}— AI araçları, yazılım geliştirme ve geliştirici deneyimi üzerine Türkçe içerikler.
+          </p>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(2, 1fr)",
+              gap: 20,
+            }}
+          >
+            {videos.map((v) => (
+              <a
+                key={v.videoId}
+                href={v.url}
+                target="_blank"
+                rel="noreferrer"
+                style={{ textDecoration: "none", color: "var(--text)" }}
+              >
+                {/* 16:9 wrapper */}
+                <div style={{ position: "relative", paddingBottom: "56.25%", background: "var(--border)", borderRadius: 6, overflow: "hidden" }}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={v.thumbnail}
+                    alt={v.title}
+                    loading="lazy"
+                    style={{
+                      position: "absolute",
+                      inset: 0,
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                    }}
+                  />
+                </div>
+                <div style={{ fontSize: "0.86rem", fontFamily: "sans-serif", lineHeight: 1.4, marginTop: 8, color: "var(--text)" }}>
+                  {v.title}
+                </div>
+                <div style={{ fontSize: "0.74rem", color: "var(--text-muted)", fontFamily: "monospace", marginTop: 3 }}>
+                  {v.published}
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <hr className="section-divider" />
+
       {/* ─── Yazılar ─── */}
       <div className="section-pad">
         <div className="container">
           <h2 className="section-h2">yazılar</h2>
           <p className="section-sub">
-            Bu sitede yayınlanan makaleler.{" "}
+            Yazılım, yapay zeka ve geliştirici deneyimi üzerine notlar.{" "}
             <a href="https://medium.com/@tuncerbyte" target="_blank" rel="noreferrer">Medium</a>'da
-            da Flutter, Swift, Rust ve yazılım mimarisi üzerine içerikler yayınlıyorum.
+            da yayınlıyorum.
           </p>
 
-          {/* Medium seçkisi */}
-          <p style={{ fontSize: "0.82rem", fontFamily: "monospace", color: "var(--text-muted)", marginBottom: 4 }}>
-            medium
-          </p>
-          <div style={{ marginBottom: 36 }}>
-            {mediumArticles.map((a) => (
-              <div key={a.title} className="blog-item">
-                <span className="blog-date">{a.date}</span>
-                <a href={a.url} target="_blank" rel="noreferrer">{a.title}</a>
-              </div>
-            ))}
-          </div>
-
-          {/* Sitedeki yazılar */}
-          {posts.length > 0 && (
-            <>
-              <p style={{ fontSize: "0.82rem", fontFamily: "monospace", color: "var(--text-muted)", marginBottom: 4 }}>
-                bu sitede
-              </p>
-              <div style={{ marginBottom: 24 }}>
-                {posts.map((post) => (
-                  <div key={post.slug} className="blog-item">
-                    <span className="blog-date">{post.date}</span>
-                    <Link href={`/blog/${post.slug}`}>{post.title}</Link>
-                  </div>
-                ))}
-              </div>
-            </>
-          )}
+          {posts.length > 0 ? (
+            <div style={{ marginBottom: 24 }}>
+              {posts.map((post) => (
+                <div key={post.slug} className="blog-item">
+                  <span className="blog-date">{post.date}</span>
+                  <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+                </div>
+              ))}
+            </div>
+          ) : null}
 
           <Link href="/blog" style={{ fontSize: "0.92rem" }}>
             Tüm yazıları gör →
