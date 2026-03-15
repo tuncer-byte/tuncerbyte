@@ -99,7 +99,7 @@ export default function OgImage() {
             fontFamily: "monospace",
           }}
         >
-          tuncerbyte.com
+          tuncer-byte.com
         </div>
       </div>
     ),

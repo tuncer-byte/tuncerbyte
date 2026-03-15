@@ -3,7 +3,7 @@ import "./globals.css";
 import Link from "next/link";
 import ThemeToggle from "./components/ThemeToggle";
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://tuncerbyte.com";
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://tuncer-byte.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),

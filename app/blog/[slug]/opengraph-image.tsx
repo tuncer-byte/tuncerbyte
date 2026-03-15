@@ -75,7 +75,7 @@ export default async function OgImage({
               fontFamily: "monospace",
             }}
           >
-            tuncerbyte.com
+            tuncer-byte.com
           </span>
         </div>
 

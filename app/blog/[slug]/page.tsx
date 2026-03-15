@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   try {
     const post = await getPostData(slug);
-    const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://tuncerbyte.com";
+    const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://tuncer-byte.com";
     const postUrl = `${BASE_URL}/blog/${slug}`;
     return {
       title: post.title,
