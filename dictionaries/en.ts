@@ -22,14 +22,14 @@ export const en: Dictionary = {
   },
 
   about: {
-    heading: "about",
+    heading: "About",
     p1: `Konya-based software engineer and AI researcher. I work as a Software Engineer at <a href="https://www.architecht.com.tr" target="_blank" rel="noreferrer">Architecht</a>, building enterprise fintech applications with .NET (ASP.NET Core, C#) and modern frontend technologies. Computer Engineering graduate from Selçuk University.`,
     p2: `Beyond full-stack development, I have hands-on experience with Swift (iOS) and Flutter on mobile. In open source, I build AI tools, MCP servers and VS Code extensions with TypeScript and Python. I publish Turkish technical content on YouTube and Udemy.`,
     p3: `I write on Medium about Rust, Flutter, Swift and software architecture. <a href="https://medium.com/@tuncerbyte" target="_blank" rel="noreferrer">medium.com/@tuncerbyte</a>`,
   },
 
   experience: {
-    heading: "experience",
+    heading: "Experience",
     items: [
       {
         year: "Jul 2024 –\npresent",
@@ -51,7 +51,7 @@ export const en: Dictionary = {
   },
 
   projects: {
-    heading: "projects",
+    heading: "Projects",
     viewAll: "All projects on",
     items: [
       {
@@ -74,7 +74,7 @@ export const en: Dictionary = {
   },
 
   courses: {
-    heading: "courses",
+    heading: "Courses",
     sub: "I publish Turkish AI and software development courses on Udemy.",
     items: [
       { headline: "Build your own multi-agent AI architecture using LangChain and Google AI" },
@@ -85,12 +85,12 @@ export const en: Dictionary = {
   },
 
   videos: {
-    heading: "videos",
+    heading: "Videos",
     sub: "— Turkish content on AI tools, software development and developer experience.",
   },
 
   writing: {
-    heading: "writing",
+    heading: "Writing",
     sub: "Notes on software, AI and developer experience.",
     mediumNote: "Also publishing on Medium.",
     viewAll: "See all posts →",
@@ -99,7 +99,7 @@ export const en: Dictionary = {
   blog: {
     back: "← Posts",
     backAll: "← All posts",
-    heading: "writing",
+    heading: "Writing",
     sub: "Notes on software, AI and developer experience.",
     empty: "No posts yet.",
   },

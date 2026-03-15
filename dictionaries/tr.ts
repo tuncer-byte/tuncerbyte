@@ -20,14 +20,14 @@ export const tr = {
   },
 
   about: {
-    heading: "hakkımda",
+    heading: "Hakkımda",
     p1: `Konya merkezli yazılım mühendisi ve AI araştırmacısı. <a href="https://www.architecht.com.tr" target="_blank" rel="noreferrer">Architecht</a>'te Software Engineer olarak .NET ekosistemi (ASP.NET Core, C#) ve modern frontend teknolojileriyle çalışıyorum. Selçuk Üniversitesi Bilgisayar Mühendisliği mezunuyum.`,
     p2: `Full-stack geliştirmenin yanı sıra mobil tarafta Swift (iOS) ve Flutter ile deneyim sahibiyim. Açık kaynak tarafında TypeScript ve Python ile AI araçları, MCP sunucuları ve VS Code uzantıları üretiyorum. YouTube kanalımda ve Udemy'de Türkçe teknik içerikler paylaşıyorum.`,
     p3: `Medium'da Rust, Flutter, Swift ve yazılım mimarisi üzerine makaleler yazıyorum. <a href="https://medium.com/@tuncerbyte" target="_blank" rel="noreferrer">medium.com/@tuncerbyte</a>`,
   },
 
   experience: {
-    heading: "deneyim",
+    heading: "Deneyim",
     items: [
       {
         year: "Tem 2024 –\ndevam ediyor",
@@ -49,7 +49,7 @@ export const tr = {
   },
 
   projects: {
-    heading: "projeler",
+    heading: "Projeler",
     viewAll: "Tüm projeler için",
     items: [
       {
@@ -72,7 +72,7 @@ export const tr = {
   },
 
   courses: {
-    heading: "eğitimler",
+    heading: "Eğitimler",
     sub: "Udemy'de yapay zeka ve yazılım geliştirme üzerine Türkçe kurslar yayınlıyorum.",
     items: [
       { headline: "LangChain, Google AI kullanarak kendi çok-ajanlı yapay zekâ mimarinizi inşa edelim" },
@@ -83,12 +83,12 @@ export const tr = {
   },
 
   videos: {
-    heading: "videolar",
+    heading: "Videolar",
     sub: "— AI araçları, yazılım geliştirme ve geliştirici deneyimi üzerine Türkçe içerikler.",
   },
 
   writing: {
-    heading: "yazılar",
+    heading: "Yazılar",
     sub: "Yazılım, yapay zeka ve geliştirici deneyimi üzerine notlar.",
     mediumNote: "Medium'da da yayınlıyorum.",
     viewAll: "Tüm yazıları gör →",
@@ -97,7 +97,7 @@ export const tr = {
   blog: {
     back: "← Yazılar",
     backAll: "← Tüm yazılar",
-    heading: "yazılar",
+    heading: "Yazılar",
     sub: "Yazılım, yapay zeka ve geliştirici deneyimi üzerine notlar ve düşünceler.",
     empty: "Henüz yazı yok. Yakında eklenecek.",
   },
