@@ -1,24 +1,34 @@
 import { getAllPostSlugs, getPostData } from "@/lib/posts";
-import Link from "next/link";
+import { getDictionary, isValidLocale, defaultLocale, locales } from "@/lib/i18n";
+import type { Locale } from "@/lib/i18n";
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
-
-interface Props {
-  params: Promise<{ slug: string }>;
-}
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://tuncer-byte.com";
 
+interface Props {
+  params: Promise<{ lang: string; slug: string }>;
+}
+
 export async function generateStaticParams() {
-  const slugs = getAllPostSlugs();
-  return slugs.map((s) => ({ slug: s.slug }));
+  const params: { lang: string; slug: string }[] = [];
+  for (const locale of locales) {
+    const slugs = getAllPostSlugs(locale);
+    for (const { slug } of slugs) {
+      params.push({ lang: locale, slug });
+    }
+  }
+  return params;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params;
+  const { lang, slug } = await params;
+  const locale: Locale = isValidLocale(lang) ? lang : defaultLocale;
+  const postUrl = `${BASE_URL}/${locale}/blog/${slug}`;
+
   try {
-    const post = await getPostData(slug);
-    const postUrl = `${BASE_URL}/blog/${slug}`;
+    const post = await getPostData(slug, locale);
     return {
       title: post.title,
       description: post.excerpt,
@@ -32,7 +42,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         type: "article",
         publishedTime: post.date,
         authors: ["Tuncer Bağçabaşı"],
-        locale: "tr_TR",
+        locale: locale === "tr" ? "tr_TR" : "en_US",
         siteName: "Tuncer Bağçabaşı",
       },
       twitter: {
@@ -43,21 +53,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       },
     };
   } catch {
-    return { title: "Yazı bulunamadı" };
+    return { title: locale === "tr" ? "Yazı bulunamadı" : "Post not found" };
   }
 }
 
 export default async function PostPage({ params }: Props) {
-  const { slug } = await params;
+  const { lang, slug } = await params;
+  const locale: Locale = isValidLocale(lang) ? lang : defaultLocale;
+  const d = getDictionary(locale);
+  const postUrl = `${BASE_URL}/${locale}/blog/${slug}`;
 
   let post;
   try {
-    post = await getPostData(slug);
+    post = await getPostData(slug, locale);
   } catch {
     notFound();
   }
-
-  const postUrl = `${BASE_URL}/blog/${slug}`;
 
   const articleJsonLd = {
     "@context": "https://schema.org",
@@ -67,6 +78,7 @@ export default async function PostPage({ params }: Props) {
     datePublished: post.date,
     dateModified: post.date,
     url: postUrl,
+    inLanguage: locale === "tr" ? "tr-TR" : "en-US",
     author: {
       "@type": "Person",
       name: "Tuncer Bağçabaşı",
@@ -76,10 +88,6 @@ export default async function PostPage({ params }: Props) {
       "@type": "Person",
       name: "Tuncer Bağçabaşı",
       url: BASE_URL,
-    },
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": postUrl,
     },
   };
 
@@ -91,7 +99,7 @@ export default async function PostPage({ params }: Props) {
       />
       <div className="blog-post">
         <div className="container">
-          <Link href="/blog" className="back-link">← Yazılar</Link>
+          <Link href={`/${locale}/blog`} className="back-link">{d.blog.back}</Link>
           <div className="blog-post-header">
             <h1>{post.title}</h1>
             <p className="blog-post-meta">{post.date}</p>
@@ -101,8 +109,8 @@ export default async function PostPage({ params }: Props) {
             dangerouslySetInnerHTML={{ __html: post.contentHtml }}
           />
           <div style={{ marginTop: 60, paddingTop: 24, borderTop: "1px solid var(--border)" }}>
-            <Link href="/blog" style={{ color: "var(--text-muted)", textDecoration: "none" }}>
-              ← Tüm yazılar
+            <Link href={`/${locale}/blog`} style={{ color: "var(--text-muted)", textDecoration: "none" }}>
+              {d.blog.backAll}
             </Link>
           </div>
         </div>

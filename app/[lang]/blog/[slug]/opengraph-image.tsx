@@ -1,32 +1,41 @@
 import { ImageResponse } from "next/og";
 import { getPostData, getAllPostSlugs } from "@/lib/posts";
+import { locales, isValidLocale, defaultLocale } from "@/lib/i18n";
 
 export const alt = "Tuncer Bağçabaşı";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export async function generateStaticParams() {
-  return getAllPostSlugs().map((s) => ({ slug: s.slug }));
+  const params: { lang: string; slug: string }[] = [];
+  for (const locale of locales) {
+    const slugs = getAllPostSlugs(locale);
+    for (const { slug } of slugs) {
+      params.push({ lang: locale, slug });
+    }
+  }
+  return params;
 }
 
 export default async function OgImage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ lang: string; slug: string }>;
 }) {
-  const { slug } = await params;
+  const { lang, slug } = await params;
+  const locale = isValidLocale(lang) ? lang : defaultLocale;
 
   let title = "Tuncer Bağçabaşı";
   let date = "";
   let excerpt = "";
 
   try {
-    const post = await getPostData(slug);
+    const post = await getPostData(slug, locale);
     title = post.title;
     date = post.date;
     excerpt = post.excerpt ?? "";
   } catch {
-    /* fallback to defaults */
+    /* fallback */
   }
 
   return new ImageResponse(
@@ -43,14 +52,7 @@ export default async function OgImage({
           fontFamily: "Georgia, serif",
         }}
       >
-        {/* Top bar */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 12,
-          }}
-        >
+        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
           <div
             style={{
               width: 40,
@@ -68,27 +70,12 @@ export default async function OgImage({
           >
             TB
           </div>
-          <span
-            style={{
-              color: "#888888",
-              fontSize: 18,
-              fontFamily: "monospace",
-            }}
-          >
+          <span style={{ color: "#888888", fontSize: 18, fontFamily: "monospace" }}>
             tuncer-byte.com
           </span>
         </div>
 
-        {/* Title */}
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: 20,
-            flex: 1,
-            justifyContent: "center",
-          }}
-        >
+        <div style={{ display: "flex", flexDirection: "column", gap: 20, flex: 1, justifyContent: "center" }}>
           <div
             style={{
               color: "#ffffff",
@@ -101,20 +88,12 @@ export default async function OgImage({
             {title}
           </div>
           {excerpt && (
-            <div
-              style={{
-                color: "#888888",
-                fontSize: 24,
-                lineHeight: 1.5,
-                maxWidth: 900,
-              }}
-            >
+            <div style={{ color: "#888888", fontSize: 24, lineHeight: 1.5, maxWidth: 900 }}>
               {excerpt.length > 120 ? excerpt.slice(0, 120) + "…" : excerpt}
             </div>
           )}
         </div>
 
-        {/* Bottom */}
         <div
           style={{
             display: "flex",

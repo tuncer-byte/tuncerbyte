@@ -4,7 +4,8 @@ import matter from "gray-matter";
 import { remark } from "remark";
 import html from "remark-html";
 
-const postsDirectory = path.join(process.cwd(), "posts");
+const getPostsDirectory = (lang = "tr") =>
+  path.join(process.cwd(), "posts", lang);
 
 export interface PostData {
   slug: string;
@@ -17,7 +18,8 @@ export interface PostDataWithContent extends PostData {
   contentHtml: string;
 }
 
-export function getSortedPostsData(): PostData[] {
+export function getSortedPostsData(lang = "tr"): PostData[] {
+  const postsDirectory = getPostsDirectory(lang);
   if (!fs.existsSync(postsDirectory)) return [];
 
   const fileNames = fs.readdirSync(postsDirectory);
@@ -28,7 +30,6 @@ export function getSortedPostsData(): PostData[] {
       const fullPath = path.join(postsDirectory, fileName);
       const fileContents = fs.readFileSync(fullPath, "utf8");
       const matterResult = matter(fileContents);
-
       return {
         slug,
         title: matterResult.data.title as string,
@@ -40,25 +41,23 @@ export function getSortedPostsData(): PostData[] {
   return allPostsData.sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 
-export function getAllPostSlugs() {
+export function getAllPostSlugs(lang = "tr") {
+  const postsDirectory = getPostsDirectory(lang);
   if (!fs.existsSync(postsDirectory)) return [];
 
   const fileNames = fs.readdirSync(postsDirectory);
   return fileNames
     .filter((name) => name.endsWith(".md"))
-    .map((fileName) => ({
-      slug: fileName.replace(/\.md$/, ""),
-    }));
+    .map((fileName) => ({ slug: fileName.replace(/\.md$/, "") }));
 }
 
-export async function getPostData(slug: string): Promise<PostDataWithContent> {
+export async function getPostData(slug: string, lang = "tr"): Promise<PostDataWithContent> {
+  const postsDirectory = getPostsDirectory(lang);
   const fullPath = path.join(postsDirectory, `${slug}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const matterResult = matter(fileContents);
 
-  const processedContent = await remark()
-    .use(html)
-    .process(matterResult.content);
+  const processedContent = await remark().use(html).process(matterResult.content);
   const contentHtml = processedContent.toString();
 
   return {
