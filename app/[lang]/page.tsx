@@ -222,7 +222,7 @@ export default async function HomePage({
         <div className="container">
           <h2 className="section-h2">{d.courses.heading}</h2>
           <p className="section-sub">{d.courses.sub}</p>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 20 }}>
+          <div className="grid-2col">
             {courses.map((course, i) => (
               <a
                 key={course.url}
@@ -266,7 +266,7 @@ export default async function HomePage({
             <a href="https://www.youtube.com/@TuncerByte" target="_blank" rel="noreferrer">@TuncerByte</a>
             {" "}{d.videos.sub}
           </p>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 20 }}>
+          <div className="grid-2col">
             {videos.map((v) => (
               <a key={v.videoId} href={v.url} target="_blank" rel="noreferrer" style={{ textDecoration: "none", color: "var(--text)" }}>
                 <div style={{ position: "relative", paddingBottom: "56.25%", background: "var(--border)", borderRadius: 6, overflow: "hidden" }}>

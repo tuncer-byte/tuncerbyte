@@ -26,9 +26,9 @@ export default async function LangLayout({ children, params }: Props) {
             tuncer byte
           </Link>
           <div className="nav-links">
-            <Link href={`/${locale}#experience`}>{d.nav.experience}</Link>
-            <Link href={`/${locale}#projects`}>{d.nav.projects}</Link>
-            <Link href={`/${locale}#videos`}>{d.nav.videos}</Link>
+            <Link href={`/${locale}#experience`} className="nav-hide-sm">{d.nav.experience}</Link>
+            <Link href={`/${locale}#projects`} className="nav-hide-sm">{d.nav.projects}</Link>
+            <Link href={`/${locale}#videos`} className="nav-hide-sm">{d.nav.videos}</Link>
             <Link href={`/${locale}/blog`}>{d.nav.blog}</Link>
             <LanguageSwitcher currentLang={locale} label={d.nav.switchLang} />
             <ThemeToggle />

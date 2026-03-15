@@ -71,7 +71,7 @@ export default async function BlogPage({
                     </Link>
                   </div>
                   {post.excerpt && (
-                    <p style={{ margin: "4px 0 0 110px", color: "var(--text-muted)", fontSize: "0.9rem" }}>
+                    <p className="blog-excerpt" style={{ margin: "4px 0 0 110px", color: "var(--text-muted)", fontSize: "0.9rem" }}>
                       {post.excerpt}
                     </p>
                   )}
