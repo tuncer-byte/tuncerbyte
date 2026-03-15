@@ -2,9 +2,22 @@ import { getSortedPostsData } from "@/lib/posts";
 import Link from "next/link";
 import type { Metadata } from "next";
 
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://tuncer-byte.com";
+
 export const metadata: Metadata = {
-  title: "Yazılar — Tuncer Bağçabaşı",
-  description: "AI, yazılım geliştirme ve geliştirici deneyimi üzerine yazılar.",
+  title: "Yazılar",
+  description:
+    "Tuncer Bağçabaşı'nın AI, yazılım geliştirme, MCP, Swift ve geliştirici deneyimi üzerine Türkçe yazıları.",
+  alternates: {
+    canonical: `${BASE_URL}/blog`,
+  },
+  openGraph: {
+    title: "Yazılar — Tuncer Bağçabaşı",
+    description:
+      "AI, yazılım geliştirme, MCP, Swift ve geliştirici deneyimi üzerine Türkçe yazılar.",
+    url: `${BASE_URL}/blog`,
+    type: "website",
+  },
 };
 
 export default function BlogPage() {
