@@ -315,28 +315,41 @@ export default async function Home() {
             <a href="https://www.udemy.com/user/tuncerbhc/" target="_blank" rel="noreferrer">Udemy</a>'de
             yapay zeka ve yazılım geliştirme üzerine Türkçe kurslar yayınlıyorum.
           </p>
-          <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(2, 1fr)",
+              gap: 20,
+            }}
+          >
             {[
-              {
-                url: "https://www.udemy.com/course/en-ince-detaylaryla-mcp-model-context-protocol/",
-                title: "En İnce Detaylarıyla MCP (Model Context Protocol)",
-                desc: "MCP'nin temellerini, mevcut MCP sunucularıyla entegrasyonu ve TypeScript SDK ile sıfırdan özel MCP sunucusu geliştirmeyi kapsar.",
-                tags: ["TypeScript", "MCP", "AI", "SDK"],
-                meta: "Yeni",
-              },
               {
                 url: "https://www.udemy.com/course/sifirdan-multi-agent-yapay-zeka-sistemleri-gelistirme/",
                 title: "Sıfırdan Multi-Agent Yapay Zekâ Sistemleri Geliştirme",
-                desc: "LangChain ve Google Gemini ile Multi-Agent sistemler inşa edin. Ajan iletişimi, görev dağıtımı, prompt yönetimi ve bellek kullanımı.",
-                tags: ["Python", "LangChain", "Gemini", "Multi-Agent"],
-                meta: "94 öğrenci · ★ 5.0",
+                headline: "LangChain, Google AI kullanarak kendi çok-ajanlı yapay zekâ mimarinizi inşa edelim",
+                image: "https://img-c.udemycdn.com/course/480x270/6885093_4481.jpg",
+                tags: ["Python", "LangChain", "Google AI", "Multi-Agent"],
+              },
+              {
+                url: "https://www.udemy.com/course/en-ince-detaylaryla-mcp-model-context-protocol/",
+                title: "En İnce Detaylarıyla MCP (Model Context Protocol)",
+                headline: "MCP ile yapay zeka modellerini harici veri kaynaklarına hızlıca entegre etmeyi öğrenin",
+                image: "https://img-c.udemycdn.com/course/480x270/6557551_47f3_4.jpg",
+                tags: ["TypeScript", "MCP", "AI", "SDK"],
+              },
+              {
+                url: "https://www.udemy.com/course/yapay-zeka-ile-ai-agent-otomasyonu-yapmak/",
+                title: "Yapay Zeka ile AI Agent Otomasyonu Yapmak",
+                headline: "Yapay zeka kullanarak AI Agent otomasyonu kodlayalım. Hem AI'yı hem yazılım sürecini öğrenelim.",
+                image: "https://img-c.udemycdn.com/course/480x270/6452589_e9b3_2.jpg",
+                tags: ["Python", "AI Agent", "Otomasyon"],
               },
               {
                 url: "https://www.udemy.com/course/yapay-zeka-ile-yazlm-gelistirme-mobil-uygulama/",
                 title: "Yapay Zeka İle Yazılım Geliştirme — Mobil Uygulama",
-                desc: "Swift, Kotlin ve Flutter ile yapay zeka destekli mobil uygulamalar geliştirin. TensorFlow Lite, Core ML ve gerçek dünya projeleri.",
-                tags: ["Swift", "Kotlin", "Flutter", "TensorFlow Lite", "Core ML"],
-                meta: "10.000+ öğrenci · ★ 4.6",
+                headline: "Mobil uygulamalarda yapay zeka: geleceğin teknolojisiyle kod yazmayı öğrenin",
+                image: "https://img-c.udemycdn.com/course/480x270/6442111_338b_2.jpg",
+                tags: ["Swift", "Kotlin", "Flutter", "Core ML"],
               },
             ].map((course) => (
               <a
@@ -346,47 +359,39 @@ export default async function Home() {
                 rel="noreferrer"
                 style={{ textDecoration: "none", color: "var(--text)" }}
               >
-                <div
-                  style={{
-                    border: "1px solid var(--border)",
-                    borderRadius: 8,
-                    padding: "20px 24px",
-                    backgroundColor: "var(--bg)",
-                  }}
-                >
-                  <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
-                    <span
-                      style={{
-                        fontSize: "0.7rem",
-                        fontFamily: "monospace",
-                        background: "#a435f0",
-                        color: "white",
-                        padding: "2px 8px",
-                        borderRadius: 4,
-                      }}
-                    >
-                      Udemy
-                    </span>
-                    <span style={{ fontSize: "0.78rem", fontFamily: "monospace", color: "var(--text-muted)" }}>
-                      {course.meta}
-                    </span>
-                  </div>
-                  <div style={{ fontWeight: 700, fontSize: "1rem", fontFamily: "Georgia, serif", marginBottom: 8 }}>
+                {/* 16:9 thumbnail */}
+                <div style={{ position: "relative", paddingBottom: "56.25%", background: "var(--border)", borderRadius: 6, overflow: "hidden" }}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={course.image}
+                    alt={course.title}
+                    loading="lazy"
+                    style={{
+                      position: "absolute",
+                      inset: 0,
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                    }}
+                  />
+                </div>
+                <div style={{ marginTop: 10 }}>
+                  <div style={{ fontWeight: 700, fontSize: "0.93rem", fontFamily: "Georgia, serif", lineHeight: 1.4, marginBottom: 6 }}>
                     {course.title}
                   </div>
-                  <p style={{ color: "var(--text-muted)", fontSize: "0.9rem", marginBottom: 14 }}>
-                    {course.desc}
+                  <p style={{ color: "var(--text-muted)", fontSize: "0.82rem", lineHeight: 1.5, marginBottom: 10 }}>
+                    {course.headline}
                   </p>
-                  <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: 5 }}>
                     {course.tags.map((t) => (
                       <span
                         key={t}
                         style={{
-                          fontSize: "0.74rem",
+                          fontSize: "0.72rem",
                           fontFamily: "monospace",
                           color: "var(--text-muted)",
                           border: "1px solid var(--border)",
-                          padding: "2px 8px",
+                          padding: "2px 7px",
                           borderRadius: 99,
                         }}
                       >
