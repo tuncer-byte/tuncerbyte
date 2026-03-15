@@ -313,65 +313,91 @@ export default async function Home() {
           <h2 className="section-h2">eğitimler</h2>
           <p className="section-sub">
             <a href="https://www.udemy.com/user/tuncerbhc/" target="_blank" rel="noreferrer">Udemy</a>'de
-            Full Stack Developer & AI Researcher olarak kurslar yayınlıyorum.
+            yapay zeka ve yazılım geliştirme üzerine Türkçe kurslar yayınlıyorum.
           </p>
-          <a
-            href="https://www.udemy.com/course/full-stack-ai-with-python/"
-            target="_blank"
-            rel="noreferrer"
-            style={{ textDecoration: "none", color: "var(--text)" }}
-          >
-            <div
-              style={{
-                border: "1px solid var(--border)",
-                borderRadius: 8,
-                padding: "20px 24px",
-                backgroundColor: "var(--bg)",
-                transition: "border-color 0.15s",
-                cursor: "pointer",
-              }}
-            >
-              <div
-                style={{
-                  display: "inline-block",
-                  fontSize: "0.7rem",
-                  fontFamily: "monospace",
-                  background: "#a435f0",
-                  color: "white",
-                  padding: "2px 8px",
-                  borderRadius: 4,
-                  marginBottom: 10,
-                  textDecoration: "none",
-                }}
+          <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+            {[
+              {
+                url: "https://www.udemy.com/course/en-ince-detaylaryla-mcp-model-context-protocol/",
+                title: "En İnce Detaylarıyla MCP (Model Context Protocol)",
+                desc: "MCP'nin temellerini, mevcut MCP sunucularıyla entegrasyonu ve TypeScript SDK ile sıfırdan özel MCP sunucusu geliştirmeyi kapsar.",
+                tags: ["TypeScript", "MCP", "AI", "SDK"],
+                meta: "Yeni",
+              },
+              {
+                url: "https://www.udemy.com/course/sifirdan-multi-agent-yapay-zeka-sistemleri-gelistirme/",
+                title: "Sıfırdan Multi-Agent Yapay Zekâ Sistemleri Geliştirme",
+                desc: "LangChain ve Google Gemini ile Multi-Agent sistemler inşa edin. Ajan iletişimi, görev dağıtımı, prompt yönetimi ve bellek kullanımı.",
+                tags: ["Python", "LangChain", "Gemini", "Multi-Agent"],
+                meta: "94 öğrenci · ★ 5.0",
+              },
+              {
+                url: "https://www.udemy.com/course/yapay-zeka-ile-yazlm-gelistirme-mobil-uygulama/",
+                title: "Yapay Zeka İle Yazılım Geliştirme — Mobil Uygulama",
+                desc: "Swift, Kotlin ve Flutter ile yapay zeka destekli mobil uygulamalar geliştirin. TensorFlow Lite, Core ML ve gerçek dünya projeleri.",
+                tags: ["Swift", "Kotlin", "Flutter", "TensorFlow Lite", "Core ML"],
+                meta: "10.000+ öğrenci · ★ 4.6",
+              },
+            ].map((course) => (
+              <a
+                key={course.url}
+                href={course.url}
+                target="_blank"
+                rel="noreferrer"
+                style={{ textDecoration: "none", color: "var(--text)" }}
               >
-                Udemy
-              </div>
-              <div style={{ fontWeight: 700, fontSize: "1rem", fontFamily: "Georgia, serif", marginBottom: 8 }}>
-                Full Stack Generative and Agentic AI with Python
-              </div>
-              <p style={{ color: "var(--text-muted)", fontSize: "0.9rem", marginBottom: 14 }}>
-                Python ile LLM, AI Agent, RAG, LangChain, LangGraph ve Multi-Modal AI geliştirme.
-                Docker, Pydantic ve modern AI stack'ini sıfırdan öğrenin.
-              </p>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
-                {["Python", "LangChain", "LangGraph", "RAG", "AI Agents", "Docker"].map((t) => (
-                  <span
-                    key={t}
-                    style={{
-                      fontSize: "0.74rem",
-                      fontFamily: "monospace",
-                      color: "var(--text-muted)",
-                      border: "1px solid var(--border)",
-                      padding: "2px 8px",
-                      borderRadius: 99,
-                    }}
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </a>
+                <div
+                  style={{
+                    border: "1px solid var(--border)",
+                    borderRadius: 8,
+                    padding: "20px 24px",
+                    backgroundColor: "var(--bg)",
+                  }}
+                >
+                  <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
+                    <span
+                      style={{
+                        fontSize: "0.7rem",
+                        fontFamily: "monospace",
+                        background: "#a435f0",
+                        color: "white",
+                        padding: "2px 8px",
+                        borderRadius: 4,
+                      }}
+                    >
+                      Udemy
+                    </span>
+                    <span style={{ fontSize: "0.78rem", fontFamily: "monospace", color: "var(--text-muted)" }}>
+                      {course.meta}
+                    </span>
+                  </div>
+                  <div style={{ fontWeight: 700, fontSize: "1rem", fontFamily: "Georgia, serif", marginBottom: 8 }}>
+                    {course.title}
+                  </div>
+                  <p style={{ color: "var(--text-muted)", fontSize: "0.9rem", marginBottom: 14 }}>
+                    {course.desc}
+                  </p>
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+                    {course.tags.map((t) => (
+                      <span
+                        key={t}
+                        style={{
+                          fontSize: "0.74rem",
+                          fontFamily: "monospace",
+                          color: "var(--text-muted)",
+                          border: "1px solid var(--border)",
+                          padding: "2px 8px",
+                          borderRadius: 99,
+                        }}
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
         </div>
       </div>
 

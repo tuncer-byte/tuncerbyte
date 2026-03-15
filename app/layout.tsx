@@ -3,6 +3,7 @@ import "./globals.css";
 import Link from "next/link";
 import ThemeToggle from "./components/ThemeToggle";
 import { Analytics } from "@vercel/analytics/next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://tuncer-byte.com";
 
@@ -61,6 +62,7 @@ export default function RootLayout({
           </div>
         </nav>
         {children}
+        <GoogleAnalytics gaId="G-4QX10PW8RE" />
         <footer>
           <div className="container">
             <p>
