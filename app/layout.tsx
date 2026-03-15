@@ -3,10 +3,26 @@ import "./globals.css";
 import Link from "next/link";
 import ThemeToggle from "./components/ThemeToggle";
 
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://tuncerbyte.com";
+
 export const metadata: Metadata = {
-  title: "Tuncer Bağçabaşı",
+  metadataBase: new URL(BASE_URL),
+  title: {
+    default: "Tuncer Bağçabaşı",
+    template: "%s — Tuncer Bağçabaşı",
+  },
   description:
     "Tuncer Bağçabaşı — Software Engineer & AI Researcher. ASP.NET Core, TypeScript, Swift, Flutter ve AI araçları üzerine çalışıyor.",
+  openGraph: {
+    type: "website",
+    siteName: "Tuncer Bağçabaşı",
+    locale: "tr_TR",
+    url: BASE_URL,
+  },
+  twitter: {
+    card: "summary_large_image",
+    creator: "@tuncerbyte",
+  },
 };
 
 export default function RootLayout({

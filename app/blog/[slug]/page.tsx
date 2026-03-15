@@ -16,9 +16,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   try {
     const post = await getPostData(slug);
+    const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://tuncerbyte.com";
+    const postUrl = `${BASE_URL}/blog/${slug}`;
     return {
-      title: `${post.title} — Tuncer Bağçabaşı`,
+      title: post.title,
       description: post.excerpt,
+      openGraph: {
+        title: post.title,
+        description: post.excerpt,
+        url: postUrl,
+        type: "article",
+        publishedTime: post.date,
+        authors: ["Tuncer Bağçabaşı"],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: post.title,
+        description: post.excerpt,
+      },
     };
   } catch {
     return { title: "Yazı bulunamadı" };
