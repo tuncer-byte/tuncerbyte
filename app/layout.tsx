@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     template: "%s — Tuncer Bağçabaşı",
   },
   description:
-    "Konya-based software engineer and AI researcher. Building MCP servers, TypeScript tools, and AI applications. 10,000+ students on Udemy.",
+    "Software engineer and AI researcher. Building MCP servers, TypeScript tools, and AI applications. Creating content on YouTube, Instagram and Medium.",
   keywords: [
     "Tuncer Bağçabaşı",
     "Tuncer Byte",
@@ -23,13 +23,12 @@ export const metadata: Metadata = {
     "Model Context Protocol",
     "TypeScript",
     "ASP.NET Core",
-    "Swift",
-    "Flutter",
     "LangChain",
     "Yapay Zeka",
     "Yazılım Mühendisi",
+    "İçerik Üretici",
     "Udemy",
-    "Konya",
+    "YouTube",
   ],
   authors: [{ name: "Tuncer Bağçabaşı", url: BASE_URL }],
   creator: "Tuncer Bağçabaşı",
@@ -52,7 +51,7 @@ export const metadata: Metadata = {
     url: BASE_URL,
     title: "Tuncer Bağçabaşı — Software Engineer & AI Researcher",
     description:
-      "Konya-based software engineer and AI researcher. Building MCP servers, TypeScript tools, and AI applications.",
+      "Software engineer and AI researcher. Building MCP servers, TypeScript tools, and AI applications.",
     images: [{ url: `${BASE_URL}/opengraph-image` }],
   },
   twitter: {
@@ -76,11 +75,11 @@ const personSchema = {
   image: `${BASE_URL}/profile.png`,
   jobTitle: "Software Engineer",
   description:
-    "Konya-based software engineer and AI researcher. Builds MCP servers, TypeScript tools and AI applications. Teaches 10,000+ students on Udemy.",
+    "Software engineer and AI researcher. Builds MCP servers, TypeScript tools and AI applications. Creates content on YouTube, Instagram and Medium.",
   worksFor: {
     "@type": "Organization",
     name: "Architecht",
-    url: "https://www.architecht.com.tr",
+    url: "https://www.architecht.com",
   },
   alumniOf: {
     "@type": "CollegeOrUniversity",
@@ -103,15 +102,14 @@ const personSchema = {
     "TypeScript",
     "ASP.NET Core",
     "C#",
-    "Swift",
-    "Flutter",
     "Model Context Protocol",
     "LangChain",
     "Multi-Agent AI Systems",
-    "Mobile Development",
     "VS Code Extensions",
     "Python",
     "Artificial Intelligence",
+    "Content Creation",
+    "AI Product Development",
   ],
 };
 

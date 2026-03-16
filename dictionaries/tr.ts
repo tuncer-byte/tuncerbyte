@@ -12,7 +12,7 @@ export const tr = {
   meta: {
     title: "Tuncer Bağçabaşı — Yazılım Mühendisi & AI Araştırmacısı",
     description:
-      "Konya merkezli yazılım mühendisi ve AI araştırmacısı. MCP sunucuları, TypeScript, ASP.NET Core ve yapay zeka araçları üzerine açık kaynak projeler üretiyor. Udemy'de 10.000+ öğrenciye kurs veriyor.",
+      "Yazılım mühendisi ve AI araştırmacısı. MCP sunucuları, TypeScript, ASP.NET Core ve yapay zeka araçları üzerine açık kaynak projeler üretiyor. YouTube, Instagram ve Medium'da içerik üretiyor.",
   },
 
   hero: {
@@ -21,9 +21,9 @@ export const tr = {
 
   about: {
     heading: "Hakkımda",
-    p1: `Konya merkezli yazılım mühendisi ve AI araştırmacısı. <a href="https://www.architecht.com.tr" target="_blank" rel="noreferrer">Architecht</a>'te Software Engineer olarak .NET ekosistemi (ASP.NET Core, C#) ve modern frontend teknolojileriyle çalışıyorum. Selçuk Üniversitesi Bilgisayar Mühendisliği mezunuyum.`,
-    p2: `Full-stack geliştirmenin yanı sıra mobil tarafta Swift (iOS) ve Flutter ile deneyim sahibiyim. Açık kaynak tarafında TypeScript ve Python ile AI araçları, MCP sunucuları ve VS Code uzantıları üretiyorum. YouTube kanalımda ve Udemy'de Türkçe teknik içerikler paylaşıyorum.`,
-    p3: `Medium'da Rust, Flutter, Swift ve yazılım mimarisi üzerine makaleler yazıyorum. <a href="https://medium.com/@tuncerbyte" target="_blank" rel="noreferrer">medium.com/@tuncerbyte</a>`,
+    p1: `Yazılım mühendisi ve AI araştırmacısı. <a href="https://www.architecht.com" target="_blank" rel="noreferrer">Architecht</a>'te Software Engineer olarak .NET ekosistemi (ASP.NET Core, C#) ve modern frontend teknolojileriyle çalışıyorum. Selçuk Üniversitesi Bilgisayar Mühendisliği mezunuyum.`,
+    p2: `Yapay zeka ile ürün geliştirmeye odaklanıyorum. TypeScript ve Python ile AI araçları, MCP sunucuları ve VS Code uzantıları üretiyorum. Udemy'de 10.000'den fazla öğrenciye kurs veriyorum.`,
+    p3: `YouTube, Instagram ve Medium'da yazılım ve yapay zeka üzerine içerik üretiyorum. <a href="https://medium.com/@tuncerbyte" target="_blank" rel="noreferrer">medium.com/@tuncerbyte</a>`,
   },
 
   experience: {
@@ -31,11 +31,11 @@ export const tr = {
     items: [
       {
         year: "Tem 2024 –\ndevam ediyor",
-        html: `<a href="https://www.architecht.com.tr" target="_blank" rel="noreferrer">Architecht</a>'te <strong>Software Engineer</strong> (tam zamanlı · Konya · ofiste). Fintech alanında .NET ve C# tabanlı kurumsal uygulamalar geliştiriyorum.`,
+        html: `<a href="https://www.architecht.com" target="_blank" rel="noreferrer">Architecht</a>'te <strong>Software Engineer</strong> (tam zamanlı · Konya · ofiste). Fintech alanında .NET ve C# tabanlı kurumsal uygulamalar geliştiriyorum.`,
       },
       {
         year: "Kas 2023 –\nMay 2024",
-        html: `<a href="https://www.architecht.com.tr" target="_blank" rel="noreferrer">Architecht</a>'te <strong>Full-stack Developer</strong> (yarı zamanlı · hibrit). Ön uç geliştirme (Angular, JavaScript) ve ASP.NET Core backend çalışmaları yaptım.`,
+        html: `<a href="https://www.architecht.com" target="_blank" rel="noreferrer">Architecht</a>'te <strong>Full-stack Developer</strong> (yarı zamanlı · hibrit). Ön uç geliştirme (Angular, JavaScript) ve ASP.NET Core backend çalışmaları yaptım.`,
       },
       {
         year: "Eki 2022 –\nOca 2024",

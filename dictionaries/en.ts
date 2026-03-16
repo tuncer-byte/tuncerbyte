@@ -14,7 +14,7 @@ export const en: Dictionary = {
   meta: {
     title: "Tuncer Bağçabaşı — Software Engineer & AI Researcher",
     description:
-      "Konya-based software engineer and AI researcher. Building open source projects around MCP servers, TypeScript, ASP.NET Core and AI tools. Teaching 10,000+ students on Udemy.",
+      "Software engineer and AI researcher. Building open source projects around MCP servers, TypeScript, ASP.NET Core and AI tools. Creating content on YouTube, Instagram and Medium.",
   },
 
   hero: {
@@ -23,9 +23,9 @@ export const en: Dictionary = {
 
   about: {
     heading: "About",
-    p1: `Konya-based software engineer and AI researcher. I work as a Software Engineer at <a href="https://www.architecht.com.tr" target="_blank" rel="noreferrer">Architecht</a>, building enterprise fintech applications with .NET (ASP.NET Core, C#) and modern frontend technologies. Computer Engineering graduate from Selçuk University.`,
-    p2: `Beyond full-stack development, I have hands-on experience with Swift (iOS) and Flutter on mobile. In open source, I build AI tools, MCP servers and VS Code extensions with TypeScript and Python. I publish Turkish technical content on YouTube and Udemy.`,
-    p3: `I write on Medium about Rust, Flutter, Swift and software architecture. <a href="https://medium.com/@tuncerbyte" target="_blank" rel="noreferrer">medium.com/@tuncerbyte</a>`,
+    p1: `Software engineer and AI researcher. I work as a Software Engineer at <a href="https://www.architecht.com" target="_blank" rel="noreferrer">Architecht</a>, building enterprise fintech applications with .NET (ASP.NET Core, C#) and modern frontend technologies. Computer Engineering graduate from Selçuk University.`,
+    p2: `Focused on building products with AI. I build AI tools, MCP servers and VS Code extensions with TypeScript and Python. Teaching 10,000+ students on Udemy.`,
+    p3: `I create content about software and AI on YouTube, Instagram and Medium. <a href="https://medium.com/@tuncerbyte" target="_blank" rel="noreferrer">medium.com/@tuncerbyte</a>`,
   },
 
   experience: {
@@ -33,11 +33,11 @@ export const en: Dictionary = {
     items: [
       {
         year: "Jul 2024 –\npresent",
-        html: `<strong>Software Engineer</strong> at <a href="https://www.architecht.com.tr" target="_blank" rel="noreferrer">Architecht</a> (full-time · Konya · on-site). Building enterprise .NET and C# applications in the fintech domain.`,
+        html: `<strong>Software Engineer</strong> at <a href="https://www.architecht.com" target="_blank" rel="noreferrer">Architecht</a> (full-time · Konya · on-site). Building enterprise .NET and C# applications in the fintech domain.`,
       },
       {
         year: "Nov 2023 –\nMay 2024",
-        html: `<strong>Full-stack Developer</strong> at <a href="https://www.architecht.com.tr" target="_blank" rel="noreferrer">Architecht</a> (part-time · hybrid). Frontend development with Angular and JavaScript, plus ASP.NET Core backend work.`,
+        html: `<strong>Full-stack Developer</strong> at <a href="https://www.architecht.com" target="_blank" rel="noreferrer">Architecht</a> (part-time · hybrid). Frontend development with Angular and JavaScript, plus ASP.NET Core backend work.`,
       },
       {
         year: "Oct 2022 –\nJan 2024",
