@@ -100,6 +100,13 @@ export const tr = {
     heading: "Yazılar",
     sub: "Yazılım, yapay zeka ve geliştirici deneyimi üzerine notlar ve düşünceler.",
     empty: "Henüz yazı yok. Yakında eklenecek.",
+    cta: {
+      heading: "Bu konuları derinlemesine öğrenmek ister misin?",
+      udemy: "Udemy Kurslarım",
+      udemySub: "10.000+ öğrenci · Türkçe",
+      contact: "İletişime Geç",
+      contactSub: "Danışmanlık & iş birliği",
+    },
   },
 
   footer: {
