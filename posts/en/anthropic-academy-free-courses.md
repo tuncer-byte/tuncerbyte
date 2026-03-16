@@ -43,6 +43,8 @@ What you learn:
 
 Includes a completion certificate.
 
+[→ Enroll](https://anthropic.skilljar.com/)
+
 ---
 
 #### AI Fluency: Framework & Foundations
@@ -58,6 +60,8 @@ Built around Anthropic's **4D Approach**:
 
 Great for individual users and teams building organizational AI literacy.
 
+[→ Enroll](https://anthropic.skilljar.com/)
+
 ---
 
 #### AI Fluency for Nonprofits
@@ -65,6 +69,8 @@ Great for individual users and teams building organizational AI literacy.
 A tailored version for nonprofit professionals.
 
 Covers responsible AI adoption within mission-driven organizations.
+
+[→ Enroll](https://anthropic.skilljar.com/)
 
 ---
 
@@ -81,6 +87,8 @@ What you learn:
 - Applying AI concepts to teaching practice
 - Building institutional AI strategy
 
+[→ Enroll](https://anthropic.skilljar.com/)
+
 ---
 
 #### AI Fluency for Students
@@ -92,6 +100,8 @@ What you learn:
 - Using AI responsibly to support learning
 - Career planning and academic success with AI tools
 
+[→ Enroll](https://anthropic.skilljar.com/)
+
 ---
 
 #### Teaching AI Fluency
@@ -99,6 +109,8 @@ What you learn:
 For educators who want to formally teach AI literacy.
 
 Covers how to teach and assess AI fluency in classroom settings.
+
+[→ Enroll](https://anthropic.skilljar.com/)
 
 ---
 
@@ -122,6 +134,8 @@ What you learn:
 
 Prerequisites: Python proficiency, basic JSON knowledge.
 
+[→ Enroll](https://anthropic.skilljar.com/)
+
 ---
 
 #### Claude Code in Action
@@ -137,6 +151,8 @@ What you learn:
 
 Prerequisites: Terminal usage, basic Git.
 
+[→ Enroll](https://anthropic.skilljar.com/)
+
 ---
 
 #### Introduction to Agent Skills
@@ -148,6 +164,8 @@ What you learn:
 - Markdown-based instruction system
 - Write once, reuse everywhere
 - Distribution via plugins or enterprise settings
+
+[→ Enroll](https://anthropic.skilljar.com/)
 
 ---
 
@@ -165,6 +183,8 @@ Prerequisites: Working Python knowledge.
 
 This course is particularly relevant right now. MCP is becoming the standard infrastructure layer for the Claude ecosystem — thousands of servers exist and the number is growing fast.
 
+[→ Enroll](https://anthropic.skilljar.com/)
+
 ---
 
 #### Model Context Protocol: Advanced Topics
@@ -179,6 +199,8 @@ What you learn:
 - Scaling and security patterns
 
 Prerequisites: Async Python, HTTP/SSE familiarity.
+
+[→ Enroll](https://anthropic.skilljar.com/)
 
 ---
 
@@ -198,6 +220,8 @@ What you learn:
 
 Prerequisites: Python, basic AWS/Bedrock knowledge.
 
+[→ Enroll](https://anthropic.skilljar.com/)
+
 ---
 
 #### Claude with Google Cloud's Vertex AI
@@ -205,6 +229,8 @@ Prerequisites: Python, basic AWS/Bedrock knowledge.
 Working with Claude through Google Cloud.
 
 Covers Vertex AI integration, model deployment, and production architectures.
+
+[→ Enroll](https://anthropic.skilljar.com/)
 
 ---
 

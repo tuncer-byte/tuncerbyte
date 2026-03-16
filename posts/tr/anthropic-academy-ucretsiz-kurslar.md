@@ -43,6 +43,8 @@ Ne öğrenirsin:
 
 Kurs sonunda sertifika veriliyor.
 
+[→ Kayıt Ol](https://anthropic.skilljar.com/)
+
 ---
 
 #### AI Fluency: Framework & Foundations
@@ -58,6 +60,8 @@ Anthropic'in "4D Yaklaşımı" üzerine kurulu:
 
 Bireysel kullanım kadar ekip ve kurumsal AI okuryazarlığı için de ideal.
 
+[→ Kayıt Ol](https://anthropic.skilljar.com/)
+
 ---
 
 #### AI Fluency for Nonprofits
@@ -65,6 +69,8 @@ Bireysel kullanım kadar ekip ve kurumsal AI okuryazarlığı için de ideal.
 Kar amacı gütmeyen organizasyonlar için özelleştirilmiş versiyon.
 
 Misyon odaklı çalışmalarda AI'ı nasıl kullanabileceğini anlatıyor.
+
+[→ Kayıt Ol](https://anthropic.skilljar.com/)
 
 ---
 
@@ -81,6 +87,8 @@ Ne öğrenirsin:
 - AI kavramlarını öğretim pratiğine entegre etmek
 - Kurumsal AI stratejisi geliştirmek
 
+[→ Kayıt Ol](https://anthropic.skilljar.com/)
+
 ---
 
 #### AI Fluency for Students
@@ -92,6 +100,8 @@ Ne öğrenirsin:
 - Öğrenme sürecinde AI'ı sorumlu kullanmak
 - Kariyer planlaması ve akademik başarı için AI araçları
 
+[→ Kayıt Ol](https://anthropic.skilljar.com/)
+
 ---
 
 #### Teaching AI Fluency
@@ -99,6 +109,8 @@ Ne öğrenirsin:
 Öğretmenler için öğretmenlere yönelik kurs.
 
 AI okuryazarlığını sınıfta nasıl öğreteceğini ve ölçeceğini ele alıyor.
+
+[→ Kayıt Ol](https://anthropic.skilljar.com/)
 
 ---
 
@@ -122,6 +134,8 @@ Ne öğrenirsin:
 
 Ön koşul: Python ve temel JSON bilgisi.
 
+[→ Kayıt Ol](https://anthropic.skilljar.com/)
+
 ---
 
 #### Claude Code in Action
@@ -137,6 +151,8 @@ Ne öğrenirsin:
 
 Ön koşul: Terminal kullanımı ve temel Git.
 
+[→ Kayıt Ol](https://anthropic.skilljar.com/)
+
 ---
 
 #### Introduction to Agent Skills
@@ -148,6 +164,8 @@ Ne öğrenirsin:
 - Markdown tabanlı talimat sistemi
 - Bir kez öğret, defalarca kullan mantığı
 - Plugin veya kurumsal ayarlar üzerinden dağıtım
+
+[→ Kayıt Ol](https://anthropic.skilljar.com/)
 
 ---
 
@@ -165,6 +183,8 @@ Ne öğrenirsin:
 
 Bu kurs özellikle önemli. MCP, Claude ekosisteminin giderek genişleyen altyapısı. Şu an binlerce MCP sunucusu mevcut ve bu sayı hızla artıyor.
 
+[→ Kayıt Ol](https://anthropic.skilljar.com/)
+
 ---
 
 #### Model Context Protocol: Advanced Topics
@@ -179,6 +199,8 @@ Ne öğrenirsin:
 - Ölçeklendirme ve güvenlik
 
 Ön koşul: Async Python ve HTTP/SSE deneyimi.
+
+[→ Kayıt Ol](https://anthropic.skilljar.com/)
 
 ---
 
@@ -199,6 +221,8 @@ Ne öğrenirsin:
 
 Ön koşul: Python ve temel AWS/Bedrock bilgisi.
 
+[→ Kayıt Ol](https://anthropic.skilljar.com/)
+
 ---
 
 #### Claude with Google Cloud's Vertex AI
@@ -206,6 +230,8 @@ Ne öğrenirsin:
 Google Cloud üzerinden Claude kullanımını ele alıyor.
 
 Vertex AI platformuyla entegrasyon, model dağıtımı ve üretim mimarileri.
+
+[→ Kayıt Ol](https://anthropic.skilljar.com/)
 
 ---
 

@@ -410,6 +410,31 @@ hr.section-divider {
   opacity: 0.85;
 }
 
+.blog-post-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 20px;
+  font-size: 0.9rem;
+}
+
+.blog-post-content th,
+.blog-post-content td {
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  text-align: left;
+}
+
+.blog-post-content th {
+  background-color: var(--bg-section);
+  font-weight: 700;
+  font-family: monospace;
+  font-size: 0.82rem;
+}
+
+.blog-post-content tr:nth-child(even) td {
+  background-color: var(--bg-section);
+}
+
 .blog-post-content blockquote {
   border-left: 3px solid var(--border);
   margin: 0 0 16px;
