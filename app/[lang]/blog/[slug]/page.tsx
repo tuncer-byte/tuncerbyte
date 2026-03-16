@@ -5,6 +5,20 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { BlogCourseCta } from "@/app/components/BlogCourseCta";
+
+function splitContentAtParagraph(html: string, nth: number): [string, string] {
+  let count = 0;
+  let idx = 0;
+  while (idx < html.length) {
+    const pos = html.indexOf("</p>", idx);
+    if (pos === -1) break;
+    count++;
+    idx = pos + 4;
+    if (count === nth) return [html.slice(0, idx), html.slice(idx)];
+  }
+  return [html, ""];
+}
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://tuncer-byte.com";
 
@@ -131,6 +145,11 @@ export default async function PostPage({ params }: Props) {
     ],
   };
 
+  // Split content: insert CTA after the 4th paragraph
+  const totalParagraphs = (post.contentHtml.match(/<\/p>/g) ?? []).length;
+  const insertAfter = Math.min(4, Math.max(2, Math.floor(totalParagraphs / 2)));
+  const [contentTop, contentBottom] = splitContentAtParagraph(post.contentHtml, insertAfter);
+
   return (
     <main>
       <script
@@ -150,59 +169,15 @@ export default async function PostPage({ params }: Props) {
           </div>
           <div
             className="blog-post-content"
-            dangerouslySetInnerHTML={{ __html: post.contentHtml }}
+            dangerouslySetInnerHTML={{ __html: contentTop }}
           />
-          {/* CTA */}
-          <div style={{
-            marginTop: 48,
-            padding: "28px 32px",
-            border: "1px solid var(--border)",
-            borderRadius: 8,
-            background: "var(--bg-section)",
-          }}>
-            <p style={{ margin: "0 0 20px", fontWeight: 700, fontSize: "1rem" }}>
-              {d.blog.cta.heading}
-            </p>
-            <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-              <a
-                href="https://www.udemy.com/user/tuncerbhc/"
-                target="_blank"
-                rel="noreferrer"
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: 2,
-                  padding: "12px 20px",
-                  background: "var(--text)",
-                  color: "var(--bg)",
-                  borderRadius: 6,
-                  textDecoration: "none",
-                  minWidth: 160,
-                }}
-              >
-                <span style={{ fontWeight: 700, fontSize: "0.9rem" }}>{d.blog.cta.udemy}</span>
-                <span style={{ fontSize: "0.75rem", opacity: 0.65, fontFamily: "monospace" }}>{d.blog.cta.udemySub}</span>
-              </a>
-              <a
-                href="mailto:tuncerbagcabasi@gmail.com"
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: 2,
-                  padding: "12px 20px",
-                  background: "transparent",
-                  color: "var(--text)",
-                  border: "1px solid var(--border)",
-                  borderRadius: 6,
-                  textDecoration: "none",
-                  minWidth: 160,
-                }}
-              >
-                <span style={{ fontWeight: 700, fontSize: "0.9rem" }}>{d.blog.cta.contact}</span>
-                <span style={{ fontSize: "0.75rem", opacity: 0.55, fontFamily: "monospace" }}>{d.blog.cta.contactSub}</span>
-              </a>
-            </div>
-          </div>
+          <BlogCourseCta slug={slug} locale={locale} />
+          {contentBottom && (
+            <div
+              className="blog-post-content"
+              dangerouslySetInnerHTML={{ __html: contentBottom }}
+            />
+          )}
 
           {post.tags && post.tags.length > 0 && (
             <div style={{ marginTop: 32, display: "flex", gap: 8, flexWrap: "wrap" }}>

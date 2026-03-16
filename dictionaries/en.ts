@@ -8,6 +8,7 @@ export const en: Dictionary = {
     projects: "projects",
     videos: "videos",
     blog: "blog",
+    contact: "contact",
     switchLang: "TR",
   },
 
@@ -102,13 +103,6 @@ export const en: Dictionary = {
     heading: "Writing",
     sub: "Notes on software, AI and developer experience.",
     empty: "No posts yet.",
-    cta: {
-      heading: "Want to go deeper on these topics?",
-      udemy: "My Udemy Courses",
-      udemySub: "10,000+ students · Turkish",
-      contact: "Get in Touch",
-      contactSub: "Consulting & collaboration",
-    },
   },
 
   footer: {

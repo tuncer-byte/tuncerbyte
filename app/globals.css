@@ -572,6 +572,10 @@ footer {
 
   .blog-excerpt { margin-left: 0 !important; }
 
+.course-cta-card:hover {
+  border-color: var(--text-muted) !important;
+}
+
 /* ─── Very small: ≤ 400px ─── */
 @media (max-width: 400px) {
   .container { padding: 0 16px; }
