@@ -28,6 +28,8 @@ All courses are self-paced. When you finish, you can download your certificate a
 
 ### For General Users
 
+![AI content and writing representation](https://www-cdn.anthropic.com/images/4zrzovbb/website/33dbe8f783d4835a838b4c4ae85d3c04e352fee1-1000x1000.svg)
+
 #### Claude 101
 
 The starting point for anyone new to Claude.
@@ -68,6 +70,8 @@ Covers responsible AI adoption within mission-driven organizations.
 
 ### For Educators
 
+![AI content and writing representation](https://www-cdn.anthropic.com/images/4zrzovbb/website/33dbe8f783d4835a838b4c4ae85d3c04e352fee1-1000x1000.svg)
+
 #### AI Fluency for Educators
 
 For teachers and instructional designers.
@@ -99,6 +103,8 @@ Covers how to teach and assess AI fluency in classroom settings.
 ---
 
 ### For Developers
+
+![AI thinking and connection representation](https://www-cdn.anthropic.com/images/4zrzovbb/website/46e4aa7ea208ed440d5bd9e9e3a0ee66bc336ff1-1000x1000.svg)
 
 #### Building with the Claude API
 
@@ -177,6 +183,8 @@ Prerequisites: Async Python, HTTP/SSE familiarity.
 ---
 
 ### For Cloud Platforms
+
+![AI thinking and connection representation](https://www-cdn.anthropic.com/images/4zrzovbb/website/46e4aa7ea208ed440d5bd9e9e3a0ee66bc336ff1-1000x1000.svg)
 
 #### Claude with Amazon Bedrock
 
