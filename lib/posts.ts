@@ -12,6 +12,8 @@ export interface PostData {
   title: string;
   date: string;
   excerpt?: string;
+  tags?: string[];
+  updated?: string;
 }
 
 export interface PostDataWithContent extends PostData {
@@ -35,6 +37,8 @@ export function getSortedPostsData(lang = "tr"): PostData[] {
         title: matterResult.data.title as string,
         date: matterResult.data.date as string,
         excerpt: matterResult.data.excerpt as string | undefined,
+        tags: matterResult.data.tags as string[] | undefined,
+        updated: matterResult.data.updated as string | undefined,
       };
     });
 
@@ -65,6 +69,8 @@ export async function getPostData(slug: string, lang = "tr"): Promise<PostDataWi
     title: matterResult.data.title as string,
     date: matterResult.data.date as string,
     excerpt: matterResult.data.excerpt as string | undefined,
+    tags: matterResult.data.tags as string[] | undefined,
+    updated: matterResult.data.updated as string | undefined,
     contentHtml,
   };
 }

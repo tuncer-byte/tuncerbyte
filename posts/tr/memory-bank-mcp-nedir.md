@@ -2,6 +2,7 @@
 title: "memory-bank-MCP: Yapay Zekaya Kalıcı Bellek Kazandırmak"
 date: "2025-03-10"
 excerpt: "Claude, Cursor ve diğer AI araçlarının proje bağlamını session'lar arasında hatırlamasını sağlayan MCP sunucusunu neden ve nasıl yaptım."
+tags: ["MCP", "memory-bank", "Claude", "Cursor", "Yapay Zeka", "Açık Kaynak"]
 ---
 
 Yapay zeka araçlarıyla çalışırken en can sıkıcı problem şu: her oturumu sıfırdan başlatmak zorunda kalmak. Projeni anlat, bağlamı ver, ne yapmak istediğini açıkla... ve her seferinde aynı şeyi tekrar et.

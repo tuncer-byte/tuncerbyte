@@ -2,6 +2,7 @@
 title: "MCP Nedir ve Neden Önemli?"
 date: "2025-01-20"
 excerpt: "Model Context Protocol, AI asistanlarını gerçek dünya araçlarıyla buluşturuyor. Bu protokolün geleceği nasıl şekillendirecek?"
+tags: ["MCP", "Model Context Protocol", "Yapay Zeka", "Claude", "AI Araçları"]
 ---
 
 2024 sonunda Anthropic, [Model Context Protocol (MCP)](https://modelcontextprotocol.io)'i açık kaynak olarak yayınladı. Başlangıçta sessiz sedasız çıkan bu protokol, kısa sürede AI ekosisteminin en önemli yapı taşlarından biri haline geldi.

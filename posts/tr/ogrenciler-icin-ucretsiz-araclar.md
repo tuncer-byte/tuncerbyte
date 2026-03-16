@@ -1,9 +1,9 @@
 ---
-
 title: "70+ Ücretsiz Abonelik — Öğrenci Ol"
 date: "2025-03-15"
 excerpt: "Öğrenci olmak yılda 10.000 dolardan fazla yazılım, bulut ve araç ücretsiz demek. Tek bir doğrulamayla yüzlerce fırsat açılıyor."
-------------------------------------------------------------------------------------------------------------------------------------------
+tags: ["Öğrenci", "Ücretsiz Araçlar", "GitHub Student", "AWS", "Azure", "Yazılım"]
+---
 
 
 ## Çoğu kişi farkında değil ama **öğrenci olmak teknoloji dünyasında büyük bir avantaj**.
