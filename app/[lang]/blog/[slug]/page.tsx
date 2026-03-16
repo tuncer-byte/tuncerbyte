@@ -3,6 +3,7 @@ import { getDictionary, isValidLocale, defaultLocale, locales } from "@/lib/i18n
 import type { Locale } from "@/lib/i18n";
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://tuncer-byte.com";
@@ -172,7 +173,13 @@ export default async function PostPage({ params }: Props) {
             </div>
           )}
           <div style={{ marginTop: 48, padding: "20px 0", borderTop: "1px solid var(--border)", display: "flex", alignItems: "center", gap: 16 }}>
-            <div style={{ width: 48, height: 48, borderRadius: "50%", background: "linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 20, color: "white", fontFamily: "monospace", fontWeight: 700, flexShrink: 0 }}>T</div>
+            <Image
+              src="/profile.png"
+              alt="Tuncer Bağçabaşı"
+              width={48}
+              height={48}
+              style={{ borderRadius: "50%", objectFit: "cover", flexShrink: 0, border: "2px solid var(--border)" }}
+            />
             <div>
               <div style={{ fontWeight: 700, fontSize: "0.95rem" }}>Tuncer Bağçabaşı</div>
               <div style={{ color: "var(--text-muted)", fontSize: "0.82rem", fontFamily: "monospace" }}>
