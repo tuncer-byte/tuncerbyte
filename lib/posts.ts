@@ -63,7 +63,19 @@ export async function getPostData(slug: string, lang = "tr"): Promise<PostDataWi
   const matterResult = matter(fileContents);
 
   const processedContent = await remark().use(remarkGfm).use(html).process(matterResult.content);
-  const contentHtml = processedContent.toString();
+  const contentHtml = processedContent.toString().replace(
+    /<(h[23])>(.*?)<\/\1>/g,
+    (_, tag, inner) => {
+      const id = inner
+        .replace(/<[^>]+>/g, "")
+        .toLowerCase()
+        .replace(/[şş]/g, "s").replace(/[ğ]/g, "g").replace(/[ıi̇]/g, "i")
+        .replace(/[öo]/g, "o").replace(/[üu]/g, "u").replace(/[çc]/g, "c")
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-|-$/g, "");
+      return `<${tag} id="${id}">${inner}</${tag}>`;
+    }
+  );
 
   return {
     slug,
