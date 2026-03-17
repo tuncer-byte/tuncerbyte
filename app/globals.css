@@ -455,6 +455,59 @@ hr.section-divider {
 
 .back-link:hover { color: var(--link); }
 
+/* ─── Blog Breadcrumb ─── */
+.blog-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 28px;
+  font-family: monospace;
+}
+
+.blog-breadcrumb a {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.blog-breadcrumb a:hover { color: var(--link); }
+
+.breadcrumb-sep { opacity: 0.4; }
+
+.breadcrumb-current { color: var(--text); }
+
+/* ─── Blog Category Tabs ─── */
+.blog-category-tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.blog-category-tab {
+  padding: 4px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  font-family: monospace;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.blog-category-tab:hover {
+  border-color: var(--link);
+  color: var(--link);
+}
+
+.blog-category-tab.active {
+  background: var(--link);
+  border-color: var(--link);
+  color: #fff;
+}
+
 /* ─── Footer ─── */
 footer {
   border-top: 1px solid var(--border);

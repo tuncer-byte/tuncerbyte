@@ -3,6 +3,7 @@ title: "Yapay Zekaya Giriş — P1"
 date: "2026-03-16"
 excerpt: "Bu seride baştan sona yapay zeka mühendisliği sürecine değineceğiz. Dil modeli nedir, token nedir, autoregressive ve masked modeller arasındaki fark ne?"
 tags: ["Yapay Zeka", "Dil Modeli", "LLM", "Tokenizer", "AI Mühendisliği"]
+category: "Teknik"
 ---
 
 **İçindekiler**

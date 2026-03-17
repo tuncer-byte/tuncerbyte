@@ -3,6 +3,7 @@ title: "Claude Certified Architect: Sertifika Olmadan Bilmeniz Gereken Her Şey"
 date: "2026-03-16"
 excerpt: "Claude Certified Architect sınavı yalnızca Anthropic partner'larına açık. Arkasındaki bilgi herkese açık. Beş domain, gerçekten önemli olan her şey."
 tags: ["Claude", "Claude Code", "MCP", "Agent SDK", "Claude API", "Agentic AI", "Production", "Mimari"]
+category: "Teknik"
 ---
 
 Claude Certified Architect (Foundations) sınavı var. Claude Code, Agent SDK, Claude API ve Model Context Protocol'ü kapsıyor. Sınava girebilmek için Anthropic partner'ı olmanız gerekiyor.

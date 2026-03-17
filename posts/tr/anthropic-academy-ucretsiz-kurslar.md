@@ -3,6 +3,7 @@ title: "Anthropic Academy: 13 Ücretsiz AI Kursu — Claude'dan MCP'ye Her Şey"
 date: "2026-03-16"
 excerpt: "Anthropic, Claude 101'den MCP geliştirmeye kadar 13 ücretsiz kurs sunan Anthropic Academy'yi yayınladı. Sertifika var, kredi kartı yok."
 tags: ["Anthropic Academy", "Ücretsiz Kurs", "Claude", "MCP", "Yapay Zeka", "Sertifika", "Claude API"]
+category: "Kaynaklar"
 ---
 
 Anthropic, Mart 2026'da [Anthropic Academy](https://anthropic.skilljar.com/)'yi duyurdu.
