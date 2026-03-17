@@ -42,7 +42,8 @@ export default function BlogListClient({ posts, locale, heading, sub, emptyText 
     ? posts.filter((p) => {
         const cat = p.category ?? "";
         if (locale === "tr") return cat === activeCategory;
-        return (CATEGORY_MAP_EN_TO_TR[activeCategory] ?? activeCategory) === cat;
+        const catInEN = CATEGORY_MAP_TR_TO_EN[cat] ?? cat;
+        return catInEN === activeCategory;
       })
     : posts;
 
