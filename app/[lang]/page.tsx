@@ -1,4 +1,5 @@
 import { getSortedPostsData } from "@/lib/posts";
+import { projects as projectMeta } from "@/lib/projects";
 import { getLatestVideos } from "@/lib/youtube";
 import { getDictionary, isValidLocale, defaultLocale, locales } from "@/lib/i18n";
 import type { Locale } from "@/lib/i18n";
@@ -53,12 +54,6 @@ function getProfileImageSrc(): string | null {
   return null;
 }
 
-const projectMeta = [
-  { name: "byte", url: "https://github.com/tuncer-byte/byte", stars: 21, tags: ["TypeScript", "VS Code Extension", "AI"] },
-  { name: "cursor25x", url: "https://github.com/tuncer-byte/cursor25x", stars: 22, tags: ["TypeScript", "MCP", "Cursor"] },
-  { name: "memory-bank-MCP", url: "https://github.com/tuncer-byte/memory-bank-MCP", stars: 101, tags: ["TypeScript", "MCP"] },
-  { name: "computer-vision", url: "https://github.com/atesbey-design/computer-vision", stars: 9, tags: ["Python", "Computer Vision", "LLM"] },
-];
 
 const courses = [
   {
@@ -183,7 +178,7 @@ export default async function HomePage({
           </p>
           <div style={{ display: "flex", flexDirection: "column" }}>
             {projectMeta.map((p, i) => {
-              const desc = d.projects.items.find((item) => item.name === p.name)?.desc ?? "";
+              const desc = locale === "tr" ? p.descTr : p.descEn;
               return (
                 <div
                   key={p.name}
@@ -193,9 +188,9 @@ export default async function HomePage({
                   }}
                 >
                   <div style={{ marginBottom: 6 }}>
-                    <a href={p.url} target="_blank" rel="noreferrer" style={{ fontWeight: 700, fontFamily: "Georgia, serif" }}>
+                    <Link href={`/${locale}/projects/${p.slug}`} style={{ fontWeight: 700, fontFamily: "Georgia, serif", textDecoration: "none", color: "var(--text)" }}>
                       {p.name}
-                    </a>
+                    </Link>
                     <span style={{ fontSize: "0.78rem", color: "var(--text-muted)", fontFamily: "monospace", marginLeft: 10 }}>
                       ★ {p.stars}
                     </span>

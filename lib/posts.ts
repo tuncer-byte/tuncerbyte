@@ -16,6 +16,8 @@ export interface PostData {
   tags?: string[];
   updated?: string;
   category?: string;
+  series?: string;
+  seriesTitle?: string;
 }
 
 export interface PostDataWithContent extends PostData {
@@ -42,6 +44,8 @@ export function getSortedPostsData(lang = "tr"): PostData[] {
         tags: matterResult.data.tags as string[] | undefined,
         updated: matterResult.data.updated as string | undefined,
         category: matterResult.data.category as string | undefined,
+        series: matterResult.data.series as string | undefined,
+        seriesTitle: matterResult.data.seriesTitle as string | undefined,
       };
     });
 

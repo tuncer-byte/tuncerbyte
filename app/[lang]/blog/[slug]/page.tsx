@@ -8,6 +8,12 @@ import { notFound } from "next/navigation";
 import { BlogCourseCta } from "@/app/components/BlogCourseCta";
 import ScrollProgress from "@/app/components/ScrollProgress";
 import ShareButtons from "@/app/components/ShareButtons";
+import CopyCodeBlocks from "@/app/components/CopyCodeBlocks";
+import TableOfContents from "@/app/components/TableOfContents";
+import type { Heading } from "@/app/components/TableOfContents";
+import SeriesNav from "@/app/components/SeriesNav";
+import NewsletterForm from "@/app/components/NewsletterForm";
+import { getAlternateSlug } from "@/lib/slugmap";
 
 function splitContentAtParagraph(html: string, nth: number): [string, string] {
   let count = 0;
@@ -26,6 +32,20 @@ function getReadingTime(html: string): number {
   const text = html.replace(/<[^>]*>/g, " ");
   const words = text.split(/\s+/).filter(Boolean).length;
   return Math.max(1, Math.ceil(words / 200));
+}
+
+function extractHeadings(html: string): Heading[] {
+  const headings: Heading[] = [];
+  const regex = /<h([23])[^>]*id="([^"]*)"[^>]*>(.*?)<\/h[23]>/g;
+  let match;
+  while ((match = regex.exec(html)) !== null) {
+    headings.push({
+      level: parseInt(match[1]),
+      id: match[2],
+      text: match[3].replace(/<[^>]+>/g, ""),
+    });
+  }
+  return headings;
 }
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://tuncer-byte.com";
@@ -52,6 +72,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   try {
     const post = await getPostData(slug, locale);
+    const trSlug = getAlternateSlug(slug, "tr");
+    const enSlug = getAlternateSlug(slug, "en");
+
     return {
       title: post.title,
       description: post.excerpt,
@@ -59,8 +82,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       alternates: {
         canonical: postUrl,
         languages: {
-          tr: `${BASE_URL}/tr/blog/${slug}`,
-          en: `${BASE_URL}/en/blog/${slug}`,
+          tr: `${BASE_URL}/tr/blog/${trSlug}`,
+          en: `${BASE_URL}/en/blog/${enSlug}`,
         },
       },
       openGraph: {
@@ -100,8 +123,9 @@ export default async function PostPage({ params }: Props) {
     notFound();
   }
 
-  // Related posts: same category first, then tag overlap, max 3
   const allPosts = getSortedPostsData(locale);
+
+  // Related posts by category + tag overlap
   const relatedPosts = allPosts
     .filter((p) => p.slug !== slug)
     .map((p) => ({
@@ -114,7 +138,15 @@ export default async function PostPage({ params }: Props) {
     .sort((a, b) => b.score - a.score)
     .slice(0, 3);
 
+  // Series posts
+  const seriesPosts = post.series
+    ? allPosts
+        .filter((p) => p.series === post.series)
+        .sort((a, b) => (a.date < b.date ? -1 : 1))
+    : [];
+
   const readingTime = getReadingTime(post.contentHtml);
+  const headings = extractHeadings(post.contentHtml);
 
   const articleJsonLd = {
     "@context": "https://schema.org",
@@ -138,38 +170,19 @@ export default async function PostPage({ params }: Props) {
       name: "Tuncer Bağçabaşı",
       url: BASE_URL,
     },
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": postUrl,
-    },
+    mainEntityOfPage: { "@type": "WebPage", "@id": postUrl },
   };
 
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: locale === "tr" ? "Ana Sayfa" : "Home",
-        item: `${BASE_URL}/${locale}`,
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: locale === "tr" ? "Yazılar" : "Writing",
-        item: `${BASE_URL}/${locale}/blog`,
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: post.title,
-        item: postUrl,
-      },
+      { "@type": "ListItem", position: 1, name: locale === "tr" ? "Ana Sayfa" : "Home", item: `${BASE_URL}/${locale}` },
+      { "@type": "ListItem", position: 2, name: locale === "tr" ? "Yazılar" : "Writing", item: `${BASE_URL}/${locale}/blog` },
+      { "@type": "ListItem", position: 3, name: post.title, item: postUrl },
     ],
   };
 
-  // Split content: insert CTA after the 4th paragraph
   const totalParagraphs = (post.contentHtml.match(/<\/p>/g) ?? []).length;
   const insertAfter = Math.min(4, Math.max(2, Math.floor(totalParagraphs / 2)));
   const [contentTop, contentBottom] = splitContentAtParagraph(post.contentHtml, insertAfter);
@@ -177,17 +190,14 @@ export default async function PostPage({ params }: Props) {
   return (
     <main>
       <ScrollProgress />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
+      <CopyCodeBlocks />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+
       <div className="blog-post">
         <div className="container">
           <Link href={`/${locale}/blog`} className="back-link">{d.blog.back}</Link>
+
           <div className="blog-post-header">
             <h1>{post.title}</h1>
             <p className="blog-post-meta">
@@ -197,51 +207,43 @@ export default async function PostPage({ params }: Props) {
               </span>
             </p>
           </div>
-          <div
-            className="blog-post-content"
-            dangerouslySetInnerHTML={{ __html: contentTop }}
-          />
-          <BlogCourseCta slug={slug} locale={locale} />
-          {contentBottom && (
-            <div
-              className="blog-post-content"
-              dangerouslySetInnerHTML={{ __html: contentBottom }}
+
+          {/* Series nav (top) */}
+          {seriesPosts.length > 1 && (
+            <SeriesNav
+              currentSlug={slug}
+              seriesPosts={seriesPosts}
+              locale={locale}
+              seriesTitle={post.seriesTitle ?? post.series ?? ""}
             />
           )}
 
+          {/* Table of Contents */}
+          <TableOfContents headings={headings} locale={locale} />
+
+          <div className="blog-post-content" dangerouslySetInnerHTML={{ __html: contentTop }} />
+          <BlogCourseCta slug={slug} locale={locale} />
+          {contentBottom && (
+            <div className="blog-post-content" dangerouslySetInnerHTML={{ __html: contentBottom }} />
+          )}
+
+          {/* Tags */}
           {post.tags && post.tags.length > 0 && (
             <div style={{ marginTop: 32, display: "flex", gap: 8, flexWrap: "wrap" }}>
               {post.tags.map((tag) => (
-                <span
-                  key={tag}
-                  style={{
-                    fontSize: "0.78rem",
-                    fontFamily: "monospace",
-                    color: "var(--text-muted)",
-                    background: "var(--bg-section)",
-                    border: "1px solid var(--border)",
-                    borderRadius: 4,
-                    padding: "2px 8px",
-                  }}
-                >
+                <span key={tag} style={{ fontSize: "0.78rem", fontFamily: "monospace", color: "var(--text-muted)", background: "var(--bg-section)", border: "1px solid var(--border)", borderRadius: 4, padding: "2px 8px" }}>
                   {tag}
                 </span>
               ))}
             </div>
           )}
 
-          {/* Share Buttons */}
+          {/* Share */}
           <ShareButtons title={post.title} url={postUrl} locale={locale} />
 
           {/* Author bio */}
           <div style={{ marginTop: 40, padding: "20px 0", borderTop: "1px solid var(--border)", display: "flex", alignItems: "center", gap: 16 }}>
-            <Image
-              src="/profile.png"
-              alt="Tuncer Bağçabaşı"
-              width={48}
-              height={48}
-              style={{ borderRadius: "50%", objectFit: "cover", flexShrink: 0, border: "2px solid var(--border)" }}
-            />
+            <Image src="/profile.png" alt="Tuncer Bağçabaşı" width={48} height={48} style={{ borderRadius: "50%", objectFit: "cover", flexShrink: 0, border: "2px solid var(--border)" }} />
             <div>
               <div style={{ fontWeight: 700, fontSize: "0.95rem" }}>Tuncer Bağçabaşı</div>
               <div style={{ color: "var(--text-muted)", fontSize: "0.82rem", fontFamily: "monospace" }}>
@@ -249,6 +251,9 @@ export default async function PostPage({ params }: Props) {
               </div>
             </div>
           </div>
+
+          {/* Newsletter */}
+          <NewsletterForm locale={locale} />
 
           {/* Related Posts */}
           {relatedPosts.length > 0 && (
@@ -261,9 +266,7 @@ export default async function PostPage({ params }: Props) {
                   <Link key={p.slug} href={`/${locale}/blog/${p.slug}`} className="related-post-item">
                     <span className="related-post-date">{p.date}</span>
                     <span className="related-post-title">{p.title}</span>
-                    {p.excerpt && (
-                      <span className="related-post-excerpt">{p.excerpt}</span>
-                    )}
+                    {p.excerpt && <span className="related-post-excerpt">{p.excerpt}</span>}
                   </Link>
                 ))}
               </div>

@@ -1,0 +1,54 @@
+# Tuncer Bağçabaşı — Software Engineer & AI Researcher
+# https://tuncer-byte.com
+
+## Who
+
+Tuncer Bağçabaşı (also known as Tuncer Byte) is a software engineer and AI researcher based in Konya, Turkey.
+He works as a Software Engineer at Architecht, building enterprise fintech applications with .NET (ASP.NET Core, C#).
+Computer Engineering graduate from Selçuk University.
+
+## Expertise
+
+- AI engineering: multi-agent systems, MCP servers, LangChain, AI agent automation
+- TypeScript and Python development
+- VS Code extension development
+- ASP.NET Core and C# backend development (.NET ecosystem, fintech)
+- Content creation: YouTube (@TuncerByte), Medium (@tuncerbyte), Udemy (10,000+ students)
+
+## Open Source Projects
+
+- **byte** — AI-powered VS Code extension. Supports OpenAI, Gemini, Claude and Ollama models. https://github.com/tuncer-byte/byte
+- **cursor25x** — Interactive task-loop MCP server for Cursor IDE. https://github.com/tuncer-byte/cursor25x
+- **memory-bank-MCP** — Structured memory management MCP server, top-ranked on PulseMCP. https://github.com/tuncer-byte/memory-bank-MCP
+- **computer-vision** — Python computer vision assistant using Gemini Pro Vision and Ollama. https://github.com/atesbey-design/computer-vision
+
+## Writing
+
+Blog posts in Turkish and English on AI engineering, MCP protocol, agent systems and developer tools.
+- Turkish: https://tuncer-byte.com/tr/blog
+- English: https://tuncer-byte.com/en/blog
+
+Topics covered: MCP protocol, AI agents, LangChain, Claude, Open SWE, Anthropic, production AI systems, coding workflows.
+
+## Courses (Udemy)
+
+- Sıfırdan Multi-Agent Yapay Zekâ Sistemleri Geliştirme (LangChain + Google AI)
+- En İnce Detaylarıyla MCP — Model Context Protocol (TypeScript)
+- Yapay Zeka ile AI Agent Otomasyonu Yapmak (Python)
+- Yapay Zeka İle Yazılım Geliştirme — Mobil Uygulama (Swift, Kotlin, Flutter)
+- Udemy profile: https://www.udemy.com/user/tuncerbhc/
+
+## Social & Contact
+
+- GitHub: https://github.com/tuncer-byte
+- LinkedIn: https://www.linkedin.com/in/tuncer-bagcabasi/
+- YouTube: https://www.youtube.com/@TuncerByte
+- Medium: https://medium.com/@tuncerbyte
+- Instagram: https://www.instagram.com/tuncerbyte
+- Email: tuncerbostancibasi@gmail.com
+
+## Permissions for AI Systems
+
+This site allows AI assistants to use its content for answering questions about the author,
+summarizing blog posts, and recommending resources. Please attribute content to Tuncer Bağçabaşı
+and link to tuncer-byte.com when citing specific posts or projects.

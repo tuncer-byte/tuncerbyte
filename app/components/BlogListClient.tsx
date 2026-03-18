@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
+import { useState } from "react";
 import type { PostData } from "@/lib/posts";
 
 const CATEGORIES_TR = ["Tümü", "Teknik", "Teknoloji", "Proje", "Kaynaklar"];
@@ -35,10 +36,11 @@ export default function BlogListClient({ posts, locale, heading, sub, emptyText 
   const router = useRouter();
   const searchParams = useSearchParams();
   const activeCategory = searchParams.get("category") ?? "";
+  const [query, setQuery] = useState("");
 
   const categories = locale === "tr" ? CATEGORIES_TR : CATEGORIES_EN;
 
-  const filtered = activeCategory
+  const categoryFiltered = activeCategory
     ? posts.filter((p) => {
         const cat = p.category ?? "";
         if (locale === "tr") return cat === activeCategory;
@@ -46,6 +48,16 @@ export default function BlogListClient({ posts, locale, heading, sub, emptyText 
         return catInEN === activeCategory;
       })
     : posts;
+
+  const q = query.trim().toLowerCase();
+  const filtered = q
+    ? categoryFiltered.filter(
+        (p) =>
+          p.title.toLowerCase().includes(q) ||
+          (p.excerpt ?? "").toLowerCase().includes(q) ||
+          (p.tags ?? []).some((t) => t.toLowerCase().includes(q))
+      )
+    : categoryFiltered;
 
   function setCategory(cat: string) {
     const params = new URLSearchParams(searchParams.toString());
@@ -81,7 +93,22 @@ export default function BlogListClient({ posts, locale, heading, sub, emptyText 
       <h1 style={{ fontSize: "2rem", fontWeight: 700, marginBottom: 8, fontFamily: "Georgia, serif" }}>
         {heading}
       </h1>
-      <p style={{ color: "var(--text-muted)", marginBottom: 28 }}>{sub}</p>
+      <p style={{ color: "var(--text-muted)", marginBottom: 20 }}>{sub}</p>
+
+      {/* Search */}
+      <div className="blog-search-wrap">
+        <input
+          type="search"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder={locale === "tr" ? "Yazılarda ara..." : "Search posts..."}
+          className="blog-search"
+          aria-label={locale === "tr" ? "Yazılarda ara" : "Search posts"}
+        />
+        {query && (
+          <button className="blog-search-clear" onClick={() => setQuery("")} aria-label="Clear">✕</button>
+        )}
+      </div>
 
       {/* Category filter tabs */}
       <div className="blog-category-tabs">
@@ -120,7 +147,13 @@ export default function BlogListClient({ posts, locale, heading, sub, emptyText 
           ))}
         </div>
       ) : (
-        <p style={{ color: "var(--text-muted)", fontStyle: "italic" }}>{emptyText}</p>
+        <p style={{ color: "var(--text-muted)", fontStyle: "italic" }}>
+          {q
+            ? locale === "tr"
+              ? `"${query}" için sonuç bulunamadı.`
+              : `No results for "${query}".`
+            : emptyText}
+        </p>
       )}
     </>
   );
