@@ -41,18 +41,13 @@ export default function TableOfContents({ headings, locale }: Props) {
 
   // Auto-collapse when ToC scrolls out of view
   useEffect(() => {
-    const el = navRef.current;
-    if (!el) return;
-
-    const scrollObserver = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry.isIntersecting) setOpen(false);
-      },
-      { threshold: 0, rootMargin: "0px 0px 0px 0px" }
-    );
-
-    scrollObserver.observe(el);
-    return () => scrollObserver.disconnect();
+    const handleScroll = () => {
+      const el = navRef.current;
+      if (!el) return;
+      if (el.getBoundingClientRect().bottom < 0) setOpen(false);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   if (headings.length < 2) return null;
