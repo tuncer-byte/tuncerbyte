@@ -553,42 +553,23 @@ hr.section-divider {
 .toc {
   border: 1px solid var(--border);
   border-radius: 6px;
-  padding: 14px 18px;
+  padding: 16px 20px;
   margin: 0 0 32px;
   background: var(--bg-section);
 }
 
-.toc-toggle {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 0.82rem;
+.toc-title {
+  font-size: 0.78rem;
   font-family: monospace;
   font-weight: 700;
   color: var(--text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 0;
-  text-align: left;
-}
-
-.toc-arrow {
-  font-size: 1rem;
-  transition: transform 0.15s;
-  display: inline-block;
-  color: var(--text-muted);
-}
-
-.toc-arrow.open {
-  transform: rotate(180deg);
+  letter-spacing: 0.06em;
+  margin: 0 0 10px;
 }
 
 .toc-list {
-  margin: 12px 0 0;
+  margin: 0;
   padding: 0 0 0 16px;
   list-style: none;
 }
@@ -609,7 +590,6 @@ hr.section-divider {
   line-height: 1.5;
 }
 
-.toc-item.toc-active .toc-link,
 .toc-link:hover {
   color: var(--link);
 }
