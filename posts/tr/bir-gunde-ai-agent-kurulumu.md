@@ -6,7 +6,7 @@ tags: ["AI Agent", "Yapay Zeka", "Mühendislik", "Production", "Yazılım Mimari
 category: "Teknoloji"
 ---
 
-Herkes AI agent kurmak istiyor. Neredeyse kimse gerçekten çalışan biri inşa etmiyor.
+Herkese merhaba, bugün herkesin dilinde olan ama kimsenin en net hali ile ne yapması gerektiğini bilmediği ai agent oluşturmadaki önemli konulardan bahsedeceğim.
 
 Her hafta aynı manzarayla karşılaşıyorum: Biri bir tutorial izliyor, birkaç satır kod kopyalıyor, 20 dakikada demoyu çalıştırıyor, bunu X'te paylaşıyor ve kendini "AI agent geliştirici" ilan ediyor. Sonra gerçek bir kullanıcı sisteme dokunuyor ve her şey dağılıyor.
 
