@@ -535,8 +535,10 @@ hr.section-divider {
 }
 
 .share-btn {
-  display: inline-block;
-  padding: 4px 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
   font-size: 0.82rem;
   font-family: monospace;
   border: 1px solid var(--border);
@@ -546,7 +548,7 @@ hr.section-divider {
   background: transparent;
   cursor: pointer;
   transition: border-color 0.15s, color 0.15s;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 .share-btn:hover {
@@ -557,6 +559,11 @@ hr.section-divider {
 
 .share-btn-copy {
   font-family: monospace;
+}
+
+.share-btn-copied {
+  border-color: var(--text-muted);
+  color: var(--text-muted);
 }
 
 /* ─── Related Posts ─── */
