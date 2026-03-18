@@ -899,63 +899,87 @@ hr.section-divider {
 
 /* ─── Related Posts ─── */
 .related-posts {
-  margin-top: 48px;
+  margin-top: 56px;
   padding-top: 32px;
-  border-top: 1px solid var(--border);
+  border-top: 2px solid var(--border);
 }
 
 .related-posts-heading {
-  font-size: 1rem;
+  font-size: 0.78rem;
   font-weight: 700;
   font-family: monospace;
   color: var(--text-muted);
   margin: 0 0 20px;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-size: 0.82rem;
+  letter-spacing: 0.08em;
 }
 
-.related-posts-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
+.related-posts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
 }
 
-.related-post-item {
+.related-post-card {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  padding: 14px 0;
-  border-bottom: 1px solid var(--border);
+  gap: 8px;
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
   text-decoration: none;
   color: var(--text);
-  transition: color 0.15s;
+  background: var(--bg-section);
+  transition: border-color 0.15s, transform 0.15s;
 }
 
-.related-post-item:last-child {
-  border-bottom: none;
+.related-post-card:hover {
+  border-color: var(--link);
+  transform: translateY(-2px);
 }
 
-.related-post-item:hover .related-post-title {
-  color: var(--link);
-}
-
-.related-post-date {
-  font-size: 0.78rem;
+.related-post-category {
+  font-size: 0.72rem;
   font-family: monospace;
-  color: var(--text-muted);
+  color: var(--link);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 700;
 }
 
 .related-post-title {
-  font-weight: 600;
-  font-size: 0.95rem;
+  font-weight: 700;
+  font-size: 0.93rem;
+  line-height: 1.4;
   transition: color 0.15s;
 }
 
+.related-post-card:hover .related-post-title {
+  color: var(--link);
+}
+
 .related-post-excerpt {
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   color: var(--text-muted);
   line-height: 1.5;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.related-post-cta {
+  font-size: 0.8rem;
+  font-family: monospace;
+  color: var(--link);
+  margin-top: 4px;
+}
+
+@media (max-width: 640px) {
+  .related-posts-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ─── Footer ─── */
