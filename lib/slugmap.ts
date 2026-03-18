@@ -9,6 +9,7 @@ export const slugMap: Record<string, { tr: string; en: string }> = {
   "memory-bank-mcp-nedir": { tr: "memory-bank-mcp-nedir", en: "memory-bank-mcp" },
   "anthropic-academy-ucretsiz-kurslar": { tr: "anthropic-academy-ucretsiz-kurslar", en: "anthropic-academy-free-courses" },
   "claude-certified-architect-rehberi": { tr: "claude-certified-architect-rehberi", en: "claude-certified-architect-guide" },
+  "ai-devlerinden-9-teknik-rehber": { tr: "ai-devlerinden-9-teknik-rehber", en: "9-technical-ai-guides-big-tech" },
   // EN slugs (reverse mapping)
   "open-swe-framework": { tr: "open-swe-nedir", en: "open-swe-framework" },
   "building-ai-agents-for-production": { tr: "bir-gunde-ai-agent-kurulumu", en: "building-ai-agents-for-production" },
@@ -16,6 +17,7 @@ export const slugMap: Record<string, { tr: string; en: string }> = {
   "memory-bank-mcp": { tr: "memory-bank-mcp-nedir", en: "memory-bank-mcp" },
   "anthropic-academy-free-courses": { tr: "anthropic-academy-ucretsiz-kurslar", en: "anthropic-academy-free-courses" },
   "claude-certified-architect-guide": { tr: "claude-certified-architect-rehberi", en: "claude-certified-architect-guide" },
+  "9-technical-ai-guides-big-tech": { tr: "ai-devlerinden-9-teknik-rehber", en: "9-technical-ai-guides-big-tech" },
 };
 
 export function getAlternateSlug(slug: string, targetLocale: "tr" | "en"): string {
