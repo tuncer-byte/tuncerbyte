@@ -20,6 +20,8 @@ export const slugMap: Record<string, { tr: string; en: string }> = {
   "9-technical-ai-guides-big-tech": { tr: "ai-devlerinden-9-teknik-rehber", en: "9-technical-ai-guides-big-tech" },
   "recaptcha-gizli-veri-fabrikasi": { tr: "recaptcha-gizli-veri-fabrikasi", en: "recaptcha-googles-hidden-data-factory" },
   "recaptcha-googles-hidden-data-factory": { tr: "recaptcha-gizli-veri-fabrikasi", en: "recaptcha-googles-hidden-data-factory" },
+  "vibe-coding-temelleri": { tr: "vibe-coding-temelleri", en: "vibe-coding-fundamentals" },
+  "vibe-coding-fundamentals": { tr: "vibe-coding-temelleri", en: "vibe-coding-fundamentals" },
 };
 
 export function getAlternateSlug(slug: string, targetLocale: "tr" | "en"): string {
