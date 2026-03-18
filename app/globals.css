@@ -457,6 +457,12 @@ hr.section-divider {
 
 /* ─── Blog Breadcrumb ─── */
 .blog-breadcrumb {
+  position: static;
+  top: auto;
+  z-index: auto;
+  border-bottom: none;
+  background: none;
+  backdrop-filter: none;
   display: flex;
   align-items: center;
   gap: 6px;
@@ -464,6 +470,7 @@ hr.section-divider {
   color: var(--text-muted);
   margin-bottom: 28px;
   font-family: monospace;
+  padding: 0;
 }
 
 .blog-breadcrumb a,
@@ -551,6 +558,10 @@ hr.section-divider {
 
 /* ─── Table of Contents ─── */
 .toc {
+  position: static;
+  top: auto;
+  z-index: auto;
+  backdrop-filter: none;
   border: 1px solid var(--border);
   border-radius: 6px;
   padding: 16px 20px;
