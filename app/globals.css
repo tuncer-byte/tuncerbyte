@@ -466,16 +466,24 @@ hr.section-divider {
   font-family: monospace;
 }
 
-.blog-breadcrumb a {
+.blog-breadcrumb a,
+.breadcrumb-link {
   color: var(--text-muted);
   text-decoration: none;
 }
 
-.blog-breadcrumb a:hover { color: var(--link); }
+.blog-breadcrumb a:hover,
+.breadcrumb-link:hover { color: var(--link); }
 
 .breadcrumb-sep { opacity: 0.4; }
 
-.breadcrumb-current { color: var(--text); }
+.breadcrumb-current {
+  color: var(--text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 280px;
+}
 
 /* ─── Blog Category Tabs ─── */
 .blog-category-tabs {

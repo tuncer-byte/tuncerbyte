@@ -227,7 +227,25 @@ export default async function PostPage({ params }: Props) {
 
       <div className="blog-post">
         <div className="container">
-          <Link href={`/${locale}/blog`} className="back-link">{d.blog.back}</Link>
+          <nav aria-label="breadcrumb" className="blog-breadcrumb">
+            <Link href={`/${locale}`} className="breadcrumb-link">
+              {locale === "tr" ? "Ana Sayfa" : "Home"}
+            </Link>
+            <span className="breadcrumb-sep">›</span>
+            <Link href={`/${locale}/blog`} className="breadcrumb-link">
+              {locale === "tr" ? "Yazılar" : "Writing"}
+            </Link>
+            {post.category && (
+              <>
+                <span className="breadcrumb-sep">›</span>
+                <Link href={`/${locale}/blog?category=${encodeURIComponent(post.category)}`} className="breadcrumb-link">
+                  {post.category}
+                </Link>
+              </>
+            )}
+            <span className="breadcrumb-sep">›</span>
+            <span className="breadcrumb-current">{post.title}</span>
+          </nav>
 
           <div className="blog-post-header">
             <h1>{post.title}</h1>
