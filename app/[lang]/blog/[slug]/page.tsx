@@ -307,22 +307,15 @@ export default async function PostPage({ params }: Props) {
           {/* Related Posts */}
           {relatedPosts.length > 0 && (
             <div className="related-posts">
-              <p className="related-posts-heading">
-                {locale === "tr" ? "Bunlar da İlgini Çekebilir" : "You Might Also Like"}
-              </p>
-              <div className="related-posts-grid">
+              <h3 className="related-posts-heading">
+                {locale === "tr" ? "İlgili Yazılar" : "Related Posts"}
+              </h3>
+              <div className="related-posts-list">
                 {relatedPosts.map((p) => (
-                  <Link key={p.slug} href={`/${locale}/blog/${p.slug}`} className="related-post-card">
-                    {p.category && (
-                      <span className="related-post-category">{p.category}</span>
-                    )}
+                  <Link key={p.slug} href={`/${locale}/blog/${p.slug}`} className="related-post-item">
+                    <span className="related-post-date">{p.date}</span>
                     <span className="related-post-title">{p.title}</span>
-                    {p.excerpt && (
-                      <span className="related-post-excerpt">{p.excerpt}</span>
-                    )}
-                    <span className="related-post-cta">
-                      {locale === "tr" ? "Oku →" : "Read →"}
-                    </span>
+                    {p.excerpt && <span className="related-post-excerpt">{p.excerpt}</span>}
                   </Link>
                 ))}
               </div>
