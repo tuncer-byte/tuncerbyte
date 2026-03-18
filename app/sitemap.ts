@@ -26,12 +26,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Blog posts
     const posts = getSortedPostsData(locale);
+    const now = Date.now();
     for (const post of posts) {
+      const daysOld = (now - new Date(post.date).getTime()) / 86400000;
       entries.push({
         url: `${BASE_URL}/${locale}/blog/${post.slug}`,
         lastModified: new Date(post.date),
-        changeFrequency: "monthly",
-        priority: 0.7,
+        changeFrequency: daysOld < 14 ? "daily" : "monthly",
+        priority: daysOld < 14 ? 0.9 : daysOld < 60 ? 0.8 : 0.7,
       });
     }
   }

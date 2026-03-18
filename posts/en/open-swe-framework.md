@@ -1,5 +1,5 @@
 ---
-title: "Open SWE: An Open-Source Framework for Internal Coding Agents"
+title: "Open SWE: Open-Source Framework for Coding Agents"
 date: "2026-03-17"
 excerpt: "Stripe, Ramp, and Coinbase each built their own internal coding agents. LangChain just open-sourced the architectural patterns they all converged on."
 tags: ["Open SWE", "LangChain", "Coding Agent", "LangGraph", "Deep Agents", "AI Engineering"]

@@ -1,8 +1,8 @@
 ---
-title: "Anthropic Academy: 13 Free AI Courses — From Claude 101 to MCP"
+title: "Anthropic Academy: 13 Free Claude & AI Courses"
 date: "2026-03-16"
-excerpt: "Anthropic launched a free learning platform with 13 courses covering Claude, MCP, the API, and more. Certificates included, no credit card needed."
-tags: ["Anthropic Academy", "Free Courses", "Claude", "MCP", "Artificial Intelligence", "Certificate", "Claude API"]
+excerpt: "Anthropic launched a free AI learning platform with 13 courses covering Claude, MCP, the API, and more. Certificates included, no credit card needed."
+tags: ["Anthropic Academy", "Free Courses", "Claude", "MCP", "Artificial Intelligence", "Certificate", "Claude API", "Free AI Training", "Learn Claude", "AI Education"]
 ---
 
 In March 2026, Anthropic launched [Anthropic Academy](https://anthropic.skilljar.com/).

@@ -1,5 +1,5 @@
 ---
-title: "Claude Certified Architect: Sertifika Olmadan Bilmeniz Gereken Her Şey"
+title: "Claude Certified Architect: Bilmeniz Gereken Her Şey"
 date: "2026-03-16"
 excerpt: "Claude Certified Architect sınavı yalnızca Anthropic partner'larına açık. Arkasındaki bilgi herkese açık. Beş domain, gerçekten önemli olan her şey."
 tags: ["Claude", "Claude Code", "MCP", "Agent SDK", "Claude API", "Agentic AI", "Production", "Mimari"]

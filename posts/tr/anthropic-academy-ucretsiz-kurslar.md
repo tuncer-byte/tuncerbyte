@@ -1,8 +1,8 @@
 ---
-title: "Anthropic Academy: 13 Ücretsiz AI Kursu — Claude'dan MCP'ye Her Şey"
+title: "Anthropic Academy: 13 Ücretsiz Claude ve AI Eğitimi"
 date: "2026-03-16"
-excerpt: "Anthropic, Claude 101'den MCP geliştirmeye kadar 13 ücretsiz kurs sunan Anthropic Academy'yi yayınladı. Sertifika var, kredi kartı yok."
-tags: ["Anthropic Academy", "Ücretsiz Kurs", "Claude", "MCP", "Yapay Zeka", "Sertifika", "Claude API"]
+excerpt: "Anthropic, Claude 101'den MCP'ye kadar 13 ücretsiz yapay zeka eğitimi sunuyor. Sertifika var, kredi kartı yok — sadece e-posta ile kayıt."
+tags: ["Anthropic Academy", "Ücretsiz Kurs", "Claude", "MCP", "Yapay Zeka", "Sertifika", "Claude API", "Ücretsiz AI Eğitimi", "Claude Eğitimi", "Yapay Zeka Kursu", "Ücretsiz Yapay Zeka"]
 category: "Kaynaklar"
 ---
 

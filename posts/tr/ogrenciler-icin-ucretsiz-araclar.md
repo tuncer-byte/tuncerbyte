@@ -1,8 +1,8 @@
 ---
-title: "70+ Ücretsiz Abonelik — Öğrenci Ol"
+title: "Öğrencilere Ücretsiz 70+ Araç — 10.000$ Değerinde Paket"
 date: "2025-03-15"
-excerpt: "Öğrenci olmak yılda 10.000 dolardan fazla yazılım, bulut ve araç ücretsiz demek. Tek bir doğrulamayla yüzlerce fırsat açılıyor."
-tags: ["Öğrenci", "Ücretsiz Araçlar", "GitHub Student", "AWS", "Azure", "Yazılım"]
+excerpt: "Öğrenci olmak yılda 10.000 dolardan fazla yazılım, bulut ve araç ücretsiz demek. GitHub Student Pack, AWS, JetBrains ve daha fazlası — tek doğrulamayla."
+tags: ["Öğrenci", "Ücretsiz Araçlar", "GitHub Student Pack", "AWS", "Azure", "Yazılım", "JetBrains", "Ücretsiz Yazılım", "Öğrenci İndirimi", "GitHub Education"]
 category: "Kaynaklar"
 ---
 

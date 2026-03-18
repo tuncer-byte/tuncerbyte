@@ -1,5 +1,5 @@
 ---
-title: "Open SWE: Şirket İçi Kodlama Agentları İçin Açık Kaynak Framework"
+title: "Open SWE: Şirket İçi Coding Agent için Açık Kaynak Framework"
 date: "2026-03-17"
 excerpt: "Stripe, Ramp ve Coinbase kendi iç kodlama agentlarını geliştirdi. LangChain bu sistemlerin ortak mimarisini Open SWE adıyla açık kaynak olarak yayınladı."
 tags: ["Open SWE", "LangChain", "Coding Agent", "LangGraph", "Deep Agents", "AI Mühendisliği"]

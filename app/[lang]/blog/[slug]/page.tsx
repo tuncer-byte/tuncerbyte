@@ -34,6 +34,25 @@ function getReadingTime(html: string): number {
   return Math.max(1, Math.ceil(words / 200));
 }
 
+function extractFAQs(html: string): { question: string; answer: string }[] {
+  const faqs: { question: string; answer: string }[] = [];
+  // Split on h2/h3 boundaries, then check if heading is a question
+  const parts = html.split(/(<h[23][^>]*>.*?<\/h[23]>)/);
+  for (let i = 0; i < parts.length - 1; i++) {
+    const heading = parts[i];
+    if (!/^<h[23]/.test(heading)) continue;
+    const text = heading.replace(/<[^>]+>/g, "").trim();
+    if (!text.endsWith("?")) continue;
+    // Grab first <p> from the following content
+    const next = parts[i + 1] ?? "";
+    const pMatch = next.match(/<p[^>]*>([\s\S]*?)<\/p>/);
+    if (!pMatch) continue;
+    const answer = pMatch[1].replace(/<[^>]+>/g, "").trim();
+    if (answer.length > 30) faqs.push({ question: text, answer });
+  }
+  return faqs.slice(0, 8);
+}
+
 function extractHeadings(html: string): Heading[] {
   const headings: Heading[] = [];
   const regex = /<h([23])[^>]*id="([^"]*)"[^>]*>(.*?)<\/h[23]>/g;
@@ -147,6 +166,7 @@ export default async function PostPage({ params }: Props) {
 
   const readingTime = getReadingTime(post.contentHtml);
   const headings = extractHeadings(post.contentHtml);
+  const faqItems = extractFAQs(post.contentHtml);
 
   const articleJsonLd = {
     "@context": "https://schema.org",
@@ -183,6 +203,16 @@ export default async function PostPage({ params }: Props) {
     ],
   };
 
+  const faqJsonLd = faqItems.length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map(({ question, answer }) => ({
+      "@type": "Question",
+      name: question,
+      acceptedAnswer: { "@type": "Answer", text: answer },
+    })),
+  } : null;
+
   const totalParagraphs = (post.contentHtml.match(/<\/p>/g) ?? []).length;
   const insertAfter = Math.min(4, Math.max(2, Math.floor(totalParagraphs / 2)));
   const [contentTop, contentBottom] = splitContentAtParagraph(post.contentHtml, insertAfter);
@@ -193,6 +223,7 @@ export default async function PostPage({ params }: Props) {
       <CopyCodeBlocks />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+      {faqJsonLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />}
 
       <div className="blog-post">
         <div className="container">
