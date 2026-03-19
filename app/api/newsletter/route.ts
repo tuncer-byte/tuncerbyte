@@ -9,14 +9,41 @@ export async function POST(req: NextRequest) {
     }
 
     const apiKey = process.env.RESEND_API_KEY;
+    const audienceId = process.env.NEWSLETTER_AUDIENCE_ID;
 
     if (!apiKey) {
       console.warn("[Newsletter] RESEND_API_KEY not set");
       return NextResponse.json({ ok: true });
     }
 
-    // Send notification email to site owner
-    const res = await fetch("https://api.resend.com/emails", {
+    // Add contact to Resend Audience
+    if (audienceId) {
+      const contactRes = await fetch(
+        `https://api.resend.com/audiences/${audienceId}/contacts`,
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${apiKey}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email,
+            unsubscribed: false,
+          }),
+        }
+      );
+
+      if (!contactRes.ok) {
+        const body = await contactRes.text();
+        // 409 = already subscribed, treat as success
+        if (contactRes.status !== 409) {
+          console.error("[Newsletter] Contact add error:", contactRes.status, body);
+        }
+      }
+    }
+
+    // Notify site owner
+    await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${apiKey}`,
@@ -34,12 +61,6 @@ export async function POST(req: NextRequest) {
         `,
       }),
     });
-
-    if (!res.ok) {
-      const body = await res.text();
-      console.error("[Newsletter] Resend error:", res.status, body);
-      return NextResponse.json({ error: "Failed" }, { status: 500 });
-    }
 
     console.log(`[Newsletter] Subscribed: ${email}`);
     return NextResponse.json({ ok: true });
