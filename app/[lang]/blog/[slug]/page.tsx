@@ -280,9 +280,13 @@ export default async function PostPage({ params }: Props) {
           {post.tags && post.tags.length > 0 && (
             <div style={{ marginTop: 32, display: "flex", gap: 8, flexWrap: "wrap" }}>
               {post.tags.map((tag) => (
-                <span key={tag} style={{ fontSize: "0.78rem", fontFamily: "monospace", color: "var(--text-muted)", background: "var(--bg-section)", border: "1px solid var(--border)", borderRadius: 4, padding: "2px 8px" }}>
+                <Link
+                  key={tag}
+                  href={`/${locale}/blog/tag/${encodeURIComponent(tag)}`}
+                  style={{ fontSize: "0.78rem", fontFamily: "monospace", color: "var(--text-muted)", background: "var(--bg-section)", border: "1px solid var(--border)", borderRadius: 4, padding: "2px 8px", textDecoration: "none" }}
+                >
                   {tag}
-                </span>
+                </Link>
               ))}
             </div>
           )}

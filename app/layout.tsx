@@ -142,6 +142,8 @@ export default async function RootLayout({
             __html: `(function(){var t=localStorage.getItem('theme');var d=window.matchMedia('(prefers-color-scheme: dark)').matches;document.documentElement.setAttribute('data-theme',t||(d?'dark':'light'));})()`,
           }}
         />
+        {/* RSS Feed */}
+        <link rel="alternate" type="application/rss+xml" title="Tuncer Bağçabaşı" href="/feed.xml" />
         {/* Structured Data */}
         <script
           type="application/ld+json"
