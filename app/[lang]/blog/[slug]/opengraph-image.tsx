@@ -2,6 +2,8 @@ import { ImageResponse } from "next/og";
 import { getPostData, getAllPostSlugs } from "@/lib/posts";
 import { locales, isValidLocale, defaultLocale } from "@/lib/i18n";
 
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://tuncer-byte.com";
+
 export const alt = "Tuncer Bağçabaşı";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
@@ -38,6 +40,10 @@ export default async function OgImage({
     /* fallback */
   }
 
+  const profileImageData = await fetch(`${BASE_URL}/profile.png`).then((r) =>
+    r.arrayBuffer()
+  );
+
   return new ImageResponse(
     (
       <div
@@ -53,23 +59,13 @@ export default async function OgImage({
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-          <div
-            style={{
-              width: 40,
-              height: 40,
-              borderRadius: "50%",
-              backgroundColor: "#2563eb",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              color: "white",
-              fontSize: 16,
-              fontWeight: 800,
-              fontFamily: "monospace",
-            }}
-          >
-            TB
-          </div>
+          {/* @ts-expect-error ArrayBuffer is valid for img src in next/og */}
+          <img
+            src={profileImageData}
+            width={40}
+            height={40}
+            style={{ borderRadius: "50%", objectFit: "cover" }}
+          />
           <span style={{ color: "#888888", fontSize: 18, fontFamily: "monospace" }}>
             tuncer-byte.com
           </span>

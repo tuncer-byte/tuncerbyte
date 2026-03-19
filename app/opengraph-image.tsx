@@ -5,7 +5,13 @@ export const alt = "Tuncer Bağçabaşı";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-export default function OgImage() {
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://tuncer-byte.com";
+
+export default async function OgImage() {
+  const profileImageData = await fetch(`${BASE_URL}/profile.png`).then((r) =>
+    r.arrayBuffer()
+  );
+
   return new ImageResponse(
     (
       <div
@@ -22,24 +28,17 @@ export default function OgImage() {
         }}
       >
         {/* Avatar circle */}
-        <div
+        {/* @ts-expect-error ArrayBuffer is valid for img src in next/og */}
+        <img
+          src={profileImageData}
+          width={96}
+          height={96}
           style={{
-            width: 96,
-            height: 96,
             borderRadius: "50%",
-            backgroundColor: "#1e3a5f",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            color: "white",
-            fontSize: 36,
-            fontWeight: 800,
-            fontFamily: "monospace",
             marginBottom: 32,
+            objectFit: "cover",
           }}
-        >
-          TB
-        </div>
+        />
 
         <div
           style={{
