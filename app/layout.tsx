@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import { headers } from "next/headers";
 import { Geist_Mono, Inter_Tight, Newsreader } from "next/font/google";
+import HtmlLang from "./components/HtmlLang";
 
 const geistMono = Geist_Mono({
   subsets: ["latin"],
@@ -145,16 +145,13 @@ const websiteSchema = {
   inLanguage: ["tr-TR", "en-US"],
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const headersList = await headers();
-  const locale = headersList.get("x-locale") ?? "tr";
-
   return (
-    <html lang={locale} suppressHydrationWarning className={`${geistMono.variable} ${interTight.variable} ${newsreader.variable}`}>
+    <html lang="tr" suppressHydrationWarning className={`${geistMono.variable} ${interTight.variable} ${newsreader.variable}`}>
       <head>
         {/* Flash-free theme */}
         <script
@@ -175,6 +172,7 @@ export default async function RootLayout({
         />
       </head>
       <body>
+        <HtmlLang />
         <Analytics />
         {children}
         <GoogleAnalytics gaId="G-4QX10PW8RE" />

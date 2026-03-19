@@ -103,6 +103,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         languages: {
           tr: `${BASE_URL}/tr/blog/${trSlug}`,
           en: `${BASE_URL}/en/blog/${enSlug}`,
+          "x-default": `${BASE_URL}/tr/blog/${trSlug}`,
         },
       },
       openGraph: {
