@@ -302,7 +302,7 @@ export default async function PostPage({ params }: Props) {
           </div>
 
           {/* Newsletter */}
-          <NewsletterForm locale={locale} />
+          <NewsletterForm locale={locale} source={`blog/${slug}`} />
 
           {/* Related Posts */}
           {relatedPosts.length > 0 && (

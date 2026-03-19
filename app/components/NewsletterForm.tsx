@@ -4,9 +4,10 @@ import { useState } from "react";
 
 interface Props {
   locale: string;
+  source?: string; // e.g. "blog/vibe-coding-fundamentals" or "home"
 }
 
-export default function NewsletterForm({ locale }: Props) {
+export default function NewsletterForm({ locale, source }: Props) {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
@@ -21,7 +22,7 @@ export default function NewsletterForm({ locale }: Props) {
       const res = await fetch("/api/newsletter", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, locale }),
+        body: JSON.stringify({ email, locale, source: source ?? "unknown" }),
       });
       if (res.ok) {
         setStatus("success");

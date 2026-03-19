@@ -3,7 +3,7 @@ import { Resend } from "resend";
 
 export async function POST(req: NextRequest) {
   try {
-    const { email, locale } = await req.json();
+    const { email, locale, source } = await req.json();
 
     if (!email || typeof email !== "string" || !email.includes("@")) {
       return NextResponse.json({ error: "Invalid email" }, { status: 400 });
@@ -37,15 +37,33 @@ export async function POST(req: NextRequest) {
     }
 
     // Notify site owner
+    const now = new Date().toLocaleString("tr-TR", { timeZone: "Europe/Istanbul" });
     await resend.emails.send({
       from: "newsletter@tuncer-byte.com",
       to: "tuncerbostancibasi@gmail.com",
-      subject: `Yeni abone: ${email}`,
+      subject: `+1 abone: ${email}`,
       html: `
-        <p><strong>Yeni newsletter abonesi</strong></p>
-        <p>Email: <strong>${email}</strong></p>
-        <p>Dil: ${locale === "tr" ? "Türkçe" : "English"}</p>
-        <p style="color:#888;font-size:12px">tuncer-byte.com newsletter formu</p>
+        <div style="font-family:monospace;max-width:480px;padding:24px;background:#fff;border:1px solid #e5e5e5;border-radius:8px;">
+          <p style="margin:0 0 16px;font-size:18px;font-weight:700;">📬 Yeni newsletter abonesi</p>
+          <table style="width:100%;border-collapse:collapse;font-size:14px;">
+            <tr>
+              <td style="padding:8px 0;color:#888;width:80px;">Email</td>
+              <td style="padding:8px 0;font-weight:700;">${email}</td>
+            </tr>
+            <tr style="border-top:1px solid #f0f0f0;">
+              <td style="padding:8px 0;color:#888;">Dil</td>
+              <td style="padding:8px 0;">${locale === "tr" ? "🇹🇷 Türkçe" : "🇬🇧 English"}</td>
+            </tr>
+            <tr style="border-top:1px solid #f0f0f0;">
+              <td style="padding:8px 0;color:#888;">Kaynak</td>
+              <td style="padding:8px 0;">${source ?? "—"}</td>
+            </tr>
+            <tr style="border-top:1px solid #f0f0f0;">
+              <td style="padding:8px 0;color:#888;">Zaman</td>
+              <td style="padding:8px 0;">${now}</td>
+            </tr>
+          </table>
+        </div>
       `,
     });
 
