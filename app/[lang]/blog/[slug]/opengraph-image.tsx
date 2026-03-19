@@ -59,7 +59,6 @@ export default async function OgImage({
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-          {/* @ts-expect-error ArrayBuffer is valid for img src in next/og */}
           <img
             src={profileImageData}
             width={40}
