@@ -8,9 +8,10 @@ export const contentType = "image/png";
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://tuncer-byte.com";
 
 export default async function OgImage() {
-  const profileImageData = await fetch(`${BASE_URL}/profile.png`).then((r) =>
+  const profileImageBuffer = await fetch(`${BASE_URL}/profile.png`).then((r) =>
     r.arrayBuffer()
   );
+  const profileImageData = `data:image/png;base64,${btoa(String.fromCharCode(...new Uint8Array(profileImageBuffer)))}`;
 
   return new ImageResponse(
     (
@@ -28,7 +29,6 @@ export default async function OgImage() {
         }}
       >
         {/* Avatar circle */}
-        {/* @ts-expect-error ArrayBuffer is valid for img src in next/og */}
         <img
           src={profileImageData}
           width={96}

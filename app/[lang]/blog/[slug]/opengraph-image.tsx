@@ -40,9 +40,10 @@ export default async function OgImage({
     /* fallback */
   }
 
-  const profileImageData = await fetch(`${BASE_URL}/profile.png`).then((r) =>
+  const profileImageBuffer = await fetch(`${BASE_URL}/profile.png`).then((r) =>
     r.arrayBuffer()
   );
+  const profileImageData = `data:image/png;base64,${Buffer.from(profileImageBuffer).toString("base64")}`;
 
   return new ImageResponse(
     (

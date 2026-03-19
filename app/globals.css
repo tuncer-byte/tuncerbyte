@@ -6,7 +6,7 @@
   --bg: #FAFAFA;
   --bg-section: #F0F0F0;
   --text: #404040;
-  --text-muted: #8A8A8A;
+  --text-muted: #6b6b6b;
   --link: #144bb8;
   --border: #e0e0e0;
   --timeline-line: #cccccc;
@@ -51,7 +51,7 @@
 }
 
 body {
-  font-family: "Inter Tight", sans-serif;
+  font-family: var(--font-inter-tight), sans-serif;
   background-color: var(--bg);
   color: var(--text);
   line-height: 1.7;
@@ -109,7 +109,7 @@ nav .container {
   font-size: 1rem;
   text-decoration: none;
   color: var(--text);
-  font-family: "Geist Mono", monospace;
+  font-family: var(--font-geist-mono), monospace;
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -126,7 +126,7 @@ nav .container {
   text-decoration: none;
   color: var(--text-muted);
   font-size: 0.88rem;
-  font-family: "Geist Mono", monospace;
+  font-family: var(--font-geist-mono), monospace;
 }
 
 .nav-links a:hover { color: var(--text); }
@@ -141,7 +141,7 @@ nav .container {
   border-radius: 0;
   padding: 4px 10px;
   transition: border-color 0.15s, color 0.15s;
-  font-family: "Geist Mono", monospace;
+  font-family: var(--font-geist-mono), monospace;
   line-height: 1;
   white-space: nowrap;
 }
@@ -183,7 +183,7 @@ nav .container {
   font-size: 56px;
   color: white;
   border: 3px solid var(--border);
-  font-family: "Geist Mono", monospace;
+  font-family: var(--font-geist-mono), monospace;
   font-weight: 700;
 }
 
@@ -219,7 +219,7 @@ nav .container {
   text-decoration: none;
   font-size: 11px;
   font-weight: 800;
-  font-family: "Geist Mono", monospace;
+  font-family: var(--font-geist-mono), monospace;
   transition: transform 0.15s, opacity 0.15s;
   letter-spacing: -0.5px;
 }
@@ -251,7 +251,7 @@ hr.section-divider {
   font-size: 2rem;
   font-weight: 700;
   margin: 0 0 8px;
-  font-family: "Newsreader", serif;
+  font-family: var(--font-newsreader), serif;
 }
 
 .section-sub {
@@ -285,7 +285,7 @@ hr.section-divider {
 .timeline-year {
   color: var(--text-muted);
   font-size: 0.78rem;
-  font-family: "Geist Mono", monospace;
+  font-family: var(--font-geist-mono), monospace;
   line-height: 1.5;
 }
 
@@ -340,7 +340,7 @@ hr.section-divider {
   font-size: 0.82rem;
   color: var(--text-muted);
   white-space: nowrap;
-  font-family: "Geist Mono", monospace;
+  font-family: var(--font-geist-mono), monospace;
   min-width: 95px;
   flex-shrink: 0;
 }
@@ -354,13 +354,13 @@ hr.section-divider {
   font-size: 2rem;
   font-weight: 700;
   margin: 0 0 12px;
-  font-family: "Newsreader", serif;
+  font-family: var(--font-newsreader), serif;
 }
 
 .blog-post-meta {
   color: var(--text-muted);
   font-size: 0.88rem;
-  font-family: "Geist Mono", monospace;
+  font-family: var(--font-geist-mono), monospace;
 }
 
 .blog-post-content { line-height: 1.8; }
@@ -391,7 +391,7 @@ hr.section-divider {
   padding: 2px 6px;
   border-radius: 0;
   font-size: 0.88em;
-  font-family: "Geist Mono", monospace;
+  font-family: var(--font-geist-mono), monospace;
 }
 
 .blog-post-content pre {
@@ -430,7 +430,7 @@ hr.section-divider {
 .blog-post-content th {
   background-color: var(--bg-section);
   font-weight: 700;
-  font-family: "Geist Mono", monospace;
+  font-family: var(--font-geist-mono), monospace;
   font-size: 0.82rem;
 }
 
@@ -470,7 +470,7 @@ hr.section-divider {
   font-size: 0.85rem;
   color: var(--text-muted);
   margin-bottom: 28px;
-  font-family: "Geist Mono", monospace;
+  font-family: var(--font-geist-mono), monospace;
   padding: 0;
 }
 
@@ -508,7 +508,7 @@ hr.section-divider {
   background: transparent;
   color: var(--text-muted);
   font-size: 0.82rem;
-  font-family: "Geist Mono", monospace;
+  font-family: var(--font-geist-mono), monospace;
   cursor: pointer;
   transition: all 0.15s;
 }
@@ -535,7 +535,7 @@ hr.section-divider {
   right: 10px;
   padding: 3px 9px;
   font-size: 0.72rem;
-  font-family: "Geist Mono", monospace;
+  font-family: var(--font-geist-mono), monospace;
   border: 1px solid var(--border);
   border-radius: 0;
   background: var(--bg);
@@ -572,7 +572,7 @@ hr.section-divider {
 
 .toc-title {
   font-size: 0.78rem;
-  font-family: "Geist Mono", monospace;
+  font-family: var(--font-geist-mono), monospace;
   font-weight: 700;
   color: var(--text-muted);
   text-transform: uppercase;
@@ -620,7 +620,7 @@ hr.section-divider {
   background: var(--bg);
   color: var(--text);
   font-size: 0.88rem;
-  font-family: "Geist Mono", monospace;
+  font-family: var(--font-geist-mono), monospace;
   outline: none;
   transition: border-color 0.15s;
   box-sizing: border-box;
@@ -680,7 +680,7 @@ hr.section-divider {
   font-weight: 700;
   font-size: 0.95rem;
   margin: 0 0 4px;
-  font-family: "Newsreader", serif;
+  font-family: var(--font-newsreader), serif;
 }
 
 .newsletter-sub {
@@ -704,7 +704,7 @@ hr.section-divider {
   background: var(--bg);
   color: var(--text);
   font-size: 0.88rem;
-  font-family: "Geist Mono", monospace;
+  font-family: var(--font-geist-mono), monospace;
   outline: none;
   transition: border-color 0.15s;
 }
@@ -720,7 +720,7 @@ hr.section-divider {
   background: var(--text);
   color: var(--bg);
   font-size: 0.85rem;
-  font-family: "Geist Mono", monospace;
+  font-family: var(--font-geist-mono), monospace;
   font-weight: 700;
   cursor: pointer;
   transition: opacity 0.15s;
@@ -739,7 +739,7 @@ hr.section-divider {
 .newsletter-success {
   font-size: 0.88rem;
   color: var(--link);
-  font-family: "Geist Mono", monospace;
+  font-family: var(--font-geist-mono), monospace;
   margin: 0;
 }
 
@@ -747,7 +747,7 @@ hr.section-divider {
   font-size: 0.82rem;
   color: #e53e3e;
   margin: 6px 0 0;
-  font-family: "Geist Mono", monospace;
+  font-family: var(--font-geist-mono), monospace;
 }
 
 /* ─── Series Nav ─── */
@@ -761,7 +761,7 @@ hr.section-divider {
 
 .series-nav-label {
   font-size: 0.78rem;
-  font-family: "Geist Mono", monospace;
+  font-family: var(--font-geist-mono), monospace;
   color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -786,7 +786,7 @@ hr.section-divider {
 }
 
 .series-nav-num {
-  font-family: "Geist Mono", monospace;
+  font-family: var(--font-geist-mono), monospace;
   color: var(--text-muted);
   margin-right: 6px;
 }
@@ -822,7 +822,7 @@ hr.section-divider {
 .key-takeaways p:first-child {
   font-weight: 700;
   font-size: 0.82rem;
-  font-family: "Geist Mono", monospace;
+  font-family: var(--font-geist-mono), monospace;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--link);
@@ -843,7 +843,7 @@ hr.section-divider {
 /* ─── Reading Time ─── */
 .reading-time {
   color: var(--text-muted);
-  font-family: "Geist Mono", monospace;
+  font-family: var(--font-geist-mono), monospace;
   font-size: 0.88rem;
   margin-left: 4px;
 }
@@ -861,7 +861,7 @@ hr.section-divider {
 
 .share-label {
   font-size: 0.82rem;
-  font-family: "Geist Mono", monospace;
+  font-family: var(--font-geist-mono), monospace;
   color: var(--text-muted);
   margin-right: 4px;
 }
@@ -872,7 +872,7 @@ hr.section-divider {
   gap: 6px;
   padding: 5px 12px;
   font-size: 0.82rem;
-  font-family: "Geist Mono", monospace;
+  font-family: var(--font-geist-mono), monospace;
   border: 1px solid var(--border);
   border-radius: 0;
   color: var(--text-muted);
@@ -890,7 +890,7 @@ hr.section-divider {
 }
 
 .share-btn-copy {
-  font-family: "Geist Mono", monospace;
+  font-family: var(--font-geist-mono), monospace;
 }
 
 .share-btn-copied {
@@ -908,7 +908,7 @@ hr.section-divider {
 .related-posts-heading {
   font-size: 0.82rem;
   font-weight: 700;
-  font-family: "Geist Mono", monospace;
+  font-family: var(--font-geist-mono), monospace;
   color: var(--text-muted);
   margin: 0 0 20px;
   text-transform: uppercase;
@@ -942,7 +942,7 @@ hr.section-divider {
 
 .related-post-date {
   font-size: 0.78rem;
-  font-family: "Geist Mono", monospace;
+  font-family: var(--font-geist-mono), monospace;
   color: var(--text-muted);
 }
 
