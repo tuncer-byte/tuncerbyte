@@ -5,11 +5,12 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import type { PostData } from "@/lib/posts";
 
-const CATEGORIES_TR = ["Tümü", "Teknik", "Teknoloji", "Proje", "Kaynaklar"];
-const CATEGORIES_EN = ["All", "Technical", "Technology", "Project", "Resources"];
+const CATEGORIES_TR = ["Tümü", "Haberler", "Teknik", "Teknoloji", "Proje", "Kaynaklar"];
+const CATEGORIES_EN = ["All", "News", "Technical", "Technology", "Project", "Resources"];
 
 const CATEGORY_MAP_EN_TO_TR: Record<string, string> = {
   All: "Tümü",
+  News: "Haberler",
   Technical: "Teknik",
   Technology: "Teknoloji",
   Project: "Proje",
@@ -18,6 +19,7 @@ const CATEGORY_MAP_EN_TO_TR: Record<string, string> = {
 
 const CATEGORY_MAP_TR_TO_EN: Record<string, string> = {
   Tümü: "All",
+  Haberler: "News",
   Teknik: "Technical",
   Teknoloji: "Technology",
   Proje: "Project",

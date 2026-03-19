@@ -22,6 +22,7 @@ export const slugMap: Record<string, { tr: string; en: string }> = {
   "recaptcha-googles-hidden-data-factory": { tr: "recaptcha-gizli-veri-fabrikasi", en: "recaptcha-googles-hidden-data-factory" },
   "vibe-coding-temelleri": { tr: "vibe-coding-temelleri", en: "vibe-coding-fundamentals" },
   "vibe-coding-fundamentals": { tr: "vibe-coding-temelleri", en: "vibe-coding-fundamentals" },
+  "google-stitch-vibe-design": { tr: "google-stitch-vibe-design", en: "google-stitch-vibe-design" },
 };
 
 export function getAlternateSlug(slug: string, targetLocale: "tr" | "en"): string {
