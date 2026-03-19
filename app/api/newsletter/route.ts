@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { Resend } from "resend";
 
 export async function POST(req: NextRequest) {
   try {
@@ -16,50 +17,36 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ ok: true });
     }
 
+    const resend = new Resend(apiKey);
+
     // Add contact to Resend Audience
     if (audienceId) {
-      const contactRes = await fetch(
-        `https://api.resend.com/audiences/${audienceId}/contacts`,
-        {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${apiKey}`,
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email,
-            unsubscribed: false,
-          }),
-        }
-      );
+      const { error: contactError } = await resend.contacts.create({
+        email,
+        audienceId,
+        unsubscribed: false,
+      });
 
-      if (!contactRes.ok) {
-        const body = await contactRes.text();
-        // 409 = already subscribed, treat as success
-        if (contactRes.status !== 409) {
-          console.error("[Newsletter] Contact add error:", contactRes.status, body);
+      if (contactError) {
+        // "already exists" is fine — treat as success
+        const msg = (contactError as { message?: string }).message ?? "";
+        if (!msg.toLowerCase().includes("already")) {
+          console.error("[Newsletter] Contact add error:", contactError);
         }
       }
     }
 
     // Notify site owner
-    await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        from: "newsletter@tuncer-byte.com",
-        to: "tuncerbostancibasi@gmail.com",
-        subject: `Yeni abone: ${email}`,
-        html: `
-          <p><strong>Yeni newsletter abonesi</strong></p>
-          <p>Email: <strong>${email}</strong></p>
-          <p>Dil: ${locale === "tr" ? "Türkçe" : "English"}</p>
-          <p style="color:#888;font-size:12px">tuncer-byte.com newsletter formu</p>
-        `,
-      }),
+    await resend.emails.send({
+      from: "newsletter@tuncer-byte.com",
+      to: "tuncerbostancibasi@gmail.com",
+      subject: `Yeni abone: ${email}`,
+      html: `
+        <p><strong>Yeni newsletter abonesi</strong></p>
+        <p>Email: <strong>${email}</strong></p>
+        <p>Dil: ${locale === "tr" ? "Türkçe" : "English"}</p>
+        <p style="color:#888;font-size:12px">tuncer-byte.com newsletter formu</p>
+      `,
     });
 
     console.log(`[Newsletter] Subscribed: ${email}`);
