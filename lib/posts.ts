@@ -2,8 +2,10 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { remark } from "remark";
-import html from "remark-html";
 import remarkGfm from "remark-gfm";
+import remarkRehype from "remark-rehype";
+import rehypeRaw from "rehype-raw";
+import rehypeStringify from "rehype-stringify";
 
 const getPostsDirectory = (lang = "tr") =>
   path.join(process.cwd(), "posts", lang);
@@ -68,7 +70,12 @@ export async function getPostData(slug: string, lang = "tr"): Promise<PostDataWi
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const matterResult = matter(fileContents);
 
-  const processedContent = await remark().use(remarkGfm).use(html, { allowDangerousHtml: true }).process(matterResult.content);
+  const processedContent = await remark()
+    .use(remarkGfm)
+    .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypeRaw)
+    .use(rehypeStringify)
+    .process(matterResult.content);
   const contentHtml = processedContent.toString().replace(
     /<(h[23])>(.*?)<\/\1>/g,
     (_, tag, inner) => {
