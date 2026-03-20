@@ -68,7 +68,7 @@ export async function getPostData(slug: string, lang = "tr"): Promise<PostDataWi
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const matterResult = matter(fileContents);
 
-  const processedContent = await remark().use(remarkGfm).use(html).process(matterResult.content);
+  const processedContent = await remark().use(remarkGfm).use(html, { allowDangerousHtml: true }).process(matterResult.content);
   const contentHtml = processedContent.toString().replace(
     /<(h[23])>(.*?)<\/\1>/g,
     (_, tag, inner) => {
