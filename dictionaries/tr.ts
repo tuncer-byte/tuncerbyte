@@ -13,18 +13,18 @@ export const tr = {
   meta: {
     title: "Tuncer Bağçabaşı — Yazılım Mühendisi & AI Araştırmacısı",
     description:
-      "Yazılım mühendisi ve AI araştırmacısı. MCP sunucuları, TypeScript, ASP.NET Core ve yapay zeka araçları üzerine açık kaynak projeler üretiyor. YouTube, Instagram ve Medium'da içerik üretiyor.",
+      "Selçuk Üniversitesi Bilgisayar Mühendisi. Architecht'te Software Engineer olarak .NET ve React ile çalışıyor. AI agent'lar, MCP sunucuları ve otonom sistemler üzerine açık kaynak araçlar geliştiriyor. YouTube, Udemy ve LinkedIn'de yapay zeka eğitimleri veriyor.",
   },
 
   hero: {
-    tagline: "Software Engineer · AI Researcher · İçerik Üreticisi",
+    tagline: "Software Engineer · AI Araştırmacısı · Eğitimci",
   },
 
   about: {
     heading: "Hakkımda",
-    p1: `Yazılım mühendisi ve AI araştırmacısı. <a href="https://www.architecht.com" target="_blank" rel="noreferrer">Architecht</a>'te Software Engineer olarak .NET ekosistemi (ASP.NET Core, C#) ve modern frontend teknolojileriyle çalışıyorum. Selçuk Üniversitesi Bilgisayar Mühendisliği mezunuyum.`,
-    p2: `Yapay zeka ile ürün geliştirmeye odaklanıyorum. TypeScript ve Python ile AI araçları, MCP sunucuları ve VS Code uzantıları üretiyorum. Udemy'de 10.000'den fazla öğrenciye kurs veriyorum.`,
-    p3: `YouTube, Instagram ve Medium'da yazılım ve yapay zeka üzerine içerik üretiyorum. <a href="https://medium.com/@tuncerbyte" target="_blank" rel="noreferrer">medium.com/@tuncerbyte</a>`,
+    p1: `Selçuk Üniversitesi Bilgisayar Mühendisliği mezunuyum. Şu an <a href="https://www.architecht.com" target="_blank" rel="noreferrer">Architecht</a>'te Software Engineer olarak .NET ve React ile kurumsal fintech uygulamaları geliştiriyorum. Kariyerime topluluk yararına açık kaynak projeler ve Node.js & React ile freelance full-stack geliştirici olarak başladım; bu süreçte çok sayıda farklı proje ve iş alanında deneyim edindim.`,
+    p2: `Son 3 yıldır yapay zeka ile ürün geliştirmeye odaklanıyorum. AI agent mimarileri, otonom sistemler, MCP sunucuları ve iş akışı otomasyonu temel çalışma alanlarım. Bu alanlarda TypeScript ve Python ile açık kaynak araçlar geliştiriyorum; <a href="https://github.com/tuncer-byte/memory-bank-MCP" target="_blank" rel="noreferrer">memory-bank-MCP</a> global MCP ekosisteminin en çok kullanılan sunucuları arasına girdi.`,
+    p3: `YouTube, Instagram, LinkedIn ve Udemy'de yapay zeka ve yazılım geliştirme üzerine Türkçe içerik üretiyorum. Çeşitli platformlarda ve kurumlarda AI eğitimleri veriyorum.`,
   },
 
   experience: {

@@ -15,18 +15,18 @@ export const en: Dictionary = {
   meta: {
     title: "Tuncer Bağçabaşı — Software Engineer & AI Researcher",
     description:
-      "Software engineer and AI researcher. Building open source projects around MCP servers, TypeScript, ASP.NET Core and AI tools. Creating content on YouTube, Instagram and Medium.",
+      "Computer Engineering graduate from Selçuk University. Software Engineer at Architecht working with .NET and React. Builds open source AI tools — agents, MCP servers, and autonomous systems. Delivers AI training on YouTube, Udemy and LinkedIn.",
   },
 
   hero: {
-    tagline: "Software Engineer · AI Researcher · Content Creator",
+    tagline: "Software Engineer · AI Researcher · Educator",
   },
 
   about: {
     heading: "About",
-    p1: `Software engineer and AI researcher. I work as a Software Engineer at <a href="https://www.architecht.com" target="_blank" rel="noreferrer">Architecht</a>, building enterprise fintech applications with .NET (ASP.NET Core, C#) and modern frontend technologies. Computer Engineering graduate from Selçuk University.`,
-    p2: `Focused on building products with AI. I build AI tools, MCP servers and VS Code extensions with TypeScript and Python. Teaching 10,000+ students on Udemy.`,
-    p3: `I create content about software and AI on YouTube, Instagram and Medium. <a href="https://medium.com/@tuncerbyte" target="_blank" rel="noreferrer">medium.com/@tuncerbyte</a>`,
+    p1: `Computer Engineering graduate from Selçuk University. I currently work as a Software Engineer at <a href="https://www.architecht.com" target="_blank" rel="noreferrer">Architecht</a>, building enterprise fintech applications with .NET and React. I started my career contributing to community-driven open source projects and working as a freelance full-stack developer with Node.js and React, gaining experience across a wide range of products and domains.`,
+    p2: `For the past 3 years I've been focused on building AI-powered products — AI agents, autonomous systems, MCP servers, and workflow automation are my core areas. I build open source tooling in this space with TypeScript and Python; <a href="https://github.com/tuncer-byte/memory-bank-MCP" target="_blank" rel="noreferrer">memory-bank-MCP</a> has become one of the most-used servers in the global MCP ecosystem.`,
+    p3: `I create Turkish-language content about AI and software development on YouTube, Instagram, LinkedIn, and Udemy, and deliver AI training programs at various platforms and organizations.`,
   },
 
   experience: {
