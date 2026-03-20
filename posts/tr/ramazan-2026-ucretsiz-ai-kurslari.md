@@ -1,14 +1,14 @@
 ---
-title: "Ramazan 2026: Dört Yapay Zekâ Kursunu Ücretsiz Al"
+title: "Bayram Hediyesi: Dört Yapay Zekâ Kursunu Ücretsiz Al"
 date: "2026-03-20"
-excerpt: "Bayrama özel verdiğim dört Udemy kursunu bugün ücretsiz edinebilirsin — Multi-Agent sistemler, MCP, AI Agent otomasyonu ve mobil uygulama geliştirme konularında sıfırdan ilerleyebileceğin içerikler seni bekliyor."
+excerpt: "Bayrama özel verdiğim dört Udemy kursunu ücretsiz edinebilirsin — Multi-Agent sistemler, MCP, AI Agent otomasyonu ve mobil uygulama geliştirme konularında sıfırdan ilerleyebileceğin içerikler seni bekliyor."
 tags: ["Udemy", "Yapay Zeka", "MCP", "AI Agent", "Ücretsiz Kurs", "Eğitim", "Multi-Agent"]
 category: "Kaynaklar"
 ---
 
-Ramazan ayı bitmeden, öğrenmek isteyen herkese küçük bir hediye bırakmak istedim.
+Ramazan bitti, bayram geldi. Bu vesileyle öğrenmek isteyen herkese küçük bir hediye bırakmak istedim.
 
-Udemy'de verdiğim dört kurs için özel kuponlar oluşturdum. Kupon geçerli olduğu sürece kursları tamamen ücretsiz alabilirsin — kredi kartı gerekmez, deneme süresi yok.
+Udemy'de verdiğim dört kurs için bayrama özel kuponlar oluşturdum. Kupon geçerli olduğu sürece kursları tamamen ücretsiz alabilirsin — kredi kartı gerekmez, deneme süresi yok.
 
 ---
 
@@ -82,4 +82,4 @@ Kuponlar sınırlı sayıda kullanım için tanımlandı. Dolmadan önce almak i
 
 MCP ile ilgili daha fazla içerik isteyenler için [MCP nedir, neden önemlidir](/tr/blog/mcp-nedir-neden-onemli) yazımı da incelemenizi öneririm — kurs öncesi iyi bir giriş yapıyor.
 
-İyi bayramlar.
+Bayramın kutlu olsun.
