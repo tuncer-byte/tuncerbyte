@@ -75,6 +75,8 @@ export default function BlogListClient({ posts, locale, heading, sub, emptyText 
   const activeCategoryTR =
     locale === "tr" ? activeCategoryLabel : (CATEGORY_MAP_EN_TO_TR[activeCategoryLabel] ?? activeCategoryLabel);
 
+  const today = new Date().toISOString().slice(0, 10);
+
   return (
     <>
       {/* Breadcrumb */}
@@ -139,6 +141,9 @@ export default function BlogListClient({ posts, locale, heading, sub, emptyText 
                 <Link href={`/${locale}/blog/${post.slug}`} style={{ fontWeight: 600 }}>
                   {post.title}
                 </Link>
+                {post.date === today && (
+                  <span className="new-badge">{locale === "tr" ? "yeni" : "new"}</span>
+                )}
               </div>
               {post.excerpt && (
                 <p className="blog-excerpt" style={{ margin: "4px 0 0 110px", color: "var(--text-muted)", fontSize: "0.9rem" }}>

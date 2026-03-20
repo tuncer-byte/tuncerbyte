@@ -325,6 +325,21 @@ hr.section-divider {
 
 .timeline-content p:last-child { margin-bottom: 0; }
 
+/* ─── New Badge ─── */
+.new-badge {
+  font-size: 0.68rem;
+  font-family: var(--font-geist-mono), monospace;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #fff;
+  background: var(--link);
+  padding: 2px 6px;
+  flex-shrink: 0;
+  line-height: 1.5;
+  align-self: center;
+}
+
 /* ─── Blog list ─── */
 .blog-item {
   display: flex;

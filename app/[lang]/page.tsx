@@ -366,12 +366,18 @@ export default async function HomePage({
           )}
           {posts.length > 0 && (
             <div style={{ marginBottom: 24 }}>
-              {posts.map((post) => (
-                <div key={post.slug} className="blog-item">
-                  <span className="blog-date">{post.date}</span>
-                  <Link href={`/${locale}/blog/${post.slug}`}>{post.title}</Link>
-                </div>
-              ))}
+              {posts.map((post) => {
+                const today = new Date().toISOString().slice(0, 10);
+                return (
+                  <div key={post.slug} className="blog-item">
+                    <span className="blog-date">{post.date}</span>
+                    <Link href={`/${locale}/blog/${post.slug}`}>{post.title}</Link>
+                    {post.date === today && (
+                      <span className="new-badge">{locale === "tr" ? "yeni" : "new"}</span>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           )}
           <Link href={`/${locale}/blog`} style={{ fontSize: "0.92rem" }}>
