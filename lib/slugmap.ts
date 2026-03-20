@@ -23,6 +23,8 @@ export const slugMap: Record<string, { tr: string; en: string }> = {
   "vibe-coding-temelleri": { tr: "vibe-coding-temelleri", en: "vibe-coding-fundamentals" },
   "vibe-coding-fundamentals": { tr: "vibe-coding-temelleri", en: "vibe-coding-fundamentals" },
   "google-stitch-vibe-design": { tr: "google-stitch-vibe-design", en: "google-stitch-vibe-design" },
+  "claude-code-channels-nedir": { tr: "claude-code-channels-nedir", en: "claude-code-channels" },
+  "claude-code-channels": { tr: "claude-code-channels-nedir", en: "claude-code-channels" },
 };
 
 export function getAlternateSlug(slug: string, targetLocale: "tr" | "en"): string {
