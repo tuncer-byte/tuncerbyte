@@ -25,6 +25,8 @@ export const slugMap: Record<string, { tr: string; en: string }> = {
   "google-stitch-vibe-design": { tr: "google-stitch-vibe-design", en: "google-stitch-vibe-design" },
   "claude-code-channels-nedir": { tr: "claude-code-channels-nedir", en: "claude-code-channels" },
   "claude-code-channels": { tr: "claude-code-channels-nedir", en: "claude-code-channels" },
+  "google-stitch-kullanim-rehberi": { tr: "google-stitch-kullanim-rehberi", en: "google-stitch-usage-guide" },
+  "google-stitch-usage-guide": { tr: "google-stitch-kullanim-rehberi", en: "google-stitch-usage-guide" },
 };
 
 export function getAlternateSlug(slug: string, targetLocale: "tr" | "en"): string {
