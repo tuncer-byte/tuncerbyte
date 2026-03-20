@@ -65,7 +65,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    siteName: "Tuncer Byte",
+    siteName: "Tuncer Bağçabaşı",
     locale: "tr_TR",
     alternateLocale: ["en_US"],
     url: BASE_URL,
@@ -139,7 +139,7 @@ const websiteSchema = {
   "@type": "WebSite",
   "@id": `${BASE_URL}/#website`,
   url: BASE_URL,
-  name: "Tuncer Byte",
+  name: "Tuncer Bağçabaşı",
   description: "Software Engineer & AI Researcher — tuncer-byte.com",
   publisher: { "@id": `${BASE_URL}/#person` },
   inLanguage: ["tr-TR", "en-US"],
