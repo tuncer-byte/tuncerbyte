@@ -56,6 +56,21 @@ function getProfileImageSrc(): string | null {
 }
 
 
+const techStack = [
+  { name: "TypeScript", slug: "typescript" },
+  { name: "C#", slug: "csharp" },
+  { name: "Python", slug: "python" },
+  { name: "React", slug: "react" },
+  { name: ".NET", slug: "dotnet" },
+  { name: "Node.js", slug: "nodedotjs" },
+  { name: "Next.js", slug: "nextdotjs" },
+  { name: "LangChain", slug: "langchain" },
+  { name: "OpenAI", slug: "openai" },
+  { name: "Docker", slug: "docker" },
+  { name: "Git", slug: "git" },
+  { name: "VS Code", slug: "visualstudiocode" },
+];
+
 const courses = [
   {
     url: "https://www.udemy.com/course/sifirdan-multi-agent-yapay-zeka-sistemleri-gelistirme/",
@@ -92,7 +107,25 @@ export default async function HomePage({
   const locale: Locale = isValidLocale(lang) ? lang : defaultLocale;
   const d = getDictionary(locale);
 
-  const posts = getSortedPostsData(locale).slice(0, 6);
+  const allPosts = getSortedPostsData(locale);
+  const posts = allPosts.slice(0, 6);
+
+  // Group by series (iterating newest→oldest, so last overwrite = oldest/first part)
+  const seriesMap = new Map<string, { title: string; firstSlug: string; count: number }>();
+  for (const post of allPosts) {
+    if (post.series && post.seriesTitle) {
+      const existing = seriesMap.get(post.series);
+      if (!existing) {
+        seriesMap.set(post.series, { title: post.seriesTitle, firstSlug: post.slug, count: 1 });
+      } else {
+        existing.count++;
+        existing.firstSlug = post.slug; // oldest post wins (list is newest-first)
+      }
+    }
+  }
+  const seriesList = [...seriesMap.entries()]
+    .filter(([, s]) => s.count >= 2)
+    .map(([key, s]) => ({ key, ...s }));
   const videos = await getLatestVideos(4);
   const profileSrc = getProfileImageSrc();
 
@@ -139,6 +172,30 @@ export default async function HomePage({
           <p style={{ maxWidth: 680, lineHeight: 1.85, marginBottom: 12 }} dangerouslySetInnerHTML={{ __html: d.about.p1 }} />
           <p style={{ maxWidth: 680, lineHeight: 1.85, marginBottom: 12 }} dangerouslySetInnerHTML={{ __html: d.about.p2 }} />
           <p style={{ maxWidth: 680, lineHeight: 1.85 }} dangerouslySetInnerHTML={{ __html: d.about.p3 }} />
+        </div>
+      </div>
+
+      <hr className="section-divider" />
+
+      {/* ─── Tech Stack ─── */}
+      <div className="section-pad">
+        <div className="container">
+          <h2 className="section-h2">{d.stack.heading}</h2>
+          <p className="section-sub">{d.stack.sub}</p>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+            {techStack.map((tech) => (
+              <div key={tech.slug} className="tech-chip">
+                <img
+                  src={`https://cdn.simpleicons.org/${tech.slug}`}
+                  alt={tech.name}
+                  width={15}
+                  height={15}
+                  className="tech-icon"
+                />
+                {tech.name}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -287,6 +344,26 @@ export default async function HomePage({
             {d.writing.sub}{" "}
             <a href="https://medium.com/@tuncerbyte" target="_blank" rel="noreferrer">Medium</a>.
           </p>
+          {seriesList.length > 0 && (
+            <div style={{ marginBottom: 24 }}>
+              {seriesList.map((series) => (
+                <Link key={series.key} href={`/${locale}/blog/${series.firstSlug}`} className="series-card">
+                  <div>
+                    <div style={{ fontSize: "0.72rem", fontFamily: "var(--font-geist-mono), monospace", color: "var(--link)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 4 }}>
+                      {d.series.label}
+                    </div>
+                    <div style={{ fontWeight: 600, fontSize: "0.95rem" }}>{series.title}</div>
+                    <div style={{ fontSize: "0.78rem", color: "var(--text-muted)", fontFamily: "var(--font-geist-mono), monospace", marginTop: 2 }}>
+                      {series.count} {d.series.parts}
+                    </div>
+                  </div>
+                  <span style={{ fontSize: "0.82rem", color: "var(--link)", fontFamily: "var(--font-geist-mono), monospace", flexShrink: 0, marginLeft: 16 }}>
+                    {d.series.read}
+                  </span>
+                </Link>
+              ))}
+            </div>
+          )}
           {posts.length > 0 && (
             <div style={{ marginBottom: 24 }}>
               {posts.map((post) => (

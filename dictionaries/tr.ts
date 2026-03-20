@@ -27,6 +27,17 @@ export const tr = {
     p3: `YouTube, Instagram, LinkedIn ve Udemy'de yapay zeka ve yazılım geliştirme üzerine Türkçe içerik üretiyorum. Çeşitli platformlarda ve kurumlarda AI eğitimleri veriyorum.`,
   },
 
+  stack: {
+    heading: "Stack",
+    sub: "Günlük çalıştığım teknolojiler ve araçlar.",
+  },
+
+  series: {
+    label: "Seri",
+    parts: "bölüm",
+    read: "Seriye başla →",
+  },
+
   experience: {
     heading: "Deneyim",
     items: [

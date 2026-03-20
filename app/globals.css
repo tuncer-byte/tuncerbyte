@@ -958,6 +958,53 @@ hr.section-divider {
   line-height: 1.5;
 }
 
+/* ─── Tech Stack ─── */
+.tech-chip {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 12px;
+  border: 1px solid var(--border);
+  font-size: 0.84rem;
+  font-family: var(--font-geist-mono), monospace;
+  color: var(--text);
+  transition: border-color 0.15s;
+}
+
+.tech-chip:hover {
+  border-color: var(--text-muted);
+}
+
+.tech-icon {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  filter: brightness(0) opacity(0.65);
+}
+
+[data-theme="dark"] .tech-icon {
+  filter: brightness(0) invert(1) opacity(0.75);
+}
+
+/* ─── Series Card ─── */
+.series-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid var(--border);
+  padding: 14px 18px;
+  margin-bottom: 10px;
+  text-decoration: none;
+  color: var(--text);
+  background: var(--bg-section);
+  transition: border-color 0.15s;
+}
+
+.series-card:hover {
+  border-color: var(--link);
+  opacity: 1;
+}
+
 /* ─── Footer ─── */
 footer {
   border-top: 1px solid var(--border);

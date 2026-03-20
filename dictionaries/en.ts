@@ -29,6 +29,17 @@ export const en: Dictionary = {
     p3: `I create Turkish-language content about AI and software development on YouTube, Instagram, LinkedIn, and Udemy, and deliver AI training programs at various platforms and organizations.`,
   },
 
+  stack: {
+    heading: "Stack",
+    sub: "Technologies and tools I work with daily.",
+  },
+
+  series: {
+    label: "Series",
+    parts: "parts",
+    read: "Start series →",
+  },
+
   experience: {
     heading: "Experience",
     items: [
