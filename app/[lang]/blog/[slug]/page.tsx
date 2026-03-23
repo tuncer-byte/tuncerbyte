@@ -218,6 +218,8 @@ export default async function PostPage({ params }: Props) {
   const insertAfter = Math.min(4, Math.max(2, Math.floor(totalParagraphs / 2)));
   const [contentTop, contentBottom] = splitContentAtParagraph(post.contentHtml, insertAfter);
 
+  const hasSidebar = headings.length >= 2 || relatedPosts.length > 0;
+
   return (
     <main>
       <ScrollProgress />
@@ -227,111 +229,123 @@ export default async function PostPage({ params }: Props) {
       {faqJsonLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />}
 
       <div className="blog-post">
-        <div className="container">
-          <nav aria-label="breadcrumb" className="blog-breadcrumb">
-            <Link href={`/${locale}`} className="breadcrumb-link">
-              {locale === "tr" ? "Ana Sayfa" : "Home"}
-            </Link>
-            <span className="breadcrumb-sep">›</span>
-            <Link href={`/${locale}/blog`} className="breadcrumb-link">
-              {locale === "tr" ? "Yazılar" : "Writing"}
-            </Link>
-            {post.category && (
-              <>
-                <span className="breadcrumb-sep">›</span>
-                <Link href={`/${locale}/blog?category=${encodeURIComponent(post.category)}`} className="breadcrumb-link">
-                  {post.category}
-                </Link>
-              </>
+        <div className={`blog-post-layout${hasSidebar ? "" : " blog-post-layout--single"}`}>
+
+          {/* ── Main content column ── */}
+          <div className="blog-post-main">
+            <nav aria-label="breadcrumb" className="blog-breadcrumb">
+              <Link href={`/${locale}`} className="breadcrumb-link">
+                {locale === "tr" ? "Ana Sayfa" : "Home"}
+              </Link>
+              <span className="breadcrumb-sep">›</span>
+              <Link href={`/${locale}/blog`} className="breadcrumb-link">
+                {locale === "tr" ? "Yazılar" : "Writing"}
+              </Link>
+              {post.category && (
+                <>
+                  <span className="breadcrumb-sep">›</span>
+                  <Link href={`/${locale}/blog?category=${encodeURIComponent(post.category)}`} className="breadcrumb-link">
+                    {post.category}
+                  </Link>
+                </>
+              )}
+              <span className="breadcrumb-sep">›</span>
+              <span className="breadcrumb-current">{post.title}</span>
+            </nav>
+
+            <div className="blog-post-header">
+              <h1>{post.title}</h1>
+              <p className="blog-post-meta">
+                {post.date}
+                <span className="reading-time">
+                  {locale === "tr" ? `· ${readingTime} dk okuma` : `· ${readingTime} min read`}
+                </span>
+              </p>
+            </div>
+
+            {/* Series nav (top) */}
+            {seriesPosts.length > 1 && (
+              <SeriesNav
+                currentSlug={slug}
+                seriesPosts={seriesPosts}
+                locale={locale}
+                seriesTitle={post.seriesTitle ?? post.series ?? ""}
+              />
             )}
-            <span className="breadcrumb-sep">›</span>
-            <span className="breadcrumb-current">{post.title}</span>
-          </nav>
 
-          <div className="blog-post-header">
-            <h1>{post.title}</h1>
-            <p className="blog-post-meta">
-              {post.date}
-              <span className="reading-time">
-                {locale === "tr" ? `· ${readingTime} dk okuma` : `· ${readingTime} min read`}
-              </span>
-            </p>
-          </div>
+            {/* TOC – visible only on mobile (desktop uses sidebar) */}
+            <TableOfContents headings={headings} locale={locale} className="toc-mobile-only" />
 
-          {/* Series nav (top) */}
-          {seriesPosts.length > 1 && (
-            <SeriesNav
-              currentSlug={slug}
-              seriesPosts={seriesPosts}
-              locale={locale}
-              seriesTitle={post.seriesTitle ?? post.series ?? ""}
-            />
-          )}
+            <div className="blog-post-content" dangerouslySetInnerHTML={{ __html: contentTop }} />
+            <BlogCourseCta slug={slug} locale={locale} />
+            {contentBottom && (
+              <div className="blog-post-content" dangerouslySetInnerHTML={{ __html: contentBottom }} />
+            )}
 
-          {/* Table of Contents */}
-          <TableOfContents headings={headings} locale={locale} />
-
-          <div className="blog-post-content" dangerouslySetInnerHTML={{ __html: contentTop }} />
-          <BlogCourseCta slug={slug} locale={locale} />
-          {contentBottom && (
-            <div className="blog-post-content" dangerouslySetInnerHTML={{ __html: contentBottom }} />
-          )}
-
-          {/* Tags */}
-          {post.tags && post.tags.length > 0 && (
-            <div style={{ marginTop: 32, display: "flex", gap: 8, flexWrap: "wrap" }}>
-              {post.tags.map((tag) => (
-                <Link
-                  key={tag}
-                  href={`/${locale}/blog/tag/${encodeURIComponent(tag)}`}
-                  style={{ fontSize: "0.78rem", fontFamily: "monospace", color: "var(--text-muted)", background: "var(--bg-section)", border: "1px solid var(--border)", borderRadius: 4, padding: "2px 8px", textDecoration: "none" }}
-                >
-                  {tag}
-                </Link>
-              ))}
-            </div>
-          )}
-
-          {/* Share */}
-          <ShareButtons title={post.title} url={postUrl} locale={locale} />
-
-          {/* Author bio */}
-          <div style={{ marginTop: 40, padding: "20px 0", borderTop: "1px solid var(--border)", display: "flex", alignItems: "center", gap: 16 }}>
-            <Image src="/profile.png" alt="Tuncer Bağçabaşı" width={48} height={48} style={{ borderRadius: "50%", objectFit: "cover", flexShrink: 0, border: "2px solid var(--border)" }} />
-            <div>
-              <div style={{ fontWeight: 700, fontSize: "0.95rem" }}>Tuncer Bağçabaşı</div>
-              <div style={{ color: "var(--text-muted)", fontSize: "0.82rem", fontFamily: "monospace" }}>
-                {locale === "tr" ? "Yazılım Mühendisi & AI Araştırmacısı" : "Software Engineer & AI Researcher"}
-              </div>
-            </div>
-          </div>
-
-          {/* Newsletter */}
-          <NewsletterForm locale={locale} source={`blog/${slug}`} />
-
-          {/* Related Posts */}
-          {relatedPosts.length > 0 && (
-            <div className="related-posts">
-              <h3 className="related-posts-heading">
-                {locale === "tr" ? "İlgili Yazılar" : "Related Posts"}
-              </h3>
-              <div className="related-posts-list">
-                {relatedPosts.map((p) => (
-                  <Link key={p.slug} href={`/${locale}/blog/${p.slug}`} className="related-post-item">
-                    <span className="related-post-date">{p.date}</span>
-                    <span className="related-post-title">{p.title}</span>
-                    {p.excerpt && <span className="related-post-excerpt">{p.excerpt}</span>}
+            {/* Tags */}
+            {post.tags && post.tags.length > 0 && (
+              <div style={{ marginTop: 32, display: "flex", gap: 8, flexWrap: "wrap" }}>
+                {post.tags.map((tag) => (
+                  <Link
+                    key={tag}
+                    href={`/${locale}/blog/tag/${encodeURIComponent(tag)}`}
+                    style={{ fontSize: "0.78rem", fontFamily: "monospace", color: "var(--text-muted)", background: "var(--bg-section)", border: "1px solid var(--border)", borderRadius: 4, padding: "2px 8px", textDecoration: "none" }}
+                  >
+                    {tag}
                   </Link>
                 ))}
               </div>
+            )}
+
+            {/* Share */}
+            <ShareButtons title={post.title} url={postUrl} locale={locale} />
+
+            {/* Author bio */}
+            <div style={{ marginTop: 40, padding: "20px 0", borderTop: "1px solid var(--border)", display: "flex", alignItems: "center", gap: 16 }}>
+              <Image src="/profile.png" alt="Tuncer Bağçabaşı" width={48} height={48} style={{ borderRadius: "50%", objectFit: "cover", flexShrink: 0, border: "2px solid var(--border)" }} />
+              <div>
+                <div style={{ fontWeight: 700, fontSize: "0.95rem" }}>Tuncer Bağçabaşı</div>
+                <div style={{ color: "var(--text-muted)", fontSize: "0.82rem", fontFamily: "monospace" }}>
+                  {locale === "tr" ? "Yazılım Mühendisi & AI Araştırmacısı" : "Software Engineer & AI Researcher"}
+                </div>
+              </div>
             </div>
+
+            {/* Newsletter */}
+            <NewsletterForm locale={locale} source={`blog/${slug}`} />
+
+            <div style={{ marginTop: 24, paddingTop: 16, borderTop: "1px solid var(--border)" }}>
+              <Link href={`/${locale}/blog`} style={{ color: "var(--text-muted)", textDecoration: "none" }}>
+                {d.blog.backAll}
+              </Link>
+            </div>
+          </div>
+
+          {/* ── Sticky sidebar ── */}
+          {hasSidebar && (
+            <aside className="blog-post-sidebar">
+              {/* TOC – visible only on desktop */}
+              <TableOfContents headings={headings} locale={locale} className="toc-desktop-only" />
+
+              {/* Related posts */}
+              {relatedPosts.length > 0 && (
+                <div className="sidebar-related">
+                  <p className="sidebar-related-label">
+                    {post.category
+                      ? (locale === "tr" ? `${post.category} üzerine` : `More on ${post.category}`)
+                      : (locale === "tr" ? "İlgili Yazılar" : "Related Posts")}
+                  </p>
+                  {relatedPosts.map((p) => (
+                    <Link key={p.slug} href={`/${locale}/blog/${p.slug}`} className="sidebar-related-item">
+                      <span className="sidebar-related-title">{p.title}</span>
+                      {p.excerpt && <span className="sidebar-related-excerpt">{p.excerpt}</span>}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </aside>
           )}
 
-          <div style={{ marginTop: 24, paddingTop: 16, borderTop: "1px solid var(--border)" }}>
-            <Link href={`/${locale}/blog`} style={{ color: "var(--text-muted)", textDecoration: "none" }}>
-              {d.blog.backAll}
-            </Link>
-          </div>
         </div>
       </div>
     </main>

@@ -27,6 +27,8 @@ export const slugMap: Record<string, { tr: string; en: string }> = {
   "claude-code-channels": { tr: "claude-code-channels-nedir", en: "claude-code-channels" },
   "google-stitch-kullanim-rehberi": { tr: "google-stitch-kullanim-rehberi", en: "google-stitch-usage-guide" },
   "google-stitch-usage-guide": { tr: "google-stitch-kullanim-rehberi", en: "google-stitch-usage-guide" },
+  "claude-klasoru-anatomisi": { tr: "claude-klasoru-anatomisi", en: "anatomy-of-claude-folder" },
+  "anatomy-of-claude-folder": { tr: "claude-klasoru-anatomisi", en: "anatomy-of-claude-folder" },
 };
 
 export function getAlternateSlug(slug: string, targetLocale: "tr" | "en"): string {
