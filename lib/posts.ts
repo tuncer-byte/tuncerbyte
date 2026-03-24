@@ -27,14 +27,13 @@ export interface PostDataWithContent extends PostData {
 }
 
 /** posts/lang/ altındaki tüm .md dosyalarını (news/ alt klasörü dahil) döner */
-function collectMdFiles(dir: string): { slug: string; fullPath: string }[] {
+function collectMdFiles(dir: string): { slug: string; fullPath: string; isNews: boolean }[] {
   if (!fs.existsSync(dir)) return [];
   const entries = fs.readdirSync(dir, { withFileTypes: true });
-  const results: { slug: string; fullPath: string }[] = [];
+  const results: { slug: string; fullPath: string; isNews: boolean }[] = [];
 
   for (const entry of entries) {
     if (entry.isDirectory()) {
-      // Yalnızca news/ alt klasörünü tara
       if (entry.name === "news") {
         const subDir = path.join(dir, entry.name);
         const subEntries = fs.readdirSync(subDir, { withFileTypes: true });
@@ -43,6 +42,7 @@ function collectMdFiles(dir: string): { slug: string; fullPath: string }[] {
             results.push({
               slug: sub.name.replace(/\.md$/, ""),
               fullPath: path.join(subDir, sub.name),
+              isNews: true,
             });
           }
         }
@@ -51,6 +51,7 @@ function collectMdFiles(dir: string): { slug: string; fullPath: string }[] {
       results.push({
         slug: entry.name.replace(/\.md$/, ""),
         fullPath: path.join(dir, entry.name),
+        isNews: false,
       });
     }
   }
@@ -58,9 +59,13 @@ function collectMdFiles(dir: string): { slug: string; fullPath: string }[] {
   return results;
 }
 
-export function getSortedPostsData(lang = "tr"): PostData[] {
+/**
+ * Sıralı yazı listesi döner.
+ * @param includeNews  true → news/ klasörünü de dahil et (varsayılan: false)
+ */
+export function getSortedPostsData(lang = "tr", includeNews = false): PostData[] {
   const postsDirectory = getPostsDirectory(lang);
-  const files = collectMdFiles(postsDirectory);
+  const files = collectMdFiles(postsDirectory).filter((f) => includeNews || !f.isNews);
 
   const allPostsData = files.map(({ slug, fullPath }) => {
     const fileContents = fs.readFileSync(fullPath, "utf8");

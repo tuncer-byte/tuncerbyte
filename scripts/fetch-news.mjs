@@ -18,7 +18,7 @@ import { XMLParser } from "fast-xml-parser";
 
 const __dirname  = path.dirname(fileURLToPath(import.meta.url));
 const ROOT       = path.join(__dirname, "..");
-const NEWS_DIR   = path.join(ROOT, "posts", "tr", "news");
+const NEWS_DIR   = path.join(ROOT, "posts", "en", "news");
 const DRY_RUN    = process.argv.includes("--dry-run");
 const FORCE      = process.argv.includes("--force");
 const DATE_ARG   = process.argv.find((a) => a.startsWith("--date="))?.split("=")[1];
@@ -150,7 +150,7 @@ function extractArticle(html = "") {
   const imgMatch = body.match(/<img[^>]+src=["']([^"']{10,}(?:jpg|jpeg|png|webp|gif)[^"']*)["'][^>]*(?:alt=["']([^"']*)["'])?/i);
   const firstImage = imgMatch ? { src: imgMatch[1], alt: imgMatch[2] ?? "" } : null;
 
-  // 5. Paragrafları topla — kısa / gereksiz olanları filtrele
+  // 5. Paragrafları topla — kısa / gereksiz olanları filtrele, limit yok
   const paragraphs = [];
   for (const m of body.matchAll(/<p[^>]*>([\s\S]*?)<\/p>/gi)) {
     const t = stripHtml(m[1]).trim();
@@ -158,21 +158,16 @@ function extractArticle(html = "") {
     if (/cookie|privacy policy|all rights reserved|copyright|subscribe|newsletter|sign up|log in|sign in/i.test(t)) continue;
     if (/^(share|tweet|email|print|by |updated|published)/i.test(t)) continue;
     paragraphs.push(t);
-    if (paragraphs.length >= 8) break;
   }
 
-  // 6. Makale içi gerçek h2/h3 başlıklarını topla
-  //    Kural: başlığın hemen ardından en az bir <p> gelmelidir
+  // 6. Makale içi gerçek h2/h3 başlıklarını topla — limit yok
   const headings = [];
   const hRe = /<h([23])[^>]*>([\s\S]*?)<\/h[23]>([\s\S]{0,600})/gi;
   for (const m of body.matchAll(hRe)) {
     const text = stripHtml(m[2]).trim();
     const after = m[3] || "";
     if (text.length < 4 || text.length > 100) continue;
-    if (/<p[^>]*>/.test(after)) {          // gerçek içerik başlığı
-      headings.push(text);
-      if (headings.length >= 5) break;
-    }
+    if (/<p[^>]*>/.test(after)) headings.push(text);
   }
 
   // 7. Blok alıntı
@@ -214,22 +209,38 @@ category: "Gündem"
   const intro = meta.desc || article.paragraphs[0] || "";
   if (intro) lines.push(`**${truncate(intro, 200)}**\n`);
 
-  // — Paragraflar —
-  const bodyParas = meta.desc ? article.paragraphs.slice(0, 6) : article.paragraphs.slice(1, 6);
-  if (bodyParas.length > 0) {
-    lines.push(bodyParas.join("\n\n") + "\n");
+  // — Gövde: başlıklar ve paragrafları sırayla yaz —
+  if (article.headings.length > 0) {
+    // Başlık + sonrasındaki paragrafları birlikte yaz
+    const paras  = meta.desc ? article.paragraphs : article.paragraphs.slice(1);
+    let   pIndex = 0;
+    const parasPerSection = Math.max(1, Math.ceil(paras.length / (article.headings.length + 1)));
+
+    // Başlıktan önce gelen paragraflar
+    const leading = paras.slice(0, parasPerSection);
+    if (leading.length) lines.push(leading.join("\n\n") + "\n");
+    pIndex += parasPerSection;
+
+    article.headings.forEach((h) => {
+      lines.push(`## ${h}\n`);
+      const chunk = paras.slice(pIndex, pIndex + parasPerSection);
+      if (chunk.length) lines.push(chunk.join("\n\n") + "\n");
+      pIndex += parasPerSection;
+    });
+
+    // Artan paragraflar
+    if (pIndex < paras.length) {
+      lines.push(paras.slice(pIndex).join("\n\n") + "\n");
+    }
+  } else {
+    // Başlık yoksa düz paragraflar
+    const bodyParas = meta.desc ? article.paragraphs : article.paragraphs.slice(1);
+    if (bodyParas.length > 0) lines.push(bodyParas.join("\n\n") + "\n");
   }
 
   // — Blok alıntı —
   if (article.blockquote) {
     lines.push(`> ${article.blockquote}\n`);
-  }
-
-  // — İçerik başlıkları —
-  if (article.headings.length > 0) {
-    lines.push(`## Yazıda Neler Var?\n`);
-    article.headings.forEach((h) => lines.push(`- ${h}`));
-    lines.push("");
   }
 
   // — Footer —
@@ -350,15 +361,14 @@ async function processDevTo(perTag = 3) {
     const slug = `haber-devto-${slugify(a.title)}-${date}`;
     if (fs.existsSync(path.join(NEWS_DIR, `${slug}.md`)) && !FORCE) { process.stdout.write("."); continue; }
 
-    // Markdown gövdesinden paragraf ve başlık çıkar
+    // Markdown gövdesinden paragraf ve başlık çıkar — limit yok
     const paragraphs = (a.bodyMd || "")
       .split(/\n{2,}/)
       .map((p) => p.replace(/^#+\s*|!\[.*?\]\(.*?\)|[*_`]/g, "").trim())
-      .filter((p) => p.length > 70 && !/^(https?:|>|\||-)/.test(p))
-      .slice(0, 7);
+      .filter((p) => p.length > 70 && !/^(https?:|>|\||-)/.test(p));
 
     const headings = [...(a.bodyMd || "").matchAll(/^#{2,3}\s+(.+)/gm)]
-      .map((m) => m[1].trim()).slice(0, 5);
+      .map((m) => m[1].trim());
 
     const coverImg = a.cover_image || a.social_image || "";
 
@@ -435,19 +445,20 @@ async function processRSS(perFeed = 4) {
       let article = { paragraphs:[], headings:[], blockquote:"", firstImage:null };
 
       if (rssBody.length > 500) {
-        // RSS içeriği yeterince zenginse direkt kullan
+        // RSS tam içeriği varsa doğrudan kullan (limit yok)
         meta.desc = truncate(stripHtml(rssBody), 230);
         article   = extractArticle(rssBody);
       }
 
-      // meta image her durumda URL'den çek
+      // og:image + eksik meta her durumda URL'den tamamla
       try {
         const html = await fetchHtml(link);
         const m    = extractMeta(html);
         if (m.image)  meta.image  = m.image;
         if (!meta.desc && m.desc) meta.desc = m.desc;
         if (!meta.author) meta.author = m.author;
-        if (article.paragraphs.length < 2) {
+        // RSS içeriği yetersizse sayfanın tam içeriğini al
+        if (article.paragraphs.length < 3) {
           const a = extractArticle(html);
           if (a.paragraphs.length > article.paragraphs.length) article = a;
         }
