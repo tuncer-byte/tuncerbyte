@@ -1,8 +1,8 @@
 ---
-title: "Transformer Mimarisi Nedir? Attention Mekanizması Uçtan Uca — Bölüm 2"
+title: "Transformer Mimarisi Nedir? Attention, Ölçek, Sampling ve Halüsinasyon — Bölüm 2"
 date: "2026-03-24"
-excerpt: "Transformer mimarisi yapay zekanın temelini nasıl değiştirdi? Self-attention, multi-head attention, positional encoding ve encoder-decoder yapısını baştan sona anlattık."
-tags: ["Transformer", "Attention Mekanizması", "Self-Attention", "Yapay Zeka", "LLM", "BERT", "GPT", "Derin Öğrenme", "AI Mühendisliği"]
+excerpt: "Transformer mimarisi yapay zekanın temelini nasıl değiştirdi? Self-attention, multi-head attention, positional encoding, model ölçeği, örnekleme parametreleri ve halüsinasyon nedenlerini baştan sona anlattık."
+tags: ["Transformer", "Attention Mekanizması", "Self-Attention", "Yapay Zeka", "LLM", "BERT", "GPT", "Derin Öğrenme", "AI Mühendisliği", "Halüsinasyon", "Sampling", "Model Ölçeği"]
 category: "Teknik"
 series: "yapay-zekaya-giris"
 seriesTitle: "Yapay Zekaya Giriş"
@@ -20,6 +20,9 @@ seriesTitle: "Yapay Zekaya Giriş"
 - [Encoder-Decoder Yapısı](#encoder-decoder-yapısı)
 - [Decoder-Only ve Encoder-Only Modeller](#decoder-only-ve-encoder-only-modeller)
 - [Transformer Bugün Nerede?](#transformer-bugün-nerede)
+- [Model Ölçeği ve Scaling Laws](#model-ölçeği-ve-scaling-laws)
+- [Örnekleme (Sampling)](#örnekleme-sampling)
+- [Tutarsızlık ve Halüsinasyon](#tutarsızlık-ve-halüsinasyon)
 
 ---
 
@@ -271,6 +274,158 @@ Modern LLM'lerin yaptığı başlıca değişiklikler:
 **Flash Attention** — Standart attention O(n²) bellek kullanır. Flash Attention bu hesaplamayı yeniden düzenleyerek O(n) belleğe indirir. Uzun bağlamlarda hayat kurtarıcı.
 
 Bölüm 1'de anlattığımız eğitim pipeline'ı düşünürsen — pre-training, SFT, RLHF — bunların hepsi bu Transformer bloğu üstüne uygulanıyor. Pre-training trilyonlarca token'la ağırlıkları öğretiyor, post-training aşamaları bu ağırlıkları davranışsal olarak şekillendiriyor.
+
+---
+
+---
+
+## Model Ölçeği ve Scaling Laws
+
+Transformer mimarisini anladıktan sonra akla şu soru gelir: modeli büyütünce ne olur? Parametre sayısını ikiye katlarsan iki kat mı iyi olur? Veri eklersen doğrusal mı iyileşir?
+
+2020'de OpenAI'dan Kaplan ve arkadaşları bu soruyu ampirik olarak yanıtladı: **scaling laws** — ölçekleme yasaları.
+
+Bir modelin performansı üç şeye bağlı:
+- **N** — parametre sayısı
+- **D** — eğitim verisi (token sayısı)
+- **C** — hesaplama bütçesi (FLOPs = floating point operations)
+
+Bu üçü arasında güçlü bir güç yasası ilişkisi var: birini sabit tutup diğerini artırırsan performans öngörülebilir biçimde iyileşir. Sürpriz yok, kaos yok — ölçeklenebilir.
+
+**Chinchilla (2022) dönüm noktası**
+
+2022'de DeepMind, "Training Compute-Optimal Large Language Models" makalesini yayımladı. Temel bulgular şaşırtıcıydı:
+
+GPT-3 gibi dönemin büyük modelleri **yeterince eğitilmemişti**. 175 milyar parametreli GPT-3 yalnızca 300 milyar token gördü. Chinchilla yasası şunu söylüyor: **optimal eğitim için parametre başına yaklaşık 20 token gerekiyor**.
+
+| Model | Parametre | Eğitim Verisi | Durum |
+|---|---|---|---|
+| GPT-3 | 175B | 300B token | Yetersiz eğitim |
+| Chinchilla | 70B | 1.4T token | Optimal |
+| Llama 3 | 8B–70B | 15T token | Aşırı eğitim (kasıtlı) |
+
+Chinchilla, GPT-3'ün dörtte bir parametresiyle daha iyi performans gösterdi. Ders açık: **büyük model + az veri < küçük model + çok veri**.
+
+Llama ailesinin aşırı eğitimi kasıtlı — model çıkarımda daha küçük ve hızlı olsun, eğitim maliyeti tek seferlik ödünsün diye.
+
+**Emergent Abilities — Ortaya Çıkan Yetenekler**
+
+Ölçek artışının ilginç bir yan etkisi var: belirli parametre eşiklerinde modelde daha önce hiç görülmemiş yetenekler aniden ortaya çıkıyor. Buna **emergent abilities** deniyor.
+
+Az sayıda örnekle görev çözme (few-shot learning), adım adım akıl yürütme (chain-of-thought), aritmetik — bunların hiçbiri küçük modellerde yoktu; belirli bir ölçek atlayışıyla belirdi. Bu henüz tam anlaşılmış değil. Ölçek bir eşiği geçince model niteliksel olarak farklı davranmaya başlıyor.
+
+---
+
+## Örnekleme (Sampling)
+
+Transformer çalışıyor, bir sonraki token için olasılık dağılımı hazır. Şimdi soru şu: **bu dağılımdan nasıl token seçilir?**
+
+Model her çıktı adımında vocabulary'deki tüm token'lar için bir olasılık skoru üretir. "Paris" mi desin, "Lyon" mu, "Ankara" mı? Bu seçim mekanizmasına **sampling** deniyor ve sonucu doğrudan etkiliyor.
+
+**Greedy Decoding**
+
+En basit strateji: her adımda en yüksek olasılıklı token'ı seç.
+
+```
+"İstanbul Türkiye'nin..." → [başkenti: %0.60, en büyük: %0.25, tarihi: %0.10, ...]
+greedy seçim → "başkenti"
+```
+
+Deterministik. Tutarlı. Ama ciddi bir sorunu var: **tekrar döngüleri**. Model bir kalıba girince oradan çıkamaz. Uzun metinlerde sonsuz döngüler oluşabilir.
+
+**Temperature**
+
+Temperature, model çıktısının "keskinliğini" kontrol eder. Softmax'tan önce logit'leri ölçekler:
+
+```
+logits_scaled = logits / temperature
+```
+
+- **T = 1.0**: Modelin ham çıktısı, değişmez
+- **T < 1.0** (örn. 0.3): Dağılım keskinleşir, model daha az riskli seçimler yapar — tutarlı ama yaratıcılıktan uzak
+- **T > 1.0** (örn. 1.5): Dağılım yayılır, düşük olasılıklı token'lar da seçilebilir — yaratıcı ama tutarsız
+- **T → 0**: Greedy decoding'e yaklaşır
+
+API kullanırken `temperature: 0` dersen model her seferinde aynı cevabı verir. `temperature: 1.2` dersen her çalıştırmada farklı bir metin üretir.
+
+**Top-k Sampling**
+
+Sadece en yüksek k olasılıklı token'ı havuzda tut, geri kalanı elimin:
+
+```
+k=50 → en olası 50 token havuzda kalır, geri kalan ~49.950 token elenip yalnızca bu 50 arasından örnekleme yapılır
+```
+
+k değeri sabit olduğu için farklı bağlamlarda sorun çıkabilir. Bazen ilk 50 token gerçekten olası seçeneklerdir; bazen %90 olasılık tek bir token'a yığılmışken kalan 49 slot boş doldurulur.
+
+**Top-p (Nucleus) Sampling**
+
+Top-k'nın bu sorununu çözmek için Holtzman et al. (2020) **nucleus sampling**'i önerdi.
+
+Sabit bir sayı yerine, kümülatif olasılık toplamı p'ye ulaşana kadar token'ları al:
+
+```
+p=0.9 → En olası token'ları topla, toplamları %90'ı geçene kadar devam et
+Eğer tek bir token %95 olasılığa sahipse → o token havuz
+Eğer ilk 200 token %90'ı paylaşıyorsa → 200 token havuz
+```
+
+Dinamik bir pencere. Modelin o anki güven düzeyine göre genişler ya da daralır. GPT API'larında ve Anthropic Claude'da varsayılan örnekleme stratejisi budur.
+
+**Parametreler pratikte ne ifade eder?**
+
+| Parametre | Düşük Değer | Yüksek Değer | Kullanım |
+|---|---|---|---|
+| temperature | Tutarlı, öngörülebilir | Yaratıcı, beklenmedik | Kod için düşük, hikaye için yüksek |
+| top-k | Dar seçim havuzu | Geniş seçim havuzu | Genellikle top-p ile birlikte |
+| top-p | Güvenli çekirdek | Geniş nucleus | Genel amaç için 0.9–0.95 |
+
+Bu parametreler birbirine bağımlı — temperature 0.2 iken top-p 0.95 koymak çok anlam taşımaz, dağılım zaten keskin. Gerçek sistemlerde genellikle temperature + top-p ikilisi kullanılır.
+
+---
+
+## Tutarsızlık ve Halüsinasyon
+
+Transformer'ı, ölçeği ve örneklemeyi anladıktan sonra şu soruya gelebiliriz: **neden modeller bazen saçmalıyor?**
+
+Bu sorunun iki ayrı boyutu var: **halüsinasyon** (var olmayan şeyleri uydurmak) ve **tutarsızlık** (aynı soruya farklı cevaplar vermek). İkisi de mimarinin yapısal özelliklerinden kaynaklanıyor — rastgele bir hata değil.
+
+**Halüsinasyon neden oluşur?**
+
+Model özünde bir **olasılık makinesidir**. Bir sonraki token'ı tahmin ederken şunu sormaz: "Bu bilgi doğru mu?" Şunu sorar: "Bu bağlamda istatistiksel olarak en olası token hangisi?"
+
+Eğitim verisinde "X ödülünü Y aldı" kalıbı milyonlarca kez geçiyorsa, model X ödülü hakkında soru sorulduğunda bu kalıbı kullanmaya yönelir — gerçekte Y bu ödülü almamış olsa bile.
+
+Somut nedenler:
+
+**1. Bilgi sıkıştırma** — Model trilyonlarca token'ı milyarlarca parametre içine sıkıştırır. Bu kayıplı bir sıkıştırma. Detaylar, isimler, tarihler baskı altında bozulabilir. Model "hatırlamaya" çalışırken uydurur.
+
+**2. Kesme tarihi (knowledge cutoff)** — Modelin bilgisi eğitim verisinin bittiği tarihe kadar. Sonrasındaki gelişmeler, sonuçlar, değişiklikler yok. Sorulduğunda ya "bilmiyorum" demeli ya da uydurur — ikincisi daha sık olur.
+
+**3. Eğitim verisindeki yanlışlar** — İnternetteki her metin doğru değil. Model yanlış bilgiyi de istatistiksel ağırlığıyla içselleştirir.
+
+**4. Güven kalibrasyonu eksikliği** — Model ne bilip ne bilmediğini net olarak ayırt edecek şekilde doğrudan optimize edilmez. Yüksek güven ifadesiyle yanlış bilgi üretebilir.
+
+**Tutarsızlık neden oluşur?**
+
+Sampling doğası gereği stokastik — aynı girdi farklı token dizileri üretebilir. Temperature ve top-p bu varyansı kontrol eder ama tam ortadan kaldırmaz.
+
+Daha derin bir neden: **autoregressive üretimin küresel planlaması yok**.
+
+Model bir cevabı üretirken cümle cümle, token token ilerler. Her adımda sadece o ana kadar ürettiklerine bakar. İnsan bir yazı yazarken kafasında genel bir taslak tutabilir, geri dönüp düzeltebilir. Model ileriye planlayamaz, geri dönemez — bir token yazdıktan sonra o token artık bağlamın parçasıdır.
+
+Bu yüzden uzun metinlerde modeller:
+- Başta söyledikleriyle çelişebilir
+- Sayıları tutarsız kullanabilir
+- Bir kişinin özelliklerini karıştırabilir
+
+**Chain-of-Thought neden işe yarıyor?**
+
+"Adım adım düşün" demen veya CoT prompt'ları modeli zımni bir planlama yapmaya yönlendirir. Ara adımlar bağlama yazıldığında model onlara bakarak devam edebilir — bu sıklıkla tutarsızlığı ve hata oranını düşürür. Ama temeldeki kısıtı ortadan kaldırmaz.
+
+**Yapısal kısıt mı, çözülebilir sorun mu?**
+
+İkisi de. Bazı halüsinasyonlar post-training ile azaltılabilir — RLHF ve DPO süreci modeli belirsizlikte daha ihtiyatlı olmaya yönlendirebilir. Retrieval-Augmented Generation (RAG) dış kaynaklarla çapraz kontrol imkânı verir. Ama "next token prediction" temeli üstünde halüsinasyonu sıfıra indirmek mümkün değil. Bu, mimarinin değil doğruluk sinyalinin bir sınırı.
 
 ---
 
