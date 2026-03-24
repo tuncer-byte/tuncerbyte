@@ -2,9 +2,13 @@
 title: "AI Writes Code. You Own Quality."
 date: "2026-03-24"
 excerpt: "The more I use AI tools like Claude Code, the clearer it becomes: engineering skills are what make AI..."
-tags: ["Gündem", "Dev.to", "ai", "a", "i"]
+tags: ["Gündem", "Dev.to", "ai", "ai", "software"]
 category: "Gündem"
 ---
+
+![AI Writes Code. You Own Quality.](https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fx3izkesfz1oxoasrw59y.png)
+
+> **Kaynak:** Dev.to  &nbsp;·&nbsp;  **6 dk okuma**  &nbsp;·&nbsp;  **Yazar:** Helder Burato Berto
 
 **The more I use AI tools like Claude Code, the clearer it becomes: engineering skills are what make AI...**
 
@@ -18,17 +22,18 @@ When something breaks in production, nobody asks "which AI generated this?" They
 
 AI is a multiplier. If your engineering skills are weak, it multiplies that too.
 
-## İçerik Başlıkları
+TDD becomes even more powerful with AI. The engineer defines WHAT to test. AI handles the HOW.
+
+## Yazıda Neler Var?
 
 - You Own the Code
 - What AI Can't Do For You
 - Guide AI With Tests
 - Red-Green-Refactor
+- Cover Entire Flows With E2E Tests
 
 ---
 
-**Kaynak:** Dev.to &nbsp;·&nbsp; **Yazar:** Helder Burato Berto &nbsp;·&nbsp; **Okuma süresi:** 6 dk
+[Orijinal makaleyi oku →](https://dev.to/helderberto/ai-writes-code-you-own-quality-19g0)
 
-[Orijinal makaleyi oku](https://dev.to/helderberto/ai-writes-code-you-own-quality-19g0)
-
-_Bu içerik otomatik olarak derlenmektedir. Kaynak bağlantıları orijinal yayıncılara aittir._
+_Bu içerik otomatik olarak derlenmektedir. Tüm haklar orijinal yayıncıya aittir._

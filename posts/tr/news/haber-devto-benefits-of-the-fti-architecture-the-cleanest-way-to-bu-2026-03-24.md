@@ -2,9 +2,13 @@
 title: "✅ Benefits of the FTI Architecture — The Cleanest Way to Build Production ML Systems✅"
 date: "2026-03-24"
 excerpt: "When ML systems grow, complexity grows faster. More data. More models. More pipelines. More..."
-tags: ["Gündem", "Dev.to", "machinelearning", "a", "r"]
+tags: ["Gündem", "Dev.to", "machinelearning", "architecture", "dataengineering"]
 category: "Gündem"
 ---
+
+![✅ Benefits of the FTI Architecture — The Cleanest Way to Build Production ML Systems✅](https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Feao12mfrp89lyod0qz2e.png)
+
+> **Kaynak:** Dev.to  &nbsp;·&nbsp;  **2 dk okuma**  &nbsp;·&nbsp;  **Yazar:** golden Star
 
 **When ML systems grow, complexity grows faster. More data. More models. More pipelines. More...**
 
@@ -17,20 +21,8 @@ data team → feature pipeline
 ML team → training pipeline
 backend team → inference pipeline
 
-rollback model
-change features
-test new versions
-run A/B tests
-
-collect posts
-clean text
-create embeddings
-store in vector DB
-
 ---
 
-**Kaynak:** Dev.to &nbsp;·&nbsp; **Yazar:** golden Star &nbsp;·&nbsp; **Okuma süresi:** 2 dk
+[Orijinal makaleyi oku →](https://dev.to/tomorrmonkey/benefits-of-the-fti-architecture-the-cleanest-way-to-build-production-ml-systems-222)
 
-[Orijinal makaleyi oku](https://dev.to/tomorrmonkey/benefits-of-the-fti-architecture-the-cleanest-way-to-build-production-ml-systems-222)
-
-_Bu içerik otomatik olarak derlenmektedir. Kaynak bağlantıları orijinal yayıncılara aittir._
+_Bu içerik otomatik olarak derlenmektedir. Tüm haklar orijinal yayıncıya aittir._

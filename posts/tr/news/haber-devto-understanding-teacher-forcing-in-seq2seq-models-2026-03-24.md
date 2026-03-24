@@ -2,9 +2,13 @@
 title: "Understanding Teacher Forcing in Seq2Seq Models"
 date: "2026-03-24"
 excerpt: "When we learn about seq2seq neural networks, there is a term we should know called Teacher..."
-tags: ["Gündem", "Dev.to", "machinelearning", "a", "i"]
+tags: ["Gündem", "Dev.to", "machinelearning", "ai", "machinelearning"]
 category: "Gündem"
 ---
+
+![Understanding Teacher Forcing in Seq2Seq Models](https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F38qahj9u2lxeneyljvsz.png)
+
+> **Kaynak:** Dev.to  &nbsp;·&nbsp;  **2 dk okuma**  &nbsp;·&nbsp;  **Yazar:** Rijul Rajesh
 
 **When we learn about seq2seq neural networks, there is a term we should know called Teacher...**
 
@@ -18,10 +22,10 @@ So in this case, we should think about what to provide as the previous token, si
 
 Without teacher forcing, the model uses its own previous prediction as input.
 
+Here, one small mistake early causes all the following predictions to be wrong.
+
 ---
 
-**Kaynak:** Dev.to &nbsp;·&nbsp; **Yazar:** Rijul Rajesh &nbsp;·&nbsp; **Okuma süresi:** 2 dk
+[Orijinal makaleyi oku →](https://dev.to/rijultp/understanding-teacher-forcing-in-seq2seq-models-a89)
 
-[Orijinal makaleyi oku](https://dev.to/rijultp/understanding-teacher-forcing-in-seq2seq-models-a89)
-
-_Bu içerik otomatik olarak derlenmektedir. Kaynak bağlantıları orijinal yayıncılara aittir._
+_Bu içerik otomatik olarak derlenmektedir. Tüm haklar orijinal yayıncıya aittir._

@@ -2,9 +2,13 @@
 title: "The Ultimate Job Finding-Management Tool"
 date: "2026-03-24"
 excerpt: "I need to go to bed but I want to share my excitement before I crash. I built a tool finally to help..."
-tags: ["Gündem", "Dev.to", "ai", "w", "e"]
+tags: ["Gündem", "Dev.to", "ai", "webdev", "webscraping"]
 category: "Gündem"
 ---
+
+![The Ultimate Job Finding-Management Tool](https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fxsrc7mhkl6fy8oibjkuo.png)
+
+> **Kaynak:** Dev.to  &nbsp;·&nbsp;  **1 dk okuma**  &nbsp;·&nbsp;  **Yazar:** Anna Villarreal
 
 **I need to go to bed but I want to share my excitement before I crash. I built a tool finally to help...**
 
@@ -16,12 +20,8 @@ This is a chrome extension built quickly with copilot CLI and local ollama. Figh
 
 This was both fun and exciting! I'm probably not done playing with this, I really like it a lot. I have future plans for sure.
 
-I love it also because it's neon and fun and completely personalized.
-
 ---
 
-**Kaynak:** Dev.to &nbsp;·&nbsp; **Yazar:** Anna Villarreal &nbsp;·&nbsp; **Okuma süresi:** 1 dk
+[Orijinal makaleyi oku →](https://dev.to/annavi11arrea1/the-ultimate-job-finding-managment-tool-522i)
 
-[Orijinal makaleyi oku](https://dev.to/annavi11arrea1/the-ultimate-job-finding-managment-tool-522i)
-
-_Bu içerik otomatik olarak derlenmektedir. Kaynak bağlantıları orijinal yayıncılara aittir._
+_Bu içerik otomatik olarak derlenmektedir. Tüm haklar orijinal yayıncıya aittir._

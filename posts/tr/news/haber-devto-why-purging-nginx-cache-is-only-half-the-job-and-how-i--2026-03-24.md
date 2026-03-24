@@ -2,19 +2,15 @@
 title: "Why Purging Nginx Cache Is Only Half the Job (And How I Built the Other Half)"
 date: "2026-03-24"
 excerpt: "A deep dive into NPP — the WordPress plugin that purges Nginx cache and immediately preloads it. Covers the 3-layer purge strategy, Vary header trap, Redis sync, WooCommerce hooks, safexec, and more."
-tags: ["Gündem", "Dev.to", "opensource", "n", "g"]
+tags: ["Gündem", "Dev.to", "opensource", "nginx", "wordpress"]
 category: "Gündem"
 ---
 
-**A deep dive into NPP — the WordPress plugin that purges Nginx cache and immediately preloads it. Covers the 3-layer purge strategy, Vary header trap, Redis sync, WooCommerce hooks, safexec, and more.**
+![Why Purging Nginx Cache Is Only Half the Job (And How I Built the Other Half)](https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fuvavfcay3tt40kf32dso.png)
 
----
-title: "Why Purging Nginx Cache Is Only Half the Job (And How I Built the Other Half)"
-published: true
-description: "A deep dive into NPP — the WordPress plugin that purges Nginx cache and immediately preloads it. Covers the 3-layer purge strategy, Vary header trap, Redis sync, WooCommerce hooks, safexec, and more."
-tags: nginx, wordpress, devops, opensource
-coverimage: https://dev-to-uploads.s3.amazonaws.com/uploads/articles/uvavfcay3tt40kf32dso.png
----
+> **Kaynak:** Dev.to  &nbsp;·&nbsp;  **12 dk okuma**  &nbsp;·&nbsp;  **Yazar:** Hasan ÇALIŞIR
+
+**A deep dive into NPP — the WordPress plugin that purges Nginx cache and immediately preloads it. Covers the 3-layer purge strategy, Vary header trap, Redis sync, WooCommerce hooks, safexec, and more.**
 
 If you're self-hosting WordPress behind Nginx with caching, you've probably relied on plugins to automatically purge your cache.
 
@@ -24,17 +20,23 @@ Most Nginx cache plugins only purge — they leave the cache cold. I wanted some
 
 But before we get to NPP, here’s the problem that almost every WordPress + Nginx setup silently suffers from.
 
-## İçerik Başlıkları
+When I set up Nginx caching on my WordPress sites, the workflow looked like this:
+
+1. Publish or update a post
+2. Plugin purges the relevant cache entries
+3. First real visitor triggers a full PHP + DB round trip to rebuild the cache
+4. Everyone after that gets the cached version
+
+## Yazıda Neler Var?
 
 - The Problem No One Was Solving
 - The Full Cache Lifecycle
 - The 3-Layer Purge Strategy
 - How Preloading Actually Works
+- The Vary Header Trap (The Silent Cache Miss Problem)
 
 ---
 
-**Kaynak:** Dev.to &nbsp;·&nbsp; **Yazar:** Hasan ÇALIŞIR &nbsp;·&nbsp; **Okuma süresi:** 12 dk
+[Orijinal makaleyi oku →](https://dev.to/psauxit/why-purging-nginx-cache-is-only-half-the-job-and-how-i-built-the-other-half-3bhp)
 
-[Orijinal makaleyi oku](https://dev.to/psauxit/why-purging-nginx-cache-is-only-half-the-job-and-how-i-built-the-other-half-3bhp)
-
-_Bu içerik otomatik olarak derlenmektedir. Kaynak bağlantıları orijinal yayıncılara aittir._
+_Bu içerik otomatik olarak derlenmektedir. Tüm haklar orijinal yayıncıya aittir._

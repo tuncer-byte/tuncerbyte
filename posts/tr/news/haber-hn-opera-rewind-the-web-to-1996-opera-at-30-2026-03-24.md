@@ -6,12 +6,14 @@ tags: ["Gündem", "Hacker News", "Developer"]
 category: "Gündem"
 ---
 
+![Opera: Rewind The Web to 1996 (Opera at 30)](https://www.web-rewind.com/images/og/og_image.jpg)
+
+> **Kaynak:** Hacker News  &nbsp;·&nbsp;  **Puan:** 173
+
 **An interactive journey through 30 years of the web**
 
 ---
 
-**Kaynak:** Hacker News &nbsp;·&nbsp; **Puan:** 173
+[Orijinal makaleyi oku →](https://www.web-rewind.com) &nbsp;·&nbsp; [Hacker News tartışması →](https://news.ycombinator.com/item?id=47499721)
 
-[Orijinal makaleyi oku](https://www.web-rewind.com) &nbsp;·&nbsp; [Hacker News tartışması](https://news.ycombinator.com/item?id=47499721)
-
-_Bu içerik otomatik olarak derlenmektedir. Kaynak bağlantıları orijinal yayıncılara aittir._
+_Bu içerik otomatik olarak derlenmektedir. Tüm haklar orijinal yayıncıya aittir._

@@ -6,6 +6,10 @@ tags: ["Gündem", "TechCrunch AI", "AI", "Teknoloji"]
 category: "Gündem"
 ---
 
+![Google TV's new Gemini features keep fans updated on sports teams and more](https://techcrunch.com/wp-content/uploads/2026/01/google-tv.webp?resize=1200,675)
+
+> **Kaynak:** TechCrunch AI  &nbsp;·&nbsp;  **Yazar:** Lauren Forristal
+
 **Three Gemini-powered features are coming to your Google TV. This includes visual responses, deep dives, and sports briefs.**
 
 Google unveiled three Gemini-powered features for Google TV on Tuesday, including AI-powered visual responses, the ability to deep dive into virtually any topic, and narrated overviews of sports games.
@@ -18,17 +22,10 @@ As showcased at CES 2026 , Google TV is also getting “deep dives.” This feat
 
 Users can initiate these deep dives by selecting “Dive deeper” in the response options or by navigating to the Gemini tab on the home screen and selecting the “Learn” option.
 
-## İçerik Başlıkları
-
-- Disrupt 2026: The tech ecosystem, all in one room
-- Save up to $300 or 30% to TechCrunch Founder Summit
-- Most Popular
-- Someone has publicly leaked an exploit kit that can hack millions of iPhones
+For sports fans, Gemini has launched “sports briefs.” This is for viewers who wish to stay updated on their favorite leagues without having to watch every live moment. Users can request timely narrated overviews of events in leagues such as the NBA, NHL, and MLB, making it easy to catch up on highlights and important updates. This comes a year after Google launched “ news briefs ” for viewers looking to stay informed on the latest headlines.
 
 ---
 
-**Kaynak:** TechCrunch AI
+[Orijinal makaleyi oku →](https://techcrunch.com/2026/03/24/google-tv-new-gemini-features-keep-fans-updated-on-sports-teams-deep-dives-visual-answers/)
 
-[Orijinal makaleyi oku](https://techcrunch.com/2026/03/24/google-tv-new-gemini-features-keep-fans-updated-on-sports-teams-deep-dives-visual-answers/)
-
-_Bu içerik otomatik olarak derlenmektedir. Kaynak bağlantıları orijinal yayıncılara aittir._
+_Bu içerik otomatik olarak derlenmektedir. Tüm haklar orijinal yayıncıya aittir._

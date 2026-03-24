@@ -6,6 +6,10 @@ tags: ["Gündem", "TechCrunch AI", "AI", "Teknoloji"]
 category: "Gündem"
 ---
 
+![OpenAI's plans to make ChatGPT more like Amazon aren't going so well](https://techcrunch.com/wp-content/uploads/2026/03/Screenshot-2026-03-24-at-9.15.10-AM.png?resize=1200,675)
+
+> **Kaynak:** TechCrunch AI  &nbsp;·&nbsp;  **Yazar:** Lucas Ropek
+
 **OpenAI says its moving away from Instant Checkout, which allowed users to buy items directly through the ChatGPT interface.**
 
 OpenAI's plans to make ChatGPT into an e-commerce hub aren't exactly panning out—at least, not yet. In an announcement on Tuesday, the company revealed that it's pivoting away from a recently launched feature that let users buy items directly from the chatbot's interface.
@@ -18,17 +22,10 @@ We’ve found that the initial version of Instant Checkout did not offer the lev
 
 An OpenAI spokesperson said that the company would be deprioritizing the development of Instant Checkout as a standalone feature and that, instead, it planned to prioritize the development of product discovery for consumers. OpenAI would continue to support a variety of checkout paths, including through merchants' own websites, they said.
 
-## İçerik Başlıkları
-
-- Disrupt 2026: The tech ecosystem, all in one room
-- Save up to $300 or 30% to TechCrunch Founder Summit
-- Most Popular
-- Someone has publicly leaked an exploit kit that can hack millions of iPhones
+The Information and CNBC had previously reported that OpenAI's new plan was for merchants to create their own apps within ChatGPT, which would then route users to checkout experiences at the merchants' respective websites. A source who spoke with The Information noted that ChatGPT users simply weren’t using the chatbot to actually help them make purchases, and a study from October that looked at referral traffic from ChatGPT found that e-commerce sites were not making much money from ChatGPT users.
 
 ---
 
-**Kaynak:** TechCrunch AI
+[Orijinal makaleyi oku →](https://techcrunch.com/2026/03/24/openais-plans-to-make-chatgpt-more-like-amazon-arent-going-so-well/)
 
-[Orijinal makaleyi oku](https://techcrunch.com/2026/03/24/openais-plans-to-make-chatgpt-more-like-amazon-arent-going-so-well/)
-
-_Bu içerik otomatik olarak derlenmektedir. Kaynak bağlantıları orijinal yayıncılara aittir._
+_Bu içerik otomatik olarak derlenmektedir. Tüm haklar orijinal yayıncıya aittir._

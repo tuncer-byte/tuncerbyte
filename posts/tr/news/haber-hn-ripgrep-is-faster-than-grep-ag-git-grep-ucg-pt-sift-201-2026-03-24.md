@@ -6,6 +6,10 @@ tags: ["Gündem", "Hacker News", "Developer"]
 category: "Gündem"
 ---
 
+![Ripgrep is faster than grep, ag, git grep, ucg, pt, sift (2016)](https://burntsushi.net/stuff/ripgrep1.png)
+
+> **Kaynak:** Hacker News  &nbsp;·&nbsp;  **Puan:** 281
+
 **I blog mostly about my own programming projects.**
 
 In this article I will introduce a new command line search tool, ripgrep , that combines the usability of The Silver Searcher (an ack clone) with the raw performance of GNU grep. ripgrep is fast, cross platform (with binaries available for Linux, Mac and Windows) and written in Rust .
@@ -18,17 +22,18 @@ Target audience : Some familiarity with Unicode, programming and some experience
 
 NOTE : I m hearing reports from some people that rg isn t as fast as I ve claimed on their data. I d love to help explain what s going on, but to do that, I ll need to be able to reproduce your results. If you file an issue with something I can reproduce, I d be happy to try and explain it.
 
-## İçerik Başlıkları
+In other words, use ripgrep if you like speed, filtering by default, fewer bugs and Unicode support.
+
+## Yazıda Neler Var?
 
 - Screenshot of search results
-- Table of Contents
 - Introducing ripgrep
-- Pitch
+- Anti-pitch
+- Installation
+- Whirlwind tour
 
 ---
 
-**Kaynak:** Hacker News &nbsp;·&nbsp; **Puan:** 280
+[Orijinal makaleyi oku →](https://burntsushi.net/ripgrep/) &nbsp;·&nbsp; [Hacker News tartışması →](https://news.ycombinator.com/item?id=47499245)
 
-[Orijinal makaleyi oku](https://burntsushi.net/ripgrep/) &nbsp;·&nbsp; [Hacker News tartışması](https://news.ycombinator.com/item?id=47499245)
-
-_Bu içerik otomatik olarak derlenmektedir. Kaynak bağlantıları orijinal yayıncılara aittir._
+_Bu içerik otomatik olarak derlenmektedir. Tüm haklar orijinal yayıncıya aittir._

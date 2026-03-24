@@ -2,50 +2,50 @@
 title: "Construí um gerador de playlists no Spotify com Claude"
 date: "2026-03-24"
 excerpt: "Eu queria digitar “noite chuvosa, meio melancólica” e receber uma playlist perfeita. Então eu..."
-tags: ["Gündem", "Dev.to", "ai", "a", "i"]
+tags: ["Gündem", "Dev.to", "ai", "ai", "api"]
 category: "Gündem"
 ---
 
+![Construí um gerador de playlists no Spotify com Claude](https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fgsm6huj6mrvze5smiyw8.png)
+
+> **Kaynak:** Dev.to  &nbsp;·&nbsp;  **12 dk okuma**  &nbsp;·&nbsp;  **Yazar:** Leo Garcez
+
 **Eu queria digitar “noite chuvosa, meio melancólica” e receber uma playlist perfeita. Então eu...**
-
-> Eu queria digitar “noite chuvosa, meio melancólica” e receber uma playlist perfeita. Então eu construí isso.
-
-- Eu construí um gerador de playlists com IA usando Claude + Spotify API
-- Você descreve um humor → ele gera 50 músicas → salva direto no Spotify
-- O maior problema foi OAuth local com NextAuth (sim, foi um inferno)
-- Claude funciona bem, mas precisa de bastante controle pra não inventar músicas
-- Streaming com SSE melhorou muito a UX
 
 Links:
 - [Demo] (https://moodify.com.br)
 - [GitHub] (https://github.com/LeoGarcez/moodify)
 - [Playlist de exemplo](https://open.spotify.com/playlist/0L2bStHbYyfiGJFZfB1CDO?si=a93194d73eec484c)
 
-- [A Ideia](#a-ideia)
-- [A Stack](#a-stack)
-- [O Problema de Trabalhar com OAuth Localmente](#o-problema-de-trabalhar-com-oauth-localmente)
-- [Endpoints Deprecated do Spotify](#endpoints-deprecated-do-spotify)
-- [Spotify em Produção](#spotify-em-producao)
-- [Fazendo o Claude Obedecer](#fazendo-o-claude-obedecer)
-- [Prompt Engineering Anti-Alucinação](#prompt-engineering-anti-alucinacao)
-- [Modo Related Artists](#modo-related-artists)
-- [Construindo o Perfil Musical](#construindo-o-perfil-musical)
-- [Streaming com SSE](#streaming-com-sse)
-- [O Que Aprendi](#o-que-aprendi)
-
 Fazer um gerador de playlists que realmente entendesse vibes, não só tags de gênero. Algo tipo: você digita "tarde fria num apartamento vazio" e recebe uma playlist boa de verdade, já salva no seu Spotify.
 
-## İçerik Başlıkları
+1. Usuário descreve um humor
+2. Claude retorna 50 músicas em JSON
+3. App busca cada faixa no Spotify
+4. Cria e salva a playlist na conta do usuário
+
+plaintext
+Next.js 14 (App Router)
+NextAuth v5 beta
+Anthropic Claude API (claude-sonnet-4-6)
+Spotify Web API
+Supabase (PostgreSQL)
+TypeScript + Tailwind CSS + Framer Motion
+
+Escolhi o Claude porque ele tá bem em alta agora e, na prática, é confiável, alucina menos do que eu esperava pra esse tipo de tarefa. Ele é um pouco menos criativo que o GPT nas recomendações, mas compensa sendo mais previsível no formato das respostas, o que importa bastante quando você tá parseando JSON.
+
+Isso me custou algumas horas e sessões de debug. Vou detalhar porque tem várias camadas de problema e você provavelmente vai bater na mesma parede se estiver usando NextAuth v5 com Spotify.
+
+## Yazıda Neler Var?
 
 - TL;DR
 - Índice
 - A Ideia
 - A Stack
+- O Problema de Trabalhar com OAuth Localmente
 
 ---
 
-**Kaynak:** Dev.to &nbsp;·&nbsp; **Yazar:** Leo Garcez &nbsp;·&nbsp; **Okuma süresi:** 12 dk
+[Orijinal makaleyi oku →](https://dev.to/leugarcez/construi-um-gerador-de-playlists-no-spotify-com-claude-18ge)
 
-[Orijinal makaleyi oku](https://dev.to/leugarcez/construi-um-gerador-de-playlists-no-spotify-com-claude-18ge)
-
-_Bu içerik otomatik olarak derlenmektedir. Kaynak bağlantıları orijinal yayıncılara aittir._
+_Bu içerik otomatik olarak derlenmektedir. Tüm haklar orijinal yayıncıya aittir._
