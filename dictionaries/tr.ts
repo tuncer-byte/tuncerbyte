@@ -6,6 +6,7 @@ export const tr = {
     projects: "projeler",
     videos: "videolar",
     blog: "blog",
+    news: "gündem",
     contact: "iletişim",
     switchLang: "EN",
   },

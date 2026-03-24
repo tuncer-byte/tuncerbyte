@@ -8,6 +8,7 @@ export const en: Dictionary = {
     projects: "projects",
     videos: "videos",
     blog: "blog",
+    news: "news",
     contact: "contact",
     switchLang: "TR",
   },

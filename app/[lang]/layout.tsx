@@ -30,6 +30,7 @@ export default async function LangLayout({ children, params }: Props) {
             <Link href={`/${locale}#projects`} className="nav-hide-sm">{d.nav.projects}</Link>
             <Link href={`/${locale}#videos`} className="nav-hide-sm">{d.nav.videos}</Link>
             <Link href={`/${locale}/blog`}>{d.nav.blog}</Link>
+            <Link href={`/${locale}/news`}>{d.nav.news}</Link>
             <a href="mailto:tuncerbostancibasi@gmail.com">{d.nav.contact}</a>
             <LanguageSwitcher currentLang={locale} label={d.nav.switchLang} />
             <ThemeToggle />
