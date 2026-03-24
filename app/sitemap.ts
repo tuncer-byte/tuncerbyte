@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { getSortedPostsData } from "@/lib/posts";
+import { getSortedPostsData, getNewsPosts } from "@/lib/posts";
 import { locales } from "@/lib/i18n";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -24,6 +24,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     });
 
+    // News listing
+    entries.push({
+      url: `${BASE_URL}/${locale}/news`,
+      lastModified: new Date(),
+      changeFrequency: "daily",
+      priority: 0.8,
+    });
+
     // Blog posts
     const posts = getSortedPostsData(locale);
     const now = Date.now();
@@ -35,6 +43,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
         changeFrequency: daysOld < 14 ? "daily" : "monthly",
         priority: daysOld < 14 ? 0.9 : daysOld < 60 ? 0.8 : 0.7,
       });
+    }
+
+    // News posts (her dilde aynı EN içerik, yalnızca bir kez ekle)
+    if (locale === "en") {
+      const newsPosts = getNewsPosts("en");
+      for (const post of newsPosts) {
+        entries.push({
+          url: `${BASE_URL}/en/blog/${post.slug}`,
+          lastModified: new Date(post.date),
+          changeFrequency: "daily",
+          priority: 0.6,
+        });
+      }
     }
   }
 

@@ -86,6 +86,32 @@ export function getSortedPostsData(lang = "tr", includeNews = false): PostData[]
   return allPostsData.sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 
+/** Sadece news/ klasöründeki haberleri döner */
+export function getNewsPosts(lang = "en"): PostData[] {
+  const newsDir = path.join(getPostsDirectory(lang), "news");
+  if (!fs.existsSync(newsDir)) return [];
+
+  return fs.readdirSync(newsDir)
+    .filter((f) => f.endsWith(".md"))
+    .map((fileName) => {
+      const fullPath     = path.join(newsDir, fileName);
+      const fileContents = fs.readFileSync(fullPath, "utf8");
+      const m            = matter(fileContents);
+      return {
+        slug:        fileName.replace(/\.md$/, ""),
+        title:       m.data.title       as string,
+        date:        m.data.date        as string,
+        excerpt:     m.data.excerpt     as string | undefined,
+        tags:        m.data.tags        as string[] | undefined,
+        updated:     m.data.updated     as string | undefined,
+        category:    m.data.category    as string | undefined,
+        series:      m.data.series      as string | undefined,
+        seriesTitle: m.data.seriesTitle as string | undefined,
+      };
+    })
+    .sort((a, b) => (a.date < b.date ? 1 : -1));
+}
+
 export function getAllPostSlugs(lang = "tr") {
   const postsDirectory = getPostsDirectory(lang);
   return collectMdFiles(postsDirectory).map(({ slug }) => ({ slug }));
