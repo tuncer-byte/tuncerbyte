@@ -29,6 +29,8 @@ export const slugMap: Record<string, { tr: string; en: string }> = {
   "google-stitch-usage-guide": { tr: "google-stitch-kullanim-rehberi", en: "google-stitch-usage-guide" },
   "claude-klasoru-anatomisi": { tr: "claude-klasoru-anatomisi", en: "anatomy-of-claude-folder" },
   "anatomy-of-claude-folder": { tr: "claude-klasoru-anatomisi", en: "anatomy-of-claude-folder" },
+  "turboquant-aşırı-sıkıştırma-ile-llm-verimliliği": { tr: "turboquant-aşırı-sıkıştırma-ile-llm-verimliliği", en: "turboquant-extreme-compression-llm-efficiency" },
+  "turboquant-extreme-compression-llm-efficiency": { tr: "turboquant-aşırı-sıkıştırma-ile-llm-verimliliği", en: "turboquant-extreme-compression-llm-efficiency" },
 };
 
 export function getAlternateSlug(slug: string, targetLocale: "tr" | "en"): string {
