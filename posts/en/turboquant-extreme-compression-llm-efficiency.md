@@ -1,99 +1,122 @@
 ---
-title: "TurboQuant: How Google Compressed LLMs to 3 Bits Without Losing Accuracy"
+title: "What Is TurboQuant? Google's Algorithm That Compresses LLMs to 3 Bits"
 date: "2026-03-25"
-excerpt: "Google Research's TurboQuant compresses key-value caches to 3 bits with no accuracy loss and delivers an 8x speed boost on H100 GPUs — without any training or fine-tuning."
+excerpt: "TurboQuant is a Google Research algorithm that compresses LLM key-value caches to 3 bits with no accuracy loss. It delivers 8x throughput on H100 GPUs and requires zero training."
 tags: ["AI", "LLM", "Quantization", "Google Research", "Efficiency", "Vector Search", "TurboQuant"]
 category: "Technical"
 ---
 
-**Google Research published three new compression algorithms — TurboQuant, QJL, and PolarQuant — that shrink large language model memory footprints to near-theoretical limits while preserving full accuracy.**
-
-As models grow, so does the cost of running them. The bottleneck is usually the same: high-dimensional vectors. Every token a language model processes adds Key-Value (KV) pairs to the attention cache. That cache eats memory, saturates bandwidth, and directly slows down inference. Classical quantization methods help, but they come with a catch: each data block needs full-precision normalization constants stored alongside the compressed data. That's an extra 1–2 bits per number — small-sounding, but enormous at billions of vectors.
-
-TurboQuant eliminates that hidden overhead entirely.
+**TurboQuant is a quantization algorithm developed by Google Research that compresses large language model Key-Value (KV) caches to near-theoretical limits. It reaches 3-bit effective storage with no accuracy loss, delivers 8× throughput on H100 GPUs, and requires no training or fine-tuning.**
 
 ![TurboQuant overview animation](/images/posts/turboquant/hero.gif)
 
 ---
 
-## Why the KV Cache Is a Problem
+## What Is TurboQuant?
 
-In a Transformer, every attention layer stores the Key and Value vectors for all previous tokens. As context length grows, this cache scales with it. A model operating at 128K tokens can have a KV cache larger than its weight matrices.
+TurboQuant is one of three compression algorithms published by Google Research: TurboQuant, QJL, and PolarQuant. Their shared goal is to compress the high-dimensional vectors produced during LLM inference to the absolute minimum — while preserving full accuracy.
 
-Standard practice is to quantize these vectors to 8-bit or 4-bit. But storing a separate scale factor and zero point for each block means you never actually reach the theoretical compression ratio. The overhead adds up.
+Classical quantization methods compress vectors but must store normalization constants alongside each data block. That's 1–2 extra bits per number. Across billions of vectors, this hidden overhead is substantial. TurboQuant eliminates it entirely: **it stores no normalization constants whatsoever.**
 
 ---
 
-## How TurboQuant Works
+## What Is the KV Cache in LLMs — and Why Is It a Problem?
+
+In Transformer-based models, every attention layer stores the Key (K) and Value (V) vectors for all previously seen tokens. This structure is called the KV cache.
+
+As context length grows, the KV cache grows with it. At 128K tokens, the KV cache can occupy more GPU memory than the model's weight matrices. With 1M-token context windows becoming common, this problem is increasingly critical.
+
+Standard practice is to quantize these vectors to 8-bit or 4-bit. But storing scale factors per block means the theoretical compression ratio is never actually achieved.
+
+---
+
+## How Does TurboQuant Work?
 
 TurboQuant operates in two steps:
 
-**Step 1 — High-quality compression with PolarQuant:** Vectors are first passed through a random rotation matrix. This flattens the data geometry and makes standard quantization nearly perfect. The vectors are then converted from Cartesian to polar coordinates — radius carries magnitude, angles carry direction (meaning). Because the dot products used in attention only depend on the angular component, the radius cancels out. Angles on a unit hypersphere are already bounded, so no normalization constant needs to be stored.
+**Step 1 — High-quality compression with PolarQuant:** Vectors are first passed through a random rotation matrix. This flattens the data geometry and makes standard quantization nearly perfect. Vectors are then converted from Cartesian to polar/hyperspherical coordinates. Magnitude lives in the radius; meaning lives in the angles. Because dot-product attention depends only on angular similarity, the radius cancels out mathematically. Angles on a unit hypersphere are naturally bounded — no external normalization constant needed.
 
-**Step 2 — Error correction with QJL at 1 bit:** The small residual error left by PolarQuant is corrected by QJL (Quantized Johnson-Lindenstrauss) using a single bit per value. QJL reduces each vector element to its sign (+1 or -1) using the Johnson-Lindenstrauss transform, which provably preserves distances between vectors in high-dimensional space. Memory overhead: zero.
+**Step 2 — Error correction with QJL at 1 bit:** The small residual error left by PolarQuant is corrected by QJL (Quantized Johnson-Lindenstrauss) using a single bit per value. Every vector element is reduced to its sign (+1 or −1). The Johnson-Lindenstrauss transform mathematically guarantees that distance relationships between vectors are preserved.
 
-Together, these two steps hit the theoretical compression limit with no training required.
-
----
-
-## QJL: One Bit, Zero Overhead
-
-QJL is worth understanding on its own. Reducing every vector element to a single sign bit looks like aggressive information loss. But the Johnson-Lindenstrauss lemma guarantees that with enough dimensions, the sign bits alone are sufficient to estimate the angle between two vectors to high accuracy.
-
-Classical quantization stores a `scale` and `zero_point` for every data block. QJL stores nothing extra — the algorithm projects data into a space where normalization is implicit. This means 3-bit effective storage actually costs 3 bits. No hidden tax.
+Result: zero memory overhead, compression at the theoretical limit.
 
 ---
 
-## PolarQuant: Angles Carry the Meaning
+## What Is PolarQuant?
 
-In Cartesian coordinates, quantizing `(x, y, z)` requires normalizing each axis separately. Those normalization coefficients have to go somewhere — they go into memory.
+PolarQuant is the first stage of TurboQuant and a standalone compression algorithm.
 
-PolarQuant converts vectors to polar/hyperspherical coordinates instead. Radius (r) encodes magnitude; angles (θ₁, θ₂, ...) encode direction, which is what matters for dot product similarity. Since attention scores depend only on directional similarity, the radius cancels in the math. Angles live on a unit hypersphere, naturally bounded, no external normalization constant needed.
+Quantizing a Cartesian vector `(x, y, z)` requires normalizing each axis separately — those normalization coefficients must be stored somewhere in memory.
+
+PolarQuant instead converts vectors to **polar/hyperspherical coordinates**:
+- Radius (r): encodes magnitude
+- Angles (θ₁, θ₂, ...): encode direction — i.e., meaning
+
+In attention, only directional similarity matters. The dot product between two unit vectors is a function of their angle alone; magnitude cancels out. Since angles are naturally bounded on a unit hypersphere, no external normalization constant is needed.
 
 ---
 
-## Experiments
+## What Is QJL? How Does the Johnson-Lindenstrauss Transform Work?
+
+QJL (Quantized Johnson-Lindenstrauss) reduces every vector element to a single sign bit: +1 or −1.
+
+This looks like aggressive information loss. But the Johnson-Lindenstrauss lemma guarantees that **in a high-dimensional space, a random projection using only sign bits can estimate the angle between two vectors to high accuracy.**
+
+Classical quantization stores a `scale` and `zero_point` per data block. QJL stores nothing — the algorithm projects data into a space where normalization is implicit.
+
+In practice: 3-bit effective storage actually costs 3 bits. No hidden tax.
+
+---
+
+## TurboQuant Benchmark Results: Is There Any Accuracy Loss?
 
 Tests ran on Gemma and Mistral across five benchmarks: LongBench, Needle In A Haystack, ZeroSCROLLS, RULER, and L-Eval.
 
 ![LongBench benchmark results](/images/posts/turboquant/longbench.png)
 
-At 3-bit KV compression, TurboQuant matched baseline accuracy. The gap is negligible across all benchmarks — not a tradeoff, a genuine free lunch.
+At 3-bit KV compression, TurboQuant matched baseline accuracy across all benchmarks. The gap is negligible — not a tradeoff, a genuine free lunch.
 
 ![Attention logits distortion comparison](/images/posts/turboquant/attention-logits.png)
 
-In attention logit distortion (the measure of how much the compressed vectors deviate from the originals), TurboQuant significantly outperforms competing methods. The QJL bias-correction step is clearly visible here — it cuts distortion that PolarQuant alone would leave behind.
+In attention logit distortion (how much compressed vectors deviate from originals), TurboQuant significantly outperforms competing methods. The QJL bias-correction step is clearly visible — it cuts the distortion that PolarQuant alone would leave behind.
 
-On H100 GPUs, TurboQuant achieved **8× throughput** compared to 32-bit unquantized keys. KV memory footprint dropped 6×. No training, no fine-tuning, no accuracy loss.
+Results on H100 GPUs:
+- **8× throughput** compared to 32-bit unquantized keys
+- **6× reduction** in KV memory footprint
+- Training or fine-tuning required: none
 
 ---
 
-## Vector Search Results
+## Does TurboQuant Work for Vector Search?
 
-TurboQuant isn't limited to LLM inference. The same algorithms were tested on vector search — storing and querying billions of high-dimensional embeddings.
+Yes. TurboQuant isn't limited to LLM inference. The same algorithms were tested on vector search — storing and querying billions of high-dimensional embeddings.
 
 ![Vector search recall ratios](/images/posts/turboquant/recall-ratio.png)
 
-Compared to Product Quantization (PQ) and RabbiQ, PolarQuant and TurboQuant achieved higher recall ratios while simultaneously reducing index-building time. That combination — better accuracy and faster indexing — is unusual. Most compression methods trade one for the other.
+Compared to Product Quantization (PQ) and RabbiQ, PolarQuant and TurboQuant achieved:
+- Higher recall ratios
+- Faster index-building time
 
-For semantic search systems at scale, this means smaller indices, faster queries, and better results.
+Getting both simultaneously is unusual. Most compression methods trade one for the other. For semantic search at scale, this means smaller indices, faster queries, and better results — all at once.
+
+---
+
+## Why Does TurboQuant Matter? What Problem Does It Actually Solve?
+
+Inference cost is a real constraint for large models. As context windows push toward 1M tokens, the KV cache can dominate GPU memory. TurboQuant changes the equation:
+
+- **Longer context on the same hardware:** 6× memory reduction directly translates to longer context windows
+- **Larger batch sizes:** freed memory means more parallel requests per GPU
+- **Faster inference, lower serving cost:** 8× throughput means dramatically lower cost per token
+- **No training required:** drop-in applicable to existing models
 
 ---
 
-## Why This Matters
-
-Inference cost is a real constraint for large models. As context windows push toward 1M tokens, the KV cache can dominate GPU memory. Every byte saved there is directly convertible into longer context, larger batches, or cheaper serving.
-
-TurboQuant changes the equation:
-
-- Same hardware, longer context
-- Less GPU memory, larger batch sizes
-- Faster inference, lower serving cost
-
-The math is clean, the implementation adds negligible runtime overhead, and there's no training involved. All three papers — TurboQuant, QJL, and PolarQuant — are being presented at ICLR 2026 and AISTATS 2026.
-
----
+## Who Built TurboQuant? Where Are the Papers?
 
 **Authors:** Amir Zandieh (Research Scientist) and Vahab Mirrokni (VP & Google Fellow), Google Research
+
+All three papers are being presented at ICLR 2026 and AISTATS 2026.
+
 **Source:** [Google Research Blog](https://research.google/blog/turboquant-redefining-ai-efficiency-with-extreme-compression/)
 **Papers:** [TurboQuant](https://arxiv.org/abs/2504.19874) · [QJL](https://dl.acm.org/doi/10.1609/aaai.v39i24.34773) · [PolarQuant](https://arxiv.org/abs/2502.02617)
