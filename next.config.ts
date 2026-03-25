@@ -28,6 +28,15 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  async redirects() {
+    return [
+      {
+        source: "/tr/blog/turboquant-a%C5%9F%C4%B1r%C4%B1-s%C4%B1k%C4%B1%C5%9Ft%C4%B1rma-ile-llm-verimlili%C4%9Fi",
+        destination: "/tr/blog/turboquant-asiri-sikistirma-ile-llm-verimliligi",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {
