@@ -31,6 +31,8 @@ export const slugMap: Record<string, { tr: string; en: string }> = {
   "anatomy-of-claude-folder": { tr: "claude-klasoru-anatomisi", en: "anatomy-of-claude-folder" },
   "turboquant-asiri-sikistirma-ile-llm-verimliligi": { tr: "turboquant-asiri-sikistirma-ile-llm-verimliligi", en: "turboquant-extreme-compression-llm-efficiency" },
   "turboquant-extreme-compression-llm-efficiency": { tr: "turboquant-asiri-sikistirma-ile-llm-verimliligi", en: "turboquant-extreme-compression-llm-efficiency" },
+  "rate-limiting-nasil-kurgulanmali": { tr: "rate-limiting-nasil-kurgulanmali", en: "how-to-design-rate-limiting" },
+  "how-to-design-rate-limiting": { tr: "rate-limiting-nasil-kurgulanmali", en: "how-to-design-rate-limiting" },
 };
 
 export function getAlternateSlug(slug: string, targetLocale: "tr" | "en"): string {
