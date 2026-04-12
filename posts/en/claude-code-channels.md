@@ -1,7 +1,7 @@
 ---
-title: "Claude Code Channels: Control Your AI Agent via Telegram or Discord"
+title: "Claude Code Channels: Control AI via Telegram or Discord"
 date: "2026-03-20"
-excerpt: "Channels is Claude Code's new feature that lets you push messages into a running terminal session from Telegram, Discord, or any webhook source — and get replies back on the same platform."
+excerpt: "Channels lets you send messages to a running Claude Code session from Telegram or Discord and get replies back. Control your AI agent remotely."
 tags: ["Claude Code", "AI Agent", "Telegram", "Discord", "MCP", "Automation", "Artificial Intelligence"]
 category: "Technology"
 ---

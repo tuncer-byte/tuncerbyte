@@ -1,7 +1,7 @@
 ---
 title: "Google Stitch Kullanım Rehberi: Doğru Prompttan Mükemmel Tasarıma"
 date: "2026-03-20"
-excerpt: "Google Stitch'i açtın, ne yapacağını bilmiyorsun — ya da açmayı düşünüyorsun ama nerede başlayacağın belli değil. Bu rehber tam bunun için: prompttan dışa aktarmaya kadar her şey."
+excerpt: "Google Stitch'i açtın ama nerede başlayacağın belli değil. Bu rehber tam bunun için: ilk prompttan production-ready tasarıma kadar her şey."
 tags: ["Google Stitch", "Yapay Zeka", "UI Tasarımı", "Prompt", "Figma", "Gemini", "Araçlar", "Vibe Design"]
 category: "Teknik"
 ---

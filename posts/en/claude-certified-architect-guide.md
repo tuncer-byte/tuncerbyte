@@ -3,6 +3,7 @@ title: "Claude Certified Architect: What You Actually Need to Know"
 date: "2026-03-16"
 excerpt: "The Claude Certified Architect exam is only available to Anthropic partners. The knowledge behind it is not. Five domains, everything that matters, no fluff."
 tags: ["Claude", "Claude Code", "MCP", "Agent SDK", "Claude API", "Agentic AI", "Production", "Architecture"]
+category: "Tools"
 ---
 
 The Claude Certified Architect (Foundations) exam exists. It covers Claude Code, the Agent SDK, the Claude API, and Model Context Protocol. To take the exam you need to be an Anthropic partner.

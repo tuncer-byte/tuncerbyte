@@ -1,8 +1,9 @@
 ---
-title: "What is MCP and Why Does it Matter?"
+title: "What Is MCP? The Model Context Protocol Explained"
 date: "2025-01-20"
-excerpt: "Model Context Protocol is bridging AI assistants with real-world tools. How will this protocol shape the future?"
+excerpt: "MCP (Model Context Protocol) is Anthropic's open standard that connects AI assistants to real-world tools and data sources. Here's why it's become essential."
 tags: ["MCP", "Model Context Protocol", "Artificial Intelligence", "Claude", "AI Tools"]
+category: "Technology"
 ---
 
 In late 2024, Anthropic open-sourced the [Model Context Protocol (MCP)](https://modelcontextprotocol.io). What started quietly has quickly become one of the most important building blocks of the AI ecosystem.

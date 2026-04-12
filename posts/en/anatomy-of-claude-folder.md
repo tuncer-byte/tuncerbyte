@@ -1,7 +1,7 @@
 ---
-title: "What Is CLAUDE.md? The Complete Claude Code Configuration Guide"
+title: "CLAUDE.md: The Complete Claude Code Configuration Guide"
 date: "2026-03-23"
-excerpt: "CLAUDE.md is the instruction file that tells Claude Code how to behave in your project — your rules, architecture, and conventions loaded automatically every session. This guide covers the entire .claude/ folder: rules, commands, skills, agents, and settings.json."
+excerpt: "CLAUDE.md tells Claude Code how to behave in your project. This guide covers the entire .claude/ folder: rules, commands, skills, agents, and settings.json."
 tags: ["CLAUDE.md", "Claude Code", "Claude Code Configuration", "AI", "Developer Tools", "Agent", "Productivity"]
 category: "Tools"
 ---

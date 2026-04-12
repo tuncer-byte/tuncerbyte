@@ -1,7 +1,7 @@
 ---
-title: "Claude Code Skills: What They Are, Why They Exist, and How to Use Them"
+title: "Claude Code Skills: What They Are and How to Use Them"
 date: "2026-03-22"
-excerpt: "Skills are instruction files that extend what Claude Code can do — automatically or on command. Here's how they work, why the concept matters, and how to start using them."
+excerpt: "Skills are instruction files that extend Claude Code — automatically or on command. Here's how they work, why they matter, and how to start using them."
 tags: ["Claude Code", "AI", "Developer Tools", "Productivity", "Agent", "Automation", "Skills"]
 category: "Tools"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Claude Code Channels: Telegram ve Discord'dan AI Agent'ını Yönet"
 date: "2026-03-20"
-excerpt: "Claude Code'un yeni Channels özelliği, terminalde çalışan AI session'ına Telegram veya Discord üzerinden mesaj gönderip yanıt almana izin veriyor. Kurulum, güvenlik ve pratik kullanım."
+excerpt: "Channels, terminalde çalışan Claude Code session'ına Telegram veya Discord'dan mesaj gönderip yanıt almana izin veriyor. Kurulum, güvenlik ve pratik kullanım."
 tags: ["Claude Code", "AI Agent", "Telegram", "Discord", "MCP", "Otomasyon", "Yapay Zeka"]
 category: "Teknoloji"
 ---

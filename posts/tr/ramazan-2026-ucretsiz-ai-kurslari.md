@@ -1,7 +1,7 @@
 ---
 title: "Bayram Hediyesi: Dört Yapay Zekâ Kursunu Ücretsiz Al"
 date: "2026-03-20"
-excerpt: "Bayrama özel verdiğim dört Udemy kursunu ücretsiz edinebilirsin — Multi-Agent sistemler, MCP, AI Agent otomasyonu ve mobil uygulama geliştirme konularında sıfırdan ilerleyebileceğin içerikler seni bekliyor."
+excerpt: "Bayrama özel dört Udemy kursum ücretsiz: Multi-Agent sistemler, MCP, AI Agent otomasyonu ve mobil uygulama geliştirme. Sıfırdan başlayabilirsin."
 tags: ["Udemy", "Yapay Zeka", "MCP", "AI Agent", "Ücretsiz Kurs", "Eğitim", "Multi-Agent"]
 category: "Kaynaklar"
 ---

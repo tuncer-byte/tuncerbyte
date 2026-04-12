@@ -1,7 +1,7 @@
 ---
 title: "Transformer Mimarisi Nedir? Attention, Ölçek, Sampling ve Halüsinasyon — Bölüm 2"
 date: "2026-03-24"
-excerpt: "Transformer mimarisi yapay zekanın temelini nasıl değiştirdi? Self-attention, multi-head attention, positional encoding, model ölçeği, örnekleme parametreleri ve halüsinasyon nedenlerini baştan sona anlattık."
+excerpt: "Transformer mimarisi yapay zekanın temelini nasıl değiştirdi? Self-attention, model ölçeği, örnekleme parametreleri ve halüsinasyonu anlattık."
 tags: ["Transformer", "Attention Mekanizması", "Self-Attention", "Yapay Zeka", "LLM", "BERT", "GPT", "Derin Öğrenme", "AI Mühendisliği", "Halüsinasyon", "Sampling", "Model Ölçeği"]
 category: "Teknik"
 series: "yapay-zekaya-giris"

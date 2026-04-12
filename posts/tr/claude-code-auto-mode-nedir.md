@@ -1,7 +1,7 @@
 ---
 title: "Claude Code Auto Mode Nedir? Otonom İzin Sistemi Tam Rehberi"
 date: "2026-03-24"
-excerpt: "Claude Code'un yeni Auto Mode özelliği, her araç çağrısını manuel onaylamak yerine bir sınıflandırıcıyla güvenli/tehlikeli ayrımı yaparak otonom kararlar alıyor. Nasıl çalışır, nasıl etkinleştirilir, sınırları nelerdir — detaylı inceleme."
+excerpt: "Auto Mode araç çağrılarını sınıflandırıcıyla değerlendirerek otonom kararlar alır. Nasıl çalışır, nasıl etkinleştirilir ve sınırları nedir — detaylı inceleme."
 tags: ["Claude Code", "Auto Mode", "AI Agent", "İzin Sistemi", "Otomasyon", "Yapay Zeka", "Anthropic", "Güvenlik"]
 category: "Teknoloji"
 ---

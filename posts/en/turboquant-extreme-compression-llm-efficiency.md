@@ -1,7 +1,7 @@
 ---
-title: "What Is TurboQuant? Google's Algorithm That Compresses LLMs to 3 Bits"
+title: "TurboQuant: Google's Algorithm That Compresses LLMs to 3 Bits"
 date: "2026-03-25"
-excerpt: "TurboQuant is a Google Research algorithm that compresses LLM key-value caches to 3 bits with no accuracy loss. It delivers 8x throughput on H100 GPUs and requires zero training."
+excerpt: "TurboQuant compresses LLM key-value caches to 3 bits with no accuracy loss — 8x throughput on H100 GPUs and zero training required."
 tags: ["AI", "LLM", "Quantization", "Google Research", "Efficiency", "Vector Search", "TurboQuant"]
 category: "Technical"
 ---

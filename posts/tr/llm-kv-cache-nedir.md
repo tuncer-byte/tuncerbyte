@@ -1,7 +1,7 @@
 ---
 title: "LLM'lerde KV Cache Nedir? Ne İşe Yarar, Ne Zaman Kullanılır?"
 date: "2026-03-28"
-excerpt: "Büyük dil modellerinde KV Cache (Key-Value Cache) nedir, nasıl çalışır, ne zaman devreye girer ve performansa nasıl katkı sağlar? Transformer mimarisinden pratik kullanıma kapsamlı rehber."
+excerpt: "KV Cache büyük dil modellerinde nedir, nasıl çalışır ve performansa nasıl katkı sağlar? Transformer mimarisinden pratik kullanıma kapsamlı bir rehber."
 tags: ["KV Cache", "LLM", "Transformer", "Yapay Zeka", "Performans", "Inference", "Attention Mekanizması", "Büyük Dil Modelleri", "AI Optimizasyon"]
 category: "Yapay Zeka"
 ---

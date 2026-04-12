@@ -1,7 +1,7 @@
 ---
 title: "TurboQuant Nedir? LLM'leri 3 Bit'e Sıkıştıran Google Algoritması"
 date: "2026-03-25"
-excerpt: "TurboQuant, büyük dil modellerinin KV önbelleğini doğruluk kaybı olmadan 3 bit'e sıkıştıran bir Google Research algoritmasıdır. H100 GPU'larda 8 kat hız artışı sağlar ve hiç eğitim gerektirmez."
+excerpt: "TurboQuant, LLM KV önbelleğini doğruluk kaybı olmadan 3 bite sıkıştıran Google Research algoritmasıdır. H100'lerde 8x hız artışı sağlar, eğitim gerektirmez."
 tags: ["Yapay Zeka", "LLM", "Quantization", "Google Research", "Verimlilik", "Vektör Arama", "TurboQuant"]
 category: "Teknik"
 ---

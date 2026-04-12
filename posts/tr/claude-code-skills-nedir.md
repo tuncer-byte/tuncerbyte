@@ -1,7 +1,7 @@
 ---
 title: "Claude Code Skills Nedir, Ne İşe Yarar, Neden Var?"
 date: "2026-03-22"
-excerpt: "Skill'ler, Claude Code'un yapabileceklerini genişleten talimat dosyaları — otomatik olarak ya da komutla çalışıyor. Nasıl çalıştıkları, neden var oldukları ve nasıl kullanmaya başlayabileceğin."
+excerpt: "Skill'ler, Claude Code'u otomatik veya komutla genişleten talimat dosyalarıdır. Nasıl çalıştıkları, neden var oldukları ve nasıl kullanmaya başlayacağın."
 tags: ["Claude Code", "Yapay Zeka", "Geliştirici Araçları", "Üretkenlik", "Agent", "Otomasyon", "Skills"]
 category: "Araçlar"
 ---

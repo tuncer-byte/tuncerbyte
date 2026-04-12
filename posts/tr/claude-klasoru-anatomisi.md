@@ -1,9 +1,9 @@
 ---
 title: "CLAUDE.md Nedir? Claude Code Yapılandırma Rehberi"
 date: "2026-03-23"
-excerpt: "CLAUDE.md, Claude Code'a projeniz hakkında ne yapması ve nasıl davranması gerektiğini söyleyen talimat dosyasıdır. Bu rehberde .claude/ klasörünün tüm yapısını — rules, commands, skills, agents, settings.json — örneklerle açıklıyoruz."
+excerpt: "CLAUDE.md, Claude Code'a nasıl davranacağını söyleyen talimat dosyasıdır. .claude/ klasörünü — rules, commands, skills, agents, settings.json — açıklıyoruz."
 tags: ["CLAUDE.md", "Claude Code", "Claude Code Yapılandırma", "AI", "Geliştirici Araçları", "Agent", "Üretkenlik"]
-category: "Tools"
+category: "Araçlar"
 ---
 
 **CLAUDE.md**, Claude Code'a projeniz hakkında ne yapması gerektiğini anlatan bir talimat dosyasıdır. Her oturum başladığında Claude bu dosyayı okur ve içindeki kuralları, mimari bilgileri, komutları ve kısıtlamaları tüm konuşma boyunca uygular.

@@ -1,7 +1,7 @@
 ---
-title: "KV Cache in LLMs: What It Is, How It Works, and Why It Matters"
+title: "KV Cache in LLMs: What It Is and Why It Matters"
 date: "2026-03-28"
-excerpt: "A deep dive into Key-Value (KV) Cache in large language models — what it is, how the attention mechanism uses it, when it activates, and how it reduces latency and API costs."
+excerpt: "A deep dive into Key-Value (KV) Cache in large language models — what it is, how attention uses it, when it activates, and how it reduces latency and API costs."
 tags: ["KV Cache", "LLM", "Transformer", "Artificial Intelligence", "Performance", "Inference", "Attention Mechanism", "Large Language Models", "AI Optimization", "Prompt Caching"]
 category: "AI"
 ---

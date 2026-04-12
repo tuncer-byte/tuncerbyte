@@ -1,7 +1,7 @@
 ---
-title: "Google Stitch Usage Guide: From the Right Prompt to a Perfect Design"
+title: "Google Stitch Guide: From Prompt to Production-Ready Design"
 date: "2026-03-20"
-excerpt: "You've opened Stitch — or you're thinking about it — but you're not sure where to start. This guide covers everything from writing your first prompt to exporting a production-ready design."
+excerpt: "Not sure where to start with Google Stitch? This guide covers everything: writing your first prompt, iterating on designs, and exporting production-ready UI."
 tags: ["Google Stitch", "Artificial Intelligence", "UI Design", "Prompt", "Figma", "Gemini", "Tools", "Vibe Design"]
 category: "Technical"
 ---

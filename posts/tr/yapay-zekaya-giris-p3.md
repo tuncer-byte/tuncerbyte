@@ -1,7 +1,7 @@
 ---
 title: "Foundation Model Değerlendirmesi: Metrikler, Embedding ve AI Hakemliği — Bölüm 3"
 date: "2026-03-29"
-excerpt: "Bir modeli nasıl değerlendirirsin? Entropy'den perplexity'ye, exact match'ten embedding tabanlı metriklere, AI hakemliğinden karşılaştırmalı sıralamaya — foundation model değerlendirmesinin tüm boyutlarını ele aldık."
+excerpt: "Bir modeli nasıl değerlendirirsin? Entropy, perplexity, embedding metrikleri ve AI hakemliği — foundation model değerlendirmesinin tüm boyutlarını ele aldık."
 tags: ["Yapay Zeka", "LLM", "Foundation Model", "Değerlendirme", "Perplexity", "Entropy", "Embedding", "AI Judge", "BERTScore", "AI Mühendisliği"]
 category: "Teknik"
 series: "yapay-zekaya-giris"

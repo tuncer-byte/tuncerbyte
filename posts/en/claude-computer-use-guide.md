@@ -1,7 +1,7 @@
 ---
-title: "What Is Claude Computer Use? How to Let Claude Control Your Screen"
+title: "Claude Computer Use: Let Claude Control Your Screen"
 date: "2026-03-24"
-excerpt: "Claude can now click, type, and navigate your Mac just like a human — no complex setup needed. This guide covers what Claude is, what Computer Use means, how to enable it, and what to watch out for."
+excerpt: "Claude can click, type, and navigate your Mac — no setup needed. This guide covers what Computer Use is, how to enable it, and what to watch out for."
 tags: ["Claude", "Claude AI", "Computer Use", "Claude Desktop", "Anthropic", "AI Automation", "Claude Cowork", "Productivity"]
 category: "Tools"
 ---

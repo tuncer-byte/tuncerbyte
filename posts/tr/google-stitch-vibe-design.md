@@ -1,7 +1,7 @@
 ---
 title: "Google Stitch: Vibe Design ile UI Tasarımının Yeni Dönemi"
 date: "2026-03-19"
-excerpt: "Google Labs'in yeni yapay zeka aracı Stitch, doğal dil ve sesle yüksek kaliteli UI tasarımı yapmanı sağlıyor. Gemini 2.5 tabanlı bu araç, tasarım dünyasına 'vibe design' kavramını getiriyor."
+excerpt: "Google Labs'in Stitch aracı, doğal dil ve sesle yüksek kaliteli UI tasarımı yapmanı sağlıyor. Gemini 2.5 tabanlı, tasarıma 'vibe design' kavramını getiriyor."
 tags: ["Google", "Stitch", "Yapay Zeka", "UI Tasarımı", "Vibe Design", "Gemini", "Google Labs", "Frontend", "Araçlar"]
 category: "Haberler"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Claude Computer Use Nedir? Claude Bilgisayarını Nasıl Kontrol Ediyor?"
 date: "2026-03-24"
-excerpt: "Claude artık tıpkı bir insan gibi Mac'inizi tıklayıp, uygulama açıp, yazı yazabiliyor — kurulum gerektirmeden. Bu rehberde Claude'un ne olduğunu, Computer Use'un nasıl çalıştığını, nasıl etkinleştirileceğini ve dikkat edilmesi gerekenleri ele alıyoruz."
+excerpt: "Claude artık bilgisayarınızı kontrol edebiliyor — tıklama, yazma, uygulama açma. Computer Use nasıl çalışır, nasıl etkinleştirilir ve nelere dikkat edilmeli?"
 tags: ["Claude", "Claude Nedir", "Computer Use", "Claude Desktop", "Anthropic", "Yapay Zeka Otomasyonu", "Claude Cowork", "Verimlilik"]
 category: "Araçlar"
 ---

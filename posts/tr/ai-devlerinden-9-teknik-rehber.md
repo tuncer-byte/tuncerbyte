@@ -1,7 +1,7 @@
 ---
 title: "OpenAI, Google ve Anthropic'ten 9 Teknik AI Rehberi"
 date: "2026-03-18"
-excerpt: "OpenAI, Google ve Anthropic mühendislerinin yazdığı 9 teknik rehber: Building Agents, Prompt Engineering, 601 gerçek kullanım senaryosu ve daha fazlası — hepsi ücretsiz."
+excerpt: "OpenAI, Google ve Anthropic mühendislerinin yazdığı 9 teknik rehber: Building Agents, Prompt Engineering, 601 gerçek senaryo ve daha fazlası — hepsi ücretsiz."
 tags: ["AI Rehber", "OpenAI", "Google", "Anthropic", "Prompt Engineering", "Building Agents", "Yapay Zeka Kaynakları", "Teknik Döküman", "Ücretsiz Kaynak", "Kaggle"]
 category: "Kaynaklar"
 ---

@@ -3,6 +3,7 @@ title: "memory-bank-MCP: Giving AI Persistent Memory"
 date: "2025-03-10"
 excerpt: "Why and how I built the MCP server that lets Claude, Cursor and other AI tools remember project context across sessions."
 tags: ["MCP", "memory-bank", "Claude", "Cursor", "Artificial Intelligence", "Open Source"]
+category: "Projects"
 ---
 
 The most frustrating problem when working with AI tools: having to start every session from scratch. Explain the project, provide context, describe what you're trying to do — and repeat it all over again next time.

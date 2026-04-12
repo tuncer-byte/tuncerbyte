@@ -1,7 +1,7 @@
 ---
-title: "Claude Code Auto Mode Explained: The Autonomous Permission System"
+title: "Claude Code Auto Mode: The Autonomous Permission System"
 date: "2026-03-24"
-excerpt: "Claude Code's new Auto Mode sits between manual approval and full permission bypass — a classifier reviews every tool call and decides what's safe to run autonomously. How it works, how to enable it, and what it can't do."
+excerpt: "Auto Mode sits between manual approval and full bypass. A classifier decides what's safe to run autonomously. How it works, how to enable it, and its limits."
 tags: ["Claude Code", "Auto Mode", "AI Agent", "Permission System", "Automation", "Artificial Intelligence", "Anthropic", "Security"]
 category: "Technology"
 ---
