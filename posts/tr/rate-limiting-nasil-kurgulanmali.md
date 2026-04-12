@@ -1,142 +1,145 @@
 ---
 title: "Başarılı Bir Rate Limiting Nasıl Kurgulanmalı?"
 date: "2026-04-10"
-excerpt: "Rate limiting nedir, hangi algoritmalar var ve sisteminize hangisi uyar? Token Bucket'tan Sliding Window'a dört temel yaklaşım, fark ve trade-off'larıyla."
-tags: ["Rate Limiting", "Backend", "Sistem Tasarımı", "Token Bucket", "Leaky Bucket", "Algoritma", "API", "Güvenlik", "Mimari"]
+excerpt: "Rate limiting nedir, hangi algoritmalar var ve hangisi sizin sisteminize uyar? Token Bucket'tan Sliding Window Log'a dört temel yaklaşım, fark ve trade-off'larıyla."
+tags: ["Rate Limiting", "Backend", "Sistem Tasarımı", "Token Bucket", "Leaky Bucket", "Fixed Window", "Sliding Window", "API Güvenlik", "Mikroservis", "Yazılım Mimarisi"]
 category: "Teknoloji"
 ---
 
-Zaman zaman kod yazma sürecinden bir adım geri atıp daha geniş bir perspektiften bakmaya çalışıyorum.
+Herkese merhaba,
 
-Günümüzde sistemler dakikalar içinde onlarca, hatta yüzlerce isteği işlemek zorunda. Bu isteklerin bir kısmı meşru — gerçek kullanıcılar, gerçek işlemler. Bir kısmı ise kötü niyetli: sistemi yormak, bozmak ya da veri çalmak amacıyla gönderilmiş istekler.
+![Rate Limiting Nedir?](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*GxVgJlmXB4k7iplu0wxoEw.png)
 
-**Rate limiting**, bu tehditlere karşı korunmanın en etkili yollarından biri. Basit tanımıyla: bir kullanıcının belirli bir zaman aralığında sisteme atabileceği maksimum istek sayısını belirler.
+Son zamanlarda kod yazma kısmından uzaklaşıp bakış açımı genişletmeye yöneldim, bu kapsamda bildiklerimi ve deneyimlerimi parça parça aktarmak istiyorum. Bugünkü konumuz **rate limiting** — temelde herkesin az çok aşina olduğu bir yapı. Ne var ki bu konuda niye uzun uzadıya yazı yazdın derseniz biraz bekleyin.
 
-Ama burada kritik bir soru var.
+Sistemlerde kimi zaman dakikalar içinde onlarca istek geliyor. Bunların kimisi doğal ve olağan, kimisi ise kötü niyetli kullanıcıların sistemi yormak için yaptığı istekler. Buna karşı alınabilecek önlemlerden biri de rate limit eklemek.
 
-## Her Sistem için Aynı Yaklaşım Uygun mu?
+**Rate limit nedir?** Basitçe: x kullanıcısının sisteminize y zaman aralığında maksimum kadar istek atabilmesini sağlayan bir savunma mekanizması.
 
-Hayır.
+## Rate Limiting Her Sistemde Aynı Şekilde mi Kurgulanmalı?
 
-Her sistemin dinamikleri ve iç yapıları farklıdır. Bazı sistemler günde binlerce isteğe izin verirken, diğerleri dakikalar içinde kısıtlamaya gider. Hatta aynı sistem içindeki mikro-servisler bile farklı stratejiler gerektirebilir.
+Temel kısmı geçtik. Gelelim asıl soruya.
 
-Dolayısıyla "en iyi rate limiting stratejisi" diye bir şey yok. Doğru strateji, ihtiyacınıza ve sisteminizin yapısına göre değişir.
+Her sistemin dinamikleri ve iç yapıları farklıdır. Kimi sistem binlerce isteğe günlerce izin verirken, kimi sistem dakikalar içinde bile istek sayısını kısıtlamak zorunda kalabilir. Sistemi geçtim — sistem içindeki mikro-servislerde bile bu yaklaşımlar farklılık gösterebilir ve göstermelidir.
 
-Şimdi dört temel algoritmaya bakalım.
+Şimdi bunu somut bir senaryo ile ele alalım.
+
+---
+
+## Senaryo: Bir Bankanın Mikroservis Mimarisi
+
+![Rate Limiting Senaryoları](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*ndRwu4sBzJ4SZjRwdrnAsg.jpeg)
+
+Diyelim ki bir bankada çalışıyorsunuz ve bankanızın temeli mikroservis mimarisine dayanıyor (inşallah). Birbirinden bağımsız servisleriniz var: kullanıcılar için giriş, dashboard, aktivite servisleri; altyapı tarafında loglama, monitoring, operasyonel işlemler ve benzerleri.
+
+Şimdi bu sisteme rate limiting stratejisi kuralım. İlk durağımız Token Bucket Algoritması.
+
+---
 
 ## 1. Token Bucket Algoritması
 
-En yaygın ve anlaşılması en kolay yaklaşım.
+![Token Bucket Algoritması](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*CE5Cx7VxTfKImFPUANAvxQ.png)
 
-Mantığı basit: Kullanıcıya belirli bir zaman diliminde sabit sayıda "token" verilir. Her istek bir token tüketir. Süre dolunca token havuzu yenilenir. Token bitmişse istek reddedilir.
+Bu, anam babam usulü rate limiting yaklaşımı desem yeri var. Herkesin isteyerek ya da istemeyerek (AI yönlendirmesiyle) kimi zaman best practice, kimi zaman bad practice olarak uyguladığı bir yaklaşım.
 
-**Örnek:** "Tuncer bu sisteme 1 dakika içinde 20 istek atabilir."
+Temeldeki mantık: **"Tuncer bu sisteme 1 dakika içinde 20 istek atabilir."**
 
-**Nasıl çalışır:**
-- Her kullanıcıya bir token havuzu atanır
-- Her istek bir token düşürür
-- Belirlenen süre bitince havuz yenilenir
-- Token yoksa istek `429 Too Many Requests` döner
+Ben sisteme 10 istek attıktan sonra 10 hakkım kalır. Yeni bir dakikaya geçince hakkım otomatik olarak tekrar 20'ye çıkar. Kurgusu basit — herhangi bir araştırmayla ya da bir AI yardımıyla kolayca hayata geçirebilirsiniz. Spike'ları da kendi içinde absorbe eder (iyi mi kötü mü — ayrı tartışma konusu).
 
-**Avantajları:**
-- Uygulanması basit
-- Anlık spike'ları absorbe eder — token havuzunda yeterli token varsa
+### Token Bucket Her Sisteme Uygun mu?
 
-**Dezavantajı:**
-- Yüksek trafik spike'larında sistem aşırı yüklenebilir. Herkesin tokeni varsa, aynı anda hepsi istek atar
+Pek değil.
+
+Her servise aynı mantığı kurgularsak, örneğin loglama servisimizde de Token Bucket kullanırsak — x sisteminde spike olabilir diye log yapısına da harici bir yük bindirmiş oluruz. Kar-zarar dengesini kurmak burada kritik.
+
+Sıradaki algoritmamız: **Leaky Bucket**.
 
 ---
 
 ## 2. Leaky Bucket Algoritması
 
-Fiziksel bir metafor üzerine kurulu: Bir kova düşünün, altında küçük bir delik var.
+![Leaky Bucket Algoritması](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*ZCdlRixKbZg2d_H2RksEPw.png)
 
-Ne kadar hızlı su dökersen dök — kova sabit bir hızda boşalır. Kova dolarsa yeni su taşar, yani reddedilir.
+Elimizde bir kova olsun, altına çiviyle bir delik açalım ve kovaya su doldurmaya başlayalım. Belirli bir noktadan sonra ben ne kadar su eklersem ekleyeyim — çivideki delikten damlayan su miktarı hep sabit kalacak.
 
-Sisteme çevirirsek: İstekler ne kadar hızlı gelirse gelsin, sistem onları sabit bir hızda işler. Kuyruk dolarsa yeni istekler reddedilir.
+Bunu yazılıma taşıyalım:
 
-```
-Token Bucket  → Spike'ları kabul et, tümünü işle
-Leaky Bucket  → Spike'ları sınırla, sabit hızda işle
-```
+- **Kova** → sabit boyutlu kuyruk (queue)
+- **Kovaya dökülen su** → uygulamadan gelen istekler / log mesajları
+- **Çivideki delik** → sabit hızda kuyruğu tüketen consumer servisler
+- **Taşan su** → kuyruk dolunca reddedilen fazla istekler
 
-**Nerede kullanışlı?**
+Örneğimize dönelim. Uygulamamıza 10x spike geldi, log satırı sayısı da 10 katına çıktı. Token Bucket bu spike'a "tamam geç" dedi ve ElasticSearch'ü bunalttı.
 
-Örneğin, bir loglama sistemi düşünün. ElasticSearch'e bağlı bir servis. Normal zamanlarda sorunsuz. Ama bir anda trafik 10 katına çıktı.
+Leaky Bucket ne yapar?
 
-- **Token Bucket** şöyle davranır: "Tamam, geç." Ve ElasticSearch bunalır.
-- **Leaky Bucket** şöyle davranır: "Ben yine aynı hızda yazarım." Ve sistemi korur.
+> "Kaç istek gelirse gelsin, ben ElasticSearch'e sabit hızda yazarım. Kuyruk doluysa yeni logları reddederim."
 
-Kritik loglar (ERROR, WARN) her zaman kuyruğa alınır. Düşük öncelikli loglar (INFO, DEBUG) kuyruk dolunca düşürülür.
+Yani kova ne kadar hızlı doldurulursa doldurulsun, alttan akan su hep aynı hızda akar.
 
-**Avantajı:** Downstream sistemleri aşırı yükten korur, sabit ve tahmin edilebilir bir çıktı sağlar
+### Reddedilen Loglar Ne Olur?
 
-**Dezavantajı:** Meşru spike'ları da kesiyor — yüksek anlık yük gereken sistemler için uygun değil
+![Log Önceliklendirme](https://miro.medium.com/v2/resize:fit:1400/format:webp/0*5EvfNcTi90LkTEcx.png)
+
+Gerçek sistemler burada akıllı davranır:
+
+- `ERROR` / `WARN` logları → öncelikli, her zaman kuyruğa alınır
+- `INFO` / `DEBUG` logları → kuyruk dolunca ilk atılan bunlar olur
+
+Kritik bilgiyi kaybetmeden sistemi korumuş olursunuz.
 
 ---
 
 ## 3. Fixed Window (Sabit Pencere) Algoritması
 
-Bankacılık sektöründe sıkça karşılaştığınız yaklaşım budur.
+Bankacılık sektöründe bazı işlemler katı kurallarla sınırlıdır: aylık maksimum 300.000 TL transfer veya günde maksimum 5 EFT isteği gibi. 5'ten fazla EFT talebi oluşturulmaması ve bu servisin gereksiz yere meşgul edilmemesi gerekir. İşte burada Fixed Window devreye girer.
 
-"Günde maksimum 5 EFT talebi oluşturabilirsiniz." Bu kural Fixed Window'dur.
+### Fixed Window Nasıl Çalışır?
 
-**Nasıl çalışır:**
-- Zaman eşit pencerelere bölünür (saat, gün, ay, yıl)
-- Her pencerede istek sayısı sayılır
-- Limit aşılırsa o pencere boyunca istekler reddedilir
-- Yeni pencere başlayınca sayaç sıfırlanır
+- Zaman eşit süreli pencerelere bölünür (saat, gün, ay, yıl)
+- Her pencerede kaynak erişim sayısı sayılır
+- Limit aşılırsa → o pencere boyunca ek istekler reddedilir
+- Yeni pencere başladığında sayaç sıfırlanır
 
-**Sorun: Boundary Exploitation**
+![Fixed Window Algoritması](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*eHo1xVUXCAZ6ky94y3hkdw.png)
 
-Bu algoritmada ciddi bir güvenlik açığı var.
+### Fixed Window'un Güvenlik Açığı Nedir?
 
-Diyelim ki günlük 100 istek limitiniz var. Gece 23:59'da 100 istek attınız, hemen 00:01'de 100 istek daha attınız. Sistem bu iki grubu farklı günler olarak görür — ve hepsi geçer.
+Burada ufak ama önemli bir zafiyet var.
 
-2 dakikada 200 istek. Limit 100'dü.
+Diyelim ki günlük 100 TL transferi limitli para transferi API'niz var. Uyanık bir kullanıcı gece **23:59'da** bir istek atıyor, hemen ardından **00:01'de** bir istek daha. Neden geçiyor? Çünkü Fixed Window algoritması gün bitti görür ve yeni gün başladığı için hak sıfırlanır.
 
-Bu soruna **boundary exploitation** denir. Fixed Window'un en büyük zayıflığı budur.
+2 dakikada limit 2 kez aşılmış olur. Buna **boundary exploitation** denir.
+
+Developer yiğitler bu soruna karşı da bir çözüm geliştirmiş tabii.
 
 ---
 
 ## 4. Sliding Window Log Algoritması
 
-Fixed Window'un açığını kapatmak için geliştirilmiş yöntem.
+Bu algoritmanın mantığı şu: Bir işlemi x zaman aralığında y kadar yapabilecek şekilde tanımlandıysan, x penceresi sürekli "sliding" yaparak kendini öteliyor.
 
-Fark şu: Zaman penceresi sabit başlangıç noktasından değil, her istekten geriye doğru hesaplanır.
+Türkçesiyle: **Günlük 100 TL atma limitin varsa ve bunu saat 16:00'da kullandıysan, o limitin sıfırlanma süresi bir sonraki gün saat 16:00'dır.** Gece yarısı değil. Bu sayede gerçekten bir günlük boşluk oluşur ve boundary exploitation mümkün olmaz.
 
-**Örnek:** Günlük 100 istek limitiniz var. İlk isteği 16:00'de attınız. O limitin sıfırlanma süresi artık ertesi gün 16:00'dir — gece yarısı değil.
+### Sliding Window Log'un Dezavantajı Nedir?
 
-Her yeni istek için pencere "kayar." Boundary exploitation mümkün değil.
+Bu yöntem %100 doğruluk sunar — ama her güzelin bir kusuru vardır.
 
-**Avantajı:** %100 doğruluk. Zaman sınırları asla istismar edilemez.
-
-**Dezavantajı:** Her işlemle birlikte timestamp tutmak gerekir. 1 milyon, 10 milyon, 100 milyon işlemde bu devasa bir depolama ihtiyacı yaratır. Redis gibi in-memory çözümler bu yükü hafiflетir ama yok etmez.
+%100 doğruluk sağlamak için sistem, işlem bilgisiyle birlikte `transaction-date` değerini de bünyesinde tutmak zorundadır. Her işlemde fazladan bir veri saklanır. Küçük ölçekte önemsiz görünen bu maliyet, 1 milyon, 10 milyon, 100 milyon işlemde devasa boyutlara ulaşabilir.
 
 ---
 
-## Hangi Algoritmayı Seçmeli?
+## Hangi Rate Limiting Algoritmasını Seçmeli?
 
-| Algoritma | Uygulama Kolaylığı | Spike Toleransı | Doğruluk | Bellek Maliyeti |
+Bunlar dışında da rate limiting taktikleri ve yaklaşımları bulunuyor. Burada önemli olan ihtiyacı iyi analiz edip sisteme uygun bir yapı kurmak.
+
+"Bu bayağı iyiymiş, bu fena, uçarız kaçarız" demek yerine — "buna ihtiyacımız var, o yüzden kullanalım" diyebilmek mühendisliktir.
+
+| Algoritma | Uygulama | Spike Toleransı | Doğruluk | Bellek Maliyeti |
 |---|---|---|---|---|
 | Token Bucket | ✅ Kolay | ✅ Yüksek | Orta | Düşük |
 | Leaky Bucket | Orta | ❌ Yok | Orta | Düşük |
 | Fixed Window | ✅ Kolay | Orta | ⚠️ Düşük | Düşük |
 | Sliding Window Log | Zor | Orta | ✅ Yüksek | ⚠️ Yüksek |
 
-Cevap sisteme göre değişir:
-
-- **Genel API limitleri için** → Token Bucket yeterli
-- **Downstream sistemi korumak için** → Leaky Bucket
-- **Bankacılık / compliance kuralları için** → Fixed Window (basitlik önceliktir)
-- **Kesin doğruluk gereken güvenlik sistemleri için** → Sliding Window Log
-
----
-
-## Sonuç
-
-Burada önemli olan, ihtiyacı iyi analiz edip sisteme uygun yapıyı kurmak.
-
-Hangi algoritmanın "en iyi" olduğu sorusu yanlış soru. Doğru soru: hangi algoritma sizin spesifik probleminize uyuyor?
-
-Her çözümün faydaları ve maliyetleri var. Doğru seçimi yapabilmek — bütün bu trade-off'ları görüp bilinçli karar vermek — gerçek mühendislik becerisidir.
+Bir sonraki yazıda görüşmek üzere.
