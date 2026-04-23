@@ -10,6 +10,8 @@ category: "Teknoloji"
 
 Önemli bir not: DALL-E 2 ve DALL-E 3, **12 Mayıs 2026** itibarıyla kullanımdan kalkıyor. Mevcut entegrasyonlar bu tarihe kadar gpt-image-2'ye taşınması gerekiyor.
 
+![ChatGPT Images 2.0 — Görsel üretimde yeni nesil](/images/posts/chatgpt-images-2-0/hero.webp)
+
 ---
 
 ## ChatGPT Images 2.0 Nedir?
@@ -22,6 +24,8 @@ Model iki katmanda çalışıyor:
 - **Thinking modu:** Plus, Pro, Business ve Enterprise aboneleri için. Web araması, çoklu görsel üretimi, çıktı doğrulama ve düzen akıl yürütmesi bu modda devreye giriyor.
 
 Image Arena skor tablosunda tüm kategorilerde 1 numara olan bu model, bir önceki liderden **242 puanlık** farkla ayrışıyor — daha önce görülmemiş bir aşım.
+
+![GPT Image 2.0 — Görselleri daha derin anlayan bir model](/images/posts/chatgpt-images-2-0/visual-reasoning.webp)
 
 ---
 
@@ -38,6 +42,30 @@ Thinking modunda model:
 - Çıktıyı ürettikten sonra kendi kendini doğrular
 - Gerekirse yeniden üretir
 
+![Thinking Mode Searches — OpenAI mağaza ürünlerini web'den arayıp poster üretti](/images/posts/chatgpt-images-2-0/thinking-mode.webp)
+
+Yukarıdaki örnek, Thinking modunun web araması özelliğini somutlaştırıyor: "OpenAI'nin resmi sitesindeki ürünleri içeren bir poster yap" promptuna karşılık model, siteyi taradı ve güncel ürünleri doğru şekilde poster haline getirdi.
+
+### Thinking vs Standard: Aynı Prompt, İki Farklı Sonuç
+
+Aşağıdaki iki görsel, aynı promptun Thinking ve Standard modda üretilmiş çıktılarını karşılaştırıyor. Prompt: bir çölde kaplan üstünde maymun, arka planda atlı astronot.
+
+**Standard mod:**
+
+![Standard mod çıktısı — kaplan üstünde maymun, at rolündeki astronot](/images/posts/chatgpt-images-2-0/astronaut-standard.png)
+
+**Thinking mod:**
+
+![Thinking mod çıktısı — daha doğal kompozisyon, gelişmiş ışık ve detay](/images/posts/chatgpt-images-2-0/astronaut-thinking.png)
+
+Thinking modunda ışık, gölge ve karakterlerin birbirine göre konumlanması belirgin biçimde daha iyi.
+
+### Hassasiyet ve Kontrol
+
+Images 2.0, yalnızca görsel kaliteyi değil, talimata uyum hassasiyetini de artırıyor. UI elementleri, küçük metinler, ikonlar ve yoğun düzenler artık tutarlı biçimde çıkabiliyor.
+
+![Daha fazla hassasiyet ve kontrol — 2K çözünürlükte UI elementleri ve metin](/images/posts/chatgpt-images-2-0/precision-control.webp)
+
 ### Metin Rendering — Sonunda Gerçekten Çalışıyor
 
 Önceki modellerle mücadelesi bildik olan metin okuma sorunu, Images 2.0 ile büyük ölçüde çözüldü. Desteklenen diller:
@@ -47,17 +75,27 @@ Thinking modunda model:
 - Hintçe, Bengalce
 - Arapça
 
-Pratik örnek: "Menü fiyatlarıyla, çok dilli etiketlerle, baskıya hazır" bir restoran menüsü artık doğru çıkabiliyor. Tasarımcıların uzun süredir beklediği bir özellik.
+![Çok dilli metin rendering — manga formatında 10 dilde doğru metin üretimi](/images/posts/chatgpt-images-2-0/multilingual-text.webp)
+
+Yukarıdaki örnek, modelin aynı görselde Çince, Japonca, Arapça, İspanyolca, Rusça ve daha fazlasını doğru bir şekilde render ettiğini gösteriyor. Tasarımcıların uzun süredir beklediği bir özellik.
 
 ### Tek Prompttan 8 Uyumlu Görsel
 
 Thinking modunda, tek bir prompttan aynı anda 8 görsel üretebiliyorsunuz. Asıl fark yaratan kısım: karakterler, nesneler ve stiller tüm görseller arasında tutarlı kalıyor.
+
+![Create Everything at Once — tek prompt, birden fazla stil ve dil](/images/posts/chatgpt-images-2-0/create-everything-at-once.webp)
 
 Kullanım senaryoları:
 
 - Sosyal medya kampanyası için farklı formatlarda görsel seti (Instagram, Twitter, LinkedIn)
 - Karakter sürekliliğiyle çizgi roman veya görsel hikaye
 - Ürün fotoğrafı varyantları — aynı ürün, farklı açılar
+
+### Stilistik Derinlik ve Realizm
+
+Model, fotoğraf realizmi, piksel sanat, manga, sinematik kareler gibi farklı görsel dilleri artık çok daha tutarlı üretiyor.
+
+![Stilistik derinlik ve realizm — farklı görsel dillerde yüksek tutarlılık](/images/posts/chatgpt-images-2-0/stylistic-realism.webp)
 
 ### 2K Çözünürlük
 

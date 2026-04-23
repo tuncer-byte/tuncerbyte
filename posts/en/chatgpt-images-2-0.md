@@ -10,6 +10,8 @@ On April 21, 2026, OpenAI launched **ChatGPT Images 2.0** — its most significa
 
 There's also a hard deadline attached: **DALL-E 2 and DALL-E 3 retire on May 12, 2026**. Any existing integration must migrate before then.
 
+![ChatGPT Images 2.0 — A new era of image generation](/images/posts/chatgpt-images-2-0/hero.webp)
+
 ---
 
 ## What Is ChatGPT Images 2.0?
@@ -22,6 +24,8 @@ It operates in two modes:
 - **Thinking mode** — restricted to Plus ($20/mo), Pro ($200/mo), Business, and Enterprise subscribers. Web search, multi-image batching, layout reasoning, and output verification.
 
 On the Image Arena leaderboard, gpt-image-2 holds the number one position across every category, leading the previous top model by **242 points** — the largest margin ever recorded on the benchmark.
+
+![GPT Image 2.0 — Built on a deeper understanding of images](/images/posts/chatgpt-images-2-0/visual-reasoning.webp)
 
 ---
 
@@ -37,7 +41,31 @@ The model doesn't generate blindly. In Thinking mode, it:
 4. Generates the image
 5. Self-verifies the output and regenerates if needed
 
+![Thinking Mode Searches — the model browsed OpenAI's site and built an accurate product poster](/images/posts/chatgpt-images-2-0/thinking-mode.webp)
+
+The example above shows Thinking mode's web search in action: given the prompt "make a poster of merch available on the OpenAI website right now," the model browsed the actual site and produced a poster with the correct, current products.
+
 For complex scenes — dense layouts, multi-element compositions, text-heavy designs — this significantly increases first-attempt success rates.
+
+### Thinking vs. Standard: Same Prompt, Different Output
+
+The two images below compare the same prompt rendered in Standard and Thinking modes. Prompt: a monkey riding a tiger in a desert, with an astronaut acting as a horse in the background.
+
+**Standard mode:**
+
+![Standard mode output](/images/posts/chatgpt-images-2-0/astronaut-standard.png)
+
+**Thinking mode:**
+
+![Thinking mode output — improved lighting, composition, and spatial depth](/images/posts/chatgpt-images-2-0/astronaut-thinking.png)
+
+Thinking mode produces noticeably better lighting, shadow detail, and spatial coherence across the scene.
+
+### Greater Precision and Control
+
+Images 2.0 doesn't just improve aesthetics — it improves instruction-following fidelity. Small text, iconography, UI elements, and dense compositions now render consistently at up to 2K resolution.
+
+![Greater precision and control — UI elements, small text, and iconography rendered accurately](/images/posts/chatgpt-images-2-0/precision-control.webp)
 
 ### Text Rendering That Actually Works
 
@@ -48,17 +76,27 @@ AI image generation has historically mangled text. Images 2.0 addresses this dir
 - Hindi, Bengali
 - Arabic
 
-A practical example: a restaurant menu with correct pricing, multi-language labels, and print-ready formatting is now achievable in a single generation. For designers, this is the feature that makes production use realistic.
+![Multilingual text rendering — manga-style comic with accurate text in 10+ languages](/images/posts/chatgpt-images-2-0/multilingual-text.webp)
+
+The example above shows the model rendering accurate text across Chinese, Japanese, Arabic, Spanish, Russian, and more — all within a single manga-style image. For designers working on localized content, this changes what's achievable in a single generation pass.
 
 ### Up to 8 Coherent Images Per Prompt
 
 In Thinking mode, a single prompt can produce up to eight images simultaneously. The critical distinction from past multi-generation approaches: **characters, objects, and styles remain consistent across the entire set**.
+
+![Create Everything at Once — multiple styles and languages from one prompt](/images/posts/chatgpt-images-2-0/create-everything-at-once.webp)
 
 Use cases this enables:
 
 - Campaign asset sets across formats (Instagram, Twitter, LinkedIn) in one call
 - Visual storytelling with character continuity
 - Product photography variants — same product, multiple angles
+
+### Stylistic Sophistication and Realism
+
+Images 2.0 improves fidelity across a wider range of visual styles: photorealism, pixel art, manga, cinematic stills, and more — with better consistency in texture, lighting, composition, and fine detail.
+
+![Stylistic sophistication and realism — consistent output across diverse visual genres](/images/posts/chatgpt-images-2-0/stylistic-realism.webp)
 
 ### 2K Resolution
 
@@ -163,18 +201,6 @@ Honest assessment of current gaps:
 - **Logo accuracy is inconsistent** — exact brand logo reproduction still requires human review
 - **Thinking mode latency** — 15–30 second response times; not suitable for real-time applications
 - **No architecture disclosure** — OpenAI hasn't specified diffusion vs. autoregressive, limiting optimization planning for API integrations
-
----
-
-## Production Use Cases
-
-Where gpt-image-2 fits into real workflows:
-
-- **Marketing asset production** — Campaign image sets across formats in one API call, with consistent branding
-- **Multilingual content localization** — Region-specific assets with accurate non-Latin typography
-- **Infographics and data visualization** — Structured layouts from data briefs with readable labels
-- **Sequential storytelling** — Comics, manga, visual novels with character continuity
-- **UI prototyping** — Wireframes and mockups with readable text and icons
 
 ---
 
