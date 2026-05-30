@@ -8,7 +8,7 @@ category: "Kaynaklar"
 
 Kurban Bayramı yaklaşırken öğrenmek isteyen herkese küçük bir hediye bırakmak istedim.
 
-Udemy'de verdiğim dört kurs için bayrama özel kupon oluşturdum. **KURBAN2026** kodu geçerli olduğu sürece kursları tamamen ücretsiz alabilirsin — kredi kartı gerekmez, deneme süresi yok.
+Udemy'de verdiğim dört kurs için bayrama özel kupon oluşturdum. **KURBAN2026** kodu geçerli olduğu sürece kursları tamamen ücretsiz alabilirsin 
 
 ---
 
