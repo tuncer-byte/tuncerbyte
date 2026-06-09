@@ -1,85 +1,65 @@
 ---
-title: "Claude Fable 5 ve Claude Mythos 5: Mythos Sınıfı Modellerle Yapay Zekada Yeni Eşik"
+title: "Anthropic Claude Fable 5 ve Mythos 5'i Tanıttı: Yapay Zeka Ajanları Dönemi Başlıyor"
 date: "2026-06-09"
-excerpt: "Anthropic, bugüne kadarki en güçlü modelleri olan Claude Fable 5 ve Mythos 5'i duyurdu. 50 milyon satırlık kod göçü, vision tabanlı Pokémon başarısı ve bilimsel keşiflerde devrim niteliğinde yetenekler."
-tags: ["Claude", "Claude Fable 5", "Claude Mythos 5", "Anthropic", "Yapay Zeka", "AI Agent", "LLM", "Yazılım Geliştirme", "Bilimsel Araştırma"]
+excerpt: "Anthropic, 'Mythos' sınıfı yeni modelleri Fable 5 ve Mythos 5 ile yapay zekayı bir üst seviyeye taşıdı. 50 milyon satırlık kod göçü ve otonom bilimsel keşifler artık hayal değil."
+tags: ["Claude", "Claude Fable 5", "Claude Mythos 5", "Anthropic", "Yapay Zeka Haberleri", "AI Agent", "Yazılım Geliştirme", "Teknoloji Gündemi"]
 category: "Teknoloji"
 ---
 
-9 Haziran 2026. Bugün, genel kullanım için güvenli hale getirdiğimiz ilk **Mythos sınıfı** modelimiz olan **Claude Fable 5**'i kullanıma sunuyoruz.
+Yapay zeka yarışı bugün itibarıyla vites yükseltti. **Anthropic**, yeni nesil "Mythos" sınıfı modelleri olan **Claude Fable 5** ve **Claude Mythos 5**'i resmi olarak duyurdu. Bu güncelleme sadece bir performans artışı değil; yapay zekanın "sohbet eden" bir araçtan "eyleme geçen" bir ajana dönüştüğü kritik bir eşiği temsil ediyor.
 
-Fable 5'in yetenekleri, şimdiye kadar genel erişime açtığımız tüm modellerin ötesine geçiyor. Yazılım mühendisliği, bilgi işçiliği, görüntü işleme (vision), bilimsel araştırma ve daha birçok alanda test edilen neredeyse tüm benchmark'larda dünya lideri (state-of-the-art) performans sergiliyor. Görev ne kadar uzun ve karmaşık olursa, Fable 5'in diğer modellerimize olan üstünlüğü o kadar artıyor.
+Yapay zeka dünyasında bir süredir konuşulan "otonom ajanlar" (agentic AI) kavramı, Claude Fable 5 ile artık somut bir gerçekliğe dönüşmüş durumda.
 
 ![Claude 5 Kelebekleri](/images/posts/claude-fable-5-mythos-5/hero.webp)
 
-## Güvenlik ve Koruma Önlemleri
+---
 
-Bu denli yetenekli bir modeli piyasaya sürmek belirli riskleri de beraberinde getiriyor. Koruma önlemleri olmasaydı, Fable 5'in siber güvenlik gibi alanlardaki yetenekleri ciddi zararlara yol açabilecek şekilde kötüye kullanılabilirdi. Bu nedenle, modeli koruma kalkanlarıyla birlikte yayına aldık. Bazı hassas konulardaki sorgular, Fable 5 yerine bir alt seviyedeki en güçlü modelimiz olan **Claude Opus 4.8** tarafından yanıtlanacaktır.
+## Mythos Sınıfı Nedir? Sadece Daha Hızlı Değil, Daha Akıllı
 
-Bu koruma önlemlerini, modeli hem güvenli hem de hızlı bir şekilde sunabilmek adına başlangıçta muhafazakar bir şekilde yapılandırdık. Bu durum bazen zararsız isteklerin de engellenmesine neden olabilir (oturumların ortalama %5'inden azında tetiklenmektedir). Önümüzdeki aylarda daha güçlü modeller geldikçe bu korumaları geliştirmeye ve hatalı engellemeleri (false positive) azaltmaya devam edeceğiz.
+Geçtiğimiz yılın en güçlü modeli olan **Opus**, akıl yürütme konusunda altın standarttı. Ancak yeni **Fable 5** ve **Mythos 5**, Anthropic'in "Mythos Sınıfı" olarak adlandırdığı yeni bir yetenek seviyesini temsil ediyor. Bu modeller sadece bilgiyi işlemekle kalmıyor, aynı zamanda:
 
-## Claude Mythos 5 ve Project Glasswing
+*   Uzun süreli görevlerde otonom olarak çalışabiliyor.
+*   Kendi notlarını kullanarak çıktılarını iyileştirebiliyor.
+*   Daha önce insan ekiplerinin haftalarını alan karmaşık süreçleri saatler içinde tamamlayabiliyor.
 
-Küçük bir siber savunma ve altyapı sağlayıcısı grubu için **Claude Mythos 5**'i de duyuruyoruz. Bu model, Fable 5 ile aynı temel mimariye sahip olsa da, belirli alanlardaki koruma sınırları esnetilmiştir. Mythos 5, başlangıçta ABD hükümetiyle iş birliği içinde yürütülen **Project Glasswing** aracılığıyla, Mythos Preview sürümünün bir üst versiyonu olarak sunulacaktır. Dünyadaki en güçlü siber güvenlik yeteneklerine sahip olan bu modele erişimi yakında daha geniş bir güvenilir erişim programı ile genişletmeyi planlıyoruz.
+### Claude Fable 5: Benchmark Listelerinin Yeni Lideri
+Genel kullanıma sunulan Fable 5, neredeyse tüm yapay zeka benchmark testlerinde liderliği ele geçirdi. İşte öne çıkan bazı çarpıcı veriler:
+
+*   **Yazılım Mühendisliğinde Devrim:** Stripe, Fable 5'in aylar süren mühendislik çalışmalarını günlere indirdiğini bildirdi. Model, **50 milyon satırlık bir Ruby kod tabanını** sadece 24 saat içinde yeni bir teknoloji yığınına göç ettirmeyi başardı.
+*   **Vision (Görüntü İşleme) Başarısı:** Fable 5, sadece ekran görüntülerini izleyerek *Pokémon FireRed* oyununu baştan sona bitirdi. Hiçbir harita veya yardımcı araç kullanmadan, sadece görsel muhakeme ile bu başarıya ulaşması, vision yeteneklerinin geldiği noktayı kanıtlıyor.
+
+![Benchmark Karşılaştırmaları](/images/posts/claude-fable-5-mythos-5/benchmarks.png)
 
 ---
 
-## Claude Fable 5 ve Mythos 5 Değerlendirmesi
+## Claude Mythos 5: Laboratuvarların Yeni İş Ortağı
 
-Aşağıdaki tablo, Fable 5 ve Mythos 5'in yeteneklerini diğer lider modellerle karşılaştırmaktadır:
+Fable 5 genel kullanıcıya hitap ederken, **Claude Mythos 5** siber savunma ve bilimsel araştırmalar için optimize edilmiş özel bir versiyon olarak sunuluyor. ABD hükümetiyle ortaklaşa yürütülen **Project Glasswing** kapsamında devreye alınan bu model, bilim dünyasında şimdiden çığır açtı.
 
-![Benchmark Tablosu](/images/posts/claude-fable-5-mythos-5/benchmarks.png)
-
-Fable 5 ve Mythos 5, önceki tüm Claude modellerinden daha uzun süre otonom (bağımsız) çalışabilir. İşte öne çıkan alanlar:
-
-### Yazılım Mühendisliği
-Erken test aşamasında **Stripe**, Fable 5'in aylar süren mühendislik işlerini günlere indirdiğini raporladı. 50 milyon satırlık bir Ruby kod tabanında, bir ekibin elle yapması iki aydan fazla sürecek olan kod göçü (migration) işlemini model sadece bir günde tamamladı. 
+Mythos 5, sadece veri taramakla kalmıyor, **özgün bilimsel hipotezler üretiyor.** Bir genomik çalışmasında, 138 hayvan türüne ait milyonlarca hücre verisini otonom olarak analiz eden model, kendi makine öğrenmesi modelini eğiterek *Science* dergisinde yayınlanan güncel modellerden daha iyi performans gösterdi.
 
 ![Agentic Code Migration](/images/posts/claude-fable-5-mythos-5/agentic-code.png)
 
-Ayrıca Fable 5, önceki modellere göre daha token-verimlidir. **Cognition’ın FrontierCode** değerlendirmesinde, Fable 5 sınır modeller arasında en yüksek puanı almıştır.
+---
+
+## Güvenlikte Yeni Yaklaşım: "Fallback" Mekanizması
+
+Bu kadar güçlü bir modeli serbest bırakmak ciddi güvenlik önlemleri gerektiriyor. Anthropic, burada "Opus 4.8 Fallback" adını verdiği akıllı bir sistem kullanıyor. 
+
+Eğer Fable 5, siber güvenlik veya biyoloji gibi alanlarda riskli olabilecek bir sorgu tespit ederse, isteği reddetmek yerine otomatik olarak **Claude Opus 4.8**'e devrediyor. Bu sayede kullanıcı, "buna cevap veremem" uyarısı almak yerine, güvenli ve yardımcı bir yanıt almaya devam ediyor. Anthropic, bu geçişin oturumların %5'inden azında yaşandığını belirtiyor.
 
 ![Frontier Code Evaluation](/images/posts/claude-fable-5-mythos-5/frontier-code.png)
 
-### Bilgi İşçiliği ve Analiz
-Fable 5, karmaşık analitik görevlerde çok güçlü bir performans sergiliyor. **Hebbia’nın Finans Benchmark** testinde, kıdemli düzeyde muhakeme, doküman tabanlı akıl yürütme, grafik/tablo yorumlama ve problem çözme alanlarında en yüksek skoru elde etti. **IMC**, modelin finansal analiz testlerinde (kök neden analizi, beklenen değer analizi vb.) neredeyse her alanda tam puan aldığını belirtti.
-
-### Vision (Görüntü İşleme) ve Pokémon Deneyi
-Fable 5, görüntüleme içeren görevlerde yeni liderdir. Karmaşık bilimsel şekillerden hassas veriler çıkarabilir ve sadece ekran görüntülerinden bir web uygulamasının kaynak kodunu yeniden inşa edebilir.
-
-En dikkat çekici örneklerden biri: Önceki modeller *Pokémon FireRed* oyununu oynamakta zorlanırken, Fable 5 herhangi bir harita veya navigasyon yardımı olmadan, sadece ham ekran görüntülerini izleyerek oyunu baştan sona bitirmeyi başardı.
-
-### Bellek ve Uzun Bağlam
-Fable 5, milyonlarca token boyunca odağını koruyabilir ve kendi notlarını kullanarak çıktılarını iyileştirebilir. *Slay the Spire* oyununda yapılan testlerde, kalıcı dosya tabanlı bellek kullanımı sayesinde modelin performansı Opus 4.8'e göre üç kat artmıştır.
-
 ---
 
-## Yaşam Bilimleri ve Bilimsel Keşifler
+## Claude Fable 5'e Nasıl Erişilir?
 
-Mythos 5'in yetenekleri bilim dünyasında yeni bir çığır açıyor:
+Yapay zeka iş akışınızı bir üst seviyeye taşımak istiyorsanız, erişim detayları şu şekilde:
 
-*   **İlaç Tasarımı:** Dahili protein tasarım uzmanlarımız, Mythos 5 kullanarak ilaç tasarım sürecinin belirli aşamalarını yaklaşık 10 kat hızlandırdı. Model; bağlanma bölgelerini seçme, tasarım araçlarını çalıştırma ve hatalardan ders çıkarma gibi bilim insanlarının yaptığı tüm görevleri otonom olarak yerine getirebiliyor.
-*   **Moleküler Biyolojide Yeni Hipotezler:** Mythos 5, tutarlı bir şekilde özgün bilimsel hipotezler üretebilen ilk modelimizdir. Uzmanlarımız, Mythos'un hipotezlerini Opus sınıfı modellere göre %80 oranında daha başarılı bulmuştur. Hatta bir Mythos hipotezi, bağımsız bir laboratuvarın çalışmasıyla doğrulanmıştır.
-*   **Genomik Araştırmalar:** Mythos 5, bir haftadan fazla süren otonom çalışma ile 138 hayvan türüne ait milyonlarca hücre verisini bir araya getirdi ve hücreleri tanımlamak için özel bir makine öğrenmesi modeli eğitti. Mythos 5 tarafından eğitilen bu model, *Science* dergisinde yayınlanan güncel bir modelden (100 kat daha küçük olmasına rağmen) daha iyi performans gösterdi.
+*   **Claude API:** Geliştiriciler `claude-fable-5` modelini bugünden itibaren kullanmaya başlayabilir.
+*   **Fiyatlandırma:** Milyon girdi tokenı başına 10 dolar, milyon çıktı tokenı başına 50 dolar (Önceki önizleme fiyatlarına göre ciddi bir indirim yapıldı).
+*   **Abonelik Planları:** Pro, Max ve Team kullanıcıları **22 Haziran 2026'ya kadar Fable 5'e ücretsiz erişebilecek.** Sonrasında sistem, kapasite durumuna göre kredi tabanlı bir yapıya geçecek.
 
----
+Anthropic'in bu hamlesi, yapay zekanın sadece bir yardımcı değil, gerçek bir iş ortağı olduğu yeni bir dönemi başlatıyor. İster devasa bir kod tabanını modernize edin, ister yeni bir tedavi yöntemi geliştirin; Claude Fable 5 şu an piyasadaki en yetenekli seçenek.
 
-## Güvenlik Sınıflandırıcıları ve "Fallback" Mekanizması
-
-Fable 5, kötüye kullanımı önlemek için yeni nesil yapay zeka sınıflandırıcıları ile donatılmıştır:
-
-1.  **Siber Güvenlik:** Modelin yazılım açıklarını bulma ve siber saldırı planlama yetenekleri, bu sınıflandırıcılar tarafından izlenir.
-2.  **Biyoloji ve Kimya:** Tehlikeli biyolojik araştırmalarda "uplift" (kolaylaştırıcı etki) yaratabilecek sorgular engellenir. Özellikle Dyno Therapeutics tarafından geliştirilen adeno-associated virus (AAV) tasarımı gibi çift kullanımlı (hem tedavi hem risk içeren) alanlarda hassas korumalar devrededir.
-3.  **Damıtma (Distillation):** Fable 5'in yeteneklerinin başka modelleri eğitmek için çalınmasına yönelik girişimler tespit edilir.
-
-**Önemli:** Sınıflandırıcılar bir risk tespit ettiğinde, sistem otomatik olarak **Claude Opus 4.8** modeline geçiş yapar. Kullanıcılar bu durum hakkında bilgilendirilir. Verilerimize göre oturumların %95'inden fazlasında herhangi bir geçiş (fallback) yaşanmamaktadır.
-
----
-
-## Fiyatlandırma ve Erişilebilirlik
-
-*   **Fiyat:** Milyon girdi tokenı başına 10 dolar, milyon çıktı tokenı başına 50 dolar (Mythos Preview fiyatının yarısından az).
-*   **Claude API:** Geliştiriciler bugünden itibaren `claude-fable-5` modelini kullanabilirler.
-*   **Abonelik Planları:** Fable 5; Pro, Max, Team ve Enterprise planlarına **22 Haziran 2026** tarihine kadar ek ücret ödemeden dahil edilmiştir. 23 Haziran'dan itibaren bu planlarda kullanım kredisi gerekecektir (kapasiteye göre bu süre uzatılabilir).
-
-Anthropic olarak, gelişmiş yapay zeka yeteneklerini olabildiğince hızlı ve güvenli bir şekilde tüm dünyaya ulaştırma yolunda bir adım daha atmış bulunuyoruz.
+*Fable 5'in kodlama verimliliği ve Pokémon vision testi hakkındaki teknik incelemelerimiz için bizi takip etmeye devam edin.*
