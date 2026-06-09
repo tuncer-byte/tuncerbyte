@@ -29,7 +29,7 @@ This new "Mythos-class" tier represents a massive leap beyond the previous Opus 
 *   **Advanced Vision & Robotics:** Fable 5 can extract data from complex scientific figures and rebuild entire web applications from a single screenshot. Most impressively, it successfully played *Pokémon FireRed* from start to finish using only raw visual frames.
 *   **VibeCAD & Simulation:** It can design 3D-printable models and even code the CAD editors to view them in real-time.
 
-![Benchmarks Comparison](/images/posts/claude-fable-5-mythos-5/benchmarks.webp)
+![Benchmarks Comparison](/images/posts/claude-fable-5-mythos-5/benchmarks.png)
 
 ---
 
@@ -37,7 +37,11 @@ This new "Mythos-class" tier represents a massive leap beyond the previous Opus 
 
 While Fable 5 is the general-purpose king, **Claude Mythos 5** is a specialized beast currently restricted to "Project Glasswing" partners and select researchers. It is the first model to consistently generate novel, corroborated scientific hypotheses in fields like molecular biology and genomics.
 
+![Agentic Code Migration](/images/posts/claude-fable-5-mythos-5/agentic-code.png)
+
 Mythos 5 isn't just an assistant; it's a collaborator in the lab, capable of predicting viral shell assembly and designing complex protein structures for treating neurodegenerative diseases.
+
+![Frontier Code Evaluation](/images/posts/claude-fable-5-mythos-5/frontier-code.png)
 
 ---
 

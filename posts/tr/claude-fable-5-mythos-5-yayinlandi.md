@@ -28,12 +28,18 @@ Küçük bir siber savunma ve altyapı sağlayıcısı grubu için **Claude Myth
 
 Aşağıdaki tablo, Fable 5 ve Mythos 5'in yeteneklerini diğer lider modellerle karşılaştırmaktadır:
 
-![Benchmark Tablosu](/images/posts/claude-fable-5-mythos-5/benchmarks.webp)
+![Benchmark Tablosu](/images/posts/claude-fable-5-mythos-5/benchmarks.png)
 
 Fable 5 ve Mythos 5, önceki tüm Claude modellerinden daha uzun süre otonom (bağımsız) çalışabilir. İşte öne çıkan alanlar:
 
 ### Yazılım Mühendisliği
-Erken test aşamasında **Stripe**, Fable 5'in aylar süren mühendislik işlerini günlere indirdiğini raporladı. 50 milyon satırlık bir Ruby kod tabanında, bir ekibin elle yapması iki aydan fazla sürecek olan kod göçü (migration) işlemini model sadece bir günde tamamladı. Ayrıca Fable 5, önceki modellere göre daha token-verimlidir.
+Erken test aşamasında **Stripe**, Fable 5'in aylar süren mühendislik işlerini günlere indirdiğini raporladı. 50 milyon satırlık bir Ruby kod tabanında, bir ekibin elle yapması iki aydan fazla sürecek olan kod göçü (migration) işlemini model sadece bir günde tamamladı. 
+
+![Agentic Code Migration](/images/posts/claude-fable-5-mythos-5/agentic-code.png)
+
+Ayrıca Fable 5, önceki modellere göre daha token-verimlidir. **Cognition’ın FrontierCode** değerlendirmesinde, Fable 5 sınır modeller arasında en yüksek puanı almıştır.
+
+![Frontier Code Evaluation](/images/posts/claude-fable-5-mythos-5/frontier-code.png)
 
 ### Bilgi İşçiliği ve Analiz
 Fable 5, karmaşık analitik görevlerde çok güçlü bir performans sergiliyor. **Hebbia’nın Finans Benchmark** testinde, kıdemli düzeyde muhakeme, doküman tabanlı akıl yürütme, grafik/tablo yorumlama ve problem çözme alanlarında en yüksek skoru elde etti. **IMC**, modelin finansal analiz testlerinde (kök neden analizi, beklenen değer analizi vb.) neredeyse her alanda tam puan aldığını belirtti.
