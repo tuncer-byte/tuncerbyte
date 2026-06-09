@@ -33,6 +33,8 @@ export const slugMap: Record<string, { tr: string; en: string }> = {
   "turboquant-extreme-compression-llm-efficiency": { tr: "turboquant-asiri-sikistirma-ile-llm-verimliligi", en: "turboquant-extreme-compression-llm-efficiency" },
   "rate-limiting-nasil-kurgulanmali": { tr: "rate-limiting-nasil-kurgulanmali", en: "how-to-design-rate-limiting" },
   "how-to-design-rate-limiting": { tr: "rate-limiting-nasil-kurgulanmali", en: "how-to-design-rate-limiting" },
+  "claude-fable-5-mythos-5-yayinlandi": { tr: "claude-fable-5-mythos-5-yayinlandi", en: "claude-fable-5-mythos-5" },
+  "claude-fable-5-mythos-5": { tr: "claude-fable-5-mythos-5-yayinlandi", en: "claude-fable-5-mythos-5" },
 };
 
 export function getAlternateSlug(slug: string, targetLocale: "tr" | "en"): string {
