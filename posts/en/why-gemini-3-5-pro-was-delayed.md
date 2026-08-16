@@ -36,6 +36,22 @@ Gemini 3.5 Pro's delay landed right as rivals were moving at their fastest. That
 
 Google has tried to fill the gap with smaller updates like Gemini 3.7 Flash, but enterprise users looking for a coding-focused flagship-tier alternative are still left waiting.
 
+---
+
+## What Is Wall Street Saying?
+
+The delay put real pressure on Alphabet's stock — some investors reportedly dropped the stock in July. But market opinion isn't unanimous: analysts at firms like Bank of America stayed bullish heading into the July 22 earnings report, pointing to cloud-segment growth and the value of Google's stake in Anthropic.
+
+The real question is whether the delay is actually costing Google Cloud customers. So far there's been no mass exodus — partly because switching platforms is expensive, and partly because many enterprises already run multi-model architectures. But the effect shows up elsewhere: CIOs evaluating new AI platform commitments are getting noticeably more cautious about betting on Google.
+
+There's also a case for not overreacting to the delay: Gemini's user base doubled in a year, reaching **900 million monthly users** by May — a scale of distribution that a single delayed model release doesn't come close to erasing.
+
+## Google's Long-Term Play: Its Own Chip
+
+Rather than dwelling on the near-term delay, Google CEO Sundar Pichai steered attention toward the future — talking up **Gemini 4** and a shift to a monthly model-release cadence. One of the company's longer-term bets is **"Frozen v2,"** a custom AI chip built specifically for Gemini, targeting server deployment by 2028 and promising **6 to 10 times** the throughput per watt of Google's current TPUs.
+
+---
+
 ## What Happens Next?
 
 As of mid-August, there's still no official date for Gemini 3.5 Pro. How Google handles this delay — a quick patch versus a ground-up retrain — remains one of the industry's most closely watched open questions. In a market moving this fast, every additional month of delay is getting more costly for Google.

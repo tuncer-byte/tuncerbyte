@@ -30,6 +30,18 @@ This three-tier structure is a clear signal that OpenAI has moved away from a si
 
 ---
 
+## The Benchmarks: How Good Is Sol, Really?
+
+OpenAI's claims are strong, but the benchmark picture is a bit more nuanced than the headline numbers suggest:
+
+*   On the **Artificial Analysis Coding Agent Index**, Sol set a new state-of-the-art score of **80** at max reasoning effort — 2.8 points above Claude Fable 5.
+*   But on **SWE-bench Pro**, Sol scored only **64.6%**, trailing other frontier models released around the same time. Sol isn't the leader on every benchmark — there's a real gap between where it excels and where it lags.
+*   **ARC-AGI** testing produced an interesting story of its own: right after launch, Sol underperformed expectations on this visual-reasoning benchmark. OpenAI's research team dug in and found the harness it ran on wasn't letting the model retain what it had already learned mid-task. By enabling two API settings — retained reasoning and context compaction — they **tripled** the scores while using **6x fewer output tokens**. After that fix, Sol reached **29.3%** on ARC-AGI-3 and **92.5%** on ARC-AGI-2, and became the first model to win a public ARC-AGI-3 game outright.
+
+That detail carries a broader lesson: for today's frontier models, the harness and API configuration running underneath can matter almost as much as the raw model itself in determining final performance.
+
+---
+
 ## Why This Matters
 
 GPT-5.6's government review process was one of the early links in a pattern that repeated throughout the summer. Just a few weeks earlier, Anthropic's Claude Fable 5 had gone offline for 18 days over export-control rules; now OpenAI was going through a comparable review before it could even launch its model. Together, these two episodes point to a new industry norm: **once a model crosses a certain capability threshold, government review is now routine.**

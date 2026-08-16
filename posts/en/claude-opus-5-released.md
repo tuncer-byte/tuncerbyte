@@ -18,6 +18,8 @@ According to Anthropic's own data, Opus 5 lands within **0.5 points** of Fable 5
 
 Anthropic also claims Opus 5 beats every other model at the same cost point on CursorBench when run at high, extra-high (xhigh), and max effort settings.
 
+Looking closer at the numbers: Opus 5 scores **96.0%** on **SWE-bench Verified**, **79.2%** on **SWE-bench Pro**, and **43.3%** on **Frontier-Bench**. For comparison, the previous-generation Opus 4.8 scored 88.6% on SWE-bench Verified and 69.2% on SWE-bench Pro — meaning Opus 5 posted a double-digit jump over its own predecessor. On SWE-bench Pro specifically, Opus 5 lands third within the family, trailing Mythos 5's 80.3% and Fable 5's 80.0% by under a point. In other words, Opus 5 isn't pitched as the outright leader — it's pitched as landing within a hair of the top while cutting the price in half.
+
 ## A Five-Tier "Effort" System
 
 Opus 5's standout feature is letting users pick between five distinct effort levels for every single request:

@@ -29,6 +29,14 @@ Meta, Muse Spark 1.1'in bazı kodlama ve akıl yürütme benchmarklarında **Goo
 
 ---
 
+## Benchmark Tablosuna Daha Yakından Bakış
+
+İddiayı biraz daha detaylandırmak gerekirse: Muse Spark 1.1, **SWE-bench Verified**'da **%77,4** skorladı — bu, Claude Opus 4.6'nın %80,8'i ve Gemini 3.1 Pro'nun %80,6'sıyla kıyaslandığında geride kalan, ama farkın da çok açılmadığı bir sonuç. **SWE-bench Pro**'da ise Meta'nın kendi raporladığı skor **%61,5** — bu benchmark'ta lider modellerin belirgin gerisinde.
+
+Asıl fark, saf kodlama testlerinden çok **araç kullanımı (tool-use)** ve ajan orkestrasyonunda ortaya çıkıyor: Muse Spark 1.1, MCP Atlas testinde **88,1 puanla**, Claude Opus 4.8'in **82,2 puanının** önüne geçerek ajan tabanlı görevlerde liderliği ele geçiriyor. Yani Meta'nın "Gemini'yi geride bıraktık" iddiası saf kodlama yeteneğinden çok, modelin araçları ve harici servisleri koordine etme becerisinde daha güçlü temellere dayanıyor — ki bu da zaten modelin "sadece düşünmüyor, harekete geçiyor" sloganıyla birebir örtüşüyor.
+
+---
+
 ## Meta'nın Hız Kesmeyen Temposu
 
 Muse Spark 1.1, Meta'nın 2026 yazı boyunca sürdürdüğü hızlı iterasyon temposunun sadece başlangıcıydı. Şirket, birkaç hafta sonra 5 Ağustos'ta terminal tabanlı bir kodlama ajanı olan **Muse Code**'u ve **Muse Spark 1.2**'yi piyasaya sürdü; 10 Ağustos'ta ise daha küçük, açık ağırlıklı bir model olan **Muse Glimmer**'ı duyurdu.

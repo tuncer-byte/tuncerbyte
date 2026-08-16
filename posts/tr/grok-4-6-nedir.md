@@ -22,6 +22,14 @@ xAI, Grok 4.6'yı özellikle üç alan için optimize ettiğini belirtiyor:
 *   **Ajan görevleri (agentic tasks)** — uzun süreli, çok adımlı iş akışlarını otonom olarak yürütme
 *   **Bilgi işi** — araştırma, analiz ve karmaşık akıl yürütme gerektiren görevler
 
+## Benchmark Sonuçları: Üçüncü Sırada Ama Güçlü
+
+Grok 4.6, **Artificial Analysis Intelligence Index**'te **61 puan** aldı — bu, GPT-5.6 Sol ile aynı skor ve Claude Opus 5'in sadece iki puan gerisinde, dünyanın en iyi üçüncü modeli konumunda. Ama bu genel skor, modelin güçlü ve zayıf yönlerini gizliyor: Grok 4.6, **bilgi işi ve hukuki akıl yürütmede** (GDPVal-AA, AA-Briefcase, Harvey LAB testlerinde) net bir lider konumundayken, **terminal kullanımı** en zayıf olduğu alan — DeepSWE ve Terminal-Bench'te belirgin şekilde geride kalıyor.
+
+Fiyatlandırma tarafında dikkat edilmesi gereken bir ayrıntı var: temel fiyat milyon token başına 2 dolar girdi / 6 dolar çıktı (hızlı varyant bunun iki katı), ama bir istem **200.000 token**'lık uzun bağlam eşiğine girdiğinde, fiyat o isteğin **tüm tokenları için** 4 dolar girdi / 12 dolara **ikiye katlanıyor**. Uzun bağlamlı iş akışları planlayan ekiplerin bu detayı maliyet hesaplarına dahil etmesi gerekiyor.
+
+Model, Cursor, Grok Build, xAI'ın kendi API'si, OpenRouter, Vercel ve Cloudflare üzerinden erişilebilir durumda — Grok 4.5'te görülen geniş dağıtım stratejisinin bir devamı.
+
 ## Grok Ailesinin Hızlı Evrimi
 
 Grok 4.6, xAI'ın yaz boyunca sürdürdüğü hızlı model iterasyonunun son halkası. Temmuz başında Grok 4.5 ile Cursor verisiyle eğitilmiş, kodlamaya özel bir model sunan xAI, sadece bir ay sonra bağlam penceresini genişleterek ve ajan yeteneklerini derinleştirerek Grok 4.6'yı piyasaya sürdü.

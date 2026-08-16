@@ -29,6 +29,14 @@ Meta announced that Muse Spark 1.1 beats **Google's latest Gemini release** on s
 
 ---
 
+## A Closer Look at the Benchmark Table
+
+Digging a bit deeper into that claim: Muse Spark 1.1 scored **77.4%** on **SWE-bench Verified** — behind Claude Opus 4.6's 80.8% and Gemini 3.1 Pro's 80.6%, though not by a huge margin. On **SWE-bench Pro**, Meta's own reported score is **61.5%**, notably behind the leading models on that particular benchmark.
+
+The real differentiator shows up not in pure coding tests, but in **tool use** and agent orchestration: Muse Spark 1.1 scored **88.1** on the MCP Atlas test, ahead of Claude Opus 4.8's **82.2**, putting it in the lead on agentic, tool-orchestration tasks. In other words, Meta's "we beat Gemini" claim rests less on raw coding ability and more on the model's skill at coordinating tools and external services — which lines up neatly with the company's own "doesn't just think, it acts" framing.
+
+---
+
 ## Meta's Relentless Pace
 
 Muse Spark 1.1 was just the opening move in Meta's rapid iteration pace throughout summer 2026. A few weeks later, on August 5, the company shipped **Muse Code**, a terminal-based coding agent, alongside **Muse Spark 1.2**; on August 10, it announced **Muse Glimmer**, a smaller, open-weight model.

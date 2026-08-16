@@ -22,6 +22,14 @@ xAI says Grok 4.6 was specifically optimized for three areas:
 *   **Agentic tasks** — autonomously executing long-running, multi-step workflows
 *   **Knowledge work** — research, analysis, and tasks requiring complex reasoning
 
+## The Benchmarks: Third Place, But Strong
+
+Grok 4.6 scored **61** on the **Artificial Analysis Intelligence Index** — matching GPT-5.6 Sol and sitting just two points behind Claude Opus 5, putting it in third place among the world's top models. But that composite score hides a mixed picture: Grok 4.6 is a clear leader on **knowledge work and legal reasoning** (winning on GDPVal-AA, AA-Briefcase, and Harvey LAB), while **terminal use** is its weakest spot, trailing noticeably on DeepSWE and Terminal-Bench.
+
+There's an important pricing detail worth flagging: the base rate is $2 input / $6 output per million tokens (the fast variant costs twice that), but once a prompt crosses the **200,000-token** long-context threshold, the rate **doubles** to $4 input / $12 output — and that higher rate applies to **every token in the request**, not just the tokens past the threshold. Teams planning long-context workflows need to factor that into their cost math.
+
+The model is available through Cursor, Grok Build, xAI's own API, OpenRouter, Vercel, and Cloudflare — continuing the same broad-distribution strategy seen with Grok 4.5.
+
 ## The Grok Family's Rapid Evolution
 
 Grok 4.6 is the latest link in xAI's rapid model iteration throughout the summer. In early July, xAI shipped Grok 4.5, a coding-focused model trained on Cursor data; just a month later, it followed up with Grok 4.6, expanding the context window and deepening agentic capabilities.

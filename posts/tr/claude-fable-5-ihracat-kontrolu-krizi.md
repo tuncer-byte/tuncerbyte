@@ -14,9 +14,9 @@ category: "Teknoloji"
 
 ## Kriz Nasıl Başladı?
 
-Fable 5'in çevrimdışı kalmasının fitilini ateşleyen olay, **Amazon'un rapor ettiği bir jailbreak** oldu. Güvenlik araştırmacıları, doğru şekilde yönlendirildiğinde Fable 5'in gerçek yazılım güvenlik açıklarını **tespit edip somut olarak gösterebildiğini** ortaya çıkardı. Normal şartlarda bu, bir modelin güvenlik araştırmacıları için ne kadar değerli olduğunu gösteren bir yetenekti — ama aynı zamanda kötüye kullanıldığında ciddi bir silah da olabilirdi.
+Fable 5'in çevrimdışı kalmasının fitilini ateşleyen olay, **Amazon'un rapor ettiği bir jailbreak** oldu. Amazon'un güvenlik araştırmacıları, doğru şekilde yönlendirildiğinde Fable 5'in gerçek yazılım güvenlik açıklarını **tespit edip somut olarak gösterebildiğini**, hatta en az bir vakada bu açığı kullanan **çalışan bir exploit kodu yazabildiğini** ortaya çıkardı. Normal şartlarda bu, bir modelin savunma amaçlı güvenlik araştırmaları için ne kadar değerli olduğunu gösteren bir yetenekti — ama aynı zamanda kötüye kullanıldığında ciddi bir silah da olabilirdi.
 
-Bu keşif, ABD'nin ihracat kontrolü mevzuatını devreye soktu. Sorun şuydu: Anthropic, Fable 5'i kullanan her bireysel kullanıcının uyruğunu **gerçek zamanlı olarak doğrulayamıyordu**. Kurallar, bu tür gelişmiş siber güvenlik yeteneklerine sahip modellere yabancı uyrukluların erişiminin kısıtlanmasını gerektiriyordu. Anthropic, uyumluluk riskini göze alamayacağını değerlendirerek radikal bir karar aldı: Fable 5 ve Mythos 5'i **dünyadaki herkes için** kapattı — sadece belirli ülkelerdeki kullanıcılar için değil.
+Bu keşif, ABD'nin ihracat kontrolü mevzuatını devreye soktu. Sorun şuydu: Anthropic, Fable 5'i kullanan her bireysel kullanıcının uyruğunu **gerçek zamanlı olarak doğrulayamıyordu**. Kurallar, bu tür gelişmiş siber güvenlik yeteneklerine sahip modellere yabancı uyrukluların erişiminin kısıtlanmasını gerektiriyordu. Anthropic, uyumluluk riskini göze alamayacağını değerlendirerek radikal bir karar aldı: Fable 5 ve Mythos 5'i **dünyadaki herkes için** kapattı — sadece belirli ülkelerdeki kullanıcılar için değil. (İlginç bir ayrıntı: kimi kaynaklarda kesintinin süresi 18, kimilerinde ise başlangıç ve bitiş günleri dahil edilerek 19 gün olarak geçiyor — Anthropic'in resmi zaman çizelgesi 12 Haziran akşamından 1 Temmuz'a kadar süren bir kesintiyi tarif ediyor.)
 
 ## Claude Code Kullanıcıları Ne Yaşadı?
 
@@ -37,6 +37,21 @@ ABD Ticaret Bakanlığı, 30 Haziran 2026'da ihracat kontrolü kararını kaldı
 *   **Sektöre yönelik yeni bir "jailbreak şiddet çerçevesi"** duyuruldu — modellerin ne tür güvenlik açıklarını hangi koşullarda gösterebileceğini sınıflandıran bir sistem.
 
 Aynı gün Anthropic, ilgisiz görünse de aslında güven inşa etme stratejisinin bir parçası olan başka bir duyuru daha yaptı: **Claude Voice Mode** güncellemesi. Sesli asistan artık Opus, Sonnet veya Haiku üzerinde çalışabiliyor, konuşma sırasında Gmail, Slack ve Canva'ya bağlanabiliyor ve 11 dilde hizmet verebiliyor.
+
+---
+
+## CJS Çerçevesi: Sektörün İlk Ortak "Jailbreak Şiddet" Standardı
+
+Anthropic'in 30 Haziran'da bahsettiği "jailbreak şiddet çerçevesi", 2 Temmuz 2026'da somut bir isimle kamuoyuna sunuldu: **Cyber Jailbreak Severity (CJS) Framework**. Bu çerçeve, Anthropic'in tek başına değil, **Amazon, Microsoft ve Google** ile birlikte geliştirdiği, sektör çapında ortak bir standart olması hedeflenen bir sistem.
+
+CJS, bir jailbreak'in ne kadar tehlikeli olduğunu **CJS-0'dan CJS-4'e** kadar beş kademeli, üstel bir ölçekte derecelendiriyor. Değerlendirme dört eksen üzerinden yapılıyor:
+
+*   **Yetenek kazancı (capability gain)** — jailbreak, kullanıcıyı mevcut araçların ne kadar ötesine taşıyor?
+*   **Yetenek kazancının genişliği (breadth)** — kaç farklı saldırı görevini açığa çıkarıyor?
+*   **Silahlandırma kolaylığı (ease of weaponization)** — bu yeteneği gerçek bir saldırıya dönüştürmek ne kadar kolay?
+*   **Keşfedilebilirlik (discoverability)** — bu jailbreak yöntemini başka birinin bağımsız olarak bulması ne kadar olası?
+
+Bu ortak standardın kabul görmesi, gelecekte benzer bir olayın Anthropic'i değil de OpenAI, Google veya bir başka sağlayıcıyı vurması durumunda, sektörün "her seferinde sıfırdan panik" yerine ortak bir dille ve ortak bir hız/şiddet değerlendirmesiyle hareket edebileceği anlamına geliyor. Anthropic ayrıca, güvenlik araştırmacılarının benzer açıkları sorumlu şekilde bildirebilmesi için **HackerOne üzerinden özel bir program** başlattığını duyurdu — amaç, bir sonraki jailbreak'in bir güvenlik araştırmacısı tarafından kontrollü şekilde bulunup bildirilmesini, kamuya sızıp bir krize dönüşmesinden daha olası hale getirmek.
 
 ---
 

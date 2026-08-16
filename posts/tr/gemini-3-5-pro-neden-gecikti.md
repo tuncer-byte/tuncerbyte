@@ -36,6 +36,22 @@ Gemini 3.5 Pro'nun gecikmesi, tam da rakiplerin en hızlı hareket ettiği bir d
 
 Google, bu boşluğu Gemini 3.7 Flash gibi daha küçük model güncellemeleriyle kapatmaya çalışsa da, kodlama odaklı kurumsal kullanıcılar için "amiral gemi" seviyesinde bir alternatif hâlâ eksik.
 
+---
+
+## Wall Street Ne Diyor?
+
+Gecikme, Alphabet hissesi üzerinde de gerçek bir baskı yarattı — bazı yatırımcılar Temmuz'da hisseyi elden çıkardı. Ama piyasa görüşü tek yönlü değil: Bank of America gibi bazı analistler, 22 Temmuz'daki bilanço açıklaması öncesinde bulut segmentindeki büyümeyi ve Google'ın Anthropic'teki payının değerini gerekçe göstererek iyimserliğini korudu.
+
+Asıl kritik soru, gecikmenin Google Cloud müşterilerini kaybettirip kaybettirmediği. Şu ana kadar toplu bir müşteri kaçışı yaşanmadı — bunun sebebi hem platform değiştirmenin yüksek maliyeti hem de birçok kurumun zaten çoklu-model mimarileri kullanması. Ama etkisi başka bir yerde görülüyor: yeni platform kararı verecek CIO'lar, Google'a taahhüt vermek konusunda eskisinden daha temkinli davranıyor.
+
+Öte yandan gecikmeyi abartmamak gerektiğini savunanlar da var: Gemini kullanıcı tabanı bir yılda ikiye katlanarak Mayıs itibarıyla **900 milyon aylık kullanıcıya** ulaştı — bu da Google'ın kısa vadeli bir model gecikmesiyle ölçülemeyecek kadar büyük bir dağıtım gücüne sahip olduğunu gösteriyor.
+
+## Google'ın Uzun Vadeli Kartı: Kendi Çipi
+
+Google CEO'su Sundar Pichai, kısa vadeli gecikmeye odaklanmak yerine dikkatleri geleceğe çekmeyi tercih etti: **Gemini 4**'ten ve aylık model güncelleme temposuna geçişten bahsetti. Şirketin uzun vadeli planlarından biri de **"Frozen v2"** adlı, Gemini'ye özel geliştirilen bir yapay zeka çipi — 2028'de sunucu dağıtımını hedefleyen bu çip, mevcut TPU'lara kıyasla **watt başına 6 ila 10 kat** daha yüksek işlem hacmi vaat ediyor.
+
+---
+
 ## Şimdi Ne Olacak?
 
 Ağustos ortası itibarıyla Gemini 3.5 Pro için resmi bir tarih hâlâ açıklanmadı. Google'ın bu gecikmeyi nasıl yöneteceği — hızlı bir düzeltmeyle mi yoksa köklü bir yeniden eğitimle mi çözeceği — sektörün en çok merak ettiği sorulardan biri olmaya devam ediyor. Rakiplerin bu denli hızlı hareket ettiği bir ortamda, her ay geçen gecikme Google için giderek daha maliyetli hale geliyor.

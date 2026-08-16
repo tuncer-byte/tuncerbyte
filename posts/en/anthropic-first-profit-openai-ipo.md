@@ -20,6 +20,19 @@ According to Anthropic's disclosed numbers, the company also managed to cut its 
 
 That said, it's worth noting these figures are unaudited fundraising-style projections, and Anthropic itself has cautioned that staying profitable for the full year remains uncertain as data center spending ramps up later in 2026.
 
+## A 47x Jump in Under a Year
+
+What makes this profit announcement genuinely striking is the growth curve behind it. Anthropic's annualized revenue was just **$1 billion in December 2024**. From there, the climb looked like this:
+
+*   **July 2025:** $4 billion
+*   **December 2025:** $9 billion
+*   **February 2026:** $14 billion
+*   **March 2026:** ~$19 billion
+*   **April 2026:** $30 billion
+*   **May 2026:** $47 billion
+
+That's **47x growth in just 17 months**. A significant chunk of that growth is coming from **Claude Code**: the product, which went public in mid-2025, reached $1 billion in annualized revenue within six months, and that figure climbed to $8 billion by May 2026. Roughly **80% of Anthropic's overall business** comes from enterprise customers — a sign the company's growth is being driven by real workflow integration rather than consumer hype.
+
 ## Riding a Valuation Peak
 
 This profitability news landed during a period when Anthropic's valuation was also climbing fast. The company recently closed a massive funding round that made it one of Silicon Valley's most valuable AI companies, and in early June it joined OpenAI in filing a **confidential S-1** with the SEC — the first formal step toward an IPO.
@@ -31,6 +44,8 @@ This profitability news landed during a period when Anthropic's valuation was al
 The same day brought a notable update from OpenAI as well. The company completed a **$7 billion employee share buyback** in August — a fairly typical move that provides employee liquidity while cleaning up the cap table ahead of a public listing. OpenAI had reached an $852 billion valuation after closing its record $122 billion funding round in March.
 
 Still, no date has been set for the public version of the S-1. The SEC's typical review process for confidential filings takes 60 to 90 days and can involve multiple rounds of comments — putting a realistic window for the public filing around late August, with a listing potentially landing around mid-September. Some market observers and prediction markets, however, expect the actual IPO could slip into 2027.
+
+Anthropic's own target is more concrete: reports point to an **October 2026** Nasdaq listing, at a valuation around **$965 billion** — nearly triple the $380 billion valuation it carried back in February 2026. With both companies racing toward the public markets in roughly the same window, the end of 2026 could turn into a historic IPO stretch for the AI industry.
 
 ## Google Wasn't Idle Either: Gemini 3.7 Flash
 

@@ -18,6 +18,8 @@ Anthropic'in kendi paylaştığı verilere göre Opus 5, **CursorBench 3.2** tes
 
 Anthropic ayrıca, Opus 5'in yüksek, çok yüksek (xhigh) ve maksimum çaba seviyelerinde, **aynı maliyet noktasındaki her modeli** CursorBench'te geride bıraktığını iddia ediyor.
 
+Sayılara biraz daha yakından bakınca tablo şöyle: Opus 5, **SWE-bench Verified**'da **%96,0**, **SWE-bench Pro**'da **%79,2**, **Frontier-Bench**'te ise **%43,3** skorluyor. Karşılaştırma için: bir önceki nesil Opus 4.8, SWE-bench Verified'da %88,6, SWE-bench Pro'da ise %69,2'de kalıyordu — yani Opus 5, kendi ailesinin bir önceki üyesine karşı çift haneli bir sıçrama yapmış durumda. SWE-bench Pro özelinde Opus 5, aile içinde üçüncü sırada — Mythos 5'in %80,3'ü ve Fable 5'in %80,0'ının bir puandan az gerisinde kalıyor. Yani Opus 5'in vaadi mutlak lider olmak değil, zirveye bir puandan az mesafede kalırken fiyatı yarıya indirmek.
+
 ## Beş Kademeli "Effort" Sistemi
 
 Opus 5'in en dikkat çekici yeniliği, kullanıcıların her istek için beş farklı çaba seviyesi arasında seçim yapabilmesi:
