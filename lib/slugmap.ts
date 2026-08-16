@@ -35,6 +35,22 @@ export const slugMap: Record<string, { tr: string; en: string }> = {
   "how-to-design-rate-limiting": { tr: "rate-limiting-nasil-kurgulanmali", en: "how-to-design-rate-limiting" },
   "claude-fable-5-mythos-5-yayinlandi": { tr: "claude-fable-5-mythos-5-yayinlandi", en: "claude-fable-5-mythos-5" },
   "claude-fable-5-mythos-5": { tr: "claude-fable-5-mythos-5-yayinlandi", en: "claude-fable-5-mythos-5" },
+  "claude-fable-5-ihracat-kontrolu-krizi": { tr: "claude-fable-5-ihracat-kontrolu-krizi", en: "claude-fable-5-export-control-crisis" },
+  "claude-fable-5-export-control-crisis": { tr: "claude-fable-5-ihracat-kontrolu-krizi", en: "claude-fable-5-export-control-crisis" },
+  "grok-4-5-nedir": { tr: "grok-4-5-nedir", en: "grok-4-5-released" },
+  "grok-4-5-released": { tr: "grok-4-5-nedir", en: "grok-4-5-released" },
+  "gpt-5-6-sol-terra-luna-nedir": { tr: "gpt-5-6-sol-terra-luna-nedir", en: "gpt-5-6-sol-terra-luna-released" },
+  "gpt-5-6-sol-terra-luna-released": { tr: "gpt-5-6-sol-terra-luna-nedir", en: "gpt-5-6-sol-terra-luna-released" },
+  "meta-muse-spark-1-1-nedir": { tr: "meta-muse-spark-1-1-nedir", en: "meta-muse-spark-1-1-released" },
+  "meta-muse-spark-1-1-released": { tr: "meta-muse-spark-1-1-nedir", en: "meta-muse-spark-1-1-released" },
+  "gemini-3-5-pro-neden-gecikti": { tr: "gemini-3-5-pro-neden-gecikti", en: "why-gemini-3-5-pro-was-delayed" },
+  "why-gemini-3-5-pro-was-delayed": { tr: "gemini-3-5-pro-neden-gecikti", en: "why-gemini-3-5-pro-was-delayed" },
+  "claude-opus-5-nedir": { tr: "claude-opus-5-nedir", en: "claude-opus-5-released" },
+  "claude-opus-5-released": { tr: "claude-opus-5-nedir", en: "claude-opus-5-released" },
+  "grok-4-6-nedir": { tr: "grok-4-6-nedir", en: "grok-4-6-released" },
+  "grok-4-6-released": { tr: "grok-4-6-nedir", en: "grok-4-6-released" },
+  "anthropic-ilk-kar-openai-halka-arz": { tr: "anthropic-ilk-kar-openai-halka-arz", en: "anthropic-first-profit-openai-ipo" },
+  "anthropic-first-profit-openai-ipo": { tr: "anthropic-ilk-kar-openai-halka-arz", en: "anthropic-first-profit-openai-ipo" },
 };
 
 export function getAlternateSlug(slug: string, targetLocale: "tr" | "en"): string {
