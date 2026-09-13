@@ -128,6 +128,12 @@ export const slugMap: Record<string, { tr: string; en: string }> = {
 
   "test-time-compute-inference-scaling-nedir": { tr: "test-time-compute-inference-scaling-nedir", en: "test-time-compute-inference-scaling-explained" },
   "test-time-compute-inference-scaling-explained": { tr: "test-time-compute-inference-scaling-nedir", en: "test-time-compute-inference-scaling-explained" },
+
+  "project-astra-nedir-multimodal-ai-asistani": { tr: "project-astra-nedir-multimodal-ai-asistani", en: "project-astra-explained-real-time-multimodal-ai" },
+  "project-astra-explained-real-time-multimodal-ai": { tr: "project-astra-nedir-multimodal-ai-asistani", en: "project-astra-explained-real-time-multimodal-ai" },
+
+  "google-gemini-modelleri-rehberi-flash-pro-multimodal": { tr: "google-gemini-modelleri-rehberi-flash-pro-multimodal", en: "google-gemini-models-guide-flash-pro-multimodal" },
+  "google-gemini-models-guide-flash-pro-multimodal": { tr: "google-gemini-modelleri-rehberi-flash-pro-multimodal", en: "google-gemini-models-guide-flash-pro-multimodal" },
 };
 
 export function getAlternateSlug(slug: string, targetLocale: "tr" | "en"): string | null {
