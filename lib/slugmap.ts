@@ -122,6 +122,12 @@ export const slugMap: Record<string, { tr: string; en: string }> = {
 
   "unity-ai-nedir-nasil-kullanilir": { tr: "unity-ai-nedir-nasil-kullanilir", en: "unity-ai-what-it-is-how-to-use" },
   "unity-ai-what-it-is-how-to-use": { tr: "unity-ai-nedir-nasil-kullanilir", en: "unity-ai-what-it-is-how-to-use" },
+
+  "mcp-2026-spesifikasyonu-neler-yeni": { tr: "mcp-2026-spesifikasyonu-neler-yeni", en: "mcp-2026-specification-whats-new" },
+  "mcp-2026-specification-whats-new": { tr: "mcp-2026-spesifikasyonu-neler-yeni", en: "mcp-2026-specification-whats-new" },
+
+  "test-time-compute-inference-scaling-nedir": { tr: "test-time-compute-inference-scaling-nedir", en: "test-time-compute-inference-scaling-explained" },
+  "test-time-compute-inference-scaling-explained": { tr: "test-time-compute-inference-scaling-nedir", en: "test-time-compute-inference-scaling-explained" },
 };
 
 export function getAlternateSlug(slug: string, targetLocale: "tr" | "en"): string | null {
