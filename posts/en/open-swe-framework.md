@@ -1,8 +1,9 @@
 ---
-title: "Open SWE: Open-Source Framework for Coding Agents"
+title: "Open SWE: LangChain's Open-Source Coding Agent Framework for Engineering Teams"
 date: "2026-03-17"
-excerpt: "Stripe, Ramp, and Coinbase each built their own internal coding agents. LangChain just open-sourced the architectural patterns they all converged on."
-tags: ["Open SWE", "LangChain", "Coding Agent", "LangGraph", "Deep Agents", "AI Engineering"]
+updated: "2026-09-13"
+excerpt: "What is Open SWE? Explore LangChain's open-source SWE framework for internal coding agents, powered by Deep Agents, isolated sandbox environments, and GitHub/Slack workflows."
+tags: ["Open SWE", "LangChain", "Coding Agent", "LangGraph", "Deep Agents", "AI Engineering", "GitHub", "SWE-Agent"]
 category: "Technology"
 ---
 
@@ -99,3 +100,19 @@ Open SWE is MIT-licensed — fork it, customize it, deploy it internally.
 - Try Open SWE: [github.com/langchain-ai/open-swe](https://github.com/langchain-ai/open-swe)
 - Deep Agents: [docs.langchain.com/oss/python/deepagents](https://docs.langchain.com/oss/python/deepagents)
 - LangSmith Sandboxes: [blog.langchain.com](https://blog.langchain.com/introducing-langsmith-sandboxes-secure-code-execution-for-agents/)
+
+---
+
+## Frequently Asked Questions (FAQ)
+
+### What is Open SWE and how does it relate to LangChain?
+Open SWE is an open-source software engineering agent framework released by LangChain. It operationalizes the architectural patterns independently pioneered by companies like Stripe (Minions), Ramp (Inspect), and Coinbase (Cloudbot), building on top of LangChain's Deep Agents and LangGraph libraries.
+
+### Is Open SWE open-source and where can I find the GitHub repository?
+Yes, Open SWE is fully open-source under the permissive MIT license. You can clone the code, submit pull requests, or deploy it internally from the official repository at [github.com/langchain-ai/open-swe](https://github.com/langchain-ai/open-swe).
+
+### What execution environments and sandboxes does Open SWE support?
+Open SWE supports secure, isolated remote execution out of the box using Modal, Daytona, Runloop, and LangSmith cloud sandboxes. It also allows engineering teams to plug in custom containerized execution environments via its modular backend interface.
+
+### How does Open SWE differ from SWE-agent?
+SWE-agent was primarily created as an academic benchmark-solving harness for SWE-bench evaluations. Open SWE is designed specifically for enterprise production integration — operating seamlessly inside developer communication channels like Slack threads, Linear issues, and GitHub pull requests.

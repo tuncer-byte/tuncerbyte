@@ -1,8 +1,9 @@
 ---
-title: "Open SWE: Şirket İçi Coding Agent için Açık Kaynak Framework"
+title: "Open SWE Nedir? LangChain Açık Kaynak Şirket İçi Coding Agent Framework Rehberi"
 date: "2026-03-17"
-excerpt: "Stripe, Ramp ve Coinbase kendi iç kodlama agentlarını geliştirdi. LangChain bu sistemlerin ortak mimarisini Open SWE adıyla açık kaynak olarak yayınladı."
-tags: ["Open SWE", "LangChain", "Coding Agent", "LangGraph", "Deep Agents", "AI Mühendisliği"]
+updated: "2026-09-13"
+excerpt: "LangChain Open SWE nedir ve nasıl çalışır? Stripe ve Ramp mimarilerinden ilham alan açık kaynak SWE agentı, Deep Agents altyapısı, sandbox entegrasyonu ve GitHub kurulumu."
+tags: ["Open SWE", "LangChain", "Coding Agent", "LangGraph", "Deep Agents", "AI Mühendisliği", "GitHub", "SWE-Agent"]
 category: "Teknoloji"
 ---
 
@@ -97,3 +98,19 @@ Framework MIT lisanslı — fork edebilir, özelleştirebilir, şirket içinde d
 - Open SWE dene: [github.com/langchain-ai/open-swe](https://github.com/langchain-ai/open-swe)
 - Deep Agents: [docs.langchain.com/oss/python/deepagents](https://docs.langchain.com/oss/python/deepagents)
 - LangSmith Sandbox'ları: [blog.langchain.com](https://blog.langchain.com/introducing-langsmith-sandboxes-secure-code-execution-for-agents/)
+
+---
+
+## Open SWE Hakkında Sıkça Sorulan Sorular (FAQ)
+
+### Open SWE nedir ve LangChain ile ilişkisi nedir?
+Open SWE, LangChain tarafından geliştirilen ve Stripe (Minions), Ramp (Inspect) gibi teknoloji devlerinin şirket içi kodlama agent mimarilerini referans alan açık kaynaklı bir Software Engineering (SWE) agent framework'üdür. Deep Agents ve LangGraph üzerine kuruludur.
+
+### Open SWE açık kaynak mıdır ve GitHub adresi nedir?
+Evet, Open SWE MIT lisansı ile tamamen açık kaynak olarak yayınlanmıştır. Kaynak kodlarına ve kurulum rehberine doğrudan [github.com/langchain-ai/open-swe](https://github.com/langchain-ai/open-swe) adresinden erişebilirsiniz.
+
+### Open SWE hangi sandbox ortamlarını destekler?
+Open SWE, kod çalıştırma ve test işlemlerini güvenli tutmak için Modal, Daytona, Runloop ve LangSmith bulut sandbox ortamlarını kutudan çıktığı haliyle destekler. Kendi özel Docker veya Kubernetes sandbox backend'inizi de entegre edebilirsiniz.
+
+### Open SWE ile SWE-agent arasındaki fark nedir?
+SWE-agent genellikle SWE-bench kıyaslamalarında benchmark çözmek için tasarlanmış bağımsız bir araştırma aracıdır. Open SWE ise doğrudan şirket içi üretim iş akışlarına (Slack thread'leri, Linear issue'ları, GitHub PR'ları) entegre olmak ve geliştiricilere günlük kodlama görevlerinde yardımcı olmak üzere tasarlanmış modüler bir framework'tür.

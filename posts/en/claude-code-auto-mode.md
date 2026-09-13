@@ -1,7 +1,8 @@
 ---
-title: "Claude Code Auto Mode: The Autonomous Permission System"
+title: "Claude Code Auto Mode: Stop Constant Permission Prompts & Run Autonomously"
 date: "2026-03-24"
-excerpt: "Auto Mode sits between manual approval and full bypass. A classifier decides what's safe to run autonomously. How it works, how to enable it, and its limits."
+updated: "2026-09-13"
+excerpt: "Tired of Claude Code asking for permission on every command? Learn what Claude Code Auto Mode is, how to enable it with --enable-auto-mode, Shift+Tab shortcuts, and safe autonomous permissions."
 tags: ["Claude Code", "Auto Mode", "AI Agent", "Permission System", "Automation", "Artificial Intelligence", "Anthropic", "Security"]
 category: "Technology"
 ---
@@ -167,6 +168,25 @@ This is a much better alternative to `--dangerously-skip-permissions` for unatte
 | Enterprise | Rolling out in the coming days |
 | API | Rolling out in the coming days |
 | Pro/Max (individual) | Not announced |
+
+## Frequently Asked Questions (FAQ)
+
+### How do I stop Claude Code from constantly asking for permissions?
+You can prevent Claude Code from repeatedly prompting for approval by enabling **Auto Mode** using the command `claude --enable-auto-mode` and pressing **Shift+Tab** to switch permission modes. Alternatively, define an explicit allowlist in `.claude/settings.json` under `permissions.allow` for routine actions such as `Bash(npm run *)`, `Read`, `Write`, and `Edit`.
+
+### How do I enable Claude Code Auto Mode and what is the shortcut?
+To start Claude Code in Auto Mode, launch it with `claude --enable-auto-mode` (or `claude --auto`). Within an active session, press **Shift+Tab** on your keyboard to instantly cycle between Manual approval, Auto Mode, and Skip Permissions.
+
+### What is the difference between Auto Mode and --dangerously-skip-permissions?
+`--dangerously-skip-permissions` runs all tools and shell commands without any oversight or safety checks, creating severe risk of unintended file deletion or data corruption. Auto Mode uses an integrated AI classifier before every tool invocation; it automatically approves safe operations (reading files, executing unit tests) while blocking destructive operations (e.g., recursive deletes) and falling back to alternative plans.
+
+### What plans and models support Auto Mode?
+Auto Mode is currently available as a research preview for users on Anthropic Team and Enterprise tiers, with API rollout following shortly. It specifically requires either Claude Sonnet 4.6 or Claude Opus 4.6.
+
+### Can organization administrators disable Auto Mode?
+Yes. Workspace administrators can centrally enforce manual approvals across an organization by setting `"disableAutoMode": "disable"` in the managed settings configuration.
+
+---
 
 ## The Bottom Line
 

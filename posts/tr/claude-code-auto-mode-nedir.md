@@ -1,7 +1,8 @@
 ---
-title: "Claude Code Auto Mode Nedir? Otonom İzin Sistemi Tam Rehberi"
+title: "Claude Code Auto Mode Nedir? Sürekli İzin İsteme Sorunu ve Otomatik Onaylama Rehberi"
 date: "2026-03-24"
-excerpt: "Auto Mode araç çağrılarını sınıflandırıcıyla değerlendirerek otonom kararlar alır. Nasıl çalışır, nasıl etkinleştirilir ve sınırları nedir — detaylı inceleme."
+updated: "2026-09-13"
+excerpt: "Claude Code sürekli izin mi istiyor? Claude Code Auto Mode nedir, nasıl açılır (--enable-auto-mode), Shift+Tab kısayolu ve izinleri otomatik onaylama tam rehberi."
 tags: ["Claude Code", "Auto Mode", "AI Agent", "İzin Sistemi", "Otomasyon", "Yapay Zeka", "Anthropic", "Güvenlik"]
 category: "Teknoloji"
 ---
@@ -163,6 +164,25 @@ Tamamen unattended çalışma istiyorsanız `--dangerously-skip-permissions` yer
 | Enterprise | Önümüzdeki günlerde |
 | API | Önümüzdeki günlerde |
 | Pro/Max (bireysel) | Duyurulmadı |
+
+## Claude Code Auto Mode Hakkında Sıkça Sorulan Sorular (FAQ)
+
+### Claude Code sürekli izin istiyor, bunu nasıl engelleyebilirim?
+Claude Code'un her komutta veya dosya yazmada onay istemesini iki şekilde çözebilirsiniz: 1) `claude --enable-auto-mode` çalıştırıp **Shift+Tab** kısayoluyla **Auto Mode**'a geçerek zararsız işlemleri otomatik onaylatabilirsiniz. 2) `.claude/settings.json` dosyası içindeki `permissions.allow` listesine sık kullandığınız komutları (`Bash(npm test)`, `Bash(git status)`, `Edit`, `Write`) ekleyerek o işlemler için onay istemesini tamamen kaldırabilirsiniz.
+
+### Claude Code Auto Mode nasıl açılır ve kısayolu nedir?
+Terminalde başlatırken `claude --enable-auto-mode` (veya `claude --auto`) bayrağını kullanabilirsiniz. Oturum içinde ise klavyeden **Shift+Tab** tuş kombinasyonuna basarak Manuel, Auto Mode ve Skip Permissions modları arasında anında geçiş yapabilirsiniz.
+
+### Auto Mode ile --dangerously-skip-permissions arasındaki fark nedir?
+`--dangerously-skip-permissions` hiçbir denetim yapmadan tüm komutları ve araçları körü körüne çalıştırır; bu da kod tabanının bozulmasına veya hassas verilerin silinmesine yol açabilir. Auto Mode ise her işlemden önce yapay zeka tabanlı bir sınıflandırıcı (classifier) çalıştırır; dosya okuma ve test çalıştırma gibi güvenli işlemleri onaylarken, toplu dosya silme veya zararlı komutları durdurup alternatif yol arar.
+
+### Auto Mode hangi planlarda ve modellerde çalışır?
+Auto Mode şu anda Anthropic Team ve Enterprise planlarında research preview olarak sunulmaktadır. Model tarafında ise yalnızca Claude Sonnet 4.6 ve Claude Opus 4.6 modelleriyle uyumludur.
+
+### Kurumsal hesaplarda Auto Mode nasıl kapatılır (disableautomode)?
+Kurumsal yöneticiler managed settings yapılandırmasında `"disableAutoMode": "disable"` parametresini kullanarak organizasyondaki tüm kullanıcılar için Auto Mode'u merkezi olarak devre dışı bırakabilir.
+
+---
 
 ## Özet
 

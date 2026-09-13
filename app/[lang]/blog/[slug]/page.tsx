@@ -43,14 +43,19 @@ function extractFAQs(html: string): { question: string; answer: string }[] {
     if (!/^<h[23]/.test(heading)) continue;
     const text = heading.replace(/<[^>]+>/g, "").trim();
     if (!text.endsWith("?")) continue;
-    // Grab first <p> from the following content
     const next = parts[i + 1] ?? "";
-    const pMatch = next.match(/<p[^>]*>([\s\S]*?)<\/p>/);
-    if (!pMatch) continue;
-    const answer = pMatch[1].replace(/<[^>]+>/g, "").trim();
-    if (answer.length > 30) faqs.push({ question: text, answer });
+    const matches = Array.from(next.matchAll(/<(?:p|li|blockquote)[^>]*>([\s\S]*?)<\/(?:p|li|blockquote)>/g));
+    if (!matches.length) continue;
+    const answer = matches
+      .slice(0, 2)
+      .map((m) => m[1].replace(/<[^>]+>/g, "").trim())
+      .filter(Boolean)
+      .join(" ");
+    if (answer.length > 25) {
+      faqs.push({ question: text, answer: answer.slice(0, 450) });
+    }
   }
-  return faqs.slice(0, 8);
+  return faqs.slice(0, 10);
 }
 
 function extractHeadings(html: string): Heading[] {
@@ -91,8 +96,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   try {
     const post = await getPostData(slug, locale);
-    const trSlug = getAlternateSlug(slug, "tr");
-    const enSlug = getAlternateSlug(slug, "en");
+    const trSlug = getAlternateSlug(slug, "tr") ?? (locale === "tr" ? slug : null);
+    const enSlug = getAlternateSlug(slug, "en") ?? (locale === "en" ? slug : null);
+
+    const languages: Record<string, string> = {};
+    if (trSlug) languages.tr = `${BASE_URL}/tr/blog/${trSlug}`;
+    if (enSlug) languages.en = `${BASE_URL}/en/blog/${enSlug}`;
+    if (trSlug) languages["x-default"] = `${BASE_URL}/tr/blog/${trSlug}`;
+    else if (enSlug) languages["x-default"] = `${BASE_URL}/en/blog/${enSlug}`;
+
+    const ogImage = `${BASE_URL}/${locale}/blog/${slug}/opengraph-image`;
 
     return {
       title: post.title,
@@ -100,11 +113,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       keywords: post.tags,
       alternates: {
         canonical: postUrl,
-        languages: {
-          tr: `${BASE_URL}/tr/blog/${trSlug}`,
-          en: `${BASE_URL}/en/blog/${enSlug}`,
-          "x-default": `${BASE_URL}/tr/blog/${trSlug}`,
-        },
+        languages,
       },
       openGraph: {
         title: post.title,
@@ -114,15 +123,25 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         publishedTime: post.date,
         modifiedTime: post.updated ?? post.date,
         authors: ["Tuncer Bağçabaşı"],
+        section: post.category,
+        tags: post.tags,
         locale: locale === "tr" ? "tr_TR" : "en_US",
         siteName: "Tuncer Bağçabaşı",
-        images: [{ url: `${BASE_URL}/${locale}/blog/${slug}/opengraph-image` }],
+        images: [
+          {
+            url: ogImage,
+            width: 1200,
+            height: 630,
+            alt: post.title,
+          },
+        ],
       },
       twitter: {
         card: "summary_large_image",
         title: post.title,
         description: post.excerpt,
         creator: "@tuncerbyte",
+        images: [ogImage],
       },
     };
   } catch {
@@ -169,16 +188,22 @@ export default async function PostPage({ params }: Props) {
   const headings = extractHeadings(post.contentHtml);
   const faqItems = extractFAQs(post.contentHtml);
 
+  const isTech = ["Yapay Zeka", "Teknoloji", "Teknik", "AI", "Technology"].includes(post.category ?? "");
+  const ogImage = `${BASE_URL}/${locale}/blog/${slug}/opengraph-image`;
+
   const articleJsonLd = {
     "@context": "https://schema.org",
-    "@type": "BlogPosting",
+    "@type": isTech ? "TechArticle" : "BlogPosting",
     headline: post.title,
     description: post.excerpt ?? "",
+    image: ogImage,
     datePublished: post.date,
     dateModified: post.updated ?? post.date,
     url: postUrl,
     inLanguage: locale === "tr" ? "tr-TR" : "en-US",
     keywords: post.tags?.join(", "),
+    articleSection: post.category,
+    isAccessibleForFree: true,
     author: {
       "@type": "Person",
       "@id": `${BASE_URL}/#person`,
@@ -190,8 +215,16 @@ export default async function PostPage({ params }: Props) {
       "@id": `${BASE_URL}/#person`,
       name: "Tuncer Bağçabaşı",
       url: BASE_URL,
+      logo: {
+        "@type": "ImageObject",
+        url: `${BASE_URL}/profile.png`,
+      },
     },
     mainEntityOfPage: { "@type": "WebPage", "@id": postUrl },
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: [".blog-post-header h1", ".blog-post-content > p:first-of-type"],
+    },
   };
 
   const breadcrumbJsonLd = {

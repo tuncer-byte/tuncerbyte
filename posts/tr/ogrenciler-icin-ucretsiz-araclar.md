@@ -202,15 +202,17 @@ servislerini uzun süre ücretsiz kullanabilirsin.
 
 ---
 
-## Vercel
+## Vercel for Students (Vercel Öğrenci)
 
 🔗 [https://vercel.com](https://vercel.com)
 
-Modern frontend projeleri için en popüler hosting platformlarından biri.
+Modern frontend ve full-stack web projeleri için dünyanın en popüler bulut platformu.
 
-Özellikle **Next.js projeleri** için çok iyi çalışır.
-
-Hobby planı zaten ücretsizdir.
+Özellikleri:
+* Özellikle **Next.js**, React ve Svelte projeleri için sıfır yapılandırmayla anında canlıya alma
+* GitHub Student Developer Pack ile entegre öğrenci avantajları ve yüksek limitler
+* Ücretsiz Hobby planı öğrencilerin tüm kişisel projeleri, portfolyoları ve staj projeleri için ömür boyu ücretsizdir
+* Otomatik SSL sertifikası, küresel Edge CDN ve anında preview deployment bağlantıları
 
 ---
 
@@ -230,13 +232,19 @@ Workers, Pages ve R2 servislerinin ücretsiz planları oldukça güçlüdür.
 
 # Tasarım Araçları
 
-## Figma Education
+## Figma Öğrenci Planı (Figma Education)
 
 🔗 [https://www.figma.com/education/](https://www.figma.com/education/)
 
-UI/UX tasarım için endüstri standardı araç.
+UI/UX tasarım dünyasının endüstri standardı olan Figma, öğrencilere ve eğitmenlere **Figma Professional Planı'nı 2 yıl boyunca tamamen ücretsiz** sunuyor.
 
-Öğrenciler **Professional planı ücretsiz** kullanabilir.
+Neler Dahil:
+* Sınırsız Figma dosyası ve sınırsız proje alanı
+* Sınırsız versiyon geçmişi (version history)
+* Paylaşımlı takım kütüphaneleri (team component libraries)
+* Gelişmiş prototipleme ve FigJam sınırsız beyaz tahta erişimi
+
+Başvuru için üniversite/lise e-posta adresi (.edu / .edu.tr) veya öğrenci belgesi yüklemek yeterlidir; genellikle birkaç saat içinde onaylanır.
 
 ---
 
@@ -396,6 +404,17 @@ Yeni başlıyorsan şu sırayı takip etmek mantıklı olur:
 
 Mezun olduktan sonra da bazı servisler **öğrenci indirimiyle devam eder.**
 
+Eksik olduğunu düşündüğün araçlar varsa listeye ekleyebilirsin.
+
 ---
 
-Eksik olduğunu düşündüğün araçlar varsa listeye ekleyebilirsin.
+## Öğrenci İndirimleri ve Araçları Hakkında Sıkça Sorulan Sorular (FAQ)
+
+### Figma öğrenci planı nasıl alınır ve neleri kapsar?
+Figma Education sayfasına giderek öğrenci statünüzü üniversite e-postanız (.edu / .edu.tr) veya resmi öğrenci belgenizle doğrulayabilirsiniz. Onaylandığında, normalde ücretli olan Figma Professional planına 2 yıl boyunca ücretsiz sahip olursunuz.
+
+### Vercel öğrenci indirimi (Vercel Student) var mı?
+Vercel, hem ücretsiz Hobby planıyla öğrencilerin tüm projelerini ömür boyu ücretsiz barındırmasını sağlar hem de GitHub Student Developer Pack kullanıcılarına ek altyapı avantajları ve yüksek limitler sunar.
+
+### GitHub Student Developer Pack başvurusu için ne gereklidir?
+Başvuru için aktif bir öğrenci belgesi, transkript veya okul tarafından verilen resmi bir e-posta adresi (.edu/.edu.tr) yeterlidir. Başvurular genellikle 1 ila 3 gün içinde onaylanır.

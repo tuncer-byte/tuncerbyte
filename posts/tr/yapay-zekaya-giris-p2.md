@@ -1,7 +1,8 @@
 ---
-title: "Transformer Mimarisi Nedir? Attention, Ölçek, Sampling ve Halüsinasyon — Bölüm 2"
+title: "Transformer Mimarisi ve Dikkat Mekanizması Nedir? (Self-Attention Rehberi)"
 date: "2026-03-24"
-excerpt: "Transformer mimarisi yapay zekanın temelini nasıl değiştirdi? Self-attention, model ölçeği, örnekleme parametreleri ve halüsinasyonu anlattık."
+updated: "2026-09-13"
+excerpt: "Transformer mimarisi ve dikkat (attention) mekanizması nasıl çalışır? Self-attention formülü, Q-K-V matrisleri, multi-head attention ve model ölçekleme (scaling laws) detaylı rehberi."
 tags: ["Transformer", "Attention Mekanizması", "Self-Attention", "Yapay Zeka", "LLM", "BERT", "GPT", "Derin Öğrenme", "AI Mühendisliği", "Halüsinasyon", "Sampling", "Model Ölçeği"]
 category: "Teknik"
 series: "yapay-zekaya-giris"
@@ -426,6 +427,23 @@ Bu yüzden uzun metinlerde modeller:
 **Yapısal kısıt mı, çözülebilir sorun mu?**
 
 İkisi de. Bazı halüsinasyonlar post-training ile azaltılabilir — RLHF ve DPO süreci modeli belirsizlikte daha ihtiyatlı olmaya yönlendirebilir. Retrieval-Augmented Generation (RAG) dış kaynaklarla çapraz kontrol imkânı verir. Ama "next token prediction" temeli üstünde halüsinasyonu sıfıra indirmek mümkün değil. Bu, mimarinin değil doğruluk sinyalinin bir sınırı.
+
+## Transformer ve Dikkat Mekanizması Hakkında Sıkça Sorulan Sorular (FAQ)
+
+### Transformer mimarisinde dikkat mekanizması (attention) nedir ve neden devrim yarattı?
+Transformer mimarisindeki dikkat mekanizması, bir cümledeki tüm kelimelerin birbirleriyle olan anlamsal ilişkisini aynı anda hesaplayan matematiksel bir yöntemdir. Eski RNN ve LSTM modellerindeki sıralı işleme zorunluluğunu ortadan kaldırarak GPU üzerinde tam paralelleştirme sağlamış ve trilyonlarca token üzerinde devasa dil modellerinin eğitilmesini mümkün kılmıştır.
+
+### Self-attention ile geleneksel attention mekanizması arasındaki fark nedir?
+Geleneksel attention mekanizmasında dikkat genellikle iki farklı dizi arasında kurulur (örneğin makine çevirisinde kaynak dil ile hedef dil arasında). Self-attention (öz-dikkat) mekanizmasında ise tek bir dizi tamamen kendi içindeki kelimeler arasındaki ilişkileri ölçer; örneğin bir kelimenin cümlenin neresindeki diğer kelimelerle bağlantılı olduğunu tespit eder.
+
+### Query, Key ve Value (Q, K, V) vektörleri ne anlama gelir?
+Query (Sorgu), bir token'ın bağlamda aradığı bilgiyi temsil eder. Key (Anahtar), diğer token'ların sunduğu özellikleri etiketler. Value (Değer) ise token'ın taşıdığı asıl anlamsal içeriktir. Model, Query ile Key arasındaki benzerliği hesaplayarak Value'ların ağırlıklı toplamını alır.
+
+### Attention formülünde neden √d_k ile ölçekleme (Scaled Dot-Product) yapılır?
+Vektör boyutu (d_k) büyüdükçe Q ve K'nın iç çarpımı çok yüksek sayılara ulaşır. Bu büyük değerler softmax fonksiyonuna girdiğinde gradyanlar sıfıra yaklaşır (vanishing gradient). Karekök d_k ile bölmek varyansı 1 civarında tutarak eğitimin kararlı kalmasını sağlar.
+
+### Multi-Head Attention neden gereklidir?
+Tek bir dikkat kafası tüm dilbilgisel ve anlamsal ilişkileri tek seferde yakalayamaz. Multi-head attention ile girdi birden fazla paralel alt uzaya bölünür. Bu sayede bir kafa özne-nesne ilişkilerine odaklanırken, başka bir kafa zamir referanslarını veya genel temayı izleyebilir.
 
 ---
 

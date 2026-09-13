@@ -1,7 +1,8 @@
 ---
-title: "CLAUDE.md Nedir? Claude Code Yapılandırma Rehberi"
+title: "CLAUDE.md Nedir ve Nasıl Oluşturulur? .claude Klasörü ve Yapılandırma Rehberi"
 date: "2026-03-23"
-excerpt: "CLAUDE.md, Claude Code'a nasıl davranacağını söyleyen talimat dosyasıdır. .claude/ klasörünü — rules, commands, skills, agents, settings.json — açıklıyoruz."
+updated: "2026-09-13"
+excerpt: "CLAUDE.md nedir, nasıl oluşturulur ve nereye konur? Claude Code proje hafızası oluşturma, CLAUDE.local.md, kurallar, komutlar ve settings.json tam rehberi."
 tags: ["CLAUDE.md", "Claude Code", "Claude Code Yapılandırma", "AI", "Geliştirici Araçları", "Agent", "Üretkenlik"]
 category: "Araçlar"
 ---
@@ -324,8 +325,16 @@ Projelerin büyük çoğunluğu için bu kadar yeterli. Skill'ler ve agent'lar, 
 
 ## Sık sorulan sorular
 
-### CLAUDE.md olmadan Claude Code çalışır mı?
+### CLAUDE.md dosyası nedir ve ne işe yarar?
+CLAUDE.md, Anthropic Claude Code CLI aracına projenizin mimarisini, kodlama standartlarını, derleme ve test komutlarını öğreten kalıcı bir talimat dosyasıdır. Her oturum başladığında Claude bu dosyayı okur ve projeye özgü hafıza (context) oluşturur.
 
+### CLAUDE.md dosyası nasıl oluşturulur ve nereye konur?
+Projenizin ana kök dizininde `CLAUDE.md` adında bir markdown dosyası oluşturarak içine projenizin mimarisini, komutlarını (`npm run test`, `npm run build`) ve kodlama kurallarını yazabilirsiniz. Ayrıca Claude Code terminalinde `/init` komutunu çalıştırarak otomatik bir başlangıç şablonu da oluşturabilirsiniz.
+
+### CLAUDE.local.md nedir ve ne zaman kullanılır?
+CLAUDE.local.md, takım arkadaşlarınızla paylaşmak istemediğiniz, sadece kendi yerel geliştirme ortamınıza özel tercih ve kuralları barındıran dosyadır. Claude Code bu dosyayı otomatik okur ancak gitignore'a dahil edildiği için repoya aktarılmaz.
+
+### CLAUDE.md olmadan Claude Code çalışır mı?
 Evet, çalışır. Ama siz konuşmayı yönetmek zorunda kalırsınız — Claude projenizi, kurallarınızı ve tercihlerinizi her seferinde sıfırdan öğrenir. CLAUDE.md bu öğrenmeyi bir kez yapmanızı sağlar.
 
 ### CLAUDE.md ile .cursorrules arasındaki fark nedir?

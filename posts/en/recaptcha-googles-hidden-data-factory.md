@@ -36,7 +36,7 @@ You thought you were logging in. You were actually building the world's largest 
 
 The books came from the **New York Times archive** and **Google Books**. A collection of 130 million books.
 
-Google acquired reCAPTCHA in 2009.
+Google acquired reCAPTCHA in September 2009 for an estimated **$20 to $30 million** (tens of millions of dollars) from founder Luis von Ahn and his team. While the exact acquisition price was never formally disclosed in SEC filings, von Ahn subsequently confirmed that the purchase price exceeded $20 million. It turned out to be one of the most profitable acquisitions in Google's history, generating billions of dollars in training data value.
 
 ---
 
@@ -141,3 +141,16 @@ reCAPTCHA isn't just an anecdote. It's a template for how the internet works.
 Platforms convert user behavior into product. Often openly. Often voluntarily. But sometimes — as in this story — entirely invisibly.
 
 The next time you tick that "I'm not a robot" box, you'll know exactly what it means.
+
+---
+
+## Frequently Asked Questions (FAQ)
+
+### How much did Google pay for reCAPTCHA?
+Google acquired reCAPTCHA in September 2009 for an estimated $20 million to $30 million from creator Luis von Ahn and Carnegie Mellon University. The acquisition provided Google with the infrastructure to digitize the Google Books archive and train its computer vision AI models.
+
+### How does reCAPTCHA image and text recognition work?
+In reCAPTCHA v1, users solved two words: one known control word and one unreadable word from scanned physical books. If the user correctly transcribed the control word, their interpretation of the unknown word was accepted as ground truth OCR. In reCAPTCHA v2, users clicked image tiles (traffic lights, crosswalks, storefronts) taken from Google Street View to label training datasets for machine learning.
+
+### How was reCAPTCHA data used to train Waymo autonomous vehicles?
+The millions of manual image classifications solved by internet users every day provided annotated ground truth data for pedestrians, street signs, and traffic lights, which Google directly fed into the perception models powering Waymo (formerly Google's Self-Driving Car Project).

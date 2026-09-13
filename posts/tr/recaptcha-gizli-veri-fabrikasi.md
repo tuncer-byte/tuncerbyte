@@ -36,7 +36,7 @@ Kayıt olduğunuzu sandınız. Aslında dünyanın en büyük dijital kütüphan
 
 Kitaplar **New York Times arşivinden** ve **Google Books projesinden** geliyordu. 130 milyon kitaplık bir koleksiyon.
 
-Google, 2009'da reCAPTCHA'yı satın aldı.
+Google, Eylül 2009'da reCAPTCHA'yı kurucusu Luis von Ahn ve ekibinden **tahmini 20 ila 30 milyon dolar** (onlarca milyon dolar) ödeyerek satın aldı. Bu anlaşma resmi olarak rakamsız duyurulsa da, von Ahn daha sonra bedelin 20 milyon doların üzerinde olduğunu açıkladı. Google'ın ödediği bu para, şirketin önümüzdeki 15 yılda elde edeceği milyarlarca dolarlık yapay zeka eğitim verisinin yanında devede kulak kaldı.
 
 ---
 
@@ -141,3 +141,16 @@ reCAPTCHA tek bir anekdot değil. İnternetin nasıl çalıştığını anlatan 
 Platformlar kullanıcı davranışını ürüne dönüştürür. Çoğu zaman açıkça. Çoğu zaman gönüllü olarak. Ama bazen — bu hikayede olduğu gibi — tam anlamıyla görünmez bir şekilde.
 
 Bir dahaki sefere "Robot değilim" kutusunu tıkladığınızda, bunun tam olarak ne anlama geldiğini biliyorsunuz artık.
+
+---
+
+## reCAPTCHA Hakkında Sıkça Sorulan Sorular (FAQ)
+
+### Google reCAPTCHA için ne kadar ödedi? (How much did Google pay for reCAPTCHA?)
+Google, reCAPTCHA'yı Eylül 2009'da Luis von Ahn ve ekibinden tahmini olarak 20 ila 30 milyon dolar (onlarca milyon dolar) karşılığında satın aldı. Resmi meblağ açıklanmasa da von Ahn bu tutarın 20 milyon doların üzerinde olduğunu doğrulamıştır.
+
+### reCAPTCHA görsel ve metin tanıma (recognition) nasıl çalışır?
+reCAPTCHA v1'de kullanıcılara biri doğrulanmış diğeri OCR tarafından okunamamış taranmış kitap kelimeleri sunuluyordu. Kullanıcılar bilinen kelimeyi doğru yazdığında, bilinmeyen kelime için verdikleri cevap da dijitalleştiriliyordu. reCAPTCHA v2'de ise kullanıcılara Google Street View'dan alınan trafik ışığı, yaya geçidi ve dükkan tabelası fotoğrafları etiketlettirilerek bilgisayarla görme (computer vision) algoritmaları eğitildi.
+
+### reCAPTCHA verileri Waymo otonom araçlarında nasıl kullanıldı?
+Kullanıcıların reCAPTCHA pencerelerinde işaretlediği milyonlarca yaya geçidi, trafik ışığı ve yol tabelası etiketi, Google'ın otonom araç projesi Waymo'nun (eski Google Self-Driving Car Project) nesne algılama modellerine doğrudan temel doğruluk (ground truth) verisi sağladı.

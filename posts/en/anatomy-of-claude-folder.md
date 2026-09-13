@@ -1,7 +1,8 @@
 ---
-title: "CLAUDE.md: The Complete Claude Code Configuration Guide"
+title: "What Is CLAUDE.md? Complete Claude Code Configuration & .claude Folder Guide"
 date: "2026-03-23"
-excerpt: "CLAUDE.md tells Claude Code how to behave in your project. This guide covers the entire .claude/ folder: rules, commands, skills, agents, and settings.json."
+updated: "2026-09-13"
+excerpt: "What is CLAUDE.md and how do you configure it? Learn how to build project memory for Claude Code, use CLAUDE.local.md, modular rules, slash commands, and settings.json."
 tags: ["CLAUDE.md", "Claude Code", "Claude Code Configuration", "AI", "Developer Tools", "Agent", "Productivity"]
 category: "Tools"
 ---
@@ -325,8 +326,16 @@ That covers 95% of projects. Skills and agents come in when you have recurring c
 
 ## Frequently asked questions
 
-### Does Claude Code work without CLAUDE.md?
+### What is a CLAUDE.md file and what does it do?
+CLAUDE.md is an instruction file placed in your project root that teaches Anthropic's Claude Code CLI tool how to behave in your specific repository. Every time you launch a session, Claude ingests this file to automatically adopt your project architecture, code conventions, testing workflows, and custom rules without manual prompting.
 
+### How do I create and structure a CLAUDE.md file?
+You can create a `CLAUDE.md` file manually in the root of your project directory with concise sections for commands (`npm test`, `npm run build`), architectural decisions, and coding standards. Alternatively, run `/init` inside Claude Code to generate a starter template tailored to your repo.
+
+### What is CLAUDE.local.md?
+CLAUDE.local.md is a private configuration file for developer-specific preferences and local override instructions. Claude Code reads it alongside the primary CLAUDE.md, but it is automatically gitignored so your personal environment settings are never committed to shared team repositories.
+
+### Does Claude Code work without CLAUDE.md?
 Yes. But you end up managing the conversation manually — Claude learns your project, rules, and preferences from scratch every time. CLAUDE.md makes that learning happen once.
 
 ### What's the difference between CLAUDE.md and .cursorrules?

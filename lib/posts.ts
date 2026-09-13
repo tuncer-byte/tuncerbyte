@@ -159,6 +159,9 @@ export async function getPostData(slug: string, lang = "tr"): Promise<PostDataWi
     excerpt: matterResult.data.excerpt as string | undefined,
     tags: matterResult.data.tags as string[] | undefined,
     updated: matterResult.data.updated as string | undefined,
+    category: matterResult.data.category as string | undefined,
+    series: matterResult.data.series as string | undefined,
+    seriesTitle: matterResult.data.seriesTitle as string | undefined,
     contentHtml,
   };
 }
