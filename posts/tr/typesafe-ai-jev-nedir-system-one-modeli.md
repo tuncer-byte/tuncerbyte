@@ -41,6 +41,7 @@ TypeSafe AI'ın kurucuları manifestolarında durumu şöyle özetliyor:
 
 ## 2. Jev'in Üç Temel Karar Primitifi
 
+
 Jev'e herhangi bir serbest prompt yazamazsınız. Bir girdi bağlamı (state) verirsiniz ve modelden üç temel primitiften birini yanıtlamasını istersiniz:
 
 ```
