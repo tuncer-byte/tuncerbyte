@@ -134,6 +134,9 @@ export const slugMap: Record<string, { tr: string; en: string }> = {
 
   "google-gemini-modelleri-rehberi-flash-pro-multimodal": { tr: "google-gemini-modelleri-rehberi-flash-pro-multimodal", en: "google-gemini-models-guide-flash-pro-multimodal" },
   "google-gemini-models-guide-flash-pro-multimodal": { tr: "google-gemini-modelleri-rehberi-flash-pro-multimodal", en: "google-gemini-models-guide-flash-pro-multimodal" },
+
+  "typesafe-ai-jev-nedir-system-one-modeli": { tr: "typesafe-ai-jev-nedir-system-one-modeli", en: "typesafe-ai-jev-explained-system-one-model" },
+  "typesafe-ai-jev-explained-system-one-model": { tr: "typesafe-ai-jev-nedir-system-one-modeli", en: "typesafe-ai-jev-explained-system-one-model" },
 };
 
 export function getAlternateSlug(slug: string, targetLocale: "tr" | "en"): string | null {
