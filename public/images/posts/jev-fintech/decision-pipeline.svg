@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="760" viewBox="0 0 1400 760" role="img" aria-labelledby="title desc">
+  <title id="title">Jev-based fintech decision pipeline</title>
+  <desc id="desc">Transaction data passes through data minimization and deterministic rules, then Jev evaluation routes it to automation, step-up authentication, or human review based on confidence and impact.</desc>
+  <defs>
+    <filter id="rough" x="-3%" y="-5%" width="106%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.008" numOctaves="2" seed="17" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="2"/>
+    </filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M1 1 L11 6 L1 11" fill="none" stroke="#1f2937" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <style>
+      .box{stroke:#1f2937;stroke-width:3;fill:#fffdf7;filter:url(#rough)}
+      .line{stroke:#1f2937;stroke-width:3;fill:none;stroke-linecap:round;marker-end:url(#arrow);filter:url(#rough)}
+      .title{font:700 31px ui-rounded,"Comic Sans MS",sans-serif;fill:#111827}
+      .label{font:700 22px ui-rounded,"Comic Sans MS",sans-serif;fill:#111827}
+      .body{font:18px ui-rounded,"Comic Sans MS",sans-serif;fill:#374151}
+      .small{font:16px ui-rounded,"Comic Sans MS",sans-serif;fill:#4b5563}
+    </style>
+  </defs>
+  <rect width="1400" height="760" fill="#f8fafc"/>
+  <path d="M38 42 Q700 25 1361 43 M45 718 Q700 737 1355 716" stroke="#cbd5e1" stroke-width="2" fill="none" filter="url(#rough)"/>
+  <text x="70" y="92" class="title">Fintech'te Jev: model signals, policy engine decides</text>
+
+  <rect x="70" y="160" width="230" height="145" rx="7" class="box" fill="#dbeafe"/>
+  <text x="185" y="205" text-anchor="middle" class="label">Transaction context</text>
+  <text x="185" y="242" text-anchor="middle" class="body">Amount + device</text>
+  <text x="185" y="272" text-anchor="middle" class="body">Merchant + history</text>
+
+  <path d="M303 232 C333 228 345 232 375 232" class="line"/>
+  <rect x="380" y="160" width="250" height="145" rx="7" class="box" fill="#dcfce7"/>
+  <text x="505" y="205" text-anchor="middle" class="label">Secure preprocessing</text>
+  <text x="505" y="242" text-anchor="middle" class="body">PII masking</text>
+  <text x="505" y="272" text-anchor="middle" class="body">Deterministic rules</text>
+
+  <path d="M633 232 C666 235 680 229 710 232" class="line"/>
+  <rect x="715" y="140" width="260" height="185" rx="7" class="box" fill="#fef3c7"/>
+  <text x="845" y="188" text-anchor="middle" class="label">Jev</text>
+  <text x="845" y="226" text-anchor="middle" class="body">Noul: fraud signal?</text>
+  <text x="845" y="256" text-anchor="middle" class="body">Choice: which queue?</text>
+  <text x="845" y="286" text-anchor="middle" class="body">Score: priority?</text>
+
+  <path d="M978 232 C1013 226 1020 232 1050 232" class="line"/>
+  <rect x="1055" y="160" width="270" height="145" rx="7" class="box" fill="#ede9fe"/>
+  <text x="1190" y="205" text-anchor="middle" class="label">Policy engine</text>
+  <text x="1190" y="242" text-anchor="middle" class="body">Confidence x impact</text>
+  <text x="1190" y="272" text-anchor="middle" class="body">+ regulatory rules</text>
+
+  <path d="M1190 308 C1188 360 910 365 910 415" class="line"/>
+  <path d="M1190 308 C1190 378 1190 381 1190 415" class="line"/>
+  <path d="M1190 308 C1194 354 1260 366 1260 505" class="line"/>
+
+  <rect x="770" y="420" width="275" height="125" rx="7" class="box" fill="#dcfce7"/>
+  <text x="907" y="464" text-anchor="middle" class="label">Low impact</text>
+  <text x="907" y="500" text-anchor="middle" class="body">Tag / route</text>
+  <text x="907" y="526" text-anchor="middle" class="small">reversible</text>
+
+  <rect x="1060" y="420" width="260" height="125" rx="7" class="box" fill="#ffedd5"/>
+  <text x="1190" y="464" text-anchor="middle" class="label">Medium impact</text>
+  <text x="1190" y="500" text-anchor="middle" class="body">Step-up authentication</text>
+  <text x="1190" y="526" text-anchor="middle" class="small">3DS / document request</text>
+
+  <rect x="1045" y="590" width="290" height="110" rx="7" class="box" fill="#fee2e2"/>
+  <text x="1190" y="635" text-anchor="middle" class="label">High impact / uncertain</text>
+  <text x="1190" y="671" text-anchor="middle" class="body">Authorized human review</text>
+
+  <path d="M1040 650 C830 704 507 680 352 548 C280 487 277 384 378 285" stroke="#2563eb" stroke-width="3" stroke-dasharray="10 10" fill="none" marker-end="url(#arrow)" filter="url(#rough)"/>
+  <text x="505" y="646" class="body" fill="#2563eb">Confirmed outcomes feed calibration and drift measurement</text>
+</svg>

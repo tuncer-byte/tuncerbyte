@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="860" viewBox="0 0 1400 860" role="img" aria-labelledby="title desc">
+  <title id="title">Jev reference architecture for fintech</title>
+  <desc id="desc">Reference architecture with data sources, trust boundary, decision layer, policy engine, human oversight, and monitoring loop.</desc>
+  <defs>
+    <filter id="rough" x="-3%" y="-5%" width="106%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.009" numOctaves="2" seed="29" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.2"/>
+    </filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M1 1 L11 6 L1 11" fill="none" stroke="#1f2937" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <style>
+      .box{stroke:#1f2937;stroke-width:3;fill:#fff;filter:url(#rough)}
+      .boundary{stroke:#64748b;stroke-width:3;stroke-dasharray:12 10;fill:none;filter:url(#rough)}
+      .line{stroke:#1f2937;stroke-width:3;fill:none;stroke-linecap:round;marker-end:url(#arrow);filter:url(#rough)}
+      .title{font:700 31px ui-rounded,"Comic Sans MS",sans-serif;fill:#111827}
+      .label{font:700 21px ui-rounded,"Comic Sans MS",sans-serif;fill:#111827}
+      .body{font:17px ui-rounded,"Comic Sans MS",sans-serif;fill:#374151}
+      .note{font:16px ui-rounded,"Comic Sans MS",sans-serif;fill:#475569}
+    </style>
+  </defs>
+  <rect width="1400" height="860" fill="#fffdf7"/>
+  <text x="70" y="75" class="title">Production architecture: surround the model with control layers</text>
+
+  <rect x="45" y="120" width="250" height="570" rx="10" class="boundary"/>
+  <text x="70" y="153" class="label">Fintech data domain</text>
+  <rect x="75" y="195" width="190" height="95" rx="7" class="box" fill="#dbeafe"/>
+  <text x="170" y="236" text-anchor="middle" class="label">Payment event</text>
+  <text x="170" y="265" text-anchor="middle" class="body">Token + amount</text>
+  <rect x="75" y="330" width="190" height="95" rx="7" class="box" fill="#dbeafe"/>
+  <text x="170" y="371" text-anchor="middle" class="label">Case context</text>
+  <text x="170" y="400" text-anchor="middle" class="body">Alert + history</text>
+  <rect x="75" y="465" width="190" height="95" rx="7" class="box" fill="#dbeafe"/>
+  <text x="170" y="506" text-anchor="middle" class="label">KYC document</text>
+  <text x="170" y="535" text-anchor="middle" class="body">OCR outputs</text>
+  <text x="70" y="636" class="note">Raw PII stays within</text>
+  <text x="70" y="660" class="note">the trust boundary.</text>
+
+  <path d="M298 375 C330 375 340 375 370 375" class="line"/>
+  <rect x="375" y="280" width="225" height="190" rx="7" class="box" fill="#dcfce7"/>
+  <text x="487" y="325" text-anchor="middle" class="label">Security gateway</text>
+  <text x="487" y="363" text-anchor="middle" class="body">Data minimization</text>
+  <text x="487" y="393" text-anchor="middle" class="body">Tokenization</text>
+  <text x="487" y="423" text-anchor="middle" class="body">Schema validation</text>
+  <text x="487" y="453" text-anchor="middle" class="body">Deterministic rules</text>
+
+  <path d="M603 375 C633 368 646 375 675 375" class="line"/>
+  <rect x="680" y="170" width="280" height="410" rx="10" class="boundary"/>
+  <text x="707" y="205" class="label">Decision layer</text>
+  <rect x="715" y="235" width="210" height="120" rx="7" class="box" fill="#fef3c7"/>
+  <text x="820" y="278" text-anchor="middle" class="label">Jev questions</text>
+  <text x="820" y="310" text-anchor="middle" class="body">Noul / Choice / Score</text>
+  <text x="820" y="337" text-anchor="middle" class="note">atomic and versioned</text>
+  <rect x="715" y="410" width="210" height="120" rx="7" class="box" fill="#e0e7ff"/>
+  <text x="820" y="453" text-anchor="middle" class="label">Specialized models</text>
+  <text x="820" y="485" text-anchor="middle" class="body">fraud + graph + rules</text>
+  <text x="820" y="512" text-anchor="middle" class="note">parallel signals</text>
+
+  <path d="M963 375 C995 375 1005 375 1035 375" class="line"/>
+  <rect x="1040" y="280" width="285" height="190" rx="7" class="box" fill="#ede9fe"/>
+  <text x="1182" y="325" text-anchor="middle" class="label">Policy engine</text>
+  <text x="1182" y="363" text-anchor="middle" class="body">Probability + confidence</text>
+  <text x="1182" y="393" text-anchor="middle" class="body">Impact + amount + segment</text>
+  <text x="1182" y="423" text-anchor="middle" class="body">Fallback + limits</text>
+  <text x="1182" y="453" text-anchor="middle" class="body">Versioned decision rule</text>
+
+  <path d="M1182 473 C1182 510 1182 530 1182 565" class="line"/>
+  <rect x="1040" y="570" width="285" height="105" rx="7" class="box" fill="#ffedd5"/>
+  <text x="1182" y="612" text-anchor="middle" class="label">Action + human review</text>
+  <text x="1182" y="644" text-anchor="middle" class="body">allow / step-up / review</text>
+
+  <path d="M1182 678 C1182 735 933 755 820 670" stroke="#2563eb" stroke-width="3" stroke-dasharray="10 10" fill="none" marker-end="url(#arrow)" filter="url(#rough)"/>
+  <rect x="480" y="650" width="440" height="135" rx="7" class="box" fill="#f1f5f9"/>
+  <text x="700" y="694" text-anchor="middle" class="label">Observability and audit trail</text>
+  <text x="700" y="728" text-anchor="middle" class="body">Calibration • drift • bias • latency • override</text>
+  <text x="700" y="758" text-anchor="middle" class="body">Model + question + feature + policy versions</text>
+  <path d="M480 715 C365 715 350 590 405 469" stroke="#2563eb" stroke-width="3" stroke-dasharray="10 10" fill="none" marker-end="url(#arrow)" filter="url(#rough)"/>
+</svg>
