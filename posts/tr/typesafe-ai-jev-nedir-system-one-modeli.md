@@ -44,21 +44,7 @@ TypeSafe AI'ın kurucuları manifestolarında durumu şöyle özetliyor:
 
 Jev'e herhangi bir serbest prompt yazamazsınız. Bir girdi bağlamı (state) verirsiniz ve modelden üç temel primitiften birini yanıtlamasını istersiniz:
 
-```
-                          ┌───────────────────────────┐
-                          │   GİRDİ BAĞLAMI (STATE)   │
-                          │ (Hata Logu, Kod, Mesaj)  │
-                          └─────────────┬─────────────┘
-                                        │
-           ┌────────────────────────────┼────────────────────────────┐
-           ▼                            ▼                            ▼
-   ┌───────────────┐            ┌───────────────┐            ┌───────────────┐
-   │ 1. NOUL (Bool)│            │2. CHOICE(Enum)│            │3. SCORE(Skor) │
-   ├───────────────┤            ├───────────────┤            ├───────────────┤
-   │ True / False  │            │ Seçenek A,B,C │            │ Düşük/Orta/Yük│
-   │ + Olasılık    │            │ + Dağılım     │            │ + Güven Skoru │
-   └───────────────┘            └───────────────┘            └───────────────┘
-```
+![Jev'in Noul, Choice ve Score karar primitive'leri](/images/posts/jev-explained/tr/jev-decision-primitives.svg)
 
 ### A. Noul (Boolean / Evet-Hayır)
 Bir durumun doğru olup olmadığını test eder. Model sadece "Evet" demez; bunun gerçekleşme olasılığını kalibre edilmiş biçimde döndürür:
@@ -133,6 +119,8 @@ async function triageCustomerIssue(userMessage: string) {
   return { status: "escalated_to_llm", analysis: llmResponse.content[0] };
 }
 ```
+
+![Jev ve System-2 model kullanan hybrid fallback mimarisi](/images/posts/jev-explained/tr/jev-hybrid-fallback.svg)
 
 Bu mimari sayesinde gelen isteklerin %85-90'ı **70 milisaniye içinde ve 400 kat daha ucuza** çözülür; pahalı frontier modeller ise yalnızca gerçekten belirsiz olan uç vakalara saklanır.
 

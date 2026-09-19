@@ -39,8 +39,6 @@ Three main components:
 2. **Generators** — Generative AI tools for content creation
 3. **Inference Engine** — On-device neural network inference engine
 
-![Unity AI components: Assistant, Generators, and Inference Engine](/images/posts/unity-ai/en/unity-ai-components.svg)
-
 ---
 
 ## Component 1: Assistant
@@ -138,8 +136,6 @@ Pricing: $30/month standalone subscription.
 ### Unity Sentis (2023 – August 2025)
 
 On-device neural network inference library. With Unity 6.2, it was rebranded as the **Inference Engine** and became part of Unity AI.
-
-![The evolution from Unity Muse and Sentis to Unity AI](/images/posts/unity-ai/en/unity-ai-evolution.svg)
 
 ---
 

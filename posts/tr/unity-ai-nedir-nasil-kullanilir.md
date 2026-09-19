@@ -39,8 +39,6 @@ Unity AI, Unity 6.2 ile birlikte (Ağustos 2025) editörün içine entegre edile
 2. **Generators** — Üretici yapay zeka ile içerik oluşturma araçları
 3. **Inference Engine** — Cihaz üzerinde çalışan sinir ağı çıkarım motoru
 
-![Unity AI bileşenleri: Assistant, Generators ve Inference Engine](/images/posts/unity-ai/tr/unity-ai-components.svg)
-
 ---
 
 ## 1. Bileşen: Assistant
@@ -138,8 +136,6 @@ Fiyatlandırma: aylık 30 dolar bağımsız abonelik.
 ### Unity Sentis (2023 – Ağustos 2025)
 
 Cihaz üzerinde sinir ağı çıkarım kütüphanesi. Unity 6.2 ile **Inference Engine** adını alarak Unity AI'nin bir parçası oldu.
-
-![Unity Muse ve Sentis'ten Unity AI'ye geçiş süreci](/images/posts/unity-ai/tr/unity-ai-evolution.svg)
 
 ---
 

@@ -43,21 +43,7 @@ As TypeSafe AI articulated in their release:
 
 Jev rejects open-ended prompts. Instead, you provide an input state (a diff, user message, error log, or document chunk) and query it using three primitives:
 
-```
-                          ┌───────────────────────────┐
-                          │     INPUT STATE (DATA)    │
-                          │   (Error, Code, Message)  │
-                          └─────────────┬─────────────┘
-                                        │
-           ┌────────────────────────────┼────────────────────────────┐
-           ▼                            ▼                            ▼
-   ┌───────────────┐            ┌───────────────┐            ┌───────────────┐
-   │ 1. NOUL (Bool)│            │2. CHOICE(Enum)│            │3. SCORE(Rank) │
-   ├───────────────┤            ├───────────────┤            ├───────────────┤
-   │ True / False  │            │ Pick from set │            │ Low / Med / Hi│
-   │ + Probability │            │ + Distribution│            │ + Confidence  │
-   └───────────────┘            └───────────────┘            └───────────────┘
-```
+![Jev's Noul, Choice, and Score decision primitives](/images/posts/jev-explained/en/jev-decision-primitives.svg)
 
 ### A. Noul (Boolean / Yes-No)
 Evaluates whether a specific proposition holds true. It returns a boolean accompanied by calibrated true-state probability:
@@ -137,6 +123,8 @@ async function routeBugReport(issueDescription: string) {
   return { status: "escalated_to_llm", triageNotes: response.content[0] };
 }
 ```
+
+![Hybrid fallback architecture using Jev and a System 2 model](/images/posts/jev-explained/en/jev-hybrid-fallback.svg)
 
 In production, **85% to 90% of requests resolve within 70ms** at a fraction of a cent. High-cost reasoning models are invoked solely for genuine ambiguities.
 

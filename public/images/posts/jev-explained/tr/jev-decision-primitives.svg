@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="760" viewBox="0 0 1400 760" role="img" aria-labelledby="title desc">
+  <title id="title">Jev karar primitive'leri</title>
+  <desc id="desc">Bir input state'in Noul, Choice ve Score primitive'leri ile typed decision çıktısına dönüşmesi.</desc>
+  <defs>
+    <filter id="rough" x="-3%" y="-5%" width="106%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.008" numOctaves="2" seed="19" result="noise"/><feDisplacementMap in="SourceGraphic" in2="noise" scale="2"/></filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M1 1 L11 6 L1 11" fill="none" stroke="#18181b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></marker>
+    <style>.box{stroke:#18181b;stroke-width:3;filter:url(#rough)}.line{stroke:#18181b;stroke-width:3;fill:none;stroke-linecap:round;marker-end:url(#arrow);filter:url(#rough)}.title{font:700 34px ui-rounded,"Comic Sans MS",sans-serif;fill:#18181b}.label{font:700 24px ui-rounded,"Comic Sans MS",sans-serif;fill:#18181b}.body{font:19px ui-rounded,"Comic Sans MS",sans-serif;fill:#3f3f46}.small{font:16px ui-rounded,"Comic Sans MS",sans-serif;fill:#52525b}</style>
+  </defs>
+  <rect width="1400" height="760" fill="#fafafa"/>
+  <path d="M42 45 Q700 25 1358 44 M48 713 Q700 734 1352 711" stroke="#d4d4d8" stroke-width="2" fill="none" filter="url(#rough)"/>
+  <text x="70" y="92" class="title">Jev metin üretmez, typed decision üretir</text>
+  <rect x="465" y="135" width="470" height="115" rx="7" fill="#e4e4e7" class="box"/>
+  <text x="700" y="180" text-anchor="middle" class="label">Input state</text><text x="700" y="218" text-anchor="middle" class="body">Kod / log / mesaj / document chunk</text>
+  <path d="M700 253 C700 300 275 298 275 355" class="line"/><path d="M700 253 L700 355" class="line"/><path d="M700 253 C700 300 1125 298 1125 355" class="line"/>
+  <rect x="105" y="360" width="340" height="220" rx="7" fill="#ccfbf1" class="box"/>
+  <text x="275" y="408" text-anchor="middle" class="label">Noul</text><text x="275" y="448" text-anchor="middle" class="body">Boolean decision</text><text x="275" y="485" text-anchor="middle" class="body">true / false</text><text x="275" y="532" text-anchor="middle" class="small">+ calibrated probability</text>
+  <rect x="530" y="360" width="340" height="220" rx="7" fill="#fef3c7" class="box"/>
+  <text x="700" y="408" text-anchor="middle" class="label">Choice</text><text x="700" y="448" text-anchor="middle" class="body">Categorical decision</text><text x="700" y="485" text-anchor="middle" class="body">A / B / C</text><text x="700" y="532" text-anchor="middle" class="small">+ probability distribution</text>
+  <rect x="955" y="360" width="340" height="220" rx="7" fill="#ffe4e6" class="box"/>
+  <text x="1125" y="408" text-anchor="middle" class="label">Score</text><text x="1125" y="448" text-anchor="middle" class="body">Ordered decision</text><text x="1125" y="485" text-anchor="middle" class="body">low / medium / high</text><text x="1125" y="532" text-anchor="middle" class="small">+ confidence score</text>
+  <path d="M275 583 C275 620 470 625 520 642" class="line"/><path d="M700 583 L700 620" class="line"/><path d="M1125 583 C1125 620 930 625 880 642" class="line"/>
+  <rect x="465" y="625" width="470" height="72" rx="7" fill="#ffffff" class="box"/><text x="700" y="670" text-anchor="middle" class="label">Software-ready output</text>
+</svg>
