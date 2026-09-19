@@ -1,5 +1,5 @@
 ---
-title: "Fintech Alanında Jev Kullanımı: Uygulama Alanları, Riskler ve Open Source Alternatifler"
+title: "Fintech Alanında Jev Kullanımları"
 date: "2026-09-19"
 excerpt: "Jev'in payment, fraud, AML, KYC ve customer operations alanlarında nerede değer üretebileceğini; ne zaman kullanılmaması gerektiğini, risk/reward dengesini ve open source bir alternatif için gereken architecture'ı inceliyoruz."
 tags: ["Jev", "Fintech", "Fraud Detection", "AML", "KYC", "Model Risk", "Open Source AI", "System One Model", "MLOps"]
