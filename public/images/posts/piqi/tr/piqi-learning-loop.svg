@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="720" viewBox="0 0 1400 720" role="img" aria-labelledby="title desc">
+  <title id="title">Öğrenen döngü: her toplantıda biraz daha iyi</title>
+  <desc id="desc">Kaynakta karşılığı olmayan soru doküman eksiklerine düşer, onaylı cevap yazılınca SSS olur ve aynı soru bir dahaki sefere model çağrılmadan anında cevaplanır.</desc>
+  <defs><filter id="rough" filterUnits="userSpaceOnUse" x="0" y="0" width="1400" height="720"><feTurbulence type="fractalNoise" baseFrequency="0.008" numOctaves="2" seed="29" result="noise"/><feDisplacementMap in="SourceGraphic" in2="noise" scale="2"/></filter><marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M1 1 L11 6 L1 11" fill="none" stroke="#18181b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></marker><style>.box{stroke:#18181b;stroke-width:3;filter:url(#rough)}.line{stroke:#18181b;stroke-width:3;fill:none;stroke-linecap:round;marker-end:url(#arrow);filter:url(#rough)}.title{font:700 34px ui-rounded,"Comic Sans MS",sans-serif;fill:#18181b}.label{font:700 22px ui-rounded,"Comic Sans MS",sans-serif;fill:#18181b}.body{font:17px ui-rounded,"Comic Sans MS",sans-serif;fill:#3f3f46}.small{font:16px ui-rounded,"Comic Sans MS",sans-serif;fill:#52525b}.tag{font:700 16px ui-rounded,"Comic Sans MS",sans-serif;fill:#3f3f46}</style></defs>
+  <rect width="1400" height="720" fill="#fafafa"/><path d="M42 45 Q700 25 1358 44 M48 675 Q700 696 1352 673" stroke="#d4d4d8" stroke-width="2" fill="none" filter="url(#rough)"/>
+  <text x="70" y="100" class="title">Öğrenen döngü: her toplantıda biraz daha iyi</text>
+  <rect x="120" y="160" width="460" height="130" rx="7" fill="#e4e4e7" class="box"/><text x="350.0" y="204" text-anchor="middle" class="label">Karşı taraf soruyor</text><text x="350.0" y="238" text-anchor="middle" class="body">"SLA oranınız nedir?"</text>
+  <rect x="820" y="160" width="460" height="130" rx="7" fill="#e4e4e7" class="box"/><text x="1050.0" y="204" text-anchor="middle" class="label">Doküman eksikleri</text><text x="1050.0" y="238" text-anchor="middle" class="body">kaynakta yok ya da olumsuz geri bildirim</text>
+  <rect x="820" y="450" width="460" height="130" rx="7" fill="#e4e4e7" class="box"/><text x="1050.0" y="494" text-anchor="middle" class="label">Onaylı cevap yazılır</text><text x="1050.0" y="528" text-anchor="middle" class="body">Island'dan ya da eksikler sayfasından</text>
+  <rect x="120" y="450" width="460" height="130" rx="7" fill="#ecfccb" class="box"/><text x="350.0" y="494" text-anchor="middle" class="label">Anında cevap</text><text x="350.0" y="528" text-anchor="middle" class="body">aynı soru tekrar gelince, model çağrısı yok</text>
+  <path d="M590 225 Q700 214 810 225" class="line"/>
+  <path d="M1050 298 Q1062 370 1050 442" class="line"/>
+  <path d="M810 515 Q700 526 590 515" class="line"/>
+  <path d="M350 442 Q338 370 350 298" class="line"/>
+  <ellipse cx="700" cy="370" rx="86" ry="46" fill="#ecfccb" class="box"/><text x="700" y="378" text-anchor="middle" class="label">SSS</text>
+  <text x="70" y="640" class="small">Onaylı cevaplar aramada en yüksek önceliğe sahiptir; token harcamadan ve gecikmesiz gösterilir.</text>
+</svg>

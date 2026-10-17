@@ -17,6 +17,7 @@ Computer Engineering graduate from Selçuk University.
 
 ## Open Source Projects
 
+- **Piqi** — macOS meeting assistant that answers product questions from your own documents and code, with sources; detects Teams and Zoom calls, transcribes on the device, and summarizes meetings. https://github.com/tuncer-byte/piqi
 - **byte** — AI-powered VS Code extension. Supports OpenAI, Gemini, Claude and Ollama models. https://github.com/tuncer-byte/byte
 - **cursor25x** — Interactive task-loop MCP server for Cursor IDE. https://github.com/tuncer-byte/cursor25x
 - **memory-bank-MCP** — Structured memory management MCP server, top-ranked on PulseMCP. https://github.com/tuncer-byte/memory-bank-MCP

@@ -3,6 +3,9 @@
 
 export const slugMap: Record<string, { tr: string; en: string }> = {
   // Pairs (bidirectional)
+  "piqi-toplanti-asistani": { tr: "piqi-toplanti-asistani", en: "piqi-meeting-assistant" },
+  "piqi-meeting-assistant": { tr: "piqi-toplanti-asistani", en: "piqi-meeting-assistant" },
+
   "open-swe-nedir": { tr: "open-swe-nedir", en: "open-swe-framework" },
   "open-swe-framework": { tr: "open-swe-nedir", en: "open-swe-framework" },
 

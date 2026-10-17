@@ -14,6 +14,26 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: "piqi",
+    name: "Piqi",
+    url: "https://github.com/tuncer-byte/piqi",
+    stars: 0,
+    tags: ["TypeScript", "Swift", "Rust", "Electron", "macOS", "RAG", "Claude", "Gemini", "Ollama"],
+    descTr: "Toplantıda ürün sorularına kendi dokümanların ve kodundan, kaynağıyla cevap hazırlayan macOS asistanı.",
+    descEn: "macOS assistant that answers product questions in meetings from your own documents and code, with sources.",
+    longDescTr: "Piqi, müşteri toplantılarında gelen teknik sorulara kendi bilgi havuzundan kaynaklı cevap hazırlayan açık kaynak bir macOS uygulamasıdır. Teams, Zoom ve diğer görüşmeleri otomatik algılar, sesi Mac üzerinde yazıya döker, karşı tarafın ürün sorusunu yerelde tanır ve dokümanlar, kod repoları, web sayfaları, Confluence, Notion ve görseller arasında arar. Kısa cevap ekranın üstündeki panelde kaynağıyla gösterilir; kaynakta karşılığı olmayan sorular doküman eksiklerine düşer ve onaylı cevap yazıldığında bir dahaki sefere model çağrılmadan anında cevaplanır. Toplantı bitince özet, kararlar, aksiyonlar ve takip e-postası hazırlanır. Kişisel veri maskeleme, kurum içi model desteği ve içeriksiz denetim kaydıyla veri hassasiyeti yüksek ortamlar için tasarlanmıştır.",
+    longDescEn: "Piqi is an open-source macOS app that answers technical questions in customer meetings from your own knowledge base, with sources. It detects Teams, Zoom, and other calls automatically, transcribes audio on the Mac, recognizes the other side's product questions locally, and searches documents, code repositories, web pages, Confluence, Notion, and images. A short answer appears with its source in a panel at the top of the screen; questions without a matching source become document gaps, and once an approved answer is written they are answered instantly next time without a model call. When the meeting ends, Piqi prepares a summary, decisions, action items, and a follow-up email. Personal-data masking, on-premises model support, and a content-free audit log make it suitable for data-sensitive environments.",
+    features: [
+      { tr: "Teams, Zoom, Webex, Slack ve tarayıcı görüşmelerini otomatik algılama", en: "Automatic detection of Teams, Zoom, Webex, Slack, and browser calls" },
+      { tr: "Cihaz üzerinde iki kanallı transkript ve konuşmacı ayrımı", en: "On-device two-channel transcription and speaker separation" },
+      { tr: "Doküman, kod, web, Confluence, Notion ve görsellerden kaynaklı cevap", en: "Sourced answers from documents, code, web, Confluence, Notion, and images" },
+      { tr: "Doküman eksikleri ve onaylı cevaplarla öğrenen SSS döngüsü", en: "A learning FAQ loop with document gaps and approved answers" },
+      { tr: "Toplantı özeti, aksiyonlar ve takip e-postası taslağı", en: "Meeting summary, action items, and follow-up email draft" },
+      { tr: "Kişisel veri maskeleme, kurum içi model ve denetim kaydı", en: "Personal-data masking, on-premises models, and audit log" },
+    ],
+    status: "active",
+  },
+  {
     slug: "byte",
     name: "byte",
     url: "https://github.com/tuncer-byte/byte",
